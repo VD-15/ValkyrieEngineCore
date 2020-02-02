@@ -2,9 +2,10 @@
 
 | | |
 |-|-|
-|Release|Probably|
+|Release|Probably| |
 |Build Status|Currently on fire|
 |Coverage|Not a whole lot|
+|Read the Issues|Please|
 
 Valkyrie Engine is a game engine written in modern C++ that is designed to be as modular as possible and as lightweight as you want.
 
@@ -18,7 +19,7 @@ This is where Valkyrie Engine comes in. Instead of giving developers one general
 
 ## 2 Documentation
 
-> See issue
+> See issue #7
 
 ## 3 Examples
 
@@ -134,7 +135,7 @@ int main()
 
 ### 3.3 Modules
 
-> See issue
+> See issue #9
 
 ### 3.4 Entity-Component System
 

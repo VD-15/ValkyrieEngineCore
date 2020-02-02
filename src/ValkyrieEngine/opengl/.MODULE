@@ -1,0 +1,5 @@
+{
+    name: "VOpenGL",
+    deps: ["VGraphics, VWindow"],
+    desc: "OpenGL rendering."
+}

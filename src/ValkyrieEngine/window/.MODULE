@@ -1,0 +1,5 @@
+{
+    name: "VWindow",
+    deps: ["VCommon"],
+    desc: "GLFW-based window"
+}

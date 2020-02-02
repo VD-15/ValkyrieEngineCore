@@ -1,0 +1,5 @@
+{
+    "name": "Core",
+    "deps": [],
+    "desc": "Core module and components for Valkyrie Engine."
+}

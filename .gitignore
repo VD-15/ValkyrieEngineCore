@@ -1,6 +1,7 @@
 *.vs/
 *obj/
 *dep/
+*bin/
 
 *.sln
 *.vcxproj

@@ -224,7 +224,7 @@ class MySystem : public vlk::EventListener<vlk::UpdateEvent>
 class MyComponent : public vlk::Component<MyComponent>
 {
     public:
-    MyComponent(IEntity* e, vlk::UInt _score) :
+    MyComponent(vlk::IEntity* e, vlk::UInt _score) :
         Component<MyComponent>(e)
     {
         this->score = _score;
@@ -271,7 +271,7 @@ int main()
 
     vlk::Init();
 
-    IEntity* myEntity = MyEntity::CreateEntity();
+    vlk::IEntity* myEntity = MyEntity::CreateEntity();
 
     Application::Run();
 

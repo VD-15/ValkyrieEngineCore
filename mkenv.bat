@@ -12,9 +12,9 @@ echo md inc\GLFW
 
 echo Building GLFW
 git pull dep/GLFW
-cmake dep/GLFW
-cmake --build -S dep/GLFW -B dep/GLFW/bin --config Debug
-cmake --build -S dep/GLFW -B dep/GLFW/bin --config Release
+cmake -S dep/GLFW -B dep/GLFW/bin
+cmake --build dep/GLFW/bin --config Debug
+cmake --build dep/GLFW/bin --config Release
 
 echo Copying GLFW
 xcopy dep\GLFW\src\Debug\glfw3.lib lib\GLFW\Debug\glfw3.lib /i /y

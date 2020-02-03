@@ -7,7 +7,7 @@
 
 namespace vlk
 {
-	template <class T, class Allocator = ChunkAllocator<T>>
+	template <class T, class __Alloc = ChunkAllocator<T>>
 	class Entity : public IEntity
 	{
 		public:
@@ -19,6 +19,8 @@ namespace vlk
 		Entity(const Entity& other) = delete;
 		Entity(Entity&& other) = delete;
 		Entity& operator=(const Entity& other) = delete;
+
+		typedef __Alloc Allocator;
 
 		template<class... U>
 		static T* CreateEntity(U&&... args)

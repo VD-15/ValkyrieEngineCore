@@ -162,12 +162,10 @@ namespace
 				case 0:	//Release
 					releasedKeys.insert(ev.key);
 					downKeys.erase(ev.key);
-					LogVerbose("Keyboard", "Key released: " + std::to_string(ev.key));
 					break;
 				case 1:	//Press
 					pressedKeys.insert(ev.key);
 					downKeys.insert(ev.key);
-					LogVerbose("Keyboard", "Key pressed: " + std::to_string(ev.key));
 					break;
 				default:
 					return;
@@ -176,8 +174,6 @@ namespace
 
 		void OnEvent (const PostUpdateEvent& ev) final override
 		{
-			LogTrace("Keyboard", "Clearing Input.");
-
 			input.clear();
 			pressedKeys.clear();
 			releasedKeys.clear();
@@ -189,8 +185,6 @@ namespace
 
 void Keyboard::Init()
 {
-	LogInfo("Keyboard", "Initializing.");
-
 	input.clear();
 	pressedKeys.clear();
 	releasedKeys.clear();
@@ -201,8 +195,6 @@ void Keyboard::Init()
 
 void Keyboard::Destroy()
 {
-	LogInfo("Keyboard", "Destroying.");
-
 	input.clear();
 	pressedKeys.clear();
 	releasedKeys.clear();

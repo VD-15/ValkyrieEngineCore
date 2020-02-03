@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core/ValkyrieEngine.h"
+#include "ValkyrieEngine/core/ValkyrieEngine.h"
 
 namespace vlk
 {

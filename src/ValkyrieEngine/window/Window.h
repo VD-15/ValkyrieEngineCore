@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 
-#include "ValkyrieEngine.h"
-#include "../utils/Vector.h"
-#include "Event.hpp"
+#include "ValkyrieEngine/core/ValkyrieEngine.h"
+#include "ValkyrieEngine/common/Vector.h"
+#include "ValkyrieEngine/core/Event.hpp"
 
 namespace vlk
 {
@@ -18,6 +18,18 @@ namespace vlk
 
 		//Wait until an event is present in the queue, or until a specified amount of time elapses.
 		WaitTimeout
+	};
+
+	enum class CursorMode
+	{
+		//The cursor behaves normally
+		Normal,
+
+		//The cursor is invisible when over the window
+		Hidden,
+
+		//Hides the cursor and locks it to the window
+		Disabled
 	};
 
 	#pragma region Callbacks
@@ -117,83 +129,58 @@ namespace vlk
 	};
 	#pragma endregion
 
-	namespace Window
+	struct WindowArgs
 	{
-		#pragma region Lifetime
-		//Initializes the window.
-		//Any other Eventctions in Window may not be called before this unless otherwise stated.
-		void Init();
+		const WindowWaitMode waitMode = WindowWaitMode::Poll;
+		const CursorMode cursorMode = CursorMode::Normal;
+		const Double waitTimeout = 1.0;
+		const Point size = { 640, 480 };
+		const std::string title = "ValkyrieEngine Application";
+		const UInt swapInterval = 0;
+	};
 
-		//TODO: Do these need to be in the header?
+	class Window :
+		public EventListener<ApplicationStartEvent>,
+		public EventListener<ApplicationExitEvent>,
+		public EventListener<PreUpdateEvent>
+	{
+		public:
+		Window(const WindowArgs& args);
+		~Window();
 
-		//Processes any events the window has recieved.
-		//This should be called at the beginning of every update.
-		void ProcessEvents(const PreUpdateEvent& ev);
-
-		//To be called when the application starts.
-		void OnStart(const ApplicationStartEvent& ev);
-
-		//To be called when the application closes.
-		void OnExit(const ApplicationExitEvent& ev);
-
-		//Destroyes the window.
-		void Destroy();
-		#pragma endregion
-
-		#pragma region Modifiers
 		//Sets the title for the window.
-		void SetTitle(const std::string& title);
-
-		//Sets the width of the window, in pixels.
-		void SetWidth(Int width);
-
-		//Sets the height of the window, in pixels.
-		void SetHeight(Int height);
+		static void SetTitle(const std::string& title);
 
 		//Sets the width and height of the window, in pixels.
-		void SetSize(Int width, Int height);
+		static void SetSize(Point size);
 
-		//Sets the width and height of the window, in pixels.
-		void SetSize(Point size);
+		static Point GetSize();
 
 		//Sets the swap interval of the window.
 		//A value of 1 can be used to implement V-Sync,
 		//Values greater than 1 can be used to implement buffered V-Sync,
 		//Default value is 0.
 		//Maybe don't set this to a negative number...
-		void SetSwapInterval(Int interval);
+		static void SetSwapInterval(Int interval);
 
 		//Sets how the window should wait for events.
-		void SetWaitMode(WindowWaitMode mode);
+		static void SetWaitMode(WindowWaitMode mode);
 
 		//Sets how long the window should wait for events when on the WindowWaitMode::WaitTimeout setting
-		void SetWaitTimeout(Double waitTimeout);
+		static void SetWaitTimeout(Double waitTimeout);
 
-		//Shows the cursor.
-		void ShowCursor();
-
-		//Makes the cursor invisible.
-		void HideCursor();
-
-		//Disables (locks) the cursor.
-		void DisableCursor();
+		//Sets the cursor mode
+		static void SetCursorMode(CursorMode mode);
 
 		//Makes the window visible.
-		void Show();
+		static void Show();
 
 		//Makes the window invisible.
-		void Hide();
-		#pragma endregion
+		static void Hide();
 
-		#pragma region Accessors
-		//Gets the width of the window, in pixels.
-		Int GetWidth();
-
-		//Gets the height of the window, in pixels.
-		Int GetHeight();
-
-		//Gets the size of the window, in pixels.
-		Point GetSize();
-		#pragma endregion
-	}
+		private:
+		void OnEvent(const ApplicationStartEvent& ev) final override;
+		void OnEvent(const ApplicationExitEvent& ev) final override;
+		void OnEvent(const PreUpdateEvent& ev) final override;
+	};
 }

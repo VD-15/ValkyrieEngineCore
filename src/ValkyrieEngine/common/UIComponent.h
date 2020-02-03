@@ -2,6 +2,8 @@
 
 #include "TransformComponent.h"
 
+//TODO: this should be its own module
+/*
 namespace vlk
 {
 	enum class DockType
@@ -27,4 +29,4 @@ namespace vlk
 
 		Vector2 offset;
 	};
-}
+}*/

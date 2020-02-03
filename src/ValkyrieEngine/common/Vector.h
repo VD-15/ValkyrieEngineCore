@@ -4,7 +4,7 @@
 #include"glm/gtx/rotate_vector.hpp"
 #include"glm/gtx/vector_angle.hpp"
 
-#include "../core/ValkyrieEngine.h"
+#include "ValkyrieEngine/core/ValkyrieEngine.h"
 
 namespace vlk
 {
@@ -15,7 +15,7 @@ namespace vlk
 	typedef glm::vec4 Vector4;
 	typedef glm::vec4 Color;
 
-	namespace Vectors
+	namespace Vector
 	{
 		constexpr Vector2 Zero2	(0.0f, 0.0f);
 		constexpr Vector2 One2	(1.0f, 1.0f);
@@ -27,6 +27,29 @@ namespace vlk
 		constexpr Vector3 UnitX3(1.0f, 0.0f, 0.0f);
 		constexpr Vector3 UnitY3(0.0f, 1.0f, 0.0f);
 		constexpr Vector3 UnitZ3(0.0f, 0.0f, 1.0f);
+
+		inline Vector2 Rotate(const Vector2& v, Float angle) { return glm::rotate(v, angle); }
+
+		inline Vector3 RotateX(const Vector3& v, Float angle) { return glm::rotateX(v, angle); }
+		inline Vector3 RotateY(const Vector3& v, Float angle) { return glm::rotateY(v, angle); }
+		inline Vector3 RotateZ(const Vector3& v, Float angle) { return glm::rotateZ(v, angle); }
+
+		inline Vector2 RotateAround(const Vector2& v, const Vector2& origin, Float angle)
+		{
+			Float sinA = std::sinf(angle);
+			Float cosA = std::cosf(angle);
+			Float diffX = v.x - origin.x;
+			Float diffY = v.y - origin.y;
+
+			return Vector2(	cosA * diffX - sinA * diffY + origin.x,
+						   sinA * diffX + cosA * diffY + origin.y);
+		}
+
+		inline Vector2 Normalize(const Vector2& v) { return glm::normalize(v); }
+		inline Float Magnitude(const Vector2& v) { return glm::length(v); }
+		inline Float DotProduct(const Vector2& a, const Vector2& b) { return glm::dot(a, b); }
+		inline Float AngleBetween(const Vector2& a, const Vector2& b) { return glm::angle(a, b); }
+		inline Vector2 Perpendicular(const Vector2& v) { return Vector2(v.y, -v.x); }
 	}
 
 	namespace Colors
@@ -37,29 +60,6 @@ namespace vlk
 		constexpr Color White	(1.0f, 1.0f, 1.0f, 1.0f);
 		constexpr Color Black	(0.0f, 0.0f, 0.0f, 1.0f);
 	}
-
-	inline Vector2 Rotate(const Vector2& v, Float angle) { return glm::rotate(v, angle); }
-
-	inline Vector3 RotateX(const Vector3& v, Float angle) { return glm::rotateX(v, angle); }
-	inline Vector3 RotateY(const Vector3& v, Float angle) { return glm::rotateY(v, angle); }
-	inline Vector3 RotateZ(const Vector3& v, Float angle) { return glm::rotateZ(v, angle); }
-
-	inline Vector2 RotateAround(const Vector2& v, const Vector2& origin, Float angle)
-	{
-		Float sinA = std::sinf(angle);
-		Float cosA = std::cosf(angle);
-		Float diffX = v.x - origin.x;
-		Float diffY = v.y - origin.y;
-
-		return Vector2(	cosA * diffX - sinA * diffY + origin.x,
-						sinA * diffX + cosA * diffY + origin.y);
-	}
-
-	inline Vector2 Normalize(const Vector2& v) { return glm::normalize(v); }
-	inline Float Magnitude(const Vector2& v) { return glm::length(v); }
-	inline Float DotProduct(const Vector2& a, const Vector2& b) { return glm::dot(a, b); }
-	inline Float AngleBetween(const Vector2& a, const Vector2& b) { return glm::angle(a, b); }
-	inline Vector2 Perpendicular(const Vector2& v) { return Vector2(v.y, -v.x); }
 
 	/*
 	template <class T>

@@ -23,7 +23,6 @@ namespace
 
 		void OnEvent(const PreUpdateEvent& ev) final override
 		{
-			LogTrace("VLKTime", "Ticking.");
 			lastTick = thisTick;
 			thisTick = std::chrono::high_resolution_clock::now();
 			deltaTime = std::chrono::duration_cast<std::chrono::duration<Double>>(thisTick - lastTick).count();

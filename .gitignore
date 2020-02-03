@@ -1,1 +1,11 @@
 *.vs/
+*obj/
+*dep/
+*bin/
+*inc/
+*lib/
+
+*.sln
+*.vcxproj
+*.user
+*.filters

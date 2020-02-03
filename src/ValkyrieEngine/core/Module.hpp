@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ValkyrieEngine.h"
-#include "../memory/SingletonAllocator.hpp"
+#include "SingletonAllocator.hpp"
 
 //TODO: Do we need any of this?
 //'Modules' (or at least their logic) can and should just be treated as systems

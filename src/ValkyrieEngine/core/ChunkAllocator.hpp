@@ -25,11 +25,11 @@ namespace vlk
 		template<class... U>
 		static T* AllocateNew(U&&... args)
 		{
-			std::lock_guard<std::mutex> lock(allocMtx);
+			std::lock_guard lock(allocMtx);
 
 			for (auto it = chunks.begin(); it != chunks.end(); it++)
 			{
-				Chunk<T>& c = **it;
+				Chunk<T, CHUNK_SIZE>& c = **it;
 				if (!c.IsFull())
 				{
 					T* t = c.InsertNew(std::forward<U>(args)...);
@@ -38,8 +38,8 @@ namespace vlk
 				}
 			}
 
-			Chunk<T>* newChunk = new Chunk<T>();
-			newChunk->Allocate();
+			Chunk<T, CHUNK_SIZE>* newChunk = new Chunk<T, CHUNK_SIZE>();
+
 			T* t = newChunk->InsertNew(std::forward<U>(args)...);
 
 			chunks.push_back(newChunk);
@@ -52,11 +52,9 @@ namespace vlk
 
 			for (auto it = chunks.begin(); it != chunks.end(); it++)
 			{
-				Chunk<T>* c = *it;
+				Chunk<T, CHUNK_SIZE>* c = *it;
 				c->ForEach(f);
 			}
-
-			return f;
 		}
 
 		static ULong GetCount()
@@ -91,13 +89,11 @@ namespace vlk
 
 			for (auto it = chunks.begin(); it != chunks.end(); it++)
 			{
-				Chunk<T>& c = **it;
+				Chunk<T, CHUNK_SIZE>& c = **it;
 
 				if (c.Contains(obj))
 				{
 					c.Remove(obj);
-
-					LogTrace("ChunkAllocator " + TypeToString<T>(), "Object removed from chunk.");
 
 					return;
 				}
@@ -111,4 +107,10 @@ namespace vlk
 		static std::vector<Chunk<T, CHUNK_SIZE>*> chunks;
 		static std::mutex allocMtx;
 	};
+
+	template <typename T, ULong CHUNK_SIZE> 
+	std::vector<Chunk<T, CHUNK_SIZE>*> ChunkAllocator<T, CHUNK_SIZE>::chunks;
+
+	template <typename T, ULong CHUNK_SIZE> 
+	std::mutex ChunkAllocator<T, CHUNK_SIZE>::allocMtx;
 }

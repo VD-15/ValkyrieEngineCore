@@ -3,6 +3,7 @@
 #include "ValkyrieEngine.h"
 #include <vector>
 #include <mutex>
+#include <thread>
 
 namespace vlk
 {

@@ -26,7 +26,7 @@ namespace vlk
 	constexpr Float PiOverTwo =	1.57079632679f;
 	constexpr Float Pi =		3.14159265359f;
 	constexpr Float TwoPi =		6.28318530718f;
-	
+	/*
 	//TODO: Remove calls to logging functions from core module
 	//TODO: Move logging functions to seperate module
 
@@ -58,7 +58,7 @@ namespace vlk
 
 	//Logs a mesasage with announce severity.
 	LogFun LogAnnounce;
-
+	*/
 	//TODO: We shouldn't need these
 
 	//Initializes ValkyrieEngine and it's dependencies

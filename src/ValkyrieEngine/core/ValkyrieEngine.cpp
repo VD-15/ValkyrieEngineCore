@@ -23,7 +23,6 @@ void vlk::RegisterModuleQueue(IModuleQueue* m)
 	}
 	else
 	{
-		LogError("Module", "Modules canntot be registered once VLKInit() has been called.");
 		throw std::exception("Modules canntot be registered once VLKInit() has been called.");
 	}
 }
@@ -65,12 +64,10 @@ void vlk::Destroy()
 		VLKRandom::Destroy();
 		VLKTime::Destroy();*/
 
-		LogInfo("Valkyrie Engine", "Destroyed Successfully.");
-
 		VLK_INITIALIZED = false;
 	}
 }
-
+/*
 //TODO: inline these
 void vlk::LogTrace(const std::string& source, const std::string& message)
 {
@@ -105,7 +102,7 @@ void vlk::LogFatal(const std::string& source, const std::string& message)
 void vlk::LogAnnounce(const std::string& source, const std::string& message)
 {
 	EventBus<LogEvent>::Send(LogEvent { source, vlk::LOG_LEVEL_ANNOUNCE, message });
-}
+}*/
 
 std::string vlk::PointerToString(const void* ptr)
 {

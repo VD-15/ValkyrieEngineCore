@@ -7,7 +7,7 @@
 
 namespace vlk
 {
-	template<class T, class Allocator = ChunkAllocator<T>>
+	template<class T, class __Alloc = ChunkAllocator<T>>
 	class Component : public IComponent
 	{
 		public:
@@ -18,6 +18,8 @@ namespace vlk
 		Component(Component&& other) = delete;
 		Component& operator=(const Component& other) = delete;
 		Component& operator=(Component&& other) = delete;
+
+		typedef __Alloc Allocator;
 
 		static inline void ForEach(const std::function<void(T*)>& f)
 		{

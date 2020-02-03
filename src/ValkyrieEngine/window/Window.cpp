@@ -116,8 +116,6 @@ Window::Window(const WindowArgs& args)
 	glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	SetCursorMode(args.cursorMode);
-
 	#ifdef _DEBUG
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
 	#endif
@@ -146,6 +144,8 @@ Window::Window(const WindowArgs& args)
 
 	glfwMakeContextCurrent(WINDOW_INSTANCE);
 	glfwSwapInterval(args.swapInterval);
+
+	SetCursorMode(args.cursorMode);
 }
 
 Window::~Window()

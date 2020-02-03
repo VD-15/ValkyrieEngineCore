@@ -11,14 +11,13 @@ echo md lib\GLFW\Release
 echo md inc\GLFW
 
 echo Building GLFW
-git pull dep/GLFW
 cmake -S dep/GLFW -B dep/GLFW/bin
 cmake --build dep/GLFW/bin --config Debug
 cmake --build dep/GLFW/bin --config Release
 
 echo Copying GLFW
-xcopy dep\GLFW\src\Debug\glfw3.lib lib\GLFW\Debug\glfw3.lib /i /y
-xcopy dep\GLFW\src\Release\glfw3.lib lib\GLFW\Release\glfw3.lib /i /y
+move /Y dep\GLFW\bin\src\Debug\glfw3.lib lib\GLFW\Debug\glfw3.lib
+move /Y dep\GLFW\bin\src\Release\glfw3.lib lib\GLFW\Release\glfw3.lib
 xcopy dep\GLFW\include\* inc\ /i /e /y
 
 type env\VS_PROJECT > Valkyrie-Engine.vcxproj

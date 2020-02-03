@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Vector.h"
-#include "../core/ValkyrieEngine.h"
 
 namespace vlk
 {
@@ -11,9 +10,9 @@ namespace vlk
 	inline Matrix4 CreateIdentity() { return glm::identity<Matrix4>(); }
 	inline Matrix4 CreateTranslation(const Vector3& translation) { return glm::translate(translation); }
 	inline Matrix4 CreateScale(const Vector3& scale) { return glm::scale(scale); }
-	inline Matrix4 CreateRotationX(Float angle) { return glm::rotate(angle, Vectors::UnitX3); }
-	inline Matrix4 CreateRotationY(Float angle) { return glm::rotate(angle, Vectors::UnitY3); }
-	inline Matrix4 CreateRotationZ(Float angle) { return glm::rotate(angle, Vectors::UnitZ3); }
+	inline Matrix4 CreateRotationX(Float angle) { return glm::rotate(angle, Vector::UnitX3); }
+	inline Matrix4 CreateRotationY(Float angle) { return glm::rotate(angle, Vector::UnitY3); }
+	inline Matrix4 CreateRotationZ(Float angle) { return glm::rotate(angle, Vector::UnitZ3); }
 	inline Matrix4 CreateLookAt(const Vector3& eye, const Vector3& center, const Vector3& up) { return glm::lookAt(eye, center, up); }
 	inline Matrix4 CreatePerspective(Float fovY, Float aspect, Float near, Float far) { return glm::perspective(fovY, aspect, near, far); }
 	inline Matrix4 CreateOrthographic(Float right, Float left, Float top, Float bottom, Float near, Float far) { return glm::ortho(left, right, bottom, top, near, far); }

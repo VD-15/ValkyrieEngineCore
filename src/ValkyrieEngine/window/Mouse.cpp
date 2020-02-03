@@ -51,12 +51,10 @@ namespace
 				case 0: //Release
 					releasedButtons.insert(ev.button);
 					downButtons.erase(ev.button);
-					LogVerbose("Mouse", "Button released: " + std::to_string(ev.button));
 					break;
 				case 1: //Press
 					pressedButtons.insert(ev.button);
 					downButtons.insert(ev.button);
-					LogVerbose("Mouse", "Button pressed: " + std::to_string(ev.button));
 					break;
 				default:
 					return;
@@ -71,8 +69,6 @@ namespace
 
 		void OnEvent(const PostUpdateEvent& ev) final override
 		{
-			LogTrace("Mouse", "Clearing Input.");
-
 			pressedButtons.clear();
 			releasedButtons.clear();
 
@@ -86,8 +82,6 @@ namespace
 
 void Mouse::Init()
 {
-	LogInfo("Mouse", "Initializing");
-
 	downButtons.clear();
 	pressedButtons.clear();
 	releasedButtons.clear();
@@ -103,8 +97,6 @@ void Mouse::Init()
 
 void Mouse::Destroy()
 {
-	LogInfo("Mouse", "Destroying.");
-
 	downButtons.clear();
 	pressedButtons.clear();
 	releasedButtons.clear();

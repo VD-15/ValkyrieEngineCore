@@ -50,14 +50,36 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src/;$(ProjectDir)inc/;</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src/;$(ProjectDir)inc/;</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ValkyrieEngine\core\Allocator.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\Application.h" />
+    <ClInclude Include="src\ValkyrieEngine\core\Chunk.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\ChunkAllocator.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\Content.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\Event.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\GameComponent.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\GameEntity.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\HeapAllocator.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\IGameComponent.h" />
+    <ClInclude Include="src\ValkyrieEngine\core\IGameEntity.h" />
+    <ClInclude Include="src\ValkyrieEngine\core\Module.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\SingletonAllocator.hpp" />
+    <ClInclude Include="src\ValkyrieEngine\core\ValkyrieEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ValkyrieEngine\core\Application.cpp" />
+    <ClCompile Include="src\ValkyrieEngine\core\IGameComponent.cpp" />
+    <ClCompile Include="src\ValkyrieEngine\core\IGameEntity.cpp" />
+    <ClCompile Include="src\ValkyrieEngine\core\ValkyrieEngine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

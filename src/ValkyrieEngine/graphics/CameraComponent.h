@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../components/TransformComponent.h"
-#include "../utils/Matrix.h"
+#include "ValkyrieEngine/common/TransformComponent.h"
+#include "ValkyrieEngine/common/Matrix.h"
 
 namespace vlk
 {

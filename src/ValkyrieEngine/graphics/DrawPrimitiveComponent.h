@@ -3,16 +3,17 @@
 #include "DrawBaseComponent.h"
 
 namespace vlk
-{
-	extern UInt ElipseResolution;
-
-	struct DrawRectangleComponent2D : public DrawBaseComponent2D, public Component<DrawRectangleComponent2D>
+{/*
+	struct DrawRectangleComponent2D : public Component<DrawRectangleComponent2D>
 	{
 		DrawRectangleComponent2D(IEntity* e, const TransformComponent2D* transform);
 
 		Vector2 size;
-	};
-
+		Color color;
+		Float depth;
+		Byte flags;
+	};*/
+	/*
 	struct DrawTriangleComponent2D : public DrawBaseComponent2D, public Component<DrawTriangleComponent2D>
 	{
 		DrawTriangleComponent2D(IEntity* e, const TransformComponent2D* transform);
@@ -27,5 +28,5 @@ namespace vlk
 		DrawElipseComponent2D(IEntity* e, const TransformComponent2D* transform);
 
 		Vector2 radii;
-	};
+	};*/
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../core/Content.hpp"
-#include "../utils/Vector.h"
+#include "ValkyrieEngine/core/Content.hpp"
+#include "ValkyrieEngine/common/Vector.h"
 
 namespace vlk
 {

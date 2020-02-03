@@ -1,7 +1,7 @@
 #include "DrawPrimitiveComponent.h"
 
 using namespace vlk;
-
+/*
 extern UInt vlk::ElipseResolution = 32;
 
 DrawRectangleComponent2D::DrawRectangleComponent2D(IEntity* e, const TransformComponent2D* transform) : 
@@ -27,4 +27,4 @@ DrawElipseComponent2D::DrawElipseComponent2D(IEntity* e, const TransformComponen
 	radii(1.0f, 1.0f)
 {
 	
-}
+}*/

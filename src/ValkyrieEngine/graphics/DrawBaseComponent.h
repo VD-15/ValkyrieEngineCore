@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../core/ValkyrieEngine.h"
-#include "../utils/Color.h"
-#include "TransformComponent.h"
-
+#include "ValkyrieEngine/core/ValkyrieEngine.h"
+#include "ValkyrieEngine/common/Vector.h"
+#include "ValkyrieEngine/common/TransformComponent.h"
+/*
 namespace vlk
 {
 	const Byte VLK_TRANSLUCENT_BIT =		0b00000001;
@@ -22,3 +22,4 @@ namespace vlk
 		const TransformComponent2D* transform;
 	};
 }
+*/

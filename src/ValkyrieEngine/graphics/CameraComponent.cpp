@@ -1,5 +1,5 @@
 #include "CameraComponent.h"
-#include "../core/Window.h"
+#include "ValkyrieEngine/window/Window.h"
 
 using namespace vlk;
 
@@ -57,5 +57,5 @@ Matrix4 CameraComponent2D::GetProjection() const
 
 Matrix4 CameraComponent2D::GetView() const
 {
-	return CreateLookAt(Vector3(this->transform->location, 0.0f), Vector3(this->transform->location, -1.0f), Vectors::UnitY3);
+	return CreateLookAt(Vector3(this->transform->location, 0.0f), Vector3(this->transform->location, -1.0f), Vector::UnitY3);
 }

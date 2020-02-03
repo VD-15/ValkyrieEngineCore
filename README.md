@@ -238,7 +238,7 @@ class MyEntity : public vlk::Entity<MyEntity>
     public:
     MyEntity()
     {
-        this->myComponent = AttachComponent<MyComponent>(10);
+        this->myComponent = AddComponent<MyComponent>(10);
     }
 
     ~MyEntity()
@@ -273,7 +273,7 @@ int main()
 
     IEntity* myEntity = MyEntity::CreateEntity();
 
-    Application::Start();
+    Application::Run();
 
     myEntity->Delete();
 

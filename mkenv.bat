@@ -19,6 +19,7 @@ md lib\GLEW\Debug
 md lib\GLEW\Release
 copy dep\GLEW\out\lib\libglew32d.lib lib\GLEW\Debug\libglew32.lib
 copy dep\GLEW\out\lib\libglew32.lib lib\GLEW\Release\libglew32.lib
+xcopy dep\GLEW\include\GL\* inc\GLEW\ /i /y /e
 
 echo Building GLFW
 cmake -S dep/GLFW -B dep/GLFW/bin

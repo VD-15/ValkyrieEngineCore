@@ -142,6 +142,11 @@ namespace vlk
 		{
 			EventBus<T>::RemoveListener(static_cast<IEventListener<T>*>(this));
 		}
+
+		EventListener<T>(const EventListener<T>&) = delete;
+		EventListener<T>(EventListener<T>&&) = delete;
+		EventListener<T>& operator=(const EventListener<T>&) = delete;
+		EventListener<T>& operator=(EventListener<T>&&) = delete;
 	};
 
 	struct LogEvent

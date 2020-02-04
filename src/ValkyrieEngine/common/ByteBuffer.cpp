@@ -2,11 +2,12 @@
 
 using namespace vlk;
 
-ByteBuffer::ByteBuffer()
+ByteBuffer::ByteBuffer(Size size) :
+	data(new Byte[size]),
+	size(size),
+	position(data)
 {
-	data = nullptr;
-	size = 0;
-	position = nullptr;
+
 }
 
 ByteBuffer::~ByteBuffer()
@@ -14,16 +15,9 @@ ByteBuffer::~ByteBuffer()
 	delete[] data;
 }
 
-void ByteBuffer::Allocate(ULong size)
+void ByteBuffer::SetPos(Size offset)
 {
-	data = new Char[size];
-	this->size = size;
-	position = data;
-}
-
-void ByteBuffer::SetPos(ULong offset)
-{
-	if (data + offset >= data + size)
+	if (offset >= size)
 	{
 		throw std::exception("Buffer offset out of range.");
 	}
@@ -31,9 +25,4 @@ void ByteBuffer::SetPos(ULong offset)
 	{
 		position = data + offset;
 	}
-}
-
-void ByteBuffer::Reset()
-{
-	position = data;
 }

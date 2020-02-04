@@ -7,20 +7,21 @@ namespace vlk
 	class ByteBuffer final
 	{
 		public:
-		ByteBuffer();
+		ByteBuffer(Size size);
 		~ByteBuffer();
 
-		ByteBuffer(const ByteBuffer& other) = delete;
-		ByteBuffer(ByteBuffer&& other) = delete;
-		ByteBuffer& operator=(const ByteBuffer& other) = delete;
+		ByteBuffer(const ByteBuffer&) = delete;
+		ByteBuffer(ByteBuffer&&) = delete;
+		ByteBuffer& operator=(const ByteBuffer&) = delete;
+		ByteBuffer& operator=(ByteBuffer&&) = delete;
 
-		inline const ULong Size() const { return size; }
-		inline const void* Data() const { return data; }
-		inline void* Data() { return data; }
+		Byte* const data;
+		const Size size;
 
-		void Allocate(ULong size);
-		void SetPos(ULong offset);
-		void Reset();
+		inline Byte* GetPos() { return this->position; }
+		inline const Byte* GetPos() const { return this->position; }
+
+		void SetPos(Size offset);
 
 		template<class T>
 		void Put(const T& t)
@@ -38,58 +39,52 @@ namespace vlk
 		}
 
 		template<class T>
-		T& GetAt(ULong offset)
+		T* GetAt(Size offset)
 		{
 			Byte* bp = data + offset;
 
-			#ifdef _DEBUG
 			if (bp > data + size)
 			{
 				throw std::exception("Buffer offset out of range.");
 			}
-			#endif
 
-			return *reinterpret_cast<T*>(data + offset);
+			return reinterpret_cast<T*>(data + offset);
 		}
 
 		template<class T>
-		T& Get(ULong index)
+		T* Get(Size index)
 		{
 			T* tp = reinterpret_cast<T*>(data);
 
-			#ifdef _DEBUG
 			if (tp > data + size)
 			{
 				throw std::exception("Buffer index out of range.");
 			}
-			#endif
 
-			return *(tp + index);
+			return (tp + index);
 		}
 
 		template<class T>
-		T& Get()
+		T* Get()
 		{
 			return reinterpret_cast<T*>(position);
 		}
 
 		template<class T>
-		T* AdvanceBy()
+		T* AdvanceBy(Size i = 1)
 		{
-			#ifdef _DEBUG
-			if (position + sizeof(T) > data + size)
+			Size advancement = sizeof(T) * i;
+
+			if (position + advancement > data + size)
 			{
 				throw std::exception("Buffer position going out of range.");
 			}
-			#endif
 
-			position += sizeof(T);
+			position += advancement;
 			return reinterpret_cast<T*>(position);
 		}
 
 		private:
-		Byte* data;
-		ULong size;
 		Byte* position;
 	};
 }

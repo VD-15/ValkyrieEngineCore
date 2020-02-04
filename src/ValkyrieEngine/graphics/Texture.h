@@ -15,7 +15,7 @@ namespace vlk
 	class Texture2D final : public Content<Texture2D>
 	{
 		public:
-		Texture2D(const std::string& name, const std::string& path) noexcept;
+		Texture2D(const std::string& name, const std::string& path);
 		~Texture2D();
 
 		//Size of the image in pixels

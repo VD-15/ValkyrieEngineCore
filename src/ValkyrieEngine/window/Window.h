@@ -131,11 +131,14 @@ namespace vlk
 
 	struct WindowArgs
 	{
+		const std::string title = "ValkyrieEngine Application";
+		const Point size = { 640, 480 };
+		//Position
+		//Monitor
+		//Fullscreen
 		const WindowWaitMode waitMode = WindowWaitMode::Poll;
 		const CursorMode cursorMode = CursorMode::Normal;
 		const Double waitTimeout = 1.0;
-		const Point size = { 640, 480 };
-		const std::string title = "ValkyrieEngine Application";
 		const UInt swapInterval = 0;
 	};
 

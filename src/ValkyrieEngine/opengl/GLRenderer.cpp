@@ -3,8 +3,6 @@
 #define GLEW_STATIC
 #include "GLEW/glew.h"
 
-#include "utf8/utf8.h"
-
 #include <fstream>
 #include <sstream>
 #include <vector>

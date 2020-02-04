@@ -25,8 +25,7 @@ namespace vlk
 	{
 		Content<T>()
 		{
-			static_assert(std::is_constructible<T, const std::string&, const std::string&>::value, "T must have a noexcept constructor that takes only two const std::string&");
-			static_assert(std::is_nothrow_constructible<T, const std::string&, const std::string&>::value, "T must have a noexcept constructor that takes two const std::string&");
+			static_assert(std::is_constructible<T, const std::string&, const std::string&>::value, "T must have a constructor that takes only two const std::string&");
 		}
 
 		void AddMetaTag(const std::string& key, const std::string& value)

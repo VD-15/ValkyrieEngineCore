@@ -1,5 +1,9 @@
 #include "Texture.h"
 
+#ifndef STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#endif
+
 #include "stb/stb_image.h"
 #include "nlohmann/json.hpp"
 
@@ -29,10 +33,12 @@ namespace
 	//constexpr Int defaultVal = std::numeric_limits<Int>::min();
 }
 
-Texture2D::Texture2D(const std::string& name, const std::string& path) noexcept:
+Texture2D::Texture2D(const std::string& name, const std::string& path):
 	size(DefaultVal<Int>::Value()),
 	topLeft(),
-	bottomRight()
+	bottomRight(),
+	data(nullptr),
+	filterMode(FilterMode::Nearest)
 {
 	Point location(DefaultVal<Int>::Value());
 	Vector2 origin(DefaultVal<Float>::Value());
@@ -68,10 +74,6 @@ Texture2D::Texture2D(const std::string& name, const std::string& path) noexcept:
 			else this->filterMode = FilterMode::Nearest;
 		}
 	}
-	else
-	{
-		LogVerbose("Texture2D", "Could not find metadata file for " + path + " continuing with defaults.");
-	}
 
 	{
 		this->numChannels = std::clamp(this->numChannels, 0, 4);
@@ -83,8 +85,7 @@ Texture2D::Texture2D(const std::string& name, const std::string& path) noexcept:
 
 		if (!srcImage)
 		{
-			LogError("Texture2D", "Failed to load image: " + path);
-			return;
+			throw std::exception("Failed to load image");
 		}
 
 		location.x = std::clamp(location.x, 0, srcWidth - 1);
@@ -96,11 +97,28 @@ Texture2D::Texture2D(const std::string& name, const std::string& path) noexcept:
 		if (origin.x == DefaultVal<Float>::Value()) origin.x = static_cast<Float>(this->size.x) / 2.0f;
 		if (origin.y == DefaultVal<Float>::Value()) origin.y = static_cast<Float>(this->size.y) / 2.0f;
 
+		this->data = new Byte[static_cast<Size>(this->size.x) * this->size.y * this->numChannels];
+
+		Int destScanlineSize = this->size.x * this->numChannels;
+		Int srcScanlineSize = srcWidth * this->numChannels;
+
+		for (Int y = 0; y < this->size.y; y++)
+		{
+			for (Int x = 0; x < this->size.x; x++)
+			{
+				for (Int i = 0; i < this->numChannels; i++)
+				{
+					this->data[y * destScanlineSize + x * this->numChannels + i] =
+						srcImage[(location.y + y) * srcScanlineSize + (location.x + x) * this->numChannels + i];
+				}
+			}
+		}
+
 		stbi_image_free(srcImage);
 	}
 }
 
 Texture2D::~Texture2D()
 {
-
+	delete[] data;
 }

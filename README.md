@@ -58,10 +58,10 @@ Valkyrie Engine Core comes with a few events that help form the main update loop
 * `ApplicationStartEvent` is sent once, just before the first event loop of the application runs. This is used primarily for second-stage module initialization and to set up the initial state of your game.
 * `ApplicationExitEvent` is sent once, after the event loop exits and the application is due to terminate. This is used to perform cleanup on any entities or systems that need it.
 * `PreUpdateEvent` is sent at the beginning of every update loop but should not be considered part of it. It is mostly used to update modules and should not be used to change the state of your game.
-* `EarlyUpdateEvent` is sent after `PreUpdateEvent` and is mostly used to read the state of other entities before `UpdateEvent` is called to help prevent race conditions.
-* `UpdateEvent` is sent after `EarlyUpdateEvent` and is used to update the state of entities present in the game.
-* `LateUpdateEvent` is sent after `UpdateEvent` and is mostly used to react to the changes that occured during the `UpdateEvent`, again, this is to help eliminate race conditions.
-* `PostUpdateEvent` is sent after `LateUpdateEvent` and is similar to the `PreUpdateEvent` in that it is mostly used to update modules and should not be used to alter the game state in any way.
+* `EarlyUpdateEvent` is sent after `PreUpdateEvent` and is mostly used to read the state of other entities before `UpdateEvent` is called.
+* `UpdateEvent` is sent after `EarlyUpdateEvent` and is used to update the state of most of entities present in the game.
+* `LateUpdateEvent` is sent after `UpdateEvent` and is mostly used to react to the changes that occured during the `UpdateEvent`.
+* `PostUpdateEvent` is sent after `LateUpdateEvent` and is similar to the `PreUpdateEvent` in that it is mostly used to update modules and should not be used to alter the game state in any way, redering would usually take place during a PostUpdate..
 
 #### 3.2.3 Sending Events
 

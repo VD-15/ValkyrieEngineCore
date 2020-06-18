@@ -1,0 +1,138 @@
+\hypertarget{classvlk_1_1ArrayAllocator}{}\doxysection{vlk\+::Array\+Allocator$<$ T, Capacity $>$ Class Template Reference}
+\label{classvlk_1_1ArrayAllocator}\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+
+
+Allocator backed by a fixed-\/size bounded array.  
+
+
+
+
+{\ttfamily \#include $<$Array\+Allocator.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \mbox{\hyperlink{classvlk_1_1ArrayAllocator_a11e5c20aab7e1f7be890d9b1d8e40a7f}{Allocate}} ()
+\begin{DoxyCompactList}\small\item\em Allocates space for a new instance of T. Does not construct T. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator_acdb486f6517fc776ce07b8be8cc76e6c}{Deallocate}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Deallocates the memory taken up by ptr Does not call T\textquotesingle{}s destructor. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator_afe08532b5425574b618623d9ff95f4dd}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func)
+\begin{DoxyCompactList}\small\item\em performs a function on every active instance of T owned by this allocator \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator_aa71e742bbf0c50d5883264e13744ea37}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func, std\+::function$<$ bool(const T $\ast$)$>$ filter)
+\begin{DoxyCompactList}\small\item\em Performs a function on every active instance of T owned by this allocator that matches a filter. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1ArrayAllocator_aee5398c0ab1fff504f39583696b353e6}{Count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of active instances of T owned by this allocator. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1ArrayAllocator_a68337a6a8deeaccedaa96f7a48ce706c}{Count}} (std\+::function$<$ bool(const T $\ast$)$>$ filter)
+\begin{DoxyCompactList}\small\item\em Returns the number of active instance of T owned by this allocator that match a filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, Size Capacity$>$\newline
+class vlk\+::\+Array\+Allocator$<$ T, Capacity $>$}
+
+Allocator backed by a fixed-\/size bounded array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Capacity} & maximum number of elements that can be allocated at once \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_a11e5c20aab7e1f7be890d9b1d8e40a7f}\label{classvlk_1_1ArrayAllocator_a11e5c20aab7e1f7be890d9b1d8e40a7f}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!Allocate@{Allocate}}
+\index{Allocate@{Allocate}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{Allocate()}{Allocate()}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static void$\ast$ \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::Allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Allocates space for a new instance of T. Does not construct T. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to a region of unitialized memory with size equal to {\ttfamily sizeof(\+T)} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::bad\+\_\+alloc} & if the allocator is out of space \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_aee5398c0ab1fff504f39583696b353e6}\label{classvlk_1_1ArrayAllocator_aee5398c0ab1fff504f39583696b353e6}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!Count@{Count}}
+\index{Count@{Count}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns the number of active instances of T owned by this allocator. 
+
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_a68337a6a8deeaccedaa96f7a48ce706c}\label{classvlk_1_1ArrayAllocator_a68337a6a8deeaccedaa96f7a48ce706c}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!Count@{Count}}
+\index{Count@{Count}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::Count (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns the number of active instance of T owned by this allocator that match a filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & The non-\/modifying function that every instance of T is checked against \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_acdb486f6517fc776ce07b8be8cc76e6c}\label{classvlk_1_1ArrayAllocator_acdb486f6517fc776ce07b8be8cc76e6c}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!Deallocate@{Deallocate}}
+\index{Deallocate@{Deallocate}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{Deallocate()}{Deallocate()}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::Deallocate (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Deallocates the memory taken up by ptr Does not call T\textquotesingle{}s destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to an instance of T allocated by this allocator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_afe08532b5425574b618623d9ff95f4dd}\label{classvlk_1_1ArrayAllocator_afe08532b5425574b618623d9ff95f4dd}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!ForEach@{ForEach}}
+\index{ForEach@{ForEach}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+performs a function on every active instance of T owned by this allocator 
+
+\mbox{\Hypertarget{classvlk_1_1ArrayAllocator_aa71e742bbf0c50d5883264e13744ea37}\label{classvlk_1_1ArrayAllocator_aa71e742bbf0c50d5883264e13744ea37}} 
+\index{vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}!ForEach@{ForEach}}
+\index{ForEach@{ForEach}!vlk::ArrayAllocator$<$ T, Capacity $>$@{vlk::ArrayAllocator$<$ T, Capacity $>$}}
+\doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Size Capacity$>$ \\
+static void \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{vlk\+::\+Array\+Allocator}}$<$ T, Capacity $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func,  }\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Performs a function on every active instance of T owned by this allocator that matches a filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The modifier function to perform on every instance of T that passes the filter \\
+\hline
+{\em filter} & The non-\/modifying filter function that every instance of T is checked against \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{ArrayAllocator_8hpp}{Array\+Allocator.\+hpp}}\end{DoxyCompactItemize}

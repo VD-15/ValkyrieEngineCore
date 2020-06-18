@@ -1,0 +1,46 @@
+\hypertarget{classvlk_1_1HasFilterForEachFunc}{}\doxysection{vlk\+::Has\+Filter\+For\+Each\+Func$<$ Alloc, Param $>$ Class Template Reference}
+\label{classvlk_1_1HasFilterForEachFunc}\index{vlk::HasFilterForEachFunc$<$ Alloc, Param $>$@{vlk::HasFilterForEachFunc$<$ Alloc, Param $>$}}
+
+
+Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes two functions as arguments\+: A modifier function that returns void and takes a {\ttfamily Param$\ast$} as an argument A filter function that returns a bool and takes a {\ttfamily const Param$\ast$} as an argument.  
+
+
+
+
+{\ttfamily \#include $<$Allocator.\+hpp$>$}
+
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{classvlk_1_1HasFilterForEachFunc_a72f4633320bafa6719351547e79f65bb}{Value}} = decltype(Test$<$Alloc, Param$>$(nullptr))\+::value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Alloc, typename Param$>$\newline
+class vlk\+::\+Has\+Filter\+For\+Each\+Func$<$ Alloc, Param $>$}
+
+Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes two functions as arguments\+: A modifier function that returns void and takes a {\ttfamily Param$\ast$} as an argument A filter function that returns a bool and takes a {\ttfamily const Param$\ast$} as an argument. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Alloc} & The allocator type this class is assessing \\
+\hline
+{\em Param} & the type of object this allocator is allocating\\
+\hline
+\end{DoxyTemplParams}
+For example, if {\ttfamily Alloc = My\+Allocator$<$\+My\+Type$>$} then {\ttfamily Param = My\+Type} 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classvlk_1_1HasFilterForEachFunc_a72f4633320bafa6719351547e79f65bb}\label{classvlk_1_1HasFilterForEachFunc_a72f4633320bafa6719351547e79f65bb}} 
+\index{vlk::HasFilterForEachFunc$<$ Alloc, Param $>$@{vlk::HasFilterForEachFunc$<$ Alloc, Param $>$}!Value@{Value}}
+\index{Value@{Value}!vlk::HasFilterForEachFunc$<$ Alloc, Param $>$@{vlk::HasFilterForEachFunc$<$ Alloc, Param $>$}}
+\doxysubsubsection{\texorpdfstring{Value}{Value}}
+{\footnotesize\ttfamily template$<$typename Alloc , typename Param $>$ \\
+constexpr bool \mbox{\hyperlink{classvlk_1_1HasFilterForEachFunc}{vlk\+::\+Has\+Filter\+For\+Each\+Func}}$<$ Alloc, Param $>$\+::Value = decltype(Test$<$Alloc, Param$>$(nullptr))\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{Allocator_8hpp}{Allocator.\+hpp}}\end{DoxyCompactItemize}

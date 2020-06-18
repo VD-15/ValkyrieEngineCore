@@ -1,0 +1,35 @@
+\hypertarget{ValkyrieEngine_8hpp}{}\doxysection{include/\+Valkyrie\+Engine/\+Valkyrie\+Engine.hpp File Reference}
+\label{ValkyrieEngine_8hpp}\index{include/ValkyrieEngine/ValkyrieEngine.hpp@{include/ValkyrieEngine/ValkyrieEngine.hpp}}
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Debug.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Entity.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Array\+Allocator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Chunk\+Allocator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Linked\+Allocator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Singleton\+Allocator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Event\+Bus.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvlk_1_1PreUpdateEvent}{vlk\+::\+Pre\+Update\+Event}}
+\begin{DoxyCompactList}\small\item\em Sent once every frame, just before the update loop starts. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1PostUpdateEvent}{vlk\+::\+Post\+Update\+Event}}
+\begin{DoxyCompactList}\small\item\em Sent once every frame, just after the update loop ends. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1EarlyUpdateEvent}{vlk\+::\+Early\+Update\+Event}}
+\begin{DoxyCompactList}\small\item\em First event sent in the update loop. Always before \mbox{\hyperlink{structvlk_1_1UpdateEvent}{Update\+Event}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1UpdateEvent}{vlk\+::\+Update\+Event}}
+\begin{DoxyCompactList}\small\item\em Second event sent in the update loop. Always after \mbox{\hyperlink{structvlk_1_1EarlyUpdateEvent}{Early\+Update\+Event}} Always before \mbox{\hyperlink{structvlk_1_1LateUpdateEvent}{Late\+Update\+Event}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1LateUpdateEvent}{vlk\+::\+Late\+Update\+Event}}
+\begin{DoxyCompactList}\small\item\em Last event sent in the update loop. Always after \mbox{\hyperlink{structvlk_1_1UpdateEvent}{Update\+Event}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{vlk\+::\+Application\+Start\+Event}}
+\begin{DoxyCompactList}\small\item\em Sent when the application starts and the first update loop is about to begin. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1ApplicationExitEvent}{vlk\+::\+Application\+Exit\+Event}}
+\begin{DoxyCompactList}\small\item\em Sent when the final update loop has taken place and the application is about to exit. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvlk_1_1Application}{vlk\+::\+Application}}
+\begin{DoxyCompactList}\small\item\em Starts and stops the update loop. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{vlk\+::\+Application\+::\+Application\+Args}}
+\begin{DoxyCompactList}\small\item\em Container for application-\/related metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacevlk}{vlk}}
+\end{DoxyCompactItemize}

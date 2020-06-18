@@ -1,0 +1,55 @@
+\hypertarget{classvlk_1_1Application}{}\doxysection{vlk\+::Application Class Reference}
+\label{classvlk_1_1Application}\index{vlk::Application@{vlk::Application}}
+
+
+Starts and stops the update loop.  
+
+
+
+
+{\ttfamily \#include $<$Valkyrie\+Engine.\+hpp$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{Application\+Args}}
+\begin{DoxyCompactList}\small\item\em Container for application-\/related metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}{Start}} (const \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{Application\+Args}} \&args)
+\begin{DoxyCompactList}\small\item\em Starts the update loop, sends an \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{Application\+Start\+Event}}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Sets a flag to stop the update loop. Returns immediately. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Starts and stops the update loop. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}\label{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}} 
+\index{vlk::Application@{vlk::Application}!Start@{Start}}
+\index{Start@{Start}!vlk::Application@{vlk::Application}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Application\+::\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{Application\+Args}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Starts the update loop, sends an \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{Application\+Start\+Event}}. 
+
+\mbox{\Hypertarget{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}\label{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}} 
+\index{vlk::Application@{vlk::Application}!Stop@{Stop}}
+\index{Stop@{Stop}!vlk::Application@{vlk::Application}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void Application\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets a flag to stop the update loop. Returns immediately. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{ValkyrieEngine_8hpp}{Valkyrie\+Engine.\+hpp}}\item 
+src/\mbox{\hyperlink{ValkyrieEngine_8cpp}{Valkyrie\+Engine.\+cpp}}\end{DoxyCompactItemize}

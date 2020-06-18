@@ -1,0 +1,101 @@
+\hypertarget{classvlk_1_1EventBus}{}\doxysection{vlk\+::Event\+Bus$<$ T $>$ Class Template Reference}
+\label{classvlk_1_1EventBus}\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Event\+Bus.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{Add\+Listener}} (\mbox{\hyperlink{classvlk_1_1IEventListener}{I\+Event\+Listener}}$<$ T $>$ $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Adds an event listener to this event bus Once registered, this event listener will then have \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event(const T\&) }} called whenever an event is sent The engine makes no guarantee as to what order event listeners are called in. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}{Remove\+Listener}} (\mbox{\hyperlink{classvlk_1_1IEventListener}{I\+Event\+Listener}}$<$ T $>$ $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Removes all instances of an event listener from this event bus. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{Send}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event() }} for all \mbox{\hyperlink{classvlk_1_1IEventListener}{event listeners }} on this event bus. All listeners get called immediately, one after the other, on the calling thread. This function returns once all listeners have finished executing. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvlk_1_1EventBus_ad3aa9268799e29876ffa70c2d429ba77}{Send\+Asynchronous}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event() }} for all \mbox{\hyperlink{classvlk_1_1IEventListener}{event listeners }} on this event bus. All listeners get sent to the \mbox{\hyperlink{classvlk_1_1ThreadPool}{thread pooler }} to be executed later. This function returns once all listeners have been sent to the thread pooler, not necessarily when they\textquotesingle{}ve completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}\label{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}} 
+\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}!AddListener@{AddListener}}
+\index{AddListener@{AddListener}!vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddListener()}{AddListener()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static void \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}}$<$ T $>$\+::Add\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvlk_1_1IEventListener}{I\+Event\+Listener}}$<$ T $>$ $\ast$}]{listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Adds an event listener to this event bus Once registered, this event listener will then have \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event(const T\&) }} called whenever an event is sent The engine makes no guarantee as to what order event listeners are called in. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}{Remove\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{Send(const T\& t)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}\label{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}} 
+\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}!RemoveListener@{RemoveListener}}
+\index{RemoveListener@{RemoveListener}!vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveListener()}{RemoveListener()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static void \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}}$<$ T $>$\+::Remove\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvlk_1_1IEventListener}{I\+Event\+Listener}}$<$ T $>$ $\ast$}]{listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Removes all instances of an event listener from this event bus. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{Add\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{Send(const T\& t)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}\label{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}} 
+\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}!Send@{Send}}
+\index{Send@{Send}!vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static void \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}}$<$ T $>$\+::Send (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event() }} for all \mbox{\hyperlink{classvlk_1_1IEventListener}{event listeners }} on this event bus. All listeners get called immediately, one after the other, on the calling thread. This function returns once all listeners have finished executing. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_ad3aa9268799e29876ffa70c2d429ba77}{Send\+Asynchronous}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{Add\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}{Remove\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classvlk_1_1EventBus_ad3aa9268799e29876ffa70c2d429ba77}\label{classvlk_1_1EventBus_ad3aa9268799e29876ffa70c2d429ba77}} 
+\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}!SendAsynchronous@{SendAsynchronous}}
+\index{SendAsynchronous@{SendAsynchronous}!vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SendAsynchronous()}{SendAsynchronous()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static void \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}}$<$ T $>$\+::Send\+Asynchronous (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event() }} for all \mbox{\hyperlink{classvlk_1_1IEventListener}{event listeners }} on this event bus. All listeners get sent to the \mbox{\hyperlink{classvlk_1_1ThreadPool}{thread pooler }} to be executed later. This function returns once all listeners have been sent to the thread pooler, not necessarily when they\textquotesingle{}ve completed. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{Send}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{Add\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1EventBus_a530d375a277ad739afbd2de7e5d204e2}{Remove\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{EventBus_8hpp}{Event\+Bus.\+hpp}}\end{DoxyCompactItemize}

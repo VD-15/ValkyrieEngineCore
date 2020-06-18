@@ -1,5 +1,0 @@
-{
-    name: "VGraphics",
-    deps: ["VCommon"],
-    desc: "Common utilities for graphics modules."
-}

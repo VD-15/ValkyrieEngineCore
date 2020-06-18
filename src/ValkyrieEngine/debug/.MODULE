@@ -1,5 +1,0 @@
-{
-    name: "VDebug",
-    deps: ["Core"],
-    desc: "Various debug utilities."
-}

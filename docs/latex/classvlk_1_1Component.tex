@@ -1,0 +1,248 @@
+\hypertarget{classvlk_1_1Component}{}\doxysection{vlk\+::Component$<$ T, Component\+Allocator $>$ Class Template Reference}
+\label{classvlk_1_1Component}\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+
+
+Base class for user-\/defined components to inherit from.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+hpp$>$}
+
+Inheritance diagram for vlk\+::Component$<$ T, Component\+Allocator $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classvlk_1_1Component}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Component\+Allocator \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvlk_1_1Component_afec9f8db20c44cbb625a30cbe0c5ea09}{Component}} (\mbox{\hyperlink{classvlk_1_1IEntity}{I\+Entity}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Constructs a component. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvlk_1_1Component_ac48eff2eea0dde402af965cd2d941fd9}{Component}} (const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&)=delete
+\item 
+\mbox{\hyperlink{classvlk_1_1Component_ae9f53d2b43ea0568d63f23fa40481d68}{Component}} (\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&\&)=delete
+\item 
+\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \& \mbox{\hyperlink{classvlk_1_1Component_a74ab2d8f3ffb2a14faaf48c6a1e8de26}{operator=}} (const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&)=delete
+\item 
+\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \& \mbox{\hyperlink{classvlk_1_1Component_afcbe4ea10dabea55056576110d46bb2e}{operator=}} (\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&\&)=delete
+\item 
+virtual \mbox{\hyperlink{classvlk_1_1Component_ae5d2c64a26de631fe3f49abbab2c54fc}{$\sim$\+Component}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a9ce603c6da757b9673c5fb5cf424daa2}{operator new}} (\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} size)
+\begin{DoxyCompactList}\small\item\em Overloads the {\ttfamily new} operator of this class to use an allocator instead of {\ttfamily malloc}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvlk_1_1Component_a11985d789280ac6f5b014a074879d614}{operator delete}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Overloads the {\ttfamily delete} operator of this class to use an allocator instead of {\ttfamily free}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+lock$<$ std\+::mutex $>$ \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock}} ()
+\begin{DoxyCompactList}\small\item\em Locks this component to allow thread-\/safe access. Blocks the calling thread if this component is already locked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static void \mbox{\hyperlink{classvlk_1_1Component_a6dd1b95179713b9cdee541bae7f92397}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func)
+\begin{DoxyCompactList}\small\item\em performs an action on every component of this type. Does not lock the component by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} \end{DoxyCompactList}\item 
+constexpr static void \mbox{\hyperlink{classvlk_1_1Component_a2f179e68466fdad9ae7bc3f049426139}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func, std\+::function$<$ bool(const T $\ast$)$>$ filter)
+\begin{DoxyCompactList}\small\item\em performs an action on every component that matches a filter. Neither function locks the component by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} \end{DoxyCompactList}\item 
+constexpr static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_a9d3a91dcf036aea44d235d3836201d56}{Count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of components currently exist. \end{DoxyCompactList}\item 
+constexpr static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_a2d29ce5fa51eb0c895dc9471669da186}{Count}} (std\+::function$<$ bool(const T $\ast$)$>$ filter)
+\begin{DoxyCompactList}\small\item\em Returns the number of components for which {\ttfamily filter} returns true. The filter does not lock components by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Component\+Allocator = Chunk\+Allocator$<$\+T, 64$>$$>$\newline
+class vlk\+::\+Component$<$ T, Component\+Allocator $>$}
+
+Base class for user-\/defined components to inherit from. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The derrived component class \\
+\hline
+{\em Component\+Allocator} & The allocator class used to allocate instances of this component\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class }MyComponent : \textcolor{keyword}{public} \mbox{\hyperlink{classvlk_1_1Component}{vlk::Component}}<MyComponent, vlk::LinkedAllocator<10>>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{public}:}
+\DoxyCodeLine{    MyComponent(IEntity* e) :}
+\DoxyCodeLine{        \mbox{\hyperlink{classvlk_1_1Component_afec9f8db20c44cbb625a30cbe0c5ea09}{Component}}<MyComponent>(e)}
+\DoxyCodeLine{    \{ ... \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//...}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}\label{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Allocator@{Allocator}}
+\index{Allocator@{Allocator}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Allocator}{Allocator}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+typedef Component\+Allocator \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvlk_1_1Component_afec9f8db20c44cbb625a30cbe0c5ea09}\label{classvlk_1_1Component_afec9f8db20c44cbb625a30cbe0c5ea09}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Component@{Component}}
+\index{Component@{Component}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+\mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Component}{Component}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvlk_1_1IEntity}{I\+Entity}} $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to the entity this component is attached to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvlk_1_1Component_ac48eff2eea0dde402af965cd2d941fd9}\label{classvlk_1_1Component_ac48eff2eea0dde402af965cd2d941fd9}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Component@{Component}}
+\index{Component@{Component}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+\mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Component}{Component}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classvlk_1_1Component_ae9f53d2b43ea0568d63f23fa40481d68}\label{classvlk_1_1Component_ae9f53d2b43ea0568d63f23fa40481d68}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Component@{Component}}
+\index{Component@{Component}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+\mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Component}{Component}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classvlk_1_1Component_ae5d2c64a26de631fe3f49abbab2c54fc}\label{classvlk_1_1Component_ae5d2c64a26de631fe3f49abbab2c54fc}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!````~Component@{$\sim$Component}}
+\index{````~Component@{$\sim$Component}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Component()}{~Component()}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+virtual \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::$\sim$\mbox{\hyperlink{classvlk_1_1Component}{Component}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvlk_1_1Component_a9d3a91dcf036aea44d235d3836201d56}\label{classvlk_1_1Component_a9d3a91dcf036aea44d235d3836201d56}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Count@{Count}}
+\index{Count@{Count}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+constexpr static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Returns the number of components currently exist. 
+
+\mbox{\Hypertarget{classvlk_1_1Component_a2d29ce5fa51eb0c895dc9471669da186}\label{classvlk_1_1Component_a2d29ce5fa51eb0c895dc9471669da186}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Count@{Count}}
+\index{Count@{Count}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+constexpr static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::Count (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Returns the number of components for which {\ttfamily filter} returns true. The filter does not lock components by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} 
+
+\mbox{\Hypertarget{classvlk_1_1Component_a6dd1b95179713b9cdee541bae7f92397}\label{classvlk_1_1Component_a6dd1b95179713b9cdee541bae7f92397}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!ForEach@{ForEach}}
+\index{ForEach@{ForEach}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+constexpr static void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+performs an action on every component of this type. Does not lock the component by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The function object to be performed \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classvlk_1_1Component_a2f179e68466fdad9ae7bc3f049426139}\label{classvlk_1_1Component_a2f179e68466fdad9ae7bc3f049426139}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!ForEach@{ForEach}}
+\index{ForEach@{ForEach}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+constexpr static void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func,  }\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+performs an action on every component that matches a filter. Neither function locks the component by default, if simultaneous access is a concern, see \mbox{\hyperlink{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}{Lock()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The function object to be performed \\
+\hline
+{\em fiter} & The filter for objects to be checked against {\ttfamily func} will be called on every component where {\ttfamily filter} returns true \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}\label{classvlk_1_1Component_a8ac8eccff08651f25c5cf7e51ddb9750}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!Lock@{Lock}}
+\index{Lock@{Lock}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Lock()}{Lock()}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+std\+::unique\+\_\+lock$<$std\+::mutex$>$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Locks this component to allow thread-\/safe access. Blocks the calling thread if this component is already locked. 
+
+\begin{DoxyReturn}{Returns}
+A unique\+\_\+lock object that owns this component, destroy it to unlock the component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvlk_1_1Component_a11985d789280ac6f5b014a074879d614}\label{classvlk_1_1Component_a11985d789280ac6f5b014a074879d614}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator delete()}{operator delete()}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::operator delete (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the {\ttfamily delete} operator of this class to use an allocator instead of {\ttfamily free}. 
+
+\mbox{\Hypertarget{classvlk_1_1Component_a9ce603c6da757b9673c5fb5cf424daa2}\label{classvlk_1_1Component_a9ce603c6da757b9673c5fb5cf424daa2}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!operator new@{operator new}}
+\index{operator new@{operator new}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator new()}{operator new()}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+void$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::operator new (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the {\ttfamily new} operator of this class to use an allocator instead of {\ttfamily malloc}. 
+
+\mbox{\Hypertarget{classvlk_1_1Component_afcbe4ea10dabea55056576110d46bb2e}\label{classvlk_1_1Component_afcbe4ea10dabea55056576110d46bb2e}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}}$>$\& \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classvlk_1_1Component_a74ab2d8f3ffb2a14faaf48c6a1e8de26}\label{classvlk_1_1Component_a74ab2d8f3ffb2a14faaf48c6a1e8de26}} 
+\index{vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!vlk::Component$<$ T, ComponentAllocator $>$@{vlk::Component$<$ T, ComponentAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Component\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
+\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}}$>$\& \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T, Component\+Allocator $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T, \mbox{\hyperlink{classvlk_1_1Component_a48b3e5d5fbd2b2d480e8e77efe0e421c}{Allocator}} $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{Component_8hpp}{Component.\+hpp}}\end{DoxyCompactItemize}

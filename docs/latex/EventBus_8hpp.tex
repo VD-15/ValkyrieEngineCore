@@ -1,0 +1,26 @@
+\hypertarget{EventBus_8hpp}{}\doxysection{include/\+Valkyrie\+Engine/\+Event\+Bus.hpp File Reference}
+\label{EventBus_8hpp}\index{include/ValkyrieEngine/EventBus.hpp@{include/ValkyrieEngine/EventBus.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$shared\+\_\+mutex$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Thread\+Pool.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+I\+Event\+Listener$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Base class for all event listeners. Do not use this directly, prefer \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}}, that will automatically subscribe itself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}} when constructed. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{event bus }} when constructed and removes itself when destructed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacevlk}{vlk}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr void \mbox{\hyperlink{namespacevlk_adf36335ff9f900d96dd5f6185598020b}{vlk\+::\+Send\+Event}} (const T \&t)
+\end{DoxyCompactItemize}

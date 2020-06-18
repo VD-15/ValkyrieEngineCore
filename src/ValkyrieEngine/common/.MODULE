@@ -1,5 +1,0 @@
-{
-    "name": "VCommon",
-    "deps": ["Core"],
-    "desc": "Common data types & utilities used by many other Valkyrie Engine modules."
-}

@@ -1,0 +1,32 @@
+\hypertarget{CMakeLists_8txt}{}\doxysection{C\+Make\+Lists.\+txt File Reference}
+\label{CMakeLists_8txt}\index{CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_adc331be91ec5c706c1d557c28c489f16}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+10) \mbox{\hyperlink{CMakeLists_8txt_a06bc69b49393d4010b34aa2345950862}{if}}(C\+M\+A\+K\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR S\+T\+R\+E\+Q\+U\+AL C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR) message(F\+A\+T\+A\+L\+\_\+\+E\+R\+R\+OR \char`\"{}In-\/source builds are not allowed
+\item 
+please conduct builds from within a separate build directory \mbox{\hyperlink{CMakeLists_8txt_a0229dbbc3499997dcda6ba5baac82218}{endif}} () set(C\+M\+A\+K\+E\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+B\+U\+I\+LD ON) set(C\+M\+A\+K\+E\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+C\+H\+A\+N\+G\+ES ON) set(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD 17) set(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+R\+D\+\_\+\+R\+E\+Q\+U\+I\+R\+ED True) message(S\+T\+A\+T\+US \char`\"{}Updating submodules\char`\"{}) execute\+\_\+process(C\+O\+M\+M\+A\+ND git submodule update -\/-\/init -\/-\/recursive W\+O\+R\+K\+I\+N\+G\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY \$
+\item 
+R\+E\+S\+U\+L\+T\+\_\+\+V\+A\+R\+I\+A\+B\+LE G\+I\+T\+\_\+\+S\+U\+B\+M\+O\+D\+\_\+\+R\+E\+S\+U\+LT \mbox{\hyperlink{CMakeLists_8txt_a06bc69b49393d4010b34aa2345950862}{if}} (N\+OT G\+I\+T\+\_\+\+S\+U\+B\+M\+O\+D\+\_\+\+R\+E\+S\+U\+LT E\+Q\+U\+AL \char`\"{}0\char`\"{}) message(F\+A\+T\+A\+L\+\_\+\+E\+R\+R\+OR \char`\"{}Failed to update submodules
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_adc331be91ec5c706c1d557c28c489f16}\label{CMakeLists_8txt_adc331be91ec5c706c1d557c28c489f16}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{V\+E\+R\+S\+I\+ON 3.}]{10 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{CMakeLists_8txt_a0229dbbc3499997dcda6ba5baac82218}\label{CMakeLists_8txt_a0229dbbc3499997dcda6ba5baac82218}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!endif@{endif}}
+\index{endif@{endif}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{endif()}{endif()}}
+{\footnotesize\ttfamily R\+E\+S\+U\+L\+T\+\_\+\+V\+A\+R\+I\+A\+B\+LE G\+I\+T\+\_\+\+S\+U\+B\+M\+O\+D\+\_\+\+R\+E\+S\+U\+LT do you have git installed endif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{CMakeLists_8txt_a06bc69b49393d4010b34aa2345950862}\label{CMakeLists_8txt_a06bc69b49393d4010b34aa2345950862}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!if@{if}}
+\index{if@{if}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}}
+{\footnotesize\ttfamily R\+E\+S\+U\+L\+T\+\_\+\+V\+A\+R\+I\+A\+B\+LE G\+I\+T\+\_\+\+S\+U\+B\+M\+O\+D\+\_\+\+R\+E\+S\+U\+LT if (\begin{DoxyParamCaption}\item[{N\+OT G\+I\+T\+\_\+\+S\+U\+B\+M\+O\+D\+\_\+\+R\+E\+S\+U\+LT E\+Q\+U\+AL \char`\"{}0\char`\"{}}]{ }\end{DoxyParamCaption})}
+

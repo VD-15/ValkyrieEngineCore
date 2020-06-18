@@ -1,11 +1,71 @@
-*.vs/
-*obj/
-*dep/
-*bin/
-*inc/
-*lib/
+# Prerequisites
+*.d
 
-*.sln
-*.vcxproj
-*.user
-*.filters
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app 
+
+# general
+.ycm_extra_conf.py
+apidocs
+.directory
+.kdev4
+build
+*~
+*.patch
+*.diff
+*.bak
+*.orig
+*.pyc
+*.rej
+*.swp
+doxygen.log
+*.kdevelop
+*.kdevelop.filelist
+*.kdevelop.pcs
+*.kdevses
+.*kate-swp
+build/
+mem.log.*
+massif.*
+callgrind.*
+perf.data*
+
+# CMake files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts
+Testing
+*Makefile
+*cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps

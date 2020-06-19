@@ -31,7 +31,7 @@ add_library(ValkyrieEngineCore
 	src/ThreadPool.cpp
 )
 
-target_include_directories(ValkyrieEngineCore PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(ValkyrieEngineCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 if (VLK_ENABLE_TRACE_LOGGING)
 	target_compile_definitions(ValkyrieEngineCore PUBLIC VLK_ENABLE_TRACE_LOGGING)
@@ -42,7 +42,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if (VLK_BUILD_TESTS)
-	add_subdirectory(${CMAKE_SOURCE_DIR}/deps/Catch2)
+	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/Catch2)
 	add_subdirectory(test)
 	enable_testing()
 endif()

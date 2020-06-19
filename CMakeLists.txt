@@ -23,7 +23,7 @@ endif()
 project(ValkyrieEngineCore VERSION 0.1.0)
 
 option(VLK_ENABLE_TRACE_LOGGING "Enable trace-level debug messages" OFF)
-option(VLK_BUILD_TESTS "Build ValkyrieEngine test projects" ON)
+option(VLK_BUILD_TESTS "Build ValkyrieEngine test projects" OFF)
 
 add_library(ValkyrieEngineCore
 	include/ValkyrieEngine/ValkyrieEngine.hpp

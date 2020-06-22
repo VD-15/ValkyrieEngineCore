@@ -7,6 +7,16 @@
 #include "ValkyrieEngine/SingletonAllocator.hpp"
 #include "ValkyrieEngine/EventBus.hpp"
 
+//Important note on C++20:
+//If using C++20 language or STL features, please make sure they
+//have adequate compiler support. If a feature is not supported
+//by any of: GCC, Clang, Apple Clang or MSVC, don't use it.
+//
+//We will be using the list on cppreference to track support,
+//for the forseeable future. If you know of a more up-to-date
+//list, please let us know.
+//https://en.cppreference.com/w/cpp/compiler_support
+
 namespace vlk
 {
 	/*!

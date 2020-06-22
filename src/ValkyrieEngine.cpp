@@ -6,7 +6,7 @@ void Application::Start(const ApplicationArgs& args)
 {
 	Application::isRunning = true;
 
-	//TODO: Switch to this when we make the jump to C++20:
+	//TODO: No compiler currently supports <format>, so maybe hold off on that one, chief...
 	//Log(std::format("{} Ver. {}.{}.{}.{}"), args.applicationName, args.verMajor, args.verMinor, args.verPatch, args.verPatch);
 	Log(args.applicationName + " Ver. " + 
 			std::to_string(args.verMajor) + "." + 

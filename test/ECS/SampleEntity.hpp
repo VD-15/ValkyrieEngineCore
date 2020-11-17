@@ -2,48 +2,43 @@
 
 using namespace vlk;
 
-class SampleComponent : public Component<SampleComponent>
+class SampleComponent
 {
 	public:
-	SampleComponent(IEntity* e) :
-		Component<SampleComponent>(e)
-	{
-		this->i = 0;
-	}
-
-	~SampleComponent()
-	{
-
-	}
-
-	void OnSignal(const Signal& signal) final override
-	{
-		auto val = signal.GetArg<int>("Value");
-		if (val.has_value())
-		{
-			i = val.value();
-		}
-		else
-		{
-			i = -1;
-		}
-	}
-
+	SampleComponent() = default;
+	~SampleComponent() = default;
 	Int i;
 };
 
-class SampleEntity : public Entity<SampleEntity>
+class OtherComponent
 {
 	public:
-	SampleEntity()
-	{
-		this->sampleComponent = new SampleComponent(this);
-	}
-
-	~SampleEntity()
-	{
-		delete this->sampleComponent;
-	}
-
-	SampleComponent* sampleComponent;
+	OtherComponent(double _i) : i(_i) { }
+	~OtherComponent() = default;
+	const ULong i;
 };
+
+class Counter
+{
+	static int i;
+
+	public:
+	Counter()
+	{
+		++i;
+	}
+
+	Counter(Counter&&) = delete;
+	Counter(const Counter&) = delete;
+	Counter& operator=(Counter&&) = delete;
+	Counter& operator=(const Counter&) = delete;
+
+	~Counter()
+	{
+		--i;
+	}
+
+	static inline int GetNum() { return i; }
+};
+
+int Counter::i = 0;

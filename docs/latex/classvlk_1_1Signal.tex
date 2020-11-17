@@ -2,7 +2,7 @@
 \label{classvlk_1_1Signal}\index{vlk::Signal@{vlk::Signal}}
 
 
-Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}, signals are completely dynamic and are sent only to the \mbox{\hyperlink{classvlk_1_1Entity}{Entity}} that recieves them. The components that are attached to the entity then process the signal by inheriting from \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}.  
+Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}, signals are completely dynamic and are sent only to the Entity that recieves them. The components that are attached to the entity then process the signal by inheriting from \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}.  
 
 
 
@@ -12,30 +12,14 @@ Represents a dynamic event sent to an entity, Unlike events, which are staticall
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvlk_1_1Signal_aacd6564017ff67316b7cc9d67f5337e1}{Signal}} (std\+::string \+\_\+type)
-\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::optional$<$ T $>$ \mbox{\hyperlink{classvlk_1_1Signal_a6e94425e6da5673a6b4a498eb49606db}{Get\+Arg}} (std\+::string arg\+Name) const
 \begin{DoxyCompactList}\small\item\em Gets an argument from this signal. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classvlk_1_1Signal_add4292690d8398d937a5a40cb8a989b7}{Put\+Arg}} (std\+::string arg\+ID, T val)
 \begin{DoxyCompactList}\small\item\em Assigns an argument for this signal. If the argument is not present, it is inserted. If the argument is present, it is replaced. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-const std\+::string \mbox{\hyperlink{classvlk_1_1Signal_a0f0b0190d13b76037cdfaddd7fa315fd}{type}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}, signals are completely dynamic and are sent only to the \mbox{\hyperlink{classvlk_1_1Entity}{Entity}} that recieves them. The components that are attached to the entity then process the signal by inheriting from \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}. 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classvlk_1_1Signal_aacd6564017ff67316b7cc9d67f5337e1}\label{classvlk_1_1Signal_aacd6564017ff67316b7cc9d67f5337e1}} 
-\index{vlk::Signal@{vlk::Signal}!Signal@{Signal}}
-\index{Signal@{Signal}!vlk::Signal@{vlk::Signal}}
-\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}}
-{\footnotesize\ttfamily vlk\+::\+Signal\+::\+Signal (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
+Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}, signals are completely dynamic and are sent only to the Entity that recieves them. The components that are attached to the entity then process the signal by inheriting from \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classvlk_1_1Signal_a6e94425e6da5673a6b4a498eb49606db}\label{classvlk_1_1Signal_a6e94425e6da5673a6b4a498eb49606db}} 
@@ -80,15 +64,6 @@ Assigns an argument for this signal. If the argument is not present, it is inser
 \end{DoxyParams}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classvlk_1_1Signal_a0f0b0190d13b76037cdfaddd7fa315fd}\label{classvlk_1_1Signal_a0f0b0190d13b76037cdfaddd7fa315fd}} 
-\index{vlk::Signal@{vlk::Signal}!type@{type}}
-\index{type@{type}!vlk::Signal@{vlk::Signal}}
-\doxysubsubsection{\texorpdfstring{type}{type}}
-{\footnotesize\ttfamily const std\+::string vlk\+::\+Signal\+::type}
-
-
-
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{Signal_8hpp}{Signal.\+hpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/Signal.\+hpp\end{DoxyCompactItemize}

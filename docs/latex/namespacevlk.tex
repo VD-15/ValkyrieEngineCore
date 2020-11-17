@@ -1,5 +1,10 @@
 \hypertarget{namespacevlk}{}\doxysection{vlk Namespace Reference}
 \label{namespacevlk}\index{vlk@{vlk}}
+
+
+Chunk-\/based Allocator.  
+
+
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,31 +15,19 @@ struct \mbox{\hyperlink{structvlk_1_1ApplicationExitEvent}{Application\+Exit\+Ev
 struct \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{Application\+Start\+Event}}
 \begin{DoxyCompactList}\small\item\em Sent when the application starts and the first update loop is about to begin. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1ArrayAllocator}{Array\+Allocator}}
-\begin{DoxyCompactList}\small\item\em Allocator backed by a fixed-\/size bounded array. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Bounded allocator backed by a fixed-\/size bounded array. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1ChunkAllocator}{Chunk\+Allocator}}
-\begin{DoxyCompactList}\small\item\em Allocator backed by multiple fixed-\/size chunks. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Unbounded allocator backed by multiple fixed-\/size chunks. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1Component}{Component}}
 \begin{DoxyCompactList}\small\item\em Base class for user-\/defined components to inherit from. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1EarlyUpdateEvent}{Early\+Update\+Event}}
 \begin{DoxyCompactList}\small\item\em First event sent in the update loop. Always before \mbox{\hyperlink{structvlk_1_1UpdateEvent}{Update\+Event}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1Entity}{Entity}}
-\item 
+\begin{DoxyCompactList}\small\item\em Base class for user-\/defined entities to inherit from. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}
-\item 
+\begin{DoxyCompactList}\small\item\em Facilitates sending events to user-\/defined event listeners. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1EventListener}{Event\+Listener}}
 \begin{DoxyCompactList}\small\item\em Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{event bus }} when constructed and removes itself when destructed. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasAllocateFunc}{Has\+Allocate\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Allocate} that returns a {\ttfamily void$\ast$}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasCountFunc}{Has\+Count\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Count} that returns a {\ttfamily Size}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasDeallocateFunc}{Has\+Deallocate\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Deallocate} that takes a {\ttfamily void$\ast$} as an argument and returns {\ttfamily void}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasFilterCountFunc}{Has\+Filter\+Count\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Count} that takes a {\ttfamily std\+::function$<$bool(\+Param$\ast$)$>$} and returns a {\ttfamily Size}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasFilterForEachFunc}{Has\+Filter\+For\+Each\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes two functions as arguments\+: A modifier function that returns void and takes a {\ttfamily Param$\ast$} as an argument A filter function that returns a bool and takes a {\ttfamily const Param$\ast$} as an argument. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasForEachFunc}{Has\+For\+Each\+Func}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes a function as an argument. This function should return void and should take a {\ttfamily Param$\ast$} as an argument. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1IComponent}{I\+Component}}
 \item 
 class \mbox{\hyperlink{classvlk_1_1IEntity}{I\+Entity}}
@@ -44,48 +37,67 @@ class \mbox{\hyperlink{classvlk_1_1IEventListener}{I\+Event\+Listener}}
 class \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}
 \begin{DoxyCompactList}\small\item\em Base interface for entity signal listeners. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}
-\begin{DoxyCompactList}\small\item\em Helper class that statically-\/evaluates whether log events with severity \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{Log\+Level}} should be sent. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Helper class that determines whether a specific \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} is enabled in the current configuration. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvlk_1_1IsValidAllocator}{Is\+Valid\+Allocator}}
+\begin{DoxyCompactList}\small\item\em Assesses whether a type is a valid Valkyrie\+Engine Allocator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvlk_1_1IsValidElementType}{Is\+Valid\+Element\+Type}}
+\begin{DoxyCompactList}\small\item\em Assesses whether a type is a valid element type for a Valkyrie\+Engine allocator. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1LateUpdateEvent}{Late\+Update\+Event}}
 \begin{DoxyCompactList}\small\item\em Last event sent in the update loop. Always after \mbox{\hyperlink{structvlk_1_1UpdateEvent}{Update\+Event}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{Linked\+Allocator}}
-\begin{DoxyCompactList}\small\item\em Allocator backed by an unbounded linked-\/list. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Unbounded allocator backed by a doubly-\/linked list. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1LogEvent}{Log\+Event}}
-\item 
+\begin{DoxyCompactList}\small\item\em An event that is sent whenever a message is logged. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1PostUpdateEvent}{Post\+Update\+Event}}
 \begin{DoxyCompactList}\small\item\em Sent once every frame, just after the update loop ends. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1PreUpdateEvent}{Pre\+Update\+Event}}
-\begin{DoxyCompactList}\small\item\em Sent once every frame, just before the update loop starts. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sent once every frame, just before the update loop starts. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1Signal}{Signal}}
 \begin{DoxyCompactList}\small\item\em Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the \mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}}, signals are completely dynamic and are sent only to the \mbox{\hyperlink{classvlk_1_1Entity}{Entity}} that recieves them. The components that are attached to the entity then process the signal by inheriting from \mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1SingletonAllocator}{Singleton\+Allocator}}
 \begin{DoxyCompactList}\small\item\em Single-\/instance allocator. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1Thread}{Thread}}
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classvlk_1_1Thread}{Thread}} wrapper for use with the event pool. Please don\textquotesingle{}t touch this unless you know what you\textquotesingle{}re doing. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1ThreadPool}{Thread\+Pool}}
-\item 
+\begin{DoxyCompactList}\small\item\em Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std\+::thread\+::hardware\+\_\+concurrency by default, but will always be at least one. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1UpdateEvent}{Update\+Event}}
 \begin{DoxyCompactList}\small\item\em Second event sent in the update loop. Always after \mbox{\hyperlink{structvlk_1_1EarlyUpdateEvent}{Early\+Update\+Event}} Always before \mbox{\hyperlink{structvlk_1_1LateUpdateEvent}{Late\+Update\+Event}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}\label{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}} 
 typedef std\+::uint8\+\_\+t \mbox{\hyperlink{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}{U\+Byte}}
-\item 
+\begin{DoxyCompactList}\small\item\em Unsigned 8-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}\label{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}} 
 typedef std\+::int8\+\_\+t \mbox{\hyperlink{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}{Byte}}
-\item 
+\begin{DoxyCompactList}\small\item\em Signed 8-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a720ebf07f96764cf2162dc349d616725}\label{namespacevlk_a720ebf07f96764cf2162dc349d616725}} 
 typedef std\+::uint16\+\_\+t \mbox{\hyperlink{namespacevlk_a720ebf07f96764cf2162dc349d616725}{U\+Short}}
-\item 
+\begin{DoxyCompactList}\small\item\em Unsigned 16-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_aafeff89395f114f13c70d82456a46ab2}\label{namespacevlk_aafeff89395f114f13c70d82456a46ab2}} 
 typedef std\+::int16\+\_\+t \mbox{\hyperlink{namespacevlk_aafeff89395f114f13c70d82456a46ab2}{Short}}
-\item 
+\begin{DoxyCompactList}\small\item\em Signed 16-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a2fa3f432340b644806685709c97946c6}\label{namespacevlk_a2fa3f432340b644806685709c97946c6}} 
 typedef std\+::uint32\+\_\+t \mbox{\hyperlink{namespacevlk_a2fa3f432340b644806685709c97946c6}{U\+Int}}
-\item 
+\begin{DoxyCompactList}\small\item\em Unsigned 32-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}\label{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}} 
 typedef std\+::int32\+\_\+t \mbox{\hyperlink{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}{Int}}
-\item 
+\begin{DoxyCompactList}\small\item\em Signed 32-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}\label{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}} 
 typedef std\+::uint64\+\_\+t \mbox{\hyperlink{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}{U\+Long}}
-\item 
+\begin{DoxyCompactList}\small\item\em Unsigned 64-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a468d971762596def2821e4e4033cab27}\label{namespacevlk_a468d971762596def2821e4e4033cab27}} 
 typedef std\+::int64\+\_\+t \mbox{\hyperlink{namespacevlk_a468d971762596def2821e4e4033cab27}{Long}}
-\item 
+\begin{DoxyCompactList}\small\item\em Signed 64-\/bit integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}\label{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}} 
 typedef std\+::size\+\_\+t \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Platform-\/dependent size type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a2e3e535a80dcc5fee51d0f64985960d3}\label{namespacevlk_a2e3e535a80dcc5fee51d0f64985960d3}} 
+typedef float \mbox{\hyperlink{namespacevlk_a2e3e535a80dcc5fee51d0f64985960d3}{Float}}
+\begin{DoxyCompactList}\small\item\em 32-\/bit floating-\/point number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_a368f26686be1072460f1dd4940452050}\label{namespacevlk_a368f26686be1072460f1dd4940452050}} 
+typedef double \mbox{\hyperlink{namespacevlk_a368f26686be1072460f1dd4940452050}{Double}}
+\begin{DoxyCompactList}\small\item\em 64-\/bit floating-\/point number \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,76 +116,18 @@ enum \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{Log\+Level
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T $>$ }\\constexpr void \mbox{\hyperlink{namespacevlk_adf36335ff9f900d96dd5f6185598020b}{Send\+Event}} (const T \&t)
-\item 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_ab2abb90a32bac8bc7ced576f9d15d1f2}{Log}} (const std\+::string \&message)
-\begin{DoxyCompactList}\small\item\em Sends a log event. \end{DoxyCompactList}\item 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_aadb01b64da983eaa552793f7525fc8e5}{Log}} (const std\+::string \&)
-\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-constexpr bool \mbox{\hyperlink{namespacevlk_af686ba12e19b6ee83f5de4dcfe77add6}{enable\+\_\+trace\+\_\+logging}} = false
-\item 
-constexpr bool \mbox{\hyperlink{namespacevlk_acc4a6717fa5f8014c9ebe1524198bb00}{is\+\_\+debug}} = false
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Helper function. Equivelant to\+: \end{DoxyCompactList}\item 
+{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_a3b3d0d290851259ab615311197a5fcc9}{Log}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} line=0)
+\begin{DoxyCompactList}\small\item\em Sends a log event with a given message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevlk_abc422a9de0647104320af990680be946}\label{namespacevlk_abc422a9de0647104320af990680be946}} 
+{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_abc422a9de0647104320af990680be946}{Log}} (const std\+::string \&, const std\+::string \&=\char`\"{}\char`\"{}, const \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}=0)
+\begin{DoxyCompactList}\small\item\em Dummy function for disabled log events. Does nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}\label{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}} 
-\index{vlk@{vlk}!Byte@{Byte}}
-\index{Byte@{Byte}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Byte}{Byte}}
-{\footnotesize\ttfamily typedef std\+::int8\+\_\+t \mbox{\hyperlink{namespacevlk_ae9f2cb912da19c6ef5747e2efbe61da8}{vlk\+::\+Byte}}}
+\doxysubsection{Detailed Description}
+Chunk-\/based Allocator. 
 
-Signed 8-\/bit integer \mbox{\Hypertarget{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}\label{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}} 
-\index{vlk@{vlk}!Int@{Int}}
-\index{Int@{Int}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Int}{Int}}
-{\footnotesize\ttfamily typedef std\+::int32\+\_\+t \mbox{\hyperlink{namespacevlk_aef2dc7c4de6b131d45566a0d6c9600fb}{vlk\+::\+Int}}}
-
-Signed 32-\/bit integer \mbox{\Hypertarget{namespacevlk_a468d971762596def2821e4e4033cab27}\label{namespacevlk_a468d971762596def2821e4e4033cab27}} 
-\index{vlk@{vlk}!Long@{Long}}
-\index{Long@{Long}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Long}{Long}}
-{\footnotesize\ttfamily typedef std\+::int64\+\_\+t \mbox{\hyperlink{namespacevlk_a468d971762596def2821e4e4033cab27}{vlk\+::\+Long}}}
-
-Signed 64-\/bit integer \mbox{\Hypertarget{namespacevlk_aafeff89395f114f13c70d82456a46ab2}\label{namespacevlk_aafeff89395f114f13c70d82456a46ab2}} 
-\index{vlk@{vlk}!Short@{Short}}
-\index{Short@{Short}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Short}{Short}}
-{\footnotesize\ttfamily typedef std\+::int16\+\_\+t \mbox{\hyperlink{namespacevlk_aafeff89395f114f13c70d82456a46ab2}{vlk\+::\+Short}}}
-
-Signed 16-\/bit integer \mbox{\Hypertarget{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}\label{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}} 
-\index{vlk@{vlk}!Size@{Size}}
-\index{Size@{Size}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Size}{Size}}
-{\footnotesize\ttfamily typedef std\+::size\+\_\+t \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{vlk\+::\+Size}}}
-
-Platform-\/dependent size type \mbox{\Hypertarget{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}\label{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}} 
-\index{vlk@{vlk}!UByte@{UByte}}
-\index{UByte@{UByte}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{UByte}{UByte}}
-{\footnotesize\ttfamily typedef std\+::uint8\+\_\+t \mbox{\hyperlink{namespacevlk_aff00f1a21ff5792ddeb6c3130f85069c}{vlk\+::\+U\+Byte}}}
-
-Unsigned 8-\/bit integer \mbox{\Hypertarget{namespacevlk_a2fa3f432340b644806685709c97946c6}\label{namespacevlk_a2fa3f432340b644806685709c97946c6}} 
-\index{vlk@{vlk}!UInt@{UInt}}
-\index{UInt@{UInt}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{UInt}{UInt}}
-{\footnotesize\ttfamily typedef std\+::uint32\+\_\+t \mbox{\hyperlink{namespacevlk_a2fa3f432340b644806685709c97946c6}{vlk\+::\+U\+Int}}}
-
-Unsigned 32-\/bit integer \mbox{\Hypertarget{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}\label{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}} 
-\index{vlk@{vlk}!ULong@{ULong}}
-\index{ULong@{ULong}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{ULong}{ULong}}
-{\footnotesize\ttfamily typedef std\+::uint64\+\_\+t \mbox{\hyperlink{namespacevlk_a7b9d20e814f29d3ae871436cd1ae1009}{vlk\+::\+U\+Long}}}
-
-Unsigned 64-\/bit integer \mbox{\Hypertarget{namespacevlk_a720ebf07f96764cf2162dc349d616725}\label{namespacevlk_a720ebf07f96764cf2162dc349d616725}} 
-\index{vlk@{vlk}!UShort@{UShort}}
-\index{UShort@{UShort}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{UShort}{UShort}}
-{\footnotesize\ttfamily typedef std\+::uint16\+\_\+t \mbox{\hyperlink{namespacevlk_a720ebf07f96764cf2162dc349d616725}{vlk\+::\+U\+Short}}}
-
-Unsigned 16-\/bit integer 
+Linked-\/list-\/based allocator. 
 
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}\label{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}} 
@@ -186,6 +140,13 @@ Unsigned 16-\/bit integer
 
 Defines various severities of log message. 
 
+Less severe log messages may not be processed depending on the configuration. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1LogEvent}{Log\+Event}} 
+
+\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}} 
+
+\mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{V\+L\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+L\+O\+G\+G\+I\+NG}} 
+\end{DoxySeeAlso}
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Trace@{Trace}!vlk@{vlk}}\index{vlk@{vlk}!Trace@{Trace}}}\mbox{\Hypertarget{namespacevlk_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}\label{namespacevlk_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}} 
 Trace&Details regarding a step in a function or algorithm \\
@@ -219,24 +180,33 @@ Announce&An announcement, always visible \\
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacevlk_aadb01b64da983eaa552793f7525fc8e5}\label{namespacevlk_aadb01b64da983eaa552793f7525fc8e5}} 
+\mbox{\Hypertarget{namespacevlk_a3b3d0d290851259ab615311197a5fcc9}\label{namespacevlk_a3b3d0d290851259ab615311197a5fcc9}} 
 \index{vlk@{vlk}!Log@{Log}}
 \index{Log@{Log}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
 {\footnotesize\ttfamily template$<$Log\+Level L = Log\+Level\+::\+Info$>$ \\
-std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$L$>$\+::Value, void$>$ vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{namespacevlk_ab2abb90a32bac8bc7ced576f9d15d1f2}\label{namespacevlk_ab2abb90a32bac8bc7ced576f9d15d1f2}} 
-\index{vlk@{vlk}!Log@{Log}}
-\index{Log@{Log}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$Log\+Level L = Log\+Level\+::\+Info$>$ \\
-std\+::enable\+\_\+if\+\_\+t$<$\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$L$>$\+::Value, void$>$ vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+std\+::enable\+\_\+if\+\_\+t$<$\mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{Is\+Log\+Level\+Enabled}}$<$L$>$\+::Value, void$>$ vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 
-Sends a log event. 
+Sends a log event with a given message. 
 
+Use this as the preferred method of sending debug messages in your application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message contained by the log event \\
+\hline
+{\em file} & The source file that generated this log event \\
+\hline
+{\em line} & The line of the source file that generated this log event \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em L} & The severity of this log event \\
+\hline
+\end{DoxyTemplParams}
 \mbox{\Hypertarget{namespacevlk_adf36335ff9f900d96dd5f6185598020b}\label{namespacevlk_adf36335ff9f900d96dd5f6185598020b}} 
 \index{vlk@{vlk}!SendEvent@{SendEvent}}
 \index{SendEvent@{SendEvent}!vlk@{vlk}}
@@ -246,16 +216,10 @@ constexpr void vlk\+::\+Send\+Event (\begin{DoxyParamCaption}\item[{const T \&}]
 
 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespacevlk_af686ba12e19b6ee83f5de4dcfe77add6}\label{namespacevlk_af686ba12e19b6ee83f5de4dcfe77add6}} 
-\index{vlk@{vlk}!enable\_trace\_logging@{enable\_trace\_logging}}
-\index{enable\_trace\_logging@{enable\_trace\_logging}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{enable\_trace\_logging}{enable\_trace\_logging}}
-{\footnotesize\ttfamily constexpr bool vlk\+::enable\+\_\+trace\+\_\+logging = false\hspace{0.3cm}{\ttfamily [constexpr]}}
+Helper function. Equivelant to\+: 
 
-\mbox{\Hypertarget{namespacevlk_acc4a6717fa5f8014c9ebe1524198bb00}\label{namespacevlk_acc4a6717fa5f8014c9ebe1524198bb00}} 
-\index{vlk@{vlk}!is\_debug@{is\_debug}}
-\index{is\_debug@{is\_debug}!vlk@{vlk}}
-\doxysubsubsection{\texorpdfstring{is\_debug}{is\_debug}}
-{\footnotesize\ttfamily constexpr bool vlk\+::is\+\_\+debug = false\hspace{0.3cm}{\ttfamily [constexpr]}}
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EventBus<T>::SendEvent(t);}
+\end{DoxyCode}
+ 

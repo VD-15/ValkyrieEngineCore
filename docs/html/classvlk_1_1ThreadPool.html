@@ -61,110 +61,40 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1ThreadPool.html">ThreadPool</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1ThreadPool.html">ThreadPool</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classvlk_1_1ThreadPool-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vlk::ThreadPool Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std::thread::hardware_concurrency by default, but will always be at least one.  
+ <a href="classvlk_1_1ThreadPool.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ThreadPool_8hpp_source.html">ThreadPool.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d0322f870cf7875aab184f4c8672c05"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html#a6d0322f870cf7875aab184f4c8672c05">Enqueue</a> (const std::function&lt; void()&gt; &amp;func)</td></tr>
-<tr class="memdesc:a6d0322f870cf7875aab184f4c8672c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a function to the back of the execution queue. Retrurns immediately.  <a href="classvlk_1_1ThreadPool.html#a6d0322f870cf7875aab184f4c8672c05">More...</a><br /></td></tr>
+<tr class="memitem:a6d0322f870cf7875aab184f4c8672c05"><td class="memItemLeft" align="right" valign="top"><a id="a6d0322f870cf7875aab184f4c8672c05"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html#a6d0322f870cf7875aab184f4c8672c05">Enqueue</a> (const std::function&lt; void()&gt; &amp;func)</td></tr>
+<tr class="memdesc:a6d0322f870cf7875aab184f4c8672c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a function to the back of the execution queue. Retrurns immediately. <br /></td></tr>
 <tr class="separator:a6d0322f870cf7875aab184f4c8672c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecf4a52c5f172d744071f479f974a54f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html#aecf4a52c5f172d744071f479f974a54f">Wait</a> ()</td></tr>
-<tr class="memdesc:aecf4a52c5f172d744071f479f974a54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling thread until all threads have finished executing and the execution queue is empty.  <a href="classvlk_1_1ThreadPool.html#aecf4a52c5f172d744071f479f974a54f">More...</a><br /></td></tr>
+<tr class="memitem:aecf4a52c5f172d744071f479f974a54f"><td class="memItemLeft" align="right" valign="top"><a id="aecf4a52c5f172d744071f479f974a54f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html#aecf4a52c5f172d744071f479f974a54f">Wait</a> ()</td></tr>
+<tr class="memdesc:aecf4a52c5f172d744071f479f974a54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling thread until all threads have finished executing and the execution queue is empty. <br /></td></tr>
 <tr class="separator:aecf4a52c5f172d744071f479f974a54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a2e0cef2ffb7c82f46d996981ce90bdea"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html#a2e0cef2ffb7c82f46d996981ce90bdea">Thread</a></td></tr>
-<tr class="separator:a2e0cef2ffb7c82f46d996981ce90bdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6d0322f870cf7875aab184f4c8672c05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d0322f870cf7875aab184f4c8672c05">&#9670;&nbsp;</a></span>Enqueue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ThreadPool::Enqueue </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; void()&gt; &amp;&#160;</td>
-          <td class="paramname"><em>func</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds a function to the back of the execution queue. Retrurns immediately. </p>
-
-</div>
-</div>
-<a id="aecf4a52c5f172d744071f479f974a54f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecf4a52c5f172d744071f479f974a54f">&#9670;&nbsp;</a></span>Wait()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ThreadPool::Wait </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling thread until all threads have finished executing and the execution queue is empty. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2e0cef2ffb7c82f46d996981ce90bdea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e0cef2ffb7c82f46d996981ce90bdea">&#9670;&nbsp;</a></span>Thread</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend vlk::ThreadPool::Thread</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std::thread::hardware_concurrency by default, but will always be at least one. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/ValkyrieEngine/<a class="el" href="ThreadPool_8hpp_source.html">ThreadPool.hpp</a></li>
-<li>src/<a class="el" href="ThreadPool_8cpp.html">ThreadPool.cpp</a></li>
+<li>src/ThreadPool.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

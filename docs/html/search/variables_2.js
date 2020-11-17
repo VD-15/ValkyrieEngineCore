@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enable_5ftrace_5flogging_214',['enable_trace_logging',['../namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6',1,'vlk']]]
+  ['file_126',['file',['../classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2',1,'vlk::LogEvent']]]
 ];

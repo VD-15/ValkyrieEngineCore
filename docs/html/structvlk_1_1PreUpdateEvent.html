@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="structvlk_1_1PreUpdateEvent.html">PreUpdateEvent</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="structvlk_1_1PreUpdateEvent.html">PreUpdateEvent</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,12 +70,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Sent once every frame, just before the update loop starts. Please don't use this for game logic.  
+<p>Sent once every frame, just before the update loop starts.  
  <a href="structvlk_1_1PreUpdateEvent.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ValkyrieEngine_8hpp_source.html">ValkyrieEngine.hpp</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Sent once every frame, just before the update loop starts. Please don't use this for game logic. </p>
+<div class="textblock"><p>Sent once every frame, just before the update loop starts. </p>
+<p>Used for parts of the engine that need to periodically update before the main part of the event loop.</p>
+<p>Please don't use this for game logic. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/ValkyrieEngine/<a class="el" href="ValkyrieEngine_8hpp_source.html">ValkyrieEngine.hpp</a></li>
 </ul>

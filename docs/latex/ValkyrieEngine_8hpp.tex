@@ -1,17 +1,18 @@
 \hypertarget{ValkyrieEngine_8hpp}{}\doxysection{include/\+Valkyrie\+Engine/\+Valkyrie\+Engine.hpp File Reference}
 \label{ValkyrieEngine_8hpp}\index{include/ValkyrieEngine/ValkyrieEngine.hpp@{include/ValkyrieEngine/ValkyrieEngine.hpp}}
+
+
+Valkyrie Engine\textquotesingle{}s primary header file.  
+
+
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Debug.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Entity.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Array\+Allocator.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Chunk\+Allocator.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Linked\+Allocator.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Singleton\+Allocator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Component.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Event\+Bus.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structvlk_1_1PreUpdateEvent}{vlk\+::\+Pre\+Update\+Event}}
-\begin{DoxyCompactList}\small\item\em Sent once every frame, just before the update loop starts. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sent once every frame, just before the update loop starts. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1PostUpdateEvent}{vlk\+::\+Post\+Update\+Event}}
 \begin{DoxyCompactList}\small\item\em Sent once every frame, just after the update loop ends. Please don\textquotesingle{}t use this for game logic. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1EarlyUpdateEvent}{vlk\+::\+Early\+Update\+Event}}
@@ -28,8 +29,8 @@ class \mbox{\hyperlink{classvlk_1_1Application}{vlk\+::\+Application}}
 \begin{DoxyCompactList}\small\item\em Starts and stops the update loop. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{vlk\+::\+Application\+::\+Application\+Args}}
 \begin{DoxyCompactList}\small\item\em Container for application-\/related metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
- \mbox{\hyperlink{namespacevlk}{vlk}}
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Valkyrie Engine\textquotesingle{}s primary header file. 
+

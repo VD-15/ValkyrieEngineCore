@@ -65,12 +65,14 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vlk Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Chunk-based Allocator.  
+<a href="namespacevlk.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -84,10 +86,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sent when the application starts and the first update loop is about to begin.  <a href="structvlk_1_1ApplicationStartEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html">ArrayAllocator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocator backed by a fixed-size bounded array.  <a href="classvlk_1_1ArrayAllocator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bounded allocator backed by a fixed-size bounded array.  <a href="classvlk_1_1ArrayAllocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocator backed by multiple fixed-size chunks.  <a href="classvlk_1_1ChunkAllocator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbounded allocator backed by multiple fixed-size chunks.  <a href="classvlk_1_1ChunkAllocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html">Component</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for user-defined components to inherit from.  <a href="classvlk_1_1Component.html#details">More...</a><br /></td></tr>
@@ -96,29 +98,13 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">First event sent in the update loop. Always before <a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">UpdateEvent</a>.  <a href="structvlk_1_1EarlyUpdateEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html">Entity</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for user-defined entities to inherit from.  <a href="classvlk_1_1Entity.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventBus.html">EventBus</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates sending events to user-defined event listeners.  <a href="classvlk_1_1EventBus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html">EventListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">event bus </a> when constructed and removes itself when destructed.  <a href="classvlk_1_1EventListener.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasAllocateFunc.html">HasAllocateFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Allocate</code> that returns a <code>void*</code>.  <a href="classvlk_1_1HasAllocateFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasCountFunc.html">HasCountFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Count</code> that returns a <code>Size</code>.  <a href="classvlk_1_1HasCountFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasDeallocateFunc.html">HasDeallocateFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Deallocate</code> that takes a <code>void*</code> as an argument and returns <code>void</code>.  <a href="classvlk_1_1HasDeallocateFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasFilterCountFunc.html">HasFilterCountFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Count</code> that takes a <code>std::function&lt;bool(Param*)&gt;</code> and returns a <code>Size</code>.  <a href="classvlk_1_1HasFilterCountFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasFilterForEachFunc.html">HasFilterForEachFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>ForEach</code> that takes two functions as arguments: A modifier function that returns void and takes a <code>Param*</code> as an argument A filter function that returns a bool and takes a <code>const Param*</code> as an argument.  <a href="classvlk_1_1HasFilterForEachFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasForEachFunc.html">HasForEachFunc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>ForEach</code> that takes a function as an argument. This function should return void and should take a <code>Param*</code> as an argument.  <a href="classvlk_1_1HasForEachFunc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,31 +117,40 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base interface for entity signal listeners.  <a href="classvlk_1_1ISignalListener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class that statically-evaluates whether log events with severity <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> should be sent.  <a href="classvlk_1_1IsLogLevelEnabled.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class that determines whether a specific <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c" title="Defines various severities of log message.">vlk::LogLevel</a> is enabled in the current configuration.  <a href="classvlk_1_1IsLogLevelEnabled.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsValidAllocator.html">IsValidAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses whether a type is a valid ValkyrieEngine Allocator.  <a href="classvlk_1_1IsValidAllocator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsValidElementType.html">IsValidElementType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses whether a type is a valid element type for a ValkyrieEngine allocator.  <a href="classvlk_1_1IsValidElementType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1LateUpdateEvent.html">LateUpdateEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last event sent in the update loop. Always after <a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">UpdateEvent</a>.  <a href="structvlk_1_1LateUpdateEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LinkedAllocator.html">LinkedAllocator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocator backed by an unbounded linked-list.  <a href="classvlk_1_1LinkedAllocator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbounded allocator backed by a doubly-linked list.  <a href="classvlk_1_1LinkedAllocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html">LogEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An event that is sent whenever a message is logged.  <a href="classvlk_1_1LogEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1PostUpdateEvent.html">PostUpdateEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sent once every frame, just after the update loop ends. Please don't use this for game logic.  <a href="structvlk_1_1PostUpdateEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1PreUpdateEvent.html">PreUpdateEvent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sent once every frame, just before the update loop starts. Please don't use this for game logic.  <a href="structvlk_1_1PreUpdateEvent.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sent once every frame, just before the update loop starts.  <a href="structvlk_1_1PreUpdateEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Signal.html">Signal</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html">EventBus</a>, signals are completely dynamic and are sent only to the <a class="el" href="classvlk_1_1Entity.html">Entity</a> that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>.  <a href="classvlk_1_1Signal.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html" title="Facilitates sending events to user-defined event listeners.">EventBus</a>, signals are completely dynamic and are sent only to the <a class="el" href="classvlk_1_1Entity.html" title="Base class for user-defined entities to inherit from.">Entity</a> that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>.  <a href="classvlk_1_1Signal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1SingletonAllocator.html">SingletonAllocator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single-instance allocator.  <a href="classvlk_1_1SingletonAllocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Thread.html">Thread</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classvlk_1_1Thread.html" title="Thread wrapper for use with the event pool. Please don&#39;t touch this unless you know what you&#39;re doing...">Thread</a> wrapper for use with the event pool. Please don't touch this unless you know what you're doing.  <a href="classvlk_1_1Thread.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ThreadPool.html">ThreadPool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std::thread::hardware_concurrency by default, but will always be at least one.  <a href="classvlk_1_1ThreadPool.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1UpdateEvent.html">UpdateEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Second event sent in the update loop. Always after <a class="el" href="structvlk_1_1EarlyUpdateEvent.html" title="First event sent in the update loop. Always before UpdateEvent.">EarlyUpdateEvent</a> Always before <a class="el" href="structvlk_1_1LateUpdateEvent.html" title="Last event sent in the update loop. Always after UpdateEvent.">LateUpdateEvent</a>.  <a href="structvlk_1_1UpdateEvent.html#details">More...</a><br /></td></tr>
@@ -163,24 +158,50 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aff00f1a21ff5792ddeb6c3130f85069c"><td class="memItemLeft" align="right" valign="top">typedef std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aff00f1a21ff5792ddeb6c3130f85069c">UByte</a></td></tr>
+<tr class="memitem:aff00f1a21ff5792ddeb6c3130f85069c"><td class="memItemLeft" align="right" valign="top"><a id="aff00f1a21ff5792ddeb6c3130f85069c"></a>
+typedef std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aff00f1a21ff5792ddeb6c3130f85069c">UByte</a></td></tr>
+<tr class="memdesc:aff00f1a21ff5792ddeb6c3130f85069c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsigned 8-bit integer. <br /></td></tr>
 <tr class="separator:aff00f1a21ff5792ddeb6c3130f85069c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9f2cb912da19c6ef5747e2efbe61da8"><td class="memItemLeft" align="right" valign="top">typedef std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#ae9f2cb912da19c6ef5747e2efbe61da8">Byte</a></td></tr>
+<tr class="memitem:ae9f2cb912da19c6ef5747e2efbe61da8"><td class="memItemLeft" align="right" valign="top"><a id="ae9f2cb912da19c6ef5747e2efbe61da8"></a>
+typedef std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#ae9f2cb912da19c6ef5747e2efbe61da8">Byte</a></td></tr>
+<tr class="memdesc:ae9f2cb912da19c6ef5747e2efbe61da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed 8-bit integer. <br /></td></tr>
 <tr class="separator:ae9f2cb912da19c6ef5747e2efbe61da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a720ebf07f96764cf2162dc349d616725"><td class="memItemLeft" align="right" valign="top">typedef std::uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a720ebf07f96764cf2162dc349d616725">UShort</a></td></tr>
+<tr class="memitem:a720ebf07f96764cf2162dc349d616725"><td class="memItemLeft" align="right" valign="top"><a id="a720ebf07f96764cf2162dc349d616725"></a>
+typedef std::uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a720ebf07f96764cf2162dc349d616725">UShort</a></td></tr>
+<tr class="memdesc:a720ebf07f96764cf2162dc349d616725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsigned 16-bit integer. <br /></td></tr>
 <tr class="separator:a720ebf07f96764cf2162dc349d616725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafeff89395f114f13c70d82456a46ab2"><td class="memItemLeft" align="right" valign="top">typedef std::int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aafeff89395f114f13c70d82456a46ab2">Short</a></td></tr>
+<tr class="memitem:aafeff89395f114f13c70d82456a46ab2"><td class="memItemLeft" align="right" valign="top"><a id="aafeff89395f114f13c70d82456a46ab2"></a>
+typedef std::int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aafeff89395f114f13c70d82456a46ab2">Short</a></td></tr>
+<tr class="memdesc:aafeff89395f114f13c70d82456a46ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed 16-bit integer. <br /></td></tr>
 <tr class="separator:aafeff89395f114f13c70d82456a46ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fa3f432340b644806685709c97946c6"><td class="memItemLeft" align="right" valign="top">typedef std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a2fa3f432340b644806685709c97946c6">UInt</a></td></tr>
+<tr class="memitem:a2fa3f432340b644806685709c97946c6"><td class="memItemLeft" align="right" valign="top"><a id="a2fa3f432340b644806685709c97946c6"></a>
+typedef std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a2fa3f432340b644806685709c97946c6">UInt</a></td></tr>
+<tr class="memdesc:a2fa3f432340b644806685709c97946c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsigned 32-bit integer. <br /></td></tr>
 <tr class="separator:a2fa3f432340b644806685709c97946c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef2dc7c4de6b131d45566a0d6c9600fb"><td class="memItemLeft" align="right" valign="top">typedef std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aef2dc7c4de6b131d45566a0d6c9600fb">Int</a></td></tr>
+<tr class="memitem:aef2dc7c4de6b131d45566a0d6c9600fb"><td class="memItemLeft" align="right" valign="top"><a id="aef2dc7c4de6b131d45566a0d6c9600fb"></a>
+typedef std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aef2dc7c4de6b131d45566a0d6c9600fb">Int</a></td></tr>
+<tr class="memdesc:aef2dc7c4de6b131d45566a0d6c9600fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed 32-bit integer. <br /></td></tr>
 <tr class="separator:aef2dc7c4de6b131d45566a0d6c9600fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b9d20e814f29d3ae871436cd1ae1009"><td class="memItemLeft" align="right" valign="top">typedef std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a7b9d20e814f29d3ae871436cd1ae1009">ULong</a></td></tr>
+<tr class="memitem:a7b9d20e814f29d3ae871436cd1ae1009"><td class="memItemLeft" align="right" valign="top"><a id="a7b9d20e814f29d3ae871436cd1ae1009"></a>
+typedef std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a7b9d20e814f29d3ae871436cd1ae1009">ULong</a></td></tr>
+<tr class="memdesc:a7b9d20e814f29d3ae871436cd1ae1009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsigned 64-bit integer. <br /></td></tr>
 <tr class="separator:a7b9d20e814f29d3ae871436cd1ae1009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468d971762596def2821e4e4033cab27"><td class="memItemLeft" align="right" valign="top">typedef std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a468d971762596def2821e4e4033cab27">Long</a></td></tr>
+<tr class="memitem:a468d971762596def2821e4e4033cab27"><td class="memItemLeft" align="right" valign="top"><a id="a468d971762596def2821e4e4033cab27"></a>
+typedef std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a468d971762596def2821e4e4033cab27">Long</a></td></tr>
+<tr class="memdesc:a468d971762596def2821e4e4033cab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed 64-bit integer. <br /></td></tr>
 <tr class="separator:a468d971762596def2821e4e4033cab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9a25eca45834c5fdfea230200a2e0dc"><td class="memItemLeft" align="right" valign="top">typedef std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a></td></tr>
+<tr class="memitem:ae9a25eca45834c5fdfea230200a2e0dc"><td class="memItemLeft" align="right" valign="top"><a id="ae9a25eca45834c5fdfea230200a2e0dc"></a>
+typedef std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a></td></tr>
+<tr class="memdesc:ae9a25eca45834c5fdfea230200a2e0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-dependent size type. <br /></td></tr>
 <tr class="separator:ae9a25eca45834c5fdfea230200a2e0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e3e535a80dcc5fee51d0f64985960d3"><td class="memItemLeft" align="right" valign="top"><a id="a2e3e535a80dcc5fee51d0f64985960d3"></a>
+typedef float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a2e3e535a80dcc5fee51d0f64985960d3">Float</a></td></tr>
+<tr class="memdesc:a2e3e535a80dcc5fee51d0f64985960d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">32-bit floating-point number <br /></td></tr>
+<tr class="separator:a2e3e535a80dcc5fee51d0f64985960d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368f26686be1072460f1dd4940452050"><td class="memItemLeft" align="right" valign="top"><a id="a368f26686be1072460f1dd4940452050"></a>
+typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a368f26686be1072460f1dd4940452050">Double</a></td></tr>
+<tr class="memdesc:a368f26686be1072460f1dd4940452050"><td class="mdescLeft">&#160;</td><td class="mdescRight">64-bit floating-point number <br /></td></tr>
+<tr class="separator:a368f26686be1072460f1dd4940452050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -202,159 +223,22 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:adf36335ff9f900d96dd5f6185598020b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adf36335ff9f900d96dd5f6185598020b"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">SendEvent</a> (const T &amp;t)</td></tr>
+<tr class="memdesc:adf36335ff9f900d96dd5f6185598020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function. Equivelant to:  <a href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">More...</a><br /></td></tr>
 <tr class="separator:adf36335ff9f900d96dd5f6185598020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2abb90a32bac8bc7ced576f9d15d1f2"><td class="memTemplParams" colspan="2">template&lt;LogLevel L = LogLevel::Info&gt; </td></tr>
-<tr class="memitem:ab2abb90a32bac8bc7ced576f9d15d1f2"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; <a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt; L &gt;::Value, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">Log</a> (const std::string &amp;message)</td></tr>
-<tr class="memdesc:ab2abb90a32bac8bc7ced576f9d15d1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a log event.  <a href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">More...</a><br /></td></tr>
-<tr class="separator:ab2abb90a32bac8bc7ced576f9d15d1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb01b64da983eaa552793f7525fc8e5"><td class="memTemplParams" colspan="2">template&lt;LogLevel L = LogLevel::Info&gt; </td></tr>
-<tr class="memitem:aadb01b64da983eaa552793f7525fc8e5"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt;!<a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt; L &gt;::Value, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#aadb01b64da983eaa552793f7525fc8e5">Log</a> (const std::string &amp;)</td></tr>
-<tr class="separator:aadb01b64da983eaa552793f7525fc8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:af686ba12e19b6ee83f5de4dcfe77add6"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6">enable_trace_logging</a> = false</td></tr>
-<tr class="separator:af686ba12e19b6ee83f5de4dcfe77add6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4a6717fa5f8014c9ebe1524198bb00"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#acc4a6717fa5f8014c9ebe1524198bb00">is_debug</a> = false</td></tr>
-<tr class="separator:acc4a6717fa5f8014c9ebe1524198bb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b3d0d290851259ab615311197a5fcc9"><td class="memTemplParams" colspan="2">template&lt;LogLevel L = LogLevel::Info&gt; </td></tr>
+<tr class="memitem:a3b3d0d290851259ab615311197a5fcc9"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; <a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt; L &gt;::Value, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#a3b3d0d290851259ab615311197a5fcc9">Log</a> (const std::string &amp;message, const std::string &amp;file=&quot;&quot;, const <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> line=0)</td></tr>
+<tr class="memdesc:a3b3d0d290851259ab615311197a5fcc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a log event with a given message.  <a href="namespacevlk.html#a3b3d0d290851259ab615311197a5fcc9">More...</a><br /></td></tr>
+<tr class="separator:a3b3d0d290851259ab615311197a5fcc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc422a9de0647104320af990680be946"><td class="memTemplParams" colspan="2"><a id="abc422a9de0647104320af990680be946"></a>
+template&lt;LogLevel L = LogLevel::Info&gt; </td></tr>
+<tr class="memitem:abc422a9de0647104320af990680be946"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt;!<a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt; L &gt;::Value, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#abc422a9de0647104320af990680be946">Log</a> (const std::string &amp;, const std::string &amp;=&quot;&quot;, const <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>=0)</td></tr>
+<tr class="memdesc:abc422a9de0647104320af990680be946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy function for disabled log events. Does nothing. <br /></td></tr>
+<tr class="separator:abc422a9de0647104320af990680be946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ae9f2cb912da19c6ef5747e2efbe61da8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9f2cb912da19c6ef5747e2efbe61da8">&#9670;&nbsp;</a></span>Byte</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::int8_t <a class="el" href="namespacevlk.html#ae9f2cb912da19c6ef5747e2efbe61da8">vlk::Byte</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Signed 8-bit integer </p>
-
-</div>
-</div>
-<a id="aef2dc7c4de6b131d45566a0d6c9600fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef2dc7c4de6b131d45566a0d6c9600fb">&#9670;&nbsp;</a></span>Int</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::int32_t <a class="el" href="namespacevlk.html#aef2dc7c4de6b131d45566a0d6c9600fb">vlk::Int</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Signed 32-bit integer </p>
-
-</div>
-</div>
-<a id="a468d971762596def2821e4e4033cab27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a468d971762596def2821e4e4033cab27">&#9670;&nbsp;</a></span>Long</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::int64_t <a class="el" href="namespacevlk.html#a468d971762596def2821e4e4033cab27">vlk::Long</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Signed 64-bit integer </p>
-
-</div>
-</div>
-<a id="aafeff89395f114f13c70d82456a46ab2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafeff89395f114f13c70d82456a46ab2">&#9670;&nbsp;</a></span>Short</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::int16_t <a class="el" href="namespacevlk.html#aafeff89395f114f13c70d82456a46ab2">vlk::Short</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Signed 16-bit integer </p>
-
-</div>
-</div>
-<a id="ae9a25eca45834c5fdfea230200a2e0dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9a25eca45834c5fdfea230200a2e0dc">&#9670;&nbsp;</a></span>Size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::size_t <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Platform-dependent size type </p>
-
-</div>
-</div>
-<a id="aff00f1a21ff5792ddeb6c3130f85069c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff00f1a21ff5792ddeb6c3130f85069c">&#9670;&nbsp;</a></span>UByte</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uint8_t <a class="el" href="namespacevlk.html#aff00f1a21ff5792ddeb6c3130f85069c">vlk::UByte</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Unsigned 8-bit integer </p>
-
-</div>
-</div>
-<a id="a2fa3f432340b644806685709c97946c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fa3f432340b644806685709c97946c6">&#9670;&nbsp;</a></span>UInt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uint32_t <a class="el" href="namespacevlk.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Unsigned 32-bit integer </p>
-
-</div>
-</div>
-<a id="a7b9d20e814f29d3ae871436cd1ae1009"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b9d20e814f29d3ae871436cd1ae1009">&#9670;&nbsp;</a></span>ULong</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uint64_t <a class="el" href="namespacevlk.html#a7b9d20e814f29d3ae871436cd1ae1009">vlk::ULong</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Unsigned 64-bit integer </p>
-
-</div>
-</div>
-<a id="a720ebf07f96764cf2162dc349d616725"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a720ebf07f96764cf2162dc349d616725">&#9670;&nbsp;</a></span>UShort</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uint16_t <a class="el" href="namespacevlk.html#a720ebf07f96764cf2162dc349d616725">vlk::UShort</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Unsigned 16-bit integer </p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Chunk-based Allocator. </p>
+<p>Linked-list-based allocator. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a8f4a29860db3d6e178a9777d1346843c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f4a29860db3d6e178a9777d1346843c">&#9670;&nbsp;</a></span>LogLevel</h2>
 
@@ -376,6 +260,11 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Defines various severities of log message. </p>
+<p>Less severe log messages may not be processed depending on the configuration. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1LogEvent.html" title="An event that is sent whenever a message is logged.">LogEvent</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1IsLogLevelEnabled.html" title="Helper class that determines whether a specific vlk::LogLevel is enabled in the current configuration...">IsLogLevelEnabled</a> </dd>
+<dd>
+<a class="el" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4" title="A macro used to enable trace-level debug logging, should expand to either true or false.">VLK_ENABLE_TRACE_LOGGING</a> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1"></a>Trace&#160;</td><td class="fielddoc"><p>Details regarding a step in a function or algorithm </p>
 </td></tr>
@@ -396,28 +285,8 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aadb01b64da983eaa552793f7525fc8e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadb01b64da983eaa552793f7525fc8e5">&#9670;&nbsp;</a></span>Log() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;LogLevel L = LogLevel::Info&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::enable_if_t&lt;!<a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt;L&gt;::Value, void&gt; vlk::Log </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab2abb90a32bac8bc7ced576f9d15d1f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2abb90a32bac8bc7ced576f9d15d1f2">&#9670;&nbsp;</a></span>Log() <span class="overload">[2/2]</span></h2>
+<a id="a3b3d0d290851259ab615311197a5fcc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3d0d290851259ab615311197a5fcc9">&#9670;&nbsp;</a></span>Log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,13 +297,44 @@ template&lt;LogLevel L = LogLevel::Info&gt; </div>
           <td class="memname">std::enable_if_t&lt;<a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a>&lt;L&gt;::Value, void&gt; vlk::Log </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td>
+          <td class="paramname"><em>line</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a log event. </p>
+<p>Sends a log event with a given message. </p>
+<p>Use this as the preferred method of sending debug messages in your application.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message contained by the log event </td></tr>
+    <tr><td class="paramname">file</td><td>The source file that generated this log event </td></tr>
+    <tr><td class="paramname">line</td><td>The line of the source file that generated this log event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>The severity of this log event </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -464,51 +364,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="af686ba12e19b6ee83f5de4dcfe77add6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af686ba12e19b6ee83f5de4dcfe77add6">&#9670;&nbsp;</a></span>enable_trace_logging</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool vlk::enable_trace_logging = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acc4a6717fa5f8014c9ebe1524198bb00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc4a6717fa5f8014c9ebe1524198bb00">&#9670;&nbsp;</a></span>is_debug</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool vlk::is_debug = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
+<p>Helper function. Equivelant to: </p>
+<div class="fragment"><div class="line">EventBus&lt;T&gt;::SendEvent(t);</div>
+</div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->

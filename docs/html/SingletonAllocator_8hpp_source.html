@@ -69,9 +69,9 @@ $(function() {
 <div class="title">SingletonAllocator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="SingletonAllocator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Allocator_8hpp.html">ValkyrieEngine/Allocator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/Allocator.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevlk.html">vlk</a></div>
@@ -94,7 +94,7 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> Internal <span class="keyword">internal</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#ad766bee9420ce3b20fef0cb53cf9d2c3">   29</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classvlk_1_1SingletonAllocator.html#ad766bee9420ce3b20fef0cb53cf9d2c3">Allocate</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">void</span>* Allocate()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::unique_lock ulock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">internal</span>.allocation != <span class="keyword">nullptr</span>)</div>
@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#ad9559919851e00a79905513ac227153f">   44</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1SingletonAllocator.html#ad9559919851e00a79905513ac227153f">Deallocate</a>(<span class="keywordtype">void</span>* ptr)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> Deallocate(<span class="keywordtype">void</span>* ptr)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            std::unique_lock ulock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (ptr == <span class="keyword">internal</span>.allocation)</div>
@@ -119,25 +119,25 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#a22b8b54dc7965de351fb622fc697dd3f">   54</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1SingletonAllocator.html#a22b8b54dc7965de351fb622fc697dd3f">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> ForEach(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::shared_lock ulock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">internal</span>.allocation != <span class="keyword">nullptr</span>) func(<span class="keyword">internal</span>.allocation);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#adaae3b78d441d3520ae0d4981348c307">   60</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1SingletonAllocator.html#adaae3b78d441d3520ae0d4981348c307">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func, std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> ForEach(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func, std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::shared_lock ulock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">internal</span>.allocation != <span class="keyword">nullptr</span> &amp;&amp; filter(<span class="keyword">internal</span>.allocation)) func(<span class="keyword">internal</span>.allocation);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#a153abb936733936ebc3c1390d36179e7">   66</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1SingletonAllocator.html#a153abb936733936ebc3c1390d36179e7">Count</a>()</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> Count()</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            std::shared_lock slock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">internal</span>.allocation != <span class="keyword">nullptr</span>)? 1 : 0;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classvlk_1_1SingletonAllocator.html#a5a0406c48187d1cdf3722188e8cdc72e">   72</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1SingletonAllocator.html#a5a0406c48187d1cdf3722188e8cdc72e">Count</a>(std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> Count(std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::shared_lock slock(<span class="keyword">internal</span>.mtx);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">internal</span>.allocation != <span class="keyword">nullptr</span> &amp;&amp; filter(<span class="keyword">internal</span>.allocation))? 1 : 0;</div>
@@ -145,19 +145,12 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    };</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">typename</span> SingletonAllocator&lt;T&gt;::Internal SingletonAllocator&lt;T&gt;::internal;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">typename</span> <a class="code" href="classvlk_1_1SingletonAllocator.html">SingletonAllocator&lt;T&gt;::Internal</a> <a class="code" href="classvlk_1_1SingletonAllocator.html">SingletonAllocator&lt;T&gt;::internal</a>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdef"><b>Definition:</b> Allocator.hpp:7</div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_a153abb936733936ebc3c1390d36179e7"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#a153abb936733936ebc3c1390d36179e7">vlk::SingletonAllocator::Count</a></div><div class="ttdeci">static Size Count()</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:66</div></div>
-<div class="ttc" id="anamespacevlk_html_ae9a25eca45834c5fdfea230200a2e0dc"><div class="ttname"><a href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></div><div class="ttdeci">std::size_t Size</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:49</div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_a5a0406c48187d1cdf3722188e8cdc72e"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#a5a0406c48187d1cdf3722188e8cdc72e">vlk::SingletonAllocator::Count</a></div><div class="ttdeci">static Size Count(std::function&lt; bool(const T *)&gt; filter)</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:72</div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_ad766bee9420ce3b20fef0cb53cf9d2c3"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#ad766bee9420ce3b20fef0cb53cf9d2c3">vlk::SingletonAllocator::Allocate</a></div><div class="ttdeci">static void * Allocate()</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:29</div></div>
-<div class="ttc" id="aAllocator_8hpp_html"><div class="ttname"><a href="Allocator_8hpp.html">Allocator.hpp</a></div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_ad9559919851e00a79905513ac227153f"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#ad9559919851e00a79905513ac227153f">vlk::SingletonAllocator::Deallocate</a></div><div class="ttdeci">static void Deallocate(void *ptr)</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:44</div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_a22b8b54dc7965de351fb622fc697dd3f"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#a22b8b54dc7965de351fb622fc697dd3f">vlk::SingletonAllocator::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(T *)&gt; func)</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:54</div></div>
+<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdoc">Chunk-based Allocator.</div><div class="ttdef"><b>Definition:</b> Allocator.hpp:10</div></div>
+<div class="ttc" id="anamespacevlk_html_ae9a25eca45834c5fdfea230200a2e0dc"><div class="ttname"><a href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></div><div class="ttdeci">std::size_t Size</div><div class="ttdoc">Platform-dependent size type.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:49</div></div>
 <div class="ttc" id="aclassvlk_1_1SingletonAllocator_html"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html">vlk::SingletonAllocator</a></div><div class="ttdoc">Single-instance allocator.</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:13</div></div>
-<div class="ttc" id="aclassvlk_1_1SingletonAllocator_html_adaae3b78d441d3520ae0d4981348c307"><div class="ttname"><a href="classvlk_1_1SingletonAllocator.html#adaae3b78d441d3520ae0d4981348c307">vlk::SingletonAllocator::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(T *)&gt; func, std::function&lt; bool(const T *)&gt; filter)</div><div class="ttdef"><b>Definition:</b> SingletonAllocator.hpp:60</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

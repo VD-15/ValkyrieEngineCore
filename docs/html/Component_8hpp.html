@@ -67,28 +67,82 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Component.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="IComponent_8hpp_source.html">ValkyrieEngine/IComponent.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ChunkAllocator_8hpp_source.html">ValkyrieEngine/ChunkAllocator.hpp</a>&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+
+<p>Provides base class for components.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;ValkyrieEngine/IComponent.hpp&quot;</code><br />
+<code>#include &quot;ValkyrieEngine/Entity.hpp&quot;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;shared_mutex&gt;</code><br />
 </div>
 <p><a href="Component_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html">vlk::Component&lt; T, ComponentAllocator &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for user-defined components to inherit from.  <a href="classvlk_1_1Component.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1ComponentHints.html">vlk::ComponentHints</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hint struct used to specify some component-related behaviour.  <a href="structvlk_1_1ComponentHints.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html">vlk::Component&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class for ECS components.  <a href="classvlk_1_1Component.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevlk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html">vlk</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac5474f9273bb9e982abb8e53cd4a34f9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac5474f9273bb9e982abb8e53cd4a34f9"><td class="memTemplItemLeft" align="right" valign="top">VLK_CXX14_CONSTEXPR ComponentHints&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9">vlk::GetComponentHints</a> ()</td></tr>
+<tr class="memdesc:ac5474f9273bb9e982abb8e53cd4a34f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to retrieve the hints for a specified component type.  <a href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9">More...</a><br /></td></tr>
+<tr class="separator:ac5474f9273bb9e982abb8e53cd4a34f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides base class for components. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac5474f9273bb9e982abb8e53cd4a34f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5474f9273bb9e982abb8e53cd4a34f9">&#9670;&nbsp;</a></span>GetComponentHints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VLK_CXX14_CONSTEXPR ComponentHints vlk::GetComponentHints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function used to retrieve the hints for a specified component type. </p>
+<p>This function can be specialized to override the hints used by a component type.</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>SomeData {...};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Specify hints used by Component&lt;SomeData&gt;</span></div>
+<div class="line"><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line">VLK_CXX14_CONSTEXPR <span class="keyword">inline</span> ComponentHints GetComponentHints&lt;SomeData&gt; { <span class="keywordflow">return</span> ComponentHints {10, <span class="keyword">false</span>}; }</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>ComponentHints </dd>
+<dd>
+Component </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

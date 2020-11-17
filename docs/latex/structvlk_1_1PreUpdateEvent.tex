@@ -2,7 +2,7 @@
 \label{structvlk_1_1PreUpdateEvent}\index{vlk::PreUpdateEvent@{vlk::PreUpdateEvent}}
 
 
-Sent once every frame, just before the update loop starts. Please don\textquotesingle{}t use this for game logic.  
+Sent once every frame, just before the update loop starts.  
 
 
 
@@ -12,7 +12,11 @@ Sent once every frame, just before the update loop starts. Please don\textquotes
 
 
 \doxysubsection{Detailed Description}
-Sent once every frame, just before the update loop starts. Please don\textquotesingle{}t use this for game logic. 
+Sent once every frame, just before the update loop starts. 
+
+Used for parts of the engine that need to periodically update before the main part of the event loop.
+
+Please don\textquotesingle{}t use this for game logic. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

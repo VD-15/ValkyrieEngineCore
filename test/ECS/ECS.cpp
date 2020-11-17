@@ -1,150 +1,262 @@
 #include "SampleEntity.hpp"
+#include "ValkyrieEngine/Component.hpp"
 #include "catch2/catch.hpp"
+
+#include <thread>
+#include <chrono>
 
 using namespace vlk;
 
-typedef SampleComponent::Allocator CAlloc;
-typedef SampleEntity::Allocator EAlloc;
-
-TEST_CASE("Entities are constructed and destroyed correctly")
+void GenEntities()
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
-
-	SampleEntity* e = new SampleEntity();
-
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-
-	delete e;
-
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	for (int i = 0; i < 10000; i++)
+	{
+		EntityID eId = Entity::Create();
+	}
 }
 
-TEST_CASE("Components are added/removed properly")
+template <>
+VLK_CXX14_CONSTEXPR inline ComponentHints vlk::GetComponentHints<OtherComponent>()
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
-
-	SampleEntity* e = new SampleEntity();
-
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-
-	SampleComponent* c = e->AddComponent<SampleComponent>();
-
-	REQUIRE(CAlloc::Count() == 2);
-	REQUIRE(EAlloc::Count() == 1);
-
-	delete c;
-
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-
-	delete e;
-
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	return ComponentHints { 10, false };
 }
 
-TEST_CASE("Signals are sent properly")
+TEST_CASE("Entity Counter Works Correctly")
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Entity::Create() == static_cast<EntityID>(1));
 
-	SampleEntity* e = new SampleEntity();
+	std::thread t1(GenEntities);
+	std::thread t2(GenEntities);
 
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-	REQUIRE(e->sampleComponent->i == 0);
+	t1.join();
+	t2.join();
 
-	Signal testSignal("SIGNAL_TEST");
-	testSignal.PutArg<int>("Value", 5);
-
-	e->SendSignal(testSignal);
-
-	REQUIRE(e->sampleComponent->i == 5);
-
-	delete e;
-
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Entity::Create() == static_cast<EntityID>(20002));
 }
 
-TEST_CASE("Signals are sent properly to dynamically added components")
+TEST_CASE("Component Allocator works as intended")
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
 
-	SampleEntity* e = new SampleEntity();
-	SampleComponent* c = e->AddComponent<SampleComponent>();
+	std::vector<Component<SampleComponent>*> components;
+	components.reserve(65);
 
-	REQUIRE(CAlloc::Count() == 2);
-	REQUIRE(EAlloc::Count() == 1);
-	REQUIRE(e->sampleComponent->i == 0);
-	REQUIRE(c->i == 0);
+	for (int i = 0; i < 65; i++)
+	{
+		components.emplace_back(Component<SampleComponent>::Create(Entity::Create()));
+	}
 
-	Signal testSignal("SIGNAL_TEST");
-	testSignal.PutArg<int>("Value", 5);
+	REQUIRE(Component<SampleComponent>::Count() == 65);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 2);
 
-	e->SendSignal(testSignal);
+	for (auto it = components.begin(); it != components.end(); it++)
+	{
+		(*it)->Delete();
+	}
 
-	REQUIRE(e->sampleComponent->i == 5);
-	REQUIRE(c->i == 5);
-
-	delete c;
-	delete e;
-
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
 }
 
-TEST_CASE("Signals return empty with wrong type")
+TEST_CASE("Component Hints work as intended")
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Component<OtherComponent>::Count() == 0);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 0);
 
-	SampleEntity* e = new SampleEntity();
+	std::vector<Component<OtherComponent>*> components;
+	components.reserve(10);
 
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-	REQUIRE(e->sampleComponent->i == 0);
+	for (int i = 0; i < 10; i++)
+	{
+		components.push_back(Component<OtherComponent>::Create(Entity::Create(), i));
+	}
 
-	Signal testSignal("SIGNAL_TEST");
-	testSignal.PutArg<std::string>("Value", "Wrong type");
+	REQUIRE(Component<OtherComponent>::Count() == 10);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
 
-	e->SendSignal(testSignal);
+	REQUIRE_THROWS_AS(Component<OtherComponent>::Create(Entity::Create(), 20), std::range_error);
 
-	REQUIRE(e->sampleComponent->i == -1);
+	for (auto it = components.begin(); it != components.end(); it++)
+	{
+		(*it)->Delete();
+	}
 
-	delete e;
-
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Component<OtherComponent>::Count() == 0);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 0);
 }
 
-TEST_CASE("Signals return empty with no value")
+TEST_CASE("Attaching Components works as intended")
 {
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
+	REQUIRE(Component<OtherComponent>::Count() == 0);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 0);
 
-	SampleEntity* e = new SampleEntity();
+	EntityID e1 = Entity::Create();
+	EntityID e2 = Entity::Create();
 
-	REQUIRE(CAlloc::Count() == 1);
-	REQUIRE(EAlloc::Count() == 1);
-	REQUIRE(e->sampleComponent->i == 0);
+	REQUIRE(e1 != e2);
 
-	Signal testSignal("SIGNAL_TEST");
+	auto cs = Component<SampleComponent>::Create(e1);
+	auto co = Component<OtherComponent>::Create(e2, 10);
 
-	e->SendSignal(testSignal);
+	REQUIRE(cs->GetEntity() == e1);
+	REQUIRE(co->GetEntity() == e2);
 
-	REQUIRE(e->sampleComponent->i == -1);
+	REQUIRE(Component<SampleComponent>::FindOne(e1) == cs);
+	REQUIRE(Component<SampleComponent>::FindOne(e2) == nullptr);
+	REQUIRE(Component<OtherComponent>::FindOne(e2) == co);
+	REQUIRE(Component<OtherComponent>::FindOne(e1) == nullptr);
 
-	delete e;
+	REQUIRE(Component<SampleComponent>::Count() == 1);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 1);
+	REQUIRE(Component<OtherComponent>::Count() == 1);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
 
-	REQUIRE(CAlloc::Count() == 0);
-	REQUIRE(EAlloc::Count() == 0);
+	cs->Attach(e2);
+
+	REQUIRE(cs->GetEntity() == e2);
+	REQUIRE(co->GetEntity() == e2);
+
+	REQUIRE(Component<SampleComponent>::FindOne(e1) == nullptr);
+	REQUIRE(Component<SampleComponent>::FindOne(e2) == cs);
+	REQUIRE(Component<OtherComponent>::FindOne(e2) == co);
+	REQUIRE(Component<OtherComponent>::FindOne(e1) == nullptr);
+
+	REQUIRE(Component<SampleComponent>::Count() == 1);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 1);
+	REQUIRE(Component<OtherComponent>::Count() == 1);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
+
+	co->Attach(e1);
+
+	REQUIRE(cs->GetEntity() == e2);
+	REQUIRE(co->GetEntity() == e1);
+
+	REQUIRE(Component<SampleComponent>::FindOne(e1) == nullptr);
+	REQUIRE(Component<SampleComponent>::FindOne(e2) == cs);
+	REQUIRE(Component<OtherComponent>::FindOne(e2) == nullptr);
+	REQUIRE(Component<OtherComponent>::FindOne(e1) == co);
+
+	REQUIRE(Component<SampleComponent>::Count() == 1);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 1);
+	REQUIRE(Component<OtherComponent>::Count() == 1);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
+
+	Entity::Delete(e2);
+
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
+
+	Entity::Delete(e1);
+
+	REQUIRE(Component<OtherComponent>::Count() == 0);
+	REQUIRE(Component<OtherComponent>::ChunkCount() == 0);
 }
 
-//Sync tests
+TEST_CASE("ForEach Works as intended")
+{
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
+
+	EntityID eId = Entity::Create();
+
+	int t1 = 0;
+	int t2 = 0;
+
+	for (int i = 0; i < 200; i++)
+	{
+		auto c = Component<SampleComponent>::Create(eId);
+		c->i = i;
+		t1 += i;
+	}
+
+	Component<SampleComponent>::CForEach([&t2](const Component<SampleComponent>* c)
+	{
+		t2 += c->i;
+	});
+
+	REQUIRE(t1 == t2);
+
+	Component<SampleComponent>::ForEach([](Component<SampleComponent>* c)
+	{
+		c->i = 10;
+	});
+
+	t2 = 0;
+
+	Component<SampleComponent>::CForEach([&t2](const Component<SampleComponent>* c)
+	{
+		t2 += c->i;
+	});
+
+	REQUIRE(t2 == 2000);
+	
+	std::vector<Component<SampleComponent>*> components;
+	components.reserve(200);
+
+	Component<SampleComponent>::ForEach([&components](Component<SampleComponent>* c)
+	{
+		components.emplace_back(c);
+	});
+
+	REQUIRE(components.size() == 200);
+
+	for (auto it = components.begin(); it != components.end(); it++)
+	{
+		if (std::distance(components.begin(), it) % 5 == 0)
+		{
+			(*it)->Delete();
+		}
+	}
+
+	t2 = 0;
+
+	Component<SampleComponent>::CForEach([&t2](const Component<SampleComponent>* c)
+	{
+		t2 += c->i;
+	});
+
+	REQUIRE(t2 == 1600);
+
+	components.clear();
+
+	Entity::Delete(eId);
+
+	REQUIRE(Component<SampleComponent>::Count() == 0);
+	REQUIRE(Component<SampleComponent>::ChunkCount() == 0);
+}
+
+TEST_CASE("Components are destructed properly")
+{
+	REQUIRE(Component<Counter>::Count() == 0);
+	REQUIRE(Component<Counter>::ChunkCount() == 0);
+
+	std::vector<Component<Counter>*> components;
+	components.reserve(500);
+
+	REQUIRE(Component<Counter>::GetNum() == 0);
+
+	EntityID eId = Entity::Create();
+
+	for (int i = 0; i < 500; i++)
+	{
+		components.push_back(Component<Counter>::Create(eId));
+	}
+
+	REQUIRE(Component<Counter>::GetNum() == 500);
+
+	for (int i = 0; i < 100; i++)
+	{
+		components.at(i)->Delete();
+	}
+
+	REQUIRE(Component<Counter>::GetNum() == 400);
+
+	Entity::Delete(eId);
+
+	REQUIRE(Component<Counter>::GetNum() == 0);
+	REQUIRE(Component<Counter>::Count() == 0);
+	REQUIRE(Component<Counter>::ChunkCount() == 0);
+}

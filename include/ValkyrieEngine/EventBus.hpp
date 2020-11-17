@@ -1,24 +1,25 @@
-#pragma once
-
-/*
- * Wuh-oh, you freaking idiot, you just got VECTORED!!!
- * That's a mathematical term, a quantity represented
- * by an arrow with both direction and magnitude.
- * VECTOR! (That's me) Because I'm comitting crimes
- * with both direction AND MMMAGNITUDE! OH YEAH!
+/*!
+ * \file EventBus.hpp
+ * \brief Provides listeners for event loop
  */
+
+#ifndef VLK_EVENTBUS_HPP
+#define VLK_EVENTBUS_HPP
+
 #include <vector>
 #include <algorithm>
 #include <shared_mutex>
 #include <mutex>
-#include "ValkyrieEngine/ThreadPool.hpp"
 
 namespace vlk
 {
 	/*!
-	 * \brief Base class for all event listeners. Do not use this directly, prefer \link vlk::EventListener \endlink, that will automatically subscribe itself to the appropriate \link vlk::EventBus \endlink when constructed.
-	 * \sa vlk::EventListener
-	 * \sa #OnEvent(const T&)
+	 * \brief Base class for all event listeners.
+	 *
+	 * Direct use is discouraged. Prefer inheriting from EventListener<T> instead.
+	 *
+	 * \sa EventListener<T>
+	 * \sa OnEvent(const T&)
 	 */
 	template <typename T>
 	class IEventListener
@@ -26,7 +27,10 @@ namespace vlk
 		public:
 
 		/*!
-		 * \brief Called whenever event T is sent
+		 * \brief Callback raised whenever an event T is recieved.
+		 *
+		 * This must be overridden in the event listener implementation.
+		 *
 		 * \sa vlk::EventBus::Send(const T&)
 		 * \sa vlk::EventBus::AddListener(IEventListener<T>*)
 		 */
@@ -34,7 +38,9 @@ namespace vlk
 	};
 
 	/*!
-	 * \brief Facilitates sending events to user-defined event listeners
+	 * \brief Facilitates sending events to user-defined event listeners.
+	 *
+	 * \sa EventListener<T>
 	 */
 	template <typename T>
 	class EventBus
@@ -50,27 +56,47 @@ namespace vlk
 		public:
 
 		/*!
-		 * \brief Adds an event listener to this event bus
-		 * Once registered, this event listener will then have \link vlk::IEventListener<T>::OnEvent(const T&) OnEvent(const T&) \endlink called whenever an event is sent
-		 * The engine makes no guarantee as to what order event listeners are called in
+		 * \brief Adds an event listener to the event bus
+		 *
+		 * Once added, an event listener will then have IEventListener<T>::OnEvent(const T&) called whenever an event is sent.
+		 * If the listener is already present, it is not added again.
+		 * The engine makes no guarantee as to what order event listeners are called in.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking is handled internally.<br>
+		 * Unique access to this class is required.<br>
+		 * This function may block the calling thread.<br>
+		 *
 		 * \sa vlk::EventListener
 		 * \sa #RemoveListener(IEventListener<T>*)
 		 * \sa #Send(const T& t)
 		 */
 		static void AddListener(IEventListener<T>* listener)
 		{
-			//TODO: Check if the listener is already present
-
 			//Write access is required here, so unique lock.
 			std::unique_lock lock(mtx);
+
+			for (auto it = listeners.begin(); it != listeners.end(); it++)
+			{// Check if the listener is already present
+				if ((*it) == listener) return;
+			}
+
 			listeners.push_back(listener);
 		}
 		
 		/*!
-		 * \brief Removes all instances of an event listener from this event bus
+		 * \brief Removes an event listener from this event bus
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking is handled internally.<br>
+		 * Unique access to this class is required.<br>
+		 * This function may block the calling thread.<br>
+		 *
 		 * \sa vlk::EventListener
-		 * \sa #AddListener(IEventListener<T>*)
-		 * \sa #Send(const T& t)
+		 * \sa AddListener(IEventListener<T>*)
+		 * \sa Send(const T& t)
 		 */
 		static void RemoveListener(IEventListener<T>* listener)
 		{
@@ -80,12 +106,20 @@ namespace vlk
 		}
 
 		/*!
-		 * \brief Raises \link vlk::IEventListener::OnEvent(const T& t) OnEvent() \endlink for all \link vlk::IEventListener event listeners \endlink on this event bus.
+		 * \brief Raises the IEventListener<T>::OnEvent callback for every IEventListener present in the bus.
+		 *
 		 * All listeners get called immediately, one after the other, on the calling thread. This function returns once all listeners have finished executing.
-		 * \sa vlk::EventListener
-		 * \sa #SendAsynchronous
-		 * \sa #AddListener(IEventListener<T>*)
-		 * \sa #RemoveListener(IEventListener<T>*)
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking of this class is handled internally.<br>
+		 * Event listeners must implement their own resource locking.<br>
+		 * Shared access to this class is required.<br>
+		 * This function may block the calling thread.<br>
+		 *
+		 * \sa EventListener<T>
+		 * \sa AddListener(IEventListener<T>*)
+		 * \sa RemoveListener(IEventListener<T>*)
 		 */
 		static void Send(const T& t)
 		{
@@ -99,29 +133,6 @@ namespace vlk
 				listener->OnEvent(t);
 			}
 		}
-
-		/*!
-		 * \brief Raises \link vlk::IEventListener::OnEvent(const T& t) OnEvent() \endlink for all \link vlk::IEventListener event listeners \endlink on this event bus.
-		 * All listeners get sent to the \link vlk::ThreadPool thread pooler \endlink to be executed later.
-		 * This function returns once all listeners have been sent to the thread pooler, not necessarily when they've completed.
-		 * \sa vlk::EventListener
-		 * \sa #Send
-		 * \sa #AddListener(IEventListener<T>*)
-		 * \sa #RemoveListener(IEventListener<T>*)
-		 */
-		static void SendAsynchronous(const T& t)
-		{
-			//Only read access is required, so shared lock
-			std::shared_lock slock(mtx);
-
-			for (auto it = listeners.begin(); it != listeners.end(); it++)
-			{
-				IEventListener<T>* listener(*it);
-
-				ThreadPool::Enqueue(std::bind(&IEventListener<T>::OnEvent, listener));
-			}
-
-		}
 	};
 	
 	template <typename T>
@@ -131,8 +142,8 @@ namespace vlk
 	std::shared_mutex EventBus<T>::mtx;
 
 	/*!
-	 * \brief Helper class for event listeners to inherit from.
-	 * Automatically registers iteself to the appropriate \link vlk::EventBus event bus \endlink when constructed and removes itself when destructed.
+	 * \brief Base class for event listeners to inherit from.
+	 * Automatically registers iteself to the appropriate vlk::EventBus<T> when constructed and removes itself when destructed.
 	 * 
 	 * \sa vlk::EventBus
 	 * \sa vlk::IEventListener
@@ -143,7 +154,7 @@ namespace vlk
 		protected:
 
 		/*!
-		 * \brief Registers this event listener to the \link vlk::EventBus event bus \endlink appropriate for event T.
+		 * \brief Registers this event listener to the EventBus<T>.
 		 */
 		EventListener<T>()
 		{
@@ -151,25 +162,29 @@ namespace vlk
 		}
 
 		/*!
-		 * \brief Removes this event listener from the \link vlk::EventBus event bus \endlink appropriate for event T.
-		 * Please note that in your subclass, you must either specify your destructor as virtual or explicitly call this destructor in order for it to be removed from the eventbus properly.
+		 * \brief Removes this event listener from the vlk::EventBus<T>.
 		 */
-		virtual ~EventListener<T>()
+		~EventListener<T>()
 		{
 			EventBus<T>::RemoveListener(static_cast<IEventListener<T>*>(this));
 		}
 	};
 
 	/*!
-	 * \brief Helper function. Equivelant to:
+	 * \brief Shorthand event sending function.
+	 *
+	 * Equivelant to:
+	 *
 	 * \code{.cpp}
 	 * EventBus<T>::SendEvent(t);
 	 * \endcode
 	 */
 	template<typename T>
-	constexpr void SendEvent(const T& t)
+	inline void SendEvent(const T& t)
 	{
 		vlk::EventBus<T>::Send(t);
 	}
 
 }
+
+#endif

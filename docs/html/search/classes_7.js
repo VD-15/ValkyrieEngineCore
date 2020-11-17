@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['signal_144',['Signal',['../classvlk_1_1Signal.html',1,'vlk']]],
-  ['singletonallocator_145',['SingletonAllocator',['../classvlk_1_1SingletonAllocator.html',1,'vlk']]]
+  ['updateevent_86',['UpdateEvent',['../structvlk_1_1UpdateEvent.html',1,'vlk']]]
 ];

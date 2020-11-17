@@ -2,6 +2,11 @@
 \label{classvlk_1_1EventBus}\index{vlk::EventBus$<$ T $>$@{vlk::EventBus$<$ T $>$}}
 
 
+Facilitates sending events to user-\/defined event listeners.  
+
+
+
+
 {\ttfamily \#include $<$Event\+Bus.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
@@ -16,6 +21,12 @@ static void \mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb
 static void \mbox{\hyperlink{classvlk_1_1EventBus_ad3aa9268799e29876ffa70c2d429ba77}{Send\+Asynchronous}} (const T \&t)
 \begin{DoxyCompactList}\small\item\em Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event() }} for all \mbox{\hyperlink{classvlk_1_1IEventListener}{event listeners }} on this event bus. All listeners get sent to the \mbox{\hyperlink{classvlk_1_1ThreadPool}{thread pooler }} to be executed later. This function returns once all listeners have been sent to the thread pooler, not necessarily when they\textquotesingle{}ve completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class vlk\+::\+Event\+Bus$<$ T $>$}
+
+Facilitates sending events to user-\/defined event listeners. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}\label{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}} 
@@ -98,4 +109,4 @@ Raises \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d4316
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{EventBus_8hpp}{Event\+Bus.\+hpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/Event\+Bus.\+hpp\end{DoxyCompactItemize}

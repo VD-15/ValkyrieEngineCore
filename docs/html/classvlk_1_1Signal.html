@@ -61,28 +61,25 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1Signal.html">Signal</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1Signal.html">Signal</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classvlk_1_1Signal-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vlk::Signal Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html">EventBus</a>, signals are completely dynamic and are sent only to the <a class="el" href="classvlk_1_1Entity.html">Entity</a> that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>.  
+<p>Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html" title="Facilitates sending events to user-defined event listeners.">EventBus</a>, signals are completely dynamic and are sent only to the Entity that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>.  
  <a href="classvlk_1_1Signal.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Signal_8hpp_source.html">Signal.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aacd6564017ff67316b7cc9d67f5337e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Signal.html#aacd6564017ff67316b7cc9d67f5337e1">Signal</a> (std::string _type)</td></tr>
-<tr class="separator:aacd6564017ff67316b7cc9d67f5337e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e94425e6da5673a6b4a498eb49606db"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6e94425e6da5673a6b4a498eb49606db"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvlk_1_1Signal.html#a6e94425e6da5673a6b4a498eb49606db">GetArg</a> (std::string argName) const</td></tr>
 <tr class="memdesc:a6e94425e6da5673a6b4a498eb49606db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an argument from this signal.  <a href="classvlk_1_1Signal.html#a6e94425e6da5673a6b4a498eb49606db">More...</a><br /></td></tr>
@@ -91,42 +88,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:add4292690d8398d937a5a40cb8a989b7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvlk_1_1Signal.html#add4292690d8398d937a5a40cb8a989b7">PutArg</a> (std::string argID, T val)</td></tr>
 <tr class="memdesc:add4292690d8398d937a5a40cb8a989b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns an argument for this signal. If the argument is not present, it is inserted. If the argument is present, it is replaced.  <a href="classvlk_1_1Signal.html#add4292690d8398d937a5a40cb8a989b7">More...</a><br /></td></tr>
 <tr class="separator:add4292690d8398d937a5a40cb8a989b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a0f0b0190d13b76037cdfaddd7fa315fd"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Signal.html#a0f0b0190d13b76037cdfaddd7fa315fd">type</a></td></tr>
-<tr class="separator:a0f0b0190d13b76037cdfaddd7fa315fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html">EventBus</a>, signals are completely dynamic and are sent only to the <a class="el" href="classvlk_1_1Entity.html">Entity</a> that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aacd6564017ff67316b7cc9d67f5337e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacd6564017ff67316b7cc9d67f5337e1">&#9670;&nbsp;</a></span>Signal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vlk::Signal::Signal </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent globally via the <a class="el" href="classvlk_1_1EventBus.html" title="Facilitates sending events to user-defined event listeners.">EventBus</a>, signals are completely dynamic and are sent only to the Entity that recieves them. The components that are attached to the entity then process the signal by inheriting from <a class="el" href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners.">ISignalListener</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6e94425e6da5673a6b4a498eb49606db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e94425e6da5673a6b4a498eb49606db">&#9670;&nbsp;</a></span>GetArg()</h2>
 
@@ -213,21 +178,6 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0f0b0190d13b76037cdfaddd7fa315fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f0b0190d13b76037cdfaddd7fa315fd">&#9670;&nbsp;</a></span>type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string vlk::Signal::type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

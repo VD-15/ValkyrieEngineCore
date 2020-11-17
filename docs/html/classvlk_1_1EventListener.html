@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1EventListener.html">EventListener</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1EventListener.html">EventListener</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -89,11 +89,13 @@ Inheritance diagram for vlk::EventListener&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:afcbf07e66da541d80cb7a12a812d20b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html#afcbf07e66da541d80cb7a12a812d20b0">EventListener</a> ()</td></tr>
-<tr class="memdesc:afcbf07e66da541d80cb7a12a812d20b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers this event listener to the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T.  <a href="classvlk_1_1EventListener.html#afcbf07e66da541d80cb7a12a812d20b0">More...</a><br /></td></tr>
+<tr class="memitem:afcbf07e66da541d80cb7a12a812d20b0"><td class="memItemLeft" align="right" valign="top"><a id="afcbf07e66da541d80cb7a12a812d20b0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html#afcbf07e66da541d80cb7a12a812d20b0">EventListener</a> ()</td></tr>
+<tr class="memdesc:afcbf07e66da541d80cb7a12a812d20b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers this event listener to the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T. <br /></td></tr>
 <tr class="separator:afcbf07e66da541d80cb7a12a812d20b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f12e6c3610c1be2d1e590372df2045c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html#a4f12e6c3610c1be2d1e590372df2045c">~EventListener</a> ()</td></tr>
-<tr class="memdesc:a4f12e6c3610c1be2d1e590372df2045c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes this event listener from the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T. Please note that in your subclass, you must either specify your destructor as virtual or explicitly call this destructor in order for it to be removed from the eventbus properly.  <a href="classvlk_1_1EventListener.html#a4f12e6c3610c1be2d1e590372df2045c">More...</a><br /></td></tr>
+<tr class="memitem:a4f12e6c3610c1be2d1e590372df2045c"><td class="memItemLeft" align="right" valign="top"><a id="a4f12e6c3610c1be2d1e590372df2045c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html#a4f12e6c3610c1be2d1e590372df2045c">~EventListener</a> ()</td></tr>
+<tr class="memdesc:a4f12e6c3610c1be2d1e590372df2045c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes this event listener from the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T. Please note that in your subclass, you must either specify your destructor as virtual or explicitly call this destructor in order for it to be removed from the eventbus properly. <br /></td></tr>
 <tr class="separator:a4f12e6c3610c1be2d1e590372df2045c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -108,69 +110,10 @@ Additional Inherited Members</h2></td></tr>
 class vlk::EventListener&lt; T &gt;</h3>
 
 <p>Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">event bus </a> when constructed and removes itself when destructed. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1EventBus.html">vlk::EventBus</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1EventBus.html" title="Facilitates sending events to user-defined event listeners.">vlk::EventBus</a> </dd>
 <dd>
 <a class="el" href="classvlk_1_1IEventListener.html" title="Base class for all event listeners. Do not use this directly, prefer vlk::EventListener,...">vlk::IEventListener</a> </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afcbf07e66da541d80cb7a12a812d20b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcbf07e66da541d80cb7a12a812d20b0">&#9670;&nbsp;</a></span>EventListener()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt; T &gt;::<a class="el" href="classvlk_1_1EventListener.html">EventListener</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Registers this event listener to the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T. </p>
-
-</div>
-</div>
-<a id="a4f12e6c3610c1be2d1e590372df2045c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f12e6c3610c1be2d1e590372df2045c">&#9670;&nbsp;</a></span>~EventListener()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt; T &gt;::~<a class="el" href="classvlk_1_1EventListener.html">EventListener</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes this event listener from the <a class="el" href="classvlk_1_1EventBus.html">event bus </a> appropriate for event T. Please note that in your subclass, you must either specify your destructor as virtual or explicitly call this destructor in order for it to be removed from the eventbus properly. </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/ValkyrieEngine/<a class="el" href="EventBus_8hpp_source.html">EventBus.hpp</a></li>
 </ul>
 </div><!-- contents -->

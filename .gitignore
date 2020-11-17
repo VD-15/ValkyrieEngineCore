@@ -52,6 +52,8 @@ doxygen.log
 *.kdevses
 .*kate-swp
 build/
+docs
+.clangd/
 mem.log.*
 massif.*
 callgrind.*

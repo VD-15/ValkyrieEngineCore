@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.19"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Valkyrie Engine Core: vlk::Component&lt; T, ComponentAllocator &gt; Class Template Reference</title>
+<title>Valkyrie Engine Core: vlk::Component&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,153 +61,118 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1Component.html">Component</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1Component.html">Component</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classvlk_1_1Component-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vlk::Component&lt; T, ComponentAllocator &gt; Class Template Reference</div>  </div>
+<div class="title">vlk::Component&lt; T &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for user-defined components to inherit from.  
+<p>Template class for ECS components.  
  <a href="classvlk_1_1Component.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Component_8hpp_source.html">Component.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for vlk::Component&lt; T, ComponentAllocator &gt;:</div>
+Inheritance diagram for vlk::Component&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classvlk_1_1Component.png" usemap="#vlk::Component_3C_20T_2C_20ComponentAllocator_20_3E_map" alt=""/>
-  <map id="vlk::Component_3C_20T_2C_20ComponentAllocator_20_3E_map" name="vlk::Component_3C_20T_2C_20ComponentAllocator_20_3E_map">
-<area href="classvlk_1_1IComponent.html" alt="vlk::IComponent" shape="rect" coords="0,56,251,80"/>
-<area href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners." alt="vlk::ISignalListener" shape="rect" coords="0,0,251,24"/>
+  <img src="classvlk_1_1Component.png" usemap="#vlk::Component_3C_20T_20_3E_map" alt=""/>
+  <map id="vlk::Component_3C_20T_20_3E_map" name="vlk::Component_3C_20T_20_3E_map">
+<area href="classvlk_1_1IComponent.html" title="Base class for ValkyrieEngine components." alt="vlk::IComponent" shape="rect" coords="0,0,128,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a48b3e5d5fbd2b2d480e8e77efe0e421c"><td class="memItemLeft" align="right" valign="top">typedef ComponentAllocator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a></td></tr>
-<tr class="separator:a48b3e5d5fbd2b2d480e8e77efe0e421c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afec9f8db20c44cbb625a30cbe0c5ea09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#afec9f8db20c44cbb625a30cbe0c5ea09">Component</a> (<a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *e)</td></tr>
-<tr class="memdesc:afec9f8db20c44cbb625a30cbe0c5ea09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a component.  <a href="classvlk_1_1Component.html#afec9f8db20c44cbb625a30cbe0c5ea09">More...</a><br /></td></tr>
-<tr class="separator:afec9f8db20c44cbb625a30cbe0c5ea09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac48eff2eea0dde402af965cd2d941fd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#ac48eff2eea0dde402af965cd2d941fd9">Component</a> (const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;)=delete</td></tr>
-<tr class="separator:ac48eff2eea0dde402af965cd2d941fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9f53d2b43ea0568d63f23fa40481d68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#ae9f53d2b43ea0568d63f23fa40481d68">Component</a> (<a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&amp;)=delete</td></tr>
-<tr class="separator:ae9f53d2b43ea0568d63f23fa40481d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74ab2d8f3ffb2a14faaf48c6a1e8de26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a74ab2d8f3ffb2a14faaf48c6a1e8de26">operator=</a> (const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;)=delete</td></tr>
-<tr class="separator:a74ab2d8f3ffb2a14faaf48c6a1e8de26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcbe4ea10dabea55056576110d46bb2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#afcbe4ea10dabea55056576110d46bb2e">operator=</a> (<a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&amp;)=delete</td></tr>
-<tr class="separator:afcbe4ea10dabea55056576110d46bb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5d2c64a26de631fe3f49abbab2c54fc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#ae5d2c64a26de631fe3f49abbab2c54fc">~Component</a> ()</td></tr>
-<tr class="separator:ae5d2c64a26de631fe3f49abbab2c54fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ce603c6da757b9673c5fb5cf424daa2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a9ce603c6da757b9673c5fb5cf424daa2">operator new</a> (<a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> size)</td></tr>
-<tr class="memdesc:a9ce603c6da757b9673c5fb5cf424daa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>new</code> operator of this class to use an allocator instead of <code>malloc</code>.  <a href="classvlk_1_1Component.html#a9ce603c6da757b9673c5fb5cf424daa2">More...</a><br /></td></tr>
-<tr class="separator:a9ce603c6da757b9673c5fb5cf424daa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11985d789280ac6f5b014a074879d614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a11985d789280ac6f5b014a074879d614">operator delete</a> (void *ptr)</td></tr>
-<tr class="memdesc:a11985d789280ac6f5b014a074879d614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>delete</code> operator of this class to use an allocator instead of <code>free</code>.  <a href="classvlk_1_1Component.html#a11985d789280ac6f5b014a074879d614">More...</a><br /></td></tr>
-<tr class="separator:a11985d789280ac6f5b014a074879d614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ac8eccff08651f25c5cf7e51ddb9750"><td class="memItemLeft" align="right" valign="top">std::unique_lock&lt; std::mutex &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750">Lock</a> ()</td></tr>
-<tr class="memdesc:a8ac8eccff08651f25c5cf7e51ddb9750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks this component to allow thread-safe access. Blocks the calling thread if this component is already locked.  <a href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750">More...</a><br /></td></tr>
-<tr class="separator:a8ac8eccff08651f25c5cf7e51ddb9750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c52a1f587b3e436a370a782d0f7541f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f">Delete</a> () final override</td></tr>
+<tr class="memdesc:a8c52a1f587b3e436a370a782d0f7541f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes this component.  <a href="classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f">More...</a><br /></td></tr>
+<tr class="separator:a8c52a1f587b3e436a370a782d0f7541f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907b54959d286308b0db84136c58a631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631">Attach</a> (EntityID eId)</td></tr>
+<tr class="memdesc:a907b54959d286308b0db84136c58a631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches this component to an entity.  <a href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631">More...</a><br /></td></tr>
+<tr class="separator:a907b54959d286308b0db84136c58a631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classvlk_1_1IComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classvlk_1_1IComponent')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classvlk_1_1IComponent.html">vlk::IComponent</a></td></tr>
-<tr class="memitem:aabe85521eb9c2d1fa2924af2480909d4 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#aabe85521eb9c2d1fa2924af2480909d4">IComponent</a> (<a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *e)</td></tr>
-<tr class="separator:aabe85521eb9c2d1fa2924af2480909d4 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c316ac30754e2948a6af1bc377ffa9 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#ab9c316ac30754e2948a6af1bc377ffa9">IComponent</a> (const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;)=delete</td></tr>
-<tr class="separator:ab9c316ac30754e2948a6af1bc377ffa9 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043ff6e14bf5994d57ad0660314070e8 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a043ff6e14bf5994d57ad0660314070e8">IComponent</a> (<a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a043ff6e14bf5994d57ad0660314070e8 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fcbe9ab58f7e39bc84d9121dc5a5f32 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a2fcbe9ab58f7e39bc84d9121dc5a5f32">operator=</a> (const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;)=delete</td></tr>
-<tr class="separator:a2fcbe9ab58f7e39bc84d9121dc5a5f32 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce1bbc66527f599f6056d9ab184af4d inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a3ce1bbc66527f599f6056d9ab184af4d">operator=</a> (<a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a3ce1bbc66527f599f6056d9ab184af4d inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6560b900145c3ab95d3baa221222c5af inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a6560b900145c3ab95d3baa221222c5af">~IComponent</a> ()</td></tr>
-<tr class="separator:a6560b900145c3ab95d3baa221222c5af inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bf7d7fe743cbd8bf16f7526e87be5e0 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a0bf7d7fe743cbd8bf16f7526e87be5e0">GetEntity</a> ()</td></tr>
-<tr class="separator:a0bf7d7fe743cbd8bf16f7526e87be5e0 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf681837e0988b5eec7aaf88027ecbc3 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#aaf681837e0988b5eec7aaf88027ecbc3">OnSignal</a> (const <a class="el" href="classvlk_1_1Signal.html">Signal</a> &amp;signal) override</td></tr>
-<tr class="memdesc:aaf681837e0988b5eec7aaf88027ecbc3 inherit pub_methods_classvlk_1_1IComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a signal to this signal listener I don't know what it does, it's virtual.  <a href="classvlk_1_1IComponent.html#aaf681837e0988b5eec7aaf88027ecbc3">More...</a><br /></td></tr>
-<tr class="separator:aaf681837e0988b5eec7aaf88027ecbc3 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484ad5d539d0b0479ddaab2b7d814c57 inherit pub_methods_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top"><a id="a484ad5d539d0b0479ddaab2b7d814c57"></a>
+EntityID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a484ad5d539d0b0479ddaab2b7d814c57">GetEntity</a> () const</td></tr>
+<tr class="memdesc:a484ad5d539d0b0479ddaab2b7d814c57 inherit pub_methods_classvlk_1_1IComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the Entity this component is attached to. <br /></td></tr>
+<tr class="separator:a484ad5d539d0b0479ddaab2b7d814c57 inherit pub_methods_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6dd1b95179713b9cdee541bae7f92397"><td class="memItemLeft" align="right" valign="top">constexpr static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a6dd1b95179713b9cdee541bae7f92397">ForEach</a> (std::function&lt; void(T *)&gt; func)</td></tr>
-<tr class="memdesc:a6dd1b95179713b9cdee541bae7f92397"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs an action on every component of this type. Does not lock the component by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a>  <a href="classvlk_1_1Component.html#a6dd1b95179713b9cdee541bae7f92397">More...</a><br /></td></tr>
-<tr class="separator:a6dd1b95179713b9cdee541bae7f92397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f179e68466fdad9ae7bc3f049426139"><td class="memItemLeft" align="right" valign="top">constexpr static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a2f179e68466fdad9ae7bc3f049426139">ForEach</a> (std::function&lt; void(T *)&gt; func, std::function&lt; bool(const T *)&gt; filter)</td></tr>
-<tr class="memdesc:a2f179e68466fdad9ae7bc3f049426139"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs an action on every component that matches a filter. Neither function locks the component by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a>  <a href="classvlk_1_1Component.html#a2f179e68466fdad9ae7bc3f049426139">More...</a><br /></td></tr>
-<tr class="separator:a2f179e68466fdad9ae7bc3f049426139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d3a91dcf036aea44d235d3836201d56"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a9d3a91dcf036aea44d235d3836201d56">Count</a> ()</td></tr>
-<tr class="memdesc:a9d3a91dcf036aea44d235d3836201d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of components currently exist.  <a href="classvlk_1_1Component.html#a9d3a91dcf036aea44d235d3836201d56">More...</a><br /></td></tr>
-<tr class="separator:a9d3a91dcf036aea44d235d3836201d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d29ce5fa51eb0c895dc9471669da186"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a2d29ce5fa51eb0c895dc9471669da186">Count</a> (std::function&lt; bool(const T *)&gt; filter)</td></tr>
-<tr class="memdesc:a2d29ce5fa51eb0c895dc9471669da186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of components for which <code>filter</code> returns true. The filter does not lock components by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a>  <a href="classvlk_1_1Component.html#a2d29ce5fa51eb0c895dc9471669da186">More...</a><br /></td></tr>
-<tr class="separator:a2d29ce5fa51eb0c895dc9471669da186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f7b222b41a98dd8b7e1409a832540e7"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a8f7b222b41a98dd8b7e1409a832540e7"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">Create</a> (EntityID eId, Args... args)</td></tr>
+<tr class="memdesc:a8f7b222b41a98dd8b7e1409a832540e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a component.  <a href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">More...</a><br /></td></tr>
+<tr class="separator:a8f7b222b41a98dd8b7e1409a832540e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2981e217cc4409b3f4e06fcc52d2a0fb"><td class="memItemLeft" align="right" valign="top">static VLK_NODISCARD <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb">FindOne</a> (EntityID id)</td></tr>
+<tr class="memdesc:a2981e217cc4409b3f4e06fcc52d2a0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a component attached to an entity.  <a href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb">More...</a><br /></td></tr>
+<tr class="separator:a2981e217cc4409b3f4e06fcc52d2a0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d88b07d7c35b2cd259ebe8729690c7"><td class="memItemLeft" align="right" valign="top">static VLK_NODISCARD Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#aa6d88b07d7c35b2cd259ebe8729690c7">FindMany</a> (EntityID id, std::vector&lt; <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; * &gt; vecOut)</td></tr>
+<tr class="memdesc:aa6d88b07d7c35b2cd259ebe8729690c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find components attached to an entity.  <a href="classvlk_1_1Component.html#aa6d88b07d7c35b2cd259ebe8729690c7">More...</a><br /></td></tr>
+<tr class="separator:aa6d88b07d7c35b2cd259ebe8729690c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4147d21b351d27e1deb50c71d903e110"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">ForEach</a> (std::function&lt; void(<a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *)&gt; func)</td></tr>
+<tr class="memdesc:a4147d21b351d27e1deb50c71d903e110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a mutating function on every instance of this component.  <a href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">More...</a><br /></td></tr>
+<tr class="separator:a4147d21b351d27e1deb50c71d903e110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d058b1860c2afa8df0b537344963bd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">CForEach</a> (std::function&lt; void(const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *)&gt; func)</td></tr>
+<tr class="memdesc:ae5d058b1860c2afa8df0b537344963bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a non-mutating function on every instance of this component.  <a href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">More...</a><br /></td></tr>
+<tr class="separator:ae5d058b1860c2afa8df0b537344963bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7392197775146e4b2121a250a294d59b"><td class="memItemLeft" align="right" valign="top">static Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b">Count</a> ()</td></tr>
+<tr class="memdesc:a7392197775146e4b2121a250a294d59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of instances of this component that currently exist.  <a href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b">More...</a><br /></td></tr>
+<tr class="separator:a7392197775146e4b2121a250a294d59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c297121cc37ab938485e4a2a08a8b5"><td class="memItemLeft" align="right" valign="top">static Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Component.html#a54c297121cc37ab938485e4a2a08a8b5">ChunkCount</a> ()</td></tr>
+<tr class="memdesc:a54c297121cc37ab938485e4a2a08a8b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of storage blocks this component has allocated.  <a href="classvlk_1_1Component.html#a54c297121cc37ab938485e4a2a08a8b5">More...</a><br /></td></tr>
+<tr class="separator:a54c297121cc37ab938485e4a2a08a8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classvlk_1_1IComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classvlk_1_1IComponent')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classvlk_1_1IComponent.html">vlk::IComponent</a></td></tr>
+<tr class="memitem:a76efcf44eda74e5f6d6fe0e25347521a inherit pro_attribs_classvlk_1_1IComponent"><td class="memItemLeft" align="right" valign="top"><a id="a76efcf44eda74e5f6d6fe0e25347521a"></a>
+EntityID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a">entity</a></td></tr>
+<tr class="memdesc:a76efcf44eda74e5f6d6fe0e25347521a inherit pro_attribs_classvlk_1_1IComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Entity this component is attached to. <br /></td></tr>
+<tr class="separator:a76efcf44eda74e5f6d6fe0e25347521a inherit pro_attribs_classvlk_1_1IComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, typename ComponentAllocator = ChunkAllocator&lt;T, 64&gt;&gt;<br />
-class vlk::Component&lt; T, ComponentAllocator &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class vlk::Component&lt; T &gt;</h3>
 
-<p>Base class for user-defined components to inherit from. </p>
+<p>Template class for ECS components. </p>
+<p>Components are storage objects that define little to no logic. Components can be attached to entities with <a class="el" href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631" title="Attaches this component to an entity.">Attach()</a> to provide the entity with some sort of property. A <a class="el" href="classvlk_1_1Component.html" title="Template class for ECS components.">Component</a> attached to an entity can then be fetched using <a class="el" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb" title="Find a component attached to an entity.">FindOne(EntityID)</a> or FindMany(EntityID). Components can also be accessed or modified by passing a function object to either ForEach(std::function&lt;void(const T*)&gt;) or ForEach(std::function&lt;void(T*)&gt;)</p>
+<p>Some behaviour related to Components can be controlled by specializing <a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9" title="Function used to retrieve the hints for a specified component type.">GetComponentHints()</a> for T.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>The derrived component class </td></tr>
-    <tr><td class="paramname">ComponentAllocator</td><td>The allocator class used to allocate instances of this component</td></tr>
+    <tr><td class="paramname">T</td><td>The data this entity is storing. Ideally this would be a POD struct, but any type with at least one public constructor and a public destructor will work.</td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="keyword">class </span>MyComponent : <span class="keyword">public</span> <a class="code" href="classvlk_1_1Component.html">vlk::Component</a>&lt;MyComponent, vlk::LinkedAllocator&lt;10&gt;&gt;</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line">    MyComponent(IEntity* e) :</div>
-<div class="line">        <a class="code" href="classvlk_1_1Component.html#afec9f8db20c44cbb625a30cbe0c5ea09">Component</a>&lt;MyComponent&gt;(e)</div>
-<div class="line">    { ... }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">//...</span></div>
-<div class="line">}</div>
-</div><!-- fragment --> </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a48b3e5d5fbd2b2d480e8e77efe0e421c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48b3e5d5fbd2b2d480e8e77efe0e421c">&#9670;&nbsp;</a></span>Allocator</h2>
+<dl class="section see"><dt>See also</dt><dd>EntityID </dd>
+<dd>
+Entity::Create() </dd>
+<dd>
+<a class="el" href="structvlk_1_1ComponentHints.html" title="Hint struct used to specify some component-related behaviour.">ComponentHints</a> </dd>
+<dd>
+<a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9" title="Function used to retrieve the hints for a specified component type.">GetComponentHints()</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a907b54959d286308b0db84136c58a631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907b54959d286308b0db84136c58a631">&#9670;&nbsp;</a></span>Attach()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ComponentAllocator <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::<a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afec9f8db20c44cbb625a30cbe0c5ea09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec9f8db20c44cbb625a30cbe0c5ea09">&#9670;&nbsp;</a></span>Component() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::<a class="el" href="classvlk_1_1Component.html">Component</a> </td>
+          <td class="memname">void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::Attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
+          <td class="paramtype">EntityID&#160;</td>
+          <td class="paramname"><em>eId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -218,218 +183,195 @@ template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a component. </p>
+<p>Attaches this component to an entity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>Pointer to the entity this component is attached to </td></tr>
+    <tr><td class="paramname">eId</td><td>The entity to attach this component to.</td></tr>
   </table>
   </dd>
 </dl>
+<p>A component can only be attached to one entity at a time, if this component is already attached to an entity when Attach is called, it is detached from that entity and attached to the new one. Components cannot exist detached from an entity.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this class is required.<br  />
+ Unique access to the ECRegistry&lt;IComponent&gt; class is required.<br  />
+ Unique access to the <a class="el" href="classvlk_1_1ECRegistry.html" title="Tracks what components are attached to what entities.">ECRegistry</a>&lt;Component&lt;T&gt;&gt; class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line">EntityID e1 = Entity::Create();</div>
+<div class="line">EntityID e2 = Entity::Create();</div>
+<div class="line"> </div>
+<div class="line">Component&lt;MyData&gt;* component = <a class="code" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">Component&lt;MyData&gt;::Create</a>(e1);</div>
+<div class="line">component-&gt;Attach(e2);</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>Entity::Create() </dd>
+<dd>
+Entity::Global </dd>
+<dd>
+<a class="el" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb" title="Find a component attached to an entity.">FindOne(EntityID)</a> </dd></dl>
 
 </div>
 </div>
-<a id="ac48eff2eea0dde402af965cd2d941fd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac48eff2eea0dde402af965cd2d941fd9">&#9670;&nbsp;</a></span>Component() <span class="overload">[2/3]</span></h2>
+<a id="ae5d058b1860c2afa8df0b537344963bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5d058b1860c2afa8df0b537344963bd">&#9670;&nbsp;</a></span>CForEach()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::<a class="el" href="classvlk_1_1Component.html">Component</a> </td>
+          <td class="memname">static void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::CForEach </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae9f53d2b43ea0568d63f23fa40481d68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9f53d2b43ea0568d63f23fa40481d68">&#9670;&nbsp;</a></span>Component() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::<a class="el" href="classvlk_1_1Component.html">Component</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5d2c64a26de631fe3f49abbab2c54fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5d2c64a26de631fe3f49abbab2c54fc">&#9670;&nbsp;</a></span>~Component()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::~<a class="el" href="classvlk_1_1Component.html">Component</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9d3a91dcf036aea44d235d3836201d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d3a91dcf036aea44d235d3836201d56">&#9670;&nbsp;</a></span>Count() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::Count </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of components currently exist. </p>
-
-</div>
-</div>
-<a id="a2d29ce5fa51eb0c895dc9471669da186"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d29ce5fa51eb0c895dc9471669da186">&#9670;&nbsp;</a></span>Count() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::Count </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; bool(const T *)&gt;&#160;</td>
-          <td class="paramname"><em>filter</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of components for which <code>filter</code> returns true. The filter does not lock components by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a> </p>
-
-</div>
-</div>
-<a id="a6dd1b95179713b9cdee541bae7f92397"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dd1b95179713b9cdee541bae7f92397">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr static void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::ForEach </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void(T *)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *)&gt;&#160;</td>
           <td class="paramname"><em>func</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>performs an action on every component of this type. Does not lock the component by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a> </p>
+<p>Performs a non-mutating function on every instance of this component. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The function object to be performed </td></tr>
+    <tr><td class="paramname">func</td><td>A function object that returns void and accepts a single pointer to a const Component&lt;T&gt;.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a> </dd></dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Shared access to this class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>MyData</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">bool</span> bar = <span class="keyword">false</span>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">std::vector&lt;const Component&lt;MyData*&gt;&gt; components;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">Component&lt;MyData&gt;::CForEach</a>([](<span class="keyword">const</span> Component&lt;MyData*&gt; c)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (c-&gt;foo) components.insert_back(c);</div>
+<div class="line">});</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110" title="Performs a mutating function on every instance of this component.">ForEach(std::function&lt;void(Component&lt;T&gt;*)&gt;)</a> </dd></dl>
 
 </div>
 </div>
-<a id="a2f179e68466fdad9ae7bc3f049426139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f179e68466fdad9ae7bc3f049426139">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[2/2]</span></h2>
+<a id="a54c297121cc37ab938485e4a2a08a8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c297121cc37ab938485e4a2a08a8b5">&#9670;&nbsp;</a></span>ChunkCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr static void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::ForEach </td>
+          <td class="memname">static Size <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::ChunkCount </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void(T *)&gt;&#160;</td>
-          <td class="paramname"><em>func</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of storage blocks this component has allocated. </p>
+<p>If <code><a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9" title="Function used to retrieve the hints for a specified component type.">GetComponentHints&lt;T&gt;()</a>.allocAutoResize</code> evaluates to true, this number will not exceed 1.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Shared access to this class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b" title="Returns the number of instances of this component that currently exist.">Count()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7392197775146e4b2121a250a294d59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7392197775146e4b2121a250a294d59b">&#9670;&nbsp;</a></span>Count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Size <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::Count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of instances of this component that currently exist. </p>
+<p>If <code><a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9" title="Function used to retrieve the hints for a specified component type.">GetComponentHints&lt;T&gt;()</a>.allocAutoResize</code> evaluates to true, this number will not exceed the value specified by <code><a class="el" href="Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9" title="Function used to retrieve the hints for a specified component type.">GetComponentHints&lt;T&gt;()</a>.allocBlockSize</code></p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Shared access to this class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>MyData</div>
+<div class="line">{</div>
+<div class="line">    ...</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">std::vector&lt;const Component&lt;MyData*&gt;&gt; components;</div>
+<div class="line">components.reserve(<a class="code" href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b">Component&lt;MyData*&gt;::Count</a>());</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">Component&lt;MyData&gt;::CForEach</a>([](<span class="keyword">const</span> Component&lt;MyData*&gt; c)</div>
+<div class="line">{</div>
+<div class="line">    components.insert_back(c);</div>
+<div class="line">});</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a54c297121cc37ab938485e4a2a08a8b5" title="Returns the number of storage blocks this component has allocated.">ChunkCount()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8f7b222b41a98dd8b7e1409a832540e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7b222b41a98dd8b7e1409a832540e7">&#9670;&nbsp;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classvlk_1_1Component.html">Component</a>&lt;T&gt;* <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::Create </td>
+          <td>(</td>
+          <td class="paramtype">EntityID&#160;</td>
+          <td class="paramname"><em>eId</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; bool(const T *)&gt;&#160;</td>
-          <td class="paramname"><em>filter</em>&#160;</td>
+          <td class="paramtype">Args...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -439,35 +381,56 @@ template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>performs an action on every component that matches a filter. Neither function locks the component by default, if simultaneous access is a concern, see <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750" title="Locks this component to allow thread-safe access. Blocks the calling thread if this component is alre...">Lock()</a> </p>
+<p>Creates a component. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The function object to be performed </td></tr>
-    <tr><td class="paramname">fiter</td><td>The filter for objects to be checked against <code>func</code> will be called on every component where <code>filter</code> returns true </td></tr>
+    <tr><td class="paramname">eId</td><td>The entity to attach the new component to. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments to be forwarded to the constructor for T.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new component. This component should be destroyed either by calling Delete on it, or calling Entity::Delete on the entity it's attached to.</dd></dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyData</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">int</span> foo;</div>
+<div class="line"> </div>
+<div class="line">    MyData(<span class="keywordtype">int</span> f) : foo(f) { }</div>
+<div class="line">    ~MyData() = <span class="keywordflow">default</span>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">EntityID eId = Entity::Create();</div>
+<div class="line"> </div>
+<div class="line">Component&lt;MyData&gt;* component = <a class="code" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">Component&lt;MyData&gt;::Create</a>(eId, 5);</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>Entity::Create() </dd>
+<dd>
+<a class="el" href="classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f" title="Deletes this component.">Delete()</a> </dd></dl>
 
 </div>
 </div>
-<a id="a8ac8eccff08651f25c5cf7e51ddb9750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ac8eccff08651f25c5cf7e51ddb9750">&#9670;&nbsp;</a></span>Lock()</h2>
+<a id="a8c52a1f587b3e436a370a782d0f7541f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c52a1f587b3e436a370a782d0f7541f">&#9670;&nbsp;</a></span>Delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_lock&lt;std::mutex&gt; <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::Lock </td>
+          <td class="memname">virtual void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::Delete </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -475,129 +438,188 @@ template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Locks this component to allow thread-safe access. Blocks the calling thread if this component is already locked. </p>
-<dl class="section return"><dt>Returns</dt><dd>A unique_lock object that owns this component, destroy it to unlock the component. </dd></dl>
+<p>Deletes this component. </p>
+<p>If this component is attached to an entity, it is detached. Also calls the destructor for this object.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this class is required.<br  />
+ Unique access to the ECRegistry&lt;IComponent&gt; class is required.<br  />
+ Unique access to the <a class="el" href="classvlk_1_1ECRegistry.html" title="Tracks what components are attached to what entities.">ECRegistry</a>&lt;Component&lt;T&gt;&gt; class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line">Component&lt;MyData&gt;* component = <a class="code" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">Component&lt;MyData&gt;::Create</a>(eId, 5);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Do something with component.</span></div>
+<div class="line"> </div>
+<div class="line">component-&gt;Delete();</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>Create(EntityID, Args) </dd></dl>
+
+<p>Implements <a class="el" href="classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df">vlk::IComponent</a>.</p>
 
 </div>
 </div>
-<a id="a11985d789280ac6f5b014a074879d614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11985d789280ac6f5b014a074879d614">&#9670;&nbsp;</a></span>operator delete()</h2>
+<a id="aa6d88b07d7c35b2cd259ebe8729690c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d88b07d7c35b2cd259ebe8729690c7">&#9670;&nbsp;</a></span>FindMany()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::operator delete </td>
+          <td class="memname">static VLK_NODISCARD Size <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::FindMany </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td class="paramtype">EntityID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; * &gt;&#160;</td>
+          <td class="paramname"><em>vecOut</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overloads the <code>delete</code> operator of this class to use an allocator instead of <code>free</code>. </p>
+<p>Find components attached to an entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The entity to find components for.</td></tr>
+    <tr><td class="paramname">vecOut</td><td>A vector to write the found components to. Existing contents are not modified, but the vector may be resized.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of components appended to vecOut</dd></dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Shared access to the <a class="el" href="classvlk_1_1ECRegistry.html" title="Tracks what components are attached to what entities.">ECRegistry</a>&lt;Component&lt;T&gt;&gt; class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line">std::vector&lt;Component&lt;MyData&gt;*&gt; components;</div>
+<div class="line"><a class="code" href="classvlk_1_1Component.html#aa6d88b07d7c35b2cd259ebe8729690c7">Component&lt;MyData&gt;::FindMany</a>(<a class="code" href="classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a">entity</a>, components);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (Component&lt;MyData&gt;* : components)</div>
+<div class="line">{</div>
+<div class="line">    ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631" title="Attaches this component to an entity.">Attach(EntityID)</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb" title="Find a component attached to an entity.">FindOne(EntityID)</a> </dd></dl>
 
 </div>
 </div>
-<a id="a9ce603c6da757b9673c5fb5cf424daa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ce603c6da757b9673c5fb5cf424daa2">&#9670;&nbsp;</a></span>operator new()</h2>
+<a id="a2981e217cc4409b3f4e06fcc52d2a0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2981e217cc4409b3f4e06fcc52d2a0fb">&#9670;&nbsp;</a></span>FindOne()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::operator new </td>
+          <td class="memname">static VLK_NODISCARD <a class="el" href="classvlk_1_1Component.html">Component</a>&lt;T&gt;* <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::FindOne </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramtype">EntityID&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overloads the <code>new</code> operator of this class to use an allocator instead of <code>malloc</code>. </p>
+<p>Find a component attached to an entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>One component of this type attached to the given entity. </dd>
+<dd>
+<code>nullptr</code> if no component of this type is found. If multiple components of this type are attached to the given entity, no guarantees are made as to which component will be returned.</dd></dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Shared access to the <a class="el" href="classvlk_1_1ECRegistry.html" title="Tracks what components are attached to what entities.">ECRegistry</a>&lt;Component&lt;T&gt;&gt; class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line">Component&lt;MyData&gt;* component = <a class="code" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb">Component&lt;MyData&gt;::FindOne</a>(<a class="code" href="classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a">entity</a>);</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631" title="Attaches this component to an entity.">Attach(EntityID)</a> </dd>
+<dd>
+FindMany(EntityID) </dd></dl>
 
 </div>
 </div>
-<a id="afcbe4ea10dabea55056576110d46bb2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcbe4ea10dabea55056576110d46bb2e">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a4147d21b351d27e1deb50c71d903e110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4147d21b351d27e1deb50c71d903e110">&#9670;&nbsp;</a></span>ForEach()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt;T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a>&gt;&amp; <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::operator= </td>
+          <td class="memname">static void <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T &gt;::ForEach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T &gt; *)&gt;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a74ab2d8f3ffb2a14faaf48c6a1e8de26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74ab2d8f3ffb2a14faaf48c6a1e8de26">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Component.html">Component</a>&lt;T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a>&gt;&amp; <a class="el" href="classvlk_1_1Component.html">vlk::Component</a>&lt; T, ComponentAllocator &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvlk_1_1Component.html">Component</a>&lt; T, <a class="el" href="classvlk_1_1Component.html#a48b3e5d5fbd2b2d480e8e77efe0e421c">Allocator</a> &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Performs a mutating function on every instance of this component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>A function object that returns void and accepts a single pointer to a Component&lt;T&gt;.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>MyData</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> foo = 0;</div>
+<div class="line">    <span class="keywordtype">bool</span> bar = <span class="keyword">false</span>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">Component&lt;MyData&gt;::ForEach</a>([](Component&lt;MyData*&gt; c)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (c-&gt;bar)</div>
+<div class="line">    {</div>
+<div class="line">       c-&gt;foo = 15;</div>
+<div class="line">    }</div>
+<div class="line">});</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>ForEach(std::function&lt;void(const Component&lt;T&gt;*)&gt;) </dd></dl>
 
 </div>
 </div>
@@ -605,8 +627,13 @@ template&lt;typename T , typename ComponentAllocator  = ChunkAllocator&lt;T, 64&
 <li>include/ValkyrieEngine/<a class="el" href="Component_8hpp_source.html">Component.hpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassvlk_1_1Component_html_afec9f8db20c44cbb625a30cbe0c5ea09"><div class="ttname"><a href="classvlk_1_1Component.html#afec9f8db20c44cbb625a30cbe0c5ea09">vlk::Component::Component</a></div><div class="ttdeci">Component(IEntity *e)</div><div class="ttdoc">Constructs a component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:40</div></div>
-<div class="ttc" id="aclassvlk_1_1Component_html"><div class="ttname"><a href="classvlk_1_1Component.html">vlk::Component</a></div><div class="ttdoc">Base class for user-defined components to inherit from.</div><div class="ttdef"><b>Definition:</b> Component.hpp:28</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a2981e217cc4409b3f4e06fcc52d2a0fb"><div class="ttname"><a href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb">vlk::Component::FindOne</a></div><div class="ttdeci">static VLK_NODISCARD Component&lt; T &gt; * FindOne(EntityID id)</div><div class="ttdoc">Find a component attached to an entity.</div><div class="ttdef"><b>Definition:</b> Component.hpp:441</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_ae5d058b1860c2afa8df0b537344963bd"><div class="ttname"><a href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">vlk::Component::CForEach</a></div><div class="ttdeci">static void CForEach(std::function&lt; void(const Component&lt; T &gt; *)&gt; func)</div><div class="ttdoc">Performs a non-mutating function on every instance of this component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:554</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_aa6d88b07d7c35b2cd259ebe8729690c7"><div class="ttname"><a href="classvlk_1_1Component.html#aa6d88b07d7c35b2cd259ebe8729690c7">vlk::Component::FindMany</a></div><div class="ttdeci">static VLK_NODISCARD Size FindMany(EntityID id, std::vector&lt; Component&lt; T &gt; * &gt; vecOut)</div><div class="ttdoc">Find components attached to an entity.</div><div class="ttdef"><b>Definition:</b> Component.hpp:477</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a4147d21b351d27e1deb50c71d903e110"><div class="ttname"><a href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">vlk::Component::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(Component&lt; T &gt; *)&gt; func)</div><div class="ttdoc">Performs a mutating function on every instance of this component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:514</div></div>
+<div class="ttc" id="aclassvlk_1_1IComponent_html_a76efcf44eda74e5f6d6fe0e25347521a"><div class="ttname"><a href="classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a">vlk::IComponent::entity</a></div><div class="ttdeci">EntityID entity</div><div class="ttdoc">The Entity this component is attached to.</div><div class="ttdef"><b>Definition:</b> IComponent.hpp:17</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a8f7b222b41a98dd8b7e1409a832540e7"><div class="ttname"><a href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">vlk::Component::Create</a></div><div class="ttdeci">static Component&lt; T &gt; * Create(EntityID eId, Args... args)</div><div class="ttdoc">Creates a component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:282</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a7392197775146e4b2121a250a294d59b"><div class="ttname"><a href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b">vlk::Component::Count</a></div><div class="ttdeci">static Size Count()</div><div class="ttdoc">Returns the number of instances of this component that currently exist.</div><div class="ttdef"><b>Definition:</b> Component.hpp:594</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

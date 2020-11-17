@@ -2,122 +2,115 @@
 \label{classvlk_1_1LinkedAllocator}\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
 
 
-Allocator backed by an unbounded linked-\/list.  
+Unbounded allocator backed by a doubly-\/linked list.  
 
 
 
 
 {\ttfamily \#include $<$Linked\+Allocator.\+hpp$>$}
 
-\doxysubsection*{Static Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void $\ast$ \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a70b59e358b6cdd194c3ca0ff40c0aecd}{Allocate}} ()
-\begin{DoxyCompactList}\small\item\em Allocates space for a new instance of T. Does not construct T. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_ac422f89cb733c4a981cba376306fb9fe}{Deallocate}} (void $\ast$ptr)
-\begin{DoxyCompactList}\small\item\em Deallocates the memory taken up by ptr Does not call T\textquotesingle{}s destructor. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_acc158bc518236c68b5f72e7704b9d820}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func)
-\begin{DoxyCompactList}\small\item\em performs a function on every active instance of T owned by this allocator \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a6cf0fd140bd65fdd277d86132ea03a44}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func, std\+::function$<$ bool(const T $\ast$)$>$ filter)
-\begin{DoxyCompactList}\small\item\em Performs a function on every active instance of T owned by this allocator that matches a filter. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator_ab7d3a0de2fa4e8416601d48147343775}{Count}} ()
-\begin{DoxyCompactList}\small\item\em Returns the number of active instances of T owned by this allocator. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a453ab22ed08c2ba2b2c8d0305ac870e9}{Count}} (std\+::function$<$ bool(const T $\ast$)$>$ filter)
-\begin{DoxyCompactList}\small\item\em Returns the number of active instance of T owned by this allocator that match a filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+T $\ast$ \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a97dfa21f748db1dcdc71111e38076613}{Construct}} ()
+\begin{DoxyCompactList}\small\item\em Default-\/constructs a new instance of T in this allocator\textquotesingle{}s storage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a467eb60a087416a27802d87d8a9c3256}{Delete}} (T $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Destructs an instance of T owned by this allocator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a1f095b566cc8856e374a5f390f10a0ed}{For\+Each}} (std\+::function$<$ void(T $\ast$)$>$ func)
+\begin{DoxyCompactList}\small\item\em Performs a function on every instance this allocator owns. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a5d620bd783cf486ee7774c64eae3343f}{For\+Each}} (std\+::function$<$ void(const T $\ast$)$>$ func) const
+\begin{DoxyCompactList}\small\item\em Performs a function on every instance this allocator owns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator_a39182ca0c9f0d4f7c74f0efdecbd5f26}{Alloc\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of instances of T owned by this allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T$>$\newline
 class vlk\+::\+Linked\+Allocator$<$ T $>$}
 
-Allocator backed by an unbounded linked-\/list. 
+Unbounded allocator backed by a doubly-\/linked list. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a70b59e358b6cdd194c3ca0ff40c0aecd}\label{classvlk_1_1LinkedAllocator_a70b59e358b6cdd194c3ca0ff40c0aecd}} 
-\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Allocate@{Allocate}}
-\index{Allocate@{Allocate}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Allocate()}{Allocate()}}
+\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a39182ca0c9f0d4f7c74f0efdecbd5f26}\label{classvlk_1_1LinkedAllocator_a39182ca0c9f0d4f7c74f0efdecbd5f26}} 
+\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!AllocCount@{AllocCount}}
+\index{AllocCount@{AllocCount}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AllocCount()}{AllocCount()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static void$\ast$ \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Alloc\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Allocates space for a new instance of T. Does not construct T. 
+Returns the number of instances of T owned by this allocator. 
 
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_ab7d3a0de2fa4e8416601d48147343775}\label{classvlk_1_1LinkedAllocator_ab7d3a0de2fa4e8416601d48147343775}} 
-\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Count@{Count}}
-\index{Count@{Count}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a97dfa21f748db1dcdc71111e38076613}\label{classvlk_1_1LinkedAllocator_a97dfa21f748db1dcdc71111e38076613}} 
+\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Construct@{Construct}}
+\index{Construct@{Construct}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+T$\ast$ \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Returns the number of active instances of T owned by this allocator. 
+Default-\/constructs a new instance of T in this allocator\textquotesingle{}s storage. 
 
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a453ab22ed08c2ba2b2c8d0305ac870e9}\label{classvlk_1_1LinkedAllocator_a453ab22ed08c2ba2b2c8d0305ac870e9}} 
-\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Count@{Count}}
-\index{Count@{Count}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Count()}{Count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\begin{DoxyParagraph}{Thread Safety}
+Test. Also test.
+\end{DoxyParagraph}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly-\/allocated instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a467eb60a087416a27802d87d8a9c3256}\label{classvlk_1_1LinkedAllocator_a467eb60a087416a27802d87d8a9c3256}} 
+\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Delete@{Delete}}
+\index{Delete@{Delete}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static \mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Count (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Delete (\begin{DoxyParamCaption}\item[{T $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Returns the number of active instance of T owned by this allocator that match a filter. 
+Destructs an instance of T owned by this allocator. 
+
+The data at {\ttfamily ptr} is considered invalid after this function returns.
 
 
-\begin{DoxyParams}{Parameters}
-{\em filter} & The non-\/modifying function that every instance of T is checked against \\
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if ptr is not owned by this allocator. \\
 \hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_ac422f89cb733c4a981cba376306fb9fe}\label{classvlk_1_1LinkedAllocator_ac422f89cb733c4a981cba376306fb9fe}} 
-\index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!Deallocate@{Deallocate}}
-\index{Deallocate@{Deallocate}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Deallocate()}{Deallocate()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::Deallocate (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Deallocates the memory taken up by ptr Does not call T\textquotesingle{}s destructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em ptr} & A pointer to an instance of T allocated by this allocator \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_acc158bc518236c68b5f72e7704b9d820}\label{classvlk_1_1LinkedAllocator_acc158bc518236c68b5f72e7704b9d820}} 
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a5d620bd783cf486ee7774c64eae3343f}\label{classvlk_1_1LinkedAllocator_a5d620bd783cf486ee7774c64eae3343f}} 
 \index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!ForEach@{ForEach}}
 \index{ForEach@{ForEach}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(const T $\ast$)$>$}]{func }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-performs a function on every active instance of T owned by this allocator 
+Performs a function on every instance this allocator owns. 
 
-\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a6cf0fd140bd65fdd277d86132ea03a44}\label{classvlk_1_1LinkedAllocator_a6cf0fd140bd65fdd277d86132ea03a44}} 
+
+\begin{DoxyParams}{Parameters}
+{\em func} & A function object that accepts a pointer to a single const instance of T. This function object will be called once for each instance of T in this allocator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvlk_1_1LinkedAllocator_a1f095b566cc8856e374a5f390f10a0ed}\label{classvlk_1_1LinkedAllocator_a1f095b566cc8856e374a5f390f10a0ed}} 
 \index{vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}!ForEach@{ForEach}}
 \index{ForEach@{ForEach}!vlk::LinkedAllocator$<$ T $>$@{vlk::LinkedAllocator$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func,  }\item[{std\+::function$<$ bool(const T $\ast$)$>$}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+void \mbox{\hyperlink{classvlk_1_1LinkedAllocator}{vlk\+::\+Linked\+Allocator}}$<$ T $>$\+::For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Performs a function on every active instance of T owned by this allocator that matches a filter. 
+Performs a function on every instance this allocator owns. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em func} & The modifier function to perform on every instance of T that passes the filter \\
-\hline
-{\em filter} & The non-\/modifying filter function that every instance of T is checked against \\
+{\em func} & A function object that accepts a pointer to a single instance of T. This function object will be called once for every instance of T. \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{LinkedAllocator_8hpp}{Linked\+Allocator.\+hpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/Linked\+Allocator.\+hpp\end{DoxyCompactItemize}

@@ -2,23 +2,16 @@
 \label{Allocator_8hpp}\index{include/ValkyrieEngine/Allocator.hpp@{include/ValkyrieEngine/Allocator.hpp}}
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Defs.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classvlk_1_1HasAllocateFunc}{vlk\+::\+Has\+Allocate\+Func$<$ Alloc $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Allocate} that returns a {\ttfamily void$\ast$}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasDeallocateFunc}{vlk\+::\+Has\+Deallocate\+Func$<$ Alloc $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Deallocate} that takes a {\ttfamily void$\ast$} as an argument and returns {\ttfamily void}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasForEachFunc}{vlk\+::\+Has\+For\+Each\+Func$<$ Alloc, Param $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes a function as an argument. This function should return void and should take a {\ttfamily Param$\ast$} as an argument. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasFilterForEachFunc}{vlk\+::\+Has\+Filter\+For\+Each\+Func$<$ Alloc, Param $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily For\+Each} that takes two functions as arguments\+: A modifier function that returns void and takes a {\ttfamily Param$\ast$} as an argument A filter function that returns a bool and takes a {\ttfamily const Param$\ast$} as an argument. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasCountFunc}{vlk\+::\+Has\+Count\+Func$<$ Alloc $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Count} that returns a {\ttfamily Size}. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvlk_1_1HasFilterCountFunc}{vlk\+::\+Has\+Filter\+Count\+Func$<$ Alloc, Param $>$}}
-\begin{DoxyCompactList}\small\item\em Ensures that type {\ttfamily Alloc} has a function called {\ttfamily Count} that takes a {\ttfamily std\+::function$<$bool(\+Param$\ast$)$>$} and returns a {\ttfamily Size}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{classvlk_1_1IsValidAllocator}{vlk\+::\+Is\+Valid\+Allocator$<$ Allocator, T $>$}}
+\begin{DoxyCompactList}\small\item\em Assesses whether a type is a valid Valkyrie\+Engine Allocator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvlk_1_1IsValidElementType}{vlk\+::\+Is\+Valid\+Element\+Type$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Assesses whether a type is a valid element type for a Valkyrie\+Engine allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespacevlk}{vlk}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Chunk-\/based Allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}

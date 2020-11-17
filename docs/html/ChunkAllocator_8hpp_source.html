@@ -69,186 +69,175 @@ $(function() {
 <div class="title">ChunkAllocator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ChunkAllocator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Allocator_8hpp.html">ValkyrieEngine/Allocator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevlk.html">vlk</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, Size Capacity&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">class </span>Chunk</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            T* allocations;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            std::array&lt;bool, Capacity&gt; isOccupied;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            Chunk()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                allocations = <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(malloc(<span class="keyword">sizeof</span>(T) * Capacity));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    isOccupied[i] = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            }</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef VLK_CHUNK_ALLOCATOR_HPP</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define VLK_CHUNK_ALLOCATOR_HPP</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/Allocator.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ValkyrieDebug_8hpp.html">ValkyrieEngine/ValkyrieDebug.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;bitset&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevlk.html">vlk</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, Size Capacity&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a> final</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">class </span>Chunk final</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            T* storage;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            std::bitset&lt;Capacity&gt; allocations;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            ~Chunk()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            Chunk()</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                free(allocations);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">class </span>Internal</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            std::vector&lt;Chunk*&gt; chunks;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            std::shared_mutex mtx;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            Internal() {}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> Internal <span class="keyword">internal</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        static_assert(Capacity != 0, <span class="stringliteral">&quot;Capacity must be larger than 0&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> desiredChunkSize = <span class="keyword">sizeof</span>(T) * Capacity;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                allocations = <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(desiredChunkSize);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">if</span> (allocations == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    Log&lt;LogLevel::Error&gt;(<span class="stringliteral">&quot;Initial allocation failed. Requested size: &quot;</span> + std::to_string(desiredChunkSize), __FILE__, __LINE__);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    <span class="keywordflow">throw</span> std::bad_alloc();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                allocations.reset();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            Chunk(Chunk&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            Chunk(<span class="keyword">const</span> Chunk&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            Chunk&amp; operator=(Chunk&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            Chunk&amp; operator=(<span class="keyword">const</span> Chunk&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#adbeaabf1fa2aff0e23548ae8b0f19df4">   53</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classvlk_1_1ChunkAllocator.html#adbeaabf1fa2aff0e23548ae8b0f19df4">Allocate</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::unique_lock ulock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <span class="keywordflow">if</span> (chunk-&gt;isOccupied[i] == <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        chunk-&gt;isOccupied[i] = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordflow">return</span> &amp;chunk-&gt;allocations[i];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            Chunk* c = <span class="keyword">new</span> Chunk();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">internal</span>.chunks.push_back(c);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            c-&gt;isOccupied.at(0) = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> &amp;c-&gt;allocations[0];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a626ba67cd12225d44e34e22c3e3e64bd">   79</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#a626ba67cd12225d44e34e22c3e3e64bd">Deallocate</a>(<span class="keywordtype">void</span>* ptr)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            std::unique_lock ulock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            T* t  = <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(ptr);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="comment">//Search for chunk that contains ptr </span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">if</span> (t &gt;= &amp;chunk-&gt;allocations[0])</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="comment">//if ptr is infront of chunk, we can calculate index and check if it lies within the chunk</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <span class="comment">//if ptr is behind chunk, then it&#39;s not in the chunk anyway</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> index = t - chunk-&gt;allocations;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="keywordflow">if</span> (index &lt; Capacity)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        chunk-&gt;isOccupied[index] = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="comment">//if the chunk is empty, then delete it.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <span class="keywordflow">if</span> (std::find(chunk-&gt;isOccupied.begin(), chunk-&gt;isOccupied.end(), <span class="keyword">true</span>) == chunk-&gt;isOccupied.end())</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                            <span class="keyword">internal</span>.chunks.erase(std::find(<span class="keyword">internal</span>.chunks.begin(), <span class="keyword">internal</span>.chunks.end(), chunk));</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                            <span class="keyword">delete</span> chunk;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">throw</span> std::range_error(<span class="stringliteral">&quot;Pointer is not owned by this allocator.&quot;</span>);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a39058a6dcf6853ba13081edc0ce41921">  114</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#a39058a6dcf6853ba13081edc0ce41921">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            std::shared_lock ulock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    <span class="keywordflow">if</span> (chunk-&gt;isOccupied[i] == <span class="keyword">true</span>)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        func(&amp;chunk-&gt;allocations[i]);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a48692164285006cc8ba81756b37b5909">  134</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#a48692164285006cc8ba81756b37b5909">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func, std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            std::shared_lock ulock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                    <span class="keywordflow">if</span> (chunk-&gt;isOccupied[i] == <span class="keyword">true</span> &amp;&amp; filter(&amp;chunk-&gt;allocations[i]))</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                    {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                        func(&amp;chunk-&gt;allocations[i]);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            }</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#af6a3a89dbb034cb1be77ffa7b1c35e1c">  152</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1ChunkAllocator.html#af6a3a89dbb034cb1be77ffa7b1c35e1c">Count</a>()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            std::shared_lock slock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> s = 0;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    <span class="keywordflow">if</span> (chunk-&gt;isOccupied[i] == <span class="keyword">true</span>) s++;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a8bf022ef68585ea0aad22747a4d6a6f8">  172</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1ChunkAllocator.html#a8bf022ef68585ea0aad22747a4d6a6f8">Count</a>(std::function&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> T*)&gt; filter)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            std::shared_lock slock(<span class="keyword">internal</span>.mtx);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> s = 0;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : <span class="keyword">internal</span>.chunks)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    <span class="keywordflow">if</span> (chunk-&gt;isOccupied[i] == <span class="keyword">true</span> &amp;&amp; filter(&amp;chunk-&gt;allocations[i])) s++;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                }</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a1b7f9e836d522efe3f686c67c026a8dd">  191</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1ChunkAllocator.html#a1b7f9e836d522efe3f686c67c026a8dd">ChunkCount</a>()</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">internal</span>.chunks.size();</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    };</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, Size Capacity&gt;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">typename</span> ChunkAllocator&lt;T, Capacity&gt;::Internal ChunkAllocator&lt;T, Capacity&gt;::internal;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            ~Chunk()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                free(allocations);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        std::vector&lt;Chunk&gt; chunks;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::shared_mutex mtx;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        VLK_STATIC_ASSERT_MSG(Capacity &gt; 0, <span class="stringliteral">&quot;Capacity must be larger than 0&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        VLK_STATIC_ASSERT_MSG(<a class="code" href="classvlk_1_1IsValidElementType.html">vlk::IsValidElementType&lt;T&gt;::Value</a>, <span class="stringliteral">&quot;T is not a valid element type for an allocator&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>(<a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>(<span class="keyword">const</span> <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp; operator=(<a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ~<a class="code" href="classvlk_1_1ChunkAllocator.html">ChunkAllocator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#ab27a35859c96074a7c2e5a5608fda2ba">   70</a></span>&#160;        <a class="code" href="Config_8hpp.html#a8d7c0aecd9a42f962ff6c258b409d7d6">VLK_NODISCARD</a> T* <a class="code" href="classvlk_1_1ChunkAllocator.html#ab27a35859c96074a7c2e5a5608fda2ba">Construct</a>()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            std::unique_lock ulock(mtx);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : chunks)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    <span class="keywordflow">if</span> (!chunk.allocations[i])</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        chunk.allocations.set(i);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="keywordflow">return</span> &amp;chunk.storage[i];</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="comment">//emplace_back does not have a return value until C++17</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            chunks.emplace_back();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            Chunk&amp; c = chunks.back();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            c.allocations.set(0);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> (&amp;c-&gt;storage[0]) T();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#aee1fd9c0082894b2037f5a3ad94646ec">   95</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#aee1fd9c0082894b2037f5a3ad94646ec">Deallocate</a>(T* ptr)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            std::unique_lock ulock(mtx);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="comment">//Search for chunk that contains ptr </span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : chunks)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> (ptr &gt;= &amp;chunk.storage[0])</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="comment">//if ptr is infront of chunk, we can calculate index and check if it lies within the chunk</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    <span class="comment">//if ptr is behind chunk, then it&#39;s not in the chunk anyway</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> index = ptr - chunk-&gt;allocations;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <span class="keywordflow">if</span> (index &lt; Capacity)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        chunk.allocations.reset(index);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        chunk.storage[index].operator~();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        <span class="comment">//if the chunk is empty, then delete it.</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                        <span class="keywordflow">if</span> (chunk.allocations.none())</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                            chunks.erase(std::find(chunks.begin(), chunks.end(), chunk));</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                            <span class="keyword">delete</span> chunk;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Pointer is not owned by this allocator.&quot;</span>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a4f4e0df2aca99dbef184c53e20fb40bc">  130</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#a4f4e0df2aca99dbef184c53e20fb40bc">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(T*)&gt; func)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            std::unique_lock ulock(mtx);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> chunk : chunks)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keywordflow">if</span> (chunk.allocations[i])</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        func(&amp;chunk.storage[i]);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a7ef0b5b5bed2ab2ebedd8a07277eac71">  148</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1ChunkAllocator.html#a7ef0b5b5bed2ab2ebedd8a07277eac71">ForEach</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> T*)&gt; func)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            std::shared_lock ulock(mtx);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> chunk : chunks)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> i = 0; i &lt; Capacity; i++)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="keywordflow">if</span> (chunk.allocations[i])</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        func(&amp;chunk.storage[i]);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classvlk_1_1ChunkAllocator.html#a3e1913b06a421021f7a1178908f7f3e2">  166</a></span>&#160;        <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="code" href="classvlk_1_1ChunkAllocator.html#a3e1913b06a421021f7a1178908f7f3e2">AllocCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <a class="code" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> count = 0;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> chunk : chunks)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                count += chunk.allocations.count();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordflow">return</span> count;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    };</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html">vlk::ChunkAllocator</a></div><div class="ttdoc">Allocator backed by multiple fixed-size chunks.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:13</div></div>
-<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdef"><b>Definition:</b> Allocator.hpp:7</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a48692164285006cc8ba81756b37b5909"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a48692164285006cc8ba81756b37b5909">vlk::ChunkAllocator::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(T *)&gt; func, std::function&lt; bool(const T *)&gt; filter)</div><div class="ttdoc">Performs a function on every active instance of T owned by this allocator that matches a filter.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:134</div></div>
-<div class="ttc" id="anamespacevlk_html_ae9a25eca45834c5fdfea230200a2e0dc"><div class="ttname"><a href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></div><div class="ttdeci">std::size_t Size</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:49</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_adbeaabf1fa2aff0e23548ae8b0f19df4"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#adbeaabf1fa2aff0e23548ae8b0f19df4">vlk::ChunkAllocator::Allocate</a></div><div class="ttdeci">static void * Allocate()</div><div class="ttdoc">Allocates space for a new instance of T. Does not construct T.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:53</div></div>
-<div class="ttc" id="aAllocator_8hpp_html"><div class="ttname"><a href="Allocator_8hpp.html">Allocator.hpp</a></div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a626ba67cd12225d44e34e22c3e3e64bd"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a626ba67cd12225d44e34e22c3e3e64bd">vlk::ChunkAllocator::Deallocate</a></div><div class="ttdeci">static void Deallocate(void *ptr)</div><div class="ttdoc">Deallocates the memory taken up by ptr Does not call T's destructor.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:79</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a39058a6dcf6853ba13081edc0ce41921"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a39058a6dcf6853ba13081edc0ce41921">vlk::ChunkAllocator::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(T *)&gt; func)</div><div class="ttdoc">performs a function on every active instance of T owned by this allocator</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:114</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_af6a3a89dbb034cb1be77ffa7b1c35e1c"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#af6a3a89dbb034cb1be77ffa7b1c35e1c">vlk::ChunkAllocator::Count</a></div><div class="ttdeci">static Size Count()</div><div class="ttdoc">Returns the number of active instances of T owned by this allocator.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:152</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a8bf022ef68585ea0aad22747a4d6a6f8"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a8bf022ef68585ea0aad22747a4d6a6f8">vlk::ChunkAllocator::Count</a></div><div class="ttdeci">static Size Count(std::function&lt; bool(const T *)&gt; filter)</div><div class="ttdoc">Returns the number of active instance of T owned by this allocator that match a filter.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:172</div></div>
-<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a1b7f9e836d522efe3f686c67c026a8dd"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a1b7f9e836d522efe3f686c67c026a8dd">vlk::ChunkAllocator::ChunkCount</a></div><div class="ttdeci">static Size ChunkCount()</div><div class="ttdoc">Returns the number of chunks allocated by this allocator.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:191</div></div>
+<div class="ttc" id="aConfig_8hpp_html_a8d7c0aecd9a42f962ff6c258b409d7d6"><div class="ttname"><a href="Config_8hpp.html#a8d7c0aecd9a42f962ff6c258b409d7d6">VLK_NODISCARD</a></div><div class="ttdeci">#define VLK_NODISCARD</div><div class="ttdoc">A macro used to denote a function whose return value should not be discarded.</div><div class="ttdef"><b>Definition:</b> Config.hpp:308</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html">vlk::ChunkAllocator</a></div><div class="ttdoc">Unbounded allocator backed by multiple fixed-size chunks.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:21</div></div>
+<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdoc">Chunk-based Allocator.</div><div class="ttdef"><b>Definition:</b> Allocator.hpp:10</div></div>
+<div class="ttc" id="anamespacevlk_html_ae9a25eca45834c5fdfea230200a2e0dc"><div class="ttname"><a href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></div><div class="ttdeci">std::size_t Size</div><div class="ttdoc">Platform-dependent size type.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:49</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a7ef0b5b5bed2ab2ebedd8a07277eac71"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a7ef0b5b5bed2ab2ebedd8a07277eac71">vlk::ChunkAllocator::ForEach</a></div><div class="ttdeci">void ForEach(std::function&lt; void(const T *)&gt; func) const</div><div class="ttdoc">Performs a function on every instance this allocator owns.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:148</div></div>
+<div class="ttc" id="aValkyrieDebug_8hpp_html"><div class="ttname"><a href="ValkyrieDebug_8hpp.html">ValkyrieDebug.hpp</a></div><div class="ttdoc">Provides basic debugging utilities.</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_aee1fd9c0082894b2037f5a3ad94646ec"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#aee1fd9c0082894b2037f5a3ad94646ec">vlk::ChunkAllocator::Deallocate</a></div><div class="ttdeci">void Deallocate(T *ptr)</div><div class="ttdoc">Destructs an instance of T owned by this allocator.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:95</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a4f4e0df2aca99dbef184c53e20fb40bc"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a4f4e0df2aca99dbef184c53e20fb40bc">vlk::ChunkAllocator::ForEach</a></div><div class="ttdeci">void ForEach(std::function&lt; void(T *)&gt; func)</div><div class="ttdoc">Performs a function on every instance this allocator owns.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:130</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_a3e1913b06a421021f7a1178908f7f3e2"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#a3e1913b06a421021f7a1178908f7f3e2">vlk::ChunkAllocator::AllocCount</a></div><div class="ttdeci">Size AllocCount() const</div><div class="ttdoc">Returns the number of instances of T owned by this allocator.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:166</div></div>
+<div class="ttc" id="aclassvlk_1_1ChunkAllocator_html_ab27a35859c96074a7c2e5a5608fda2ba"><div class="ttname"><a href="classvlk_1_1ChunkAllocator.html#ab27a35859c96074a7c2e5a5608fda2ba">vlk::ChunkAllocator::Construct</a></div><div class="ttdeci">VLK_NODISCARD T * Construct()</div><div class="ttdoc">Default-constructs a new instance of T in this allocator's storage.</div><div class="ttdef"><b>Definition:</b> ChunkAllocator.hpp:70</div></div>
+<div class="ttc" id="aclassvlk_1_1IsValidElementType_html"><div class="ttname"><a href="classvlk_1_1IsValidElementType.html">vlk::IsValidElementType</a></div><div class="ttdoc">Assesses whether a type is a valid element type for a ValkyrieEngine allocator.</div><div class="ttdef"><b>Definition:</b> Allocator.hpp:100</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

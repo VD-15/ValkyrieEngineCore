@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1EventBus.html">EventBus</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1EventBus.html">EventBus</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,6 +72,9 @@ $(function() {
 <div class="title">vlk::EventBus&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Facilitates sending events to user-defined event listeners.  
+ <a href="classvlk_1_1EventBus.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EventBus_8hpp_source.html">EventBus.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -90,7 +93,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad3aa9268799e29876ffa70c2d429ba77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raises <a class="el" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent() </a> for all <a class="el" href="classvlk_1_1IEventListener.html">event listeners </a> on this event bus. All listeners get sent to the <a class="el" href="classvlk_1_1ThreadPool.html">thread pooler </a> to be executed later. This function returns once all listeners have been sent to the thread pooler, not necessarily when they've completed.  <a href="classvlk_1_1EventBus.html#ad3aa9268799e29876ffa70c2d429ba77">More...</a><br /></td></tr>
 <tr class="separator:ad3aa9268799e29876ffa70c2d429ba77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class vlk::EventBus&lt; T &gt;</h3>
+
+<p>Facilitates sending events to user-defined event listeners. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9a26f0798fca59cd124ffeb72209c527"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a26f0798fca59cd124ffeb72209c527">&#9670;&nbsp;</a></span>AddListener()</h2>
 

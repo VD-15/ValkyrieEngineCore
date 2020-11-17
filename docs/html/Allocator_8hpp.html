@@ -74,33 +74,23 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ValkyrieDefs_8hpp_source.html">ValkyrieEngine/ValkyrieDefs.hpp</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div>
 <p><a href="Allocator_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasAllocateFunc.html">vlk::HasAllocateFunc&lt; Alloc &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Allocate</code> that returns a <code>void*</code>.  <a href="classvlk_1_1HasAllocateFunc.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsValidAllocator.html">vlk::IsValidAllocator&lt; Allocator, T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses whether a type is a valid ValkyrieEngine Allocator.  <a href="classvlk_1_1IsValidAllocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasDeallocateFunc.html">vlk::HasDeallocateFunc&lt; Alloc &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Deallocate</code> that takes a <code>void*</code> as an argument and returns <code>void</code>.  <a href="classvlk_1_1HasDeallocateFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasForEachFunc.html">vlk::HasForEachFunc&lt; Alloc, Param &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>ForEach</code> that takes a function as an argument. This function should return void and should take a <code>Param*</code> as an argument.  <a href="classvlk_1_1HasForEachFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasFilterForEachFunc.html">vlk::HasFilterForEachFunc&lt; Alloc, Param &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>ForEach</code> that takes two functions as arguments: A modifier function that returns void and takes a <code>Param*</code> as an argument A filter function that returns a bool and takes a <code>const Param*</code> as an argument.  <a href="classvlk_1_1HasFilterForEachFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasCountFunc.html">vlk::HasCountFunc&lt; Alloc &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Count</code> that returns a <code>Size</code>.  <a href="classvlk_1_1HasCountFunc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1HasFilterCountFunc.html">vlk::HasFilterCountFunc&lt; Alloc, Param &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that type <code>Alloc</code> has a function called <code>Count</code> that takes a <code>std::function&lt;bool(Param*)&gt;</code> and returns a <code>Size</code>.  <a href="classvlk_1_1HasFilterCountFunc.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsValidElementType.html">vlk::IsValidElementType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses whether a type is a valid element type for a ValkyrieEngine allocator.  <a href="classvlk_1_1IsValidElementType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevlk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html">vlk</a></td></tr>
+<tr class="memdesc:namespacevlk"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chunk-based Allocator. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

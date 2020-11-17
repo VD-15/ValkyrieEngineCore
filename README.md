@@ -40,7 +40,7 @@ In Valkyrie Engine, events are the primary way that inter-module communication o
 
 #### 3.2.1 Creating Events
 
-In Valkyrie Engine, any object or class can be an event, though usually they are just POD structs.
+In Valkyrie Engine, any object or class can be an event, though we recommend using POD structs.
 
 ```cpp
 struct MyEvent
@@ -84,7 +84,7 @@ class MyEventListener : public EventListener<MyEvent>
 
     void OnEvent(const MyEvent& ev) final override
     {
-        /* Do something in here :) */
+        /* Do something in here */
     }
 };
 ```
@@ -124,86 +124,91 @@ int main()
 }
 ```
 
-### 3.3 Modules
-
-> I'm workin' on it! ;)
-
-### 3.4 Entity-Component System
+### 3.3 Entity-Component System
 
 Valkyrie Engine core defines a basic entity-component system that serves as the underlying framework for any game produced in it.
 
-#### 3.4.1 Components
+#### 3.3.1 Entities
 
-Components are data types that define a particular behaviour or property for the entity they're attached to. It is important to note that components shouldn't be event listeners. This is mostly to avoid congestion on the event bus as constantly adding and removing event listeners can significantly impact performance.
-
-The constructor for `Component` takes a single pointer to the entity the component belongs to in the form of an `IEntity*`. Any constructors for your component should accept an `IEntity*` as their first argument, this to to help compatability with certain helper functions you may wind up using.
+Entities are represented by a primitive ID and are used used to associate components to one another. The `Entity` namespace defines several functions for creating and destroying entities.
 
 ```cpp
 #include "ValkyrieEngine/ValkyrieEngine.hpp"
 
-class ScoreCounterComponent : public vlk::Component<ScoreCounterComponent>
+void Foo()
 {
-    public:
-    MyComponent(IEntity* e, vlk::UInt _score) :
-        Component<MyComponent>(e)
-    {
-        this->score = _score;
-    }
+	vlk::EntityID myEntity = vlk::Entity::Create();
 
-    vlk::UInt score;
-};
+	...
+
+	vlk::Entity::Delete(myEntity);
+}
 ```
 
-#### 3.4.2 Entities
+#### 3.3.2 Components
 
-Entities are simply data types used to composite several components into one structure, they will usually not hold any data aside from components and should never really be used outside of their constructor. `Entity` defines several member functions, one of which is a useful way of attaching components to an entity.
+Components are data types that define a particular behaviour or property for the entity they're attached to. It is important to note that components shouldn't be event listeners. This is mostly to avoid congestion on the event bus as constantly adding and removing event listeners can significantly impact performance. See section 3.3.3 for further details.
+
+`Component<T>::Create` takes the ID of the entity the component is to be attached to, any subsequent arguments are forwarded to the constructor of your data type.
 
 ```cpp
 #include "ValkyrieEngine/ValkyrieEngine.hpp"
 
-class MyEntity : public vlk::Entity<MyEntity>
+class Counter
 {
-    public:
-    MyEntity()
-    {
-		myComponent = new MyComponent(this);
-    }
-
-    ~MyEntity()
-    {
-		delete myComponent();
-    }
-
-    private:
-    MyComponent* myComponent;
+	public:
+	Counter(vlk::UInt _score)
+	{
+		this->score = _score;
+	}
+	
+	vlk::UInt score;
 };
+
+void Foo()
+{
+	vlk::EntityID myEntity = vlk::Entity::Create();
+	vlk::Component<Counter>* c = vlk::Component<Counter>::Create(myEntity, 10);
+}
 ```
 
-#### 3.4.3 Systems
+#### 3.3.3 Systems
 
-Where components declare behaviour for entities, systems are where it's implemented. Most systems will take the form of several event listeners with any necessary data stored in member variables or the like. Since systems perform operations on/with components, they need a way to access every instance of that component at runtime. `Component` has a static member function called `ForEach` that does exactly that. It accepts a const reference to anything that can serve as an std::function, usually lambdas. Because events can be sent from any thread, it is important to consider thread-safety. Thankfully, every component comes with a mutex that can be locked to ensure thread-safe access.
+Where components define behaviour for entities, systems are where that behaviour is implemented. Most systems will take the form of several event listeners with any necessary data stored in member variables or the like. Since systems perform operations on/with components, they need a way to access every instance of that component at runtime. `Component` has two static member functions called `ForEach` and `CForEach` that do exactly that.
 
 ```
 #include "ValkyrieEngine/ValkyrieEngine.hpp"
 
-class MySystem : public vlk::EventListener<vlk::UpdateEvent>
+class MySystem : 
+	public vlk::EventListener<vlk::UpdateEvent>
+	public vlk::EventListener<vlk::LateUpdateEvent>
 {
     public:
     MySystem() = default;
 
+	vlk::UInt sumTotal;
+
     private:
     void OnEvent(const vlk::UpdateEvent& ev) final override
     {
-        MyComponent::ForEach([](MyComponent* c)
+		// Modifying all counter components, use for each
+        Component<Counter>::ForEach([](Component<Counter>* c)
         {
-			//Lock the component
-			std::unique_lock ulock = c->Lock();
-
-			//Modify the component
+			// Add 1 to score every update.
             c->score++;
-
-			//the unique_lock is unlocked when it falls out of scope
         });
     }
+
+	void OnEvent(const vlk::LateUpdateEvent& ev) final override
+	{
+		sumTotal = 0;
+	
+		// Not modifying components, const for each makes more sense	
+		Component<Counter>::CForEach([&sumTotal](const Component<Counter>* c)
+		{
+			// Update sum total of all counters
+			sumTotal += c->score;
+		});
+	}
 };
 ```

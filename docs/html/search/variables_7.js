@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['value_220',['Value',['../classvlk_1_1HasAllocateFunc.html#a92d17c6d0f4ebd7ea44911426618b76f',1,'vlk::HasAllocateFunc::Value()'],['../classvlk_1_1HasDeallocateFunc.html#a096b7f10b47406c8edf3d544c9e122ff',1,'vlk::HasDeallocateFunc::Value()'],['../classvlk_1_1HasForEachFunc.html#a16f8f6df006b14a7ee3818ed1c46e1f2',1,'vlk::HasForEachFunc::Value()'],['../classvlk_1_1HasFilterForEachFunc.html#a72f4633320bafa6719351547e79f65bb',1,'vlk::HasFilterForEachFunc::Value()'],['../classvlk_1_1HasCountFunc.html#ae74a71bbe4332624b32d766893e3a57a',1,'vlk::HasCountFunc::Value()'],['../classvlk_1_1HasFilterCountFunc.html#a6ff6c86f87f0e979fc3eaec78a37baf5',1,'vlk::HasFilterCountFunc::Value()'],['../classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804',1,'vlk::IsLogLevelEnabled::Value()']]],
-  ['vermajor_221',['verMajor',['../structvlk_1_1Application_1_1ApplicationArgs.html#a9a7ada57fdc09b4aa39353bb6bf3ff4f',1,'vlk::Application::ApplicationArgs']]],
-  ['verminor_222',['verMinor',['../structvlk_1_1Application_1_1ApplicationArgs.html#ab4fc501a693aeb57e4439291a0eeb5b1',1,'vlk::Application::ApplicationArgs']]],
-  ['verpatch_223',['verPatch',['../structvlk_1_1Application_1_1ApplicationArgs.html#acd8fdf525a0c8fcf7b84547d0ebd3c8f',1,'vlk::Application::ApplicationArgs']]],
-  ['verrevis_224',['verRevis',['../structvlk_1_1Application_1_1ApplicationArgs.html#a493b26591fb1662faa72ea4889549da6',1,'vlk::Application::ApplicationArgs']]]
+  ['value_244',['Value',['../classvlk_1_1IsValidAllocator.html#a332a1ec7df42ab8a4a51b4271a7c6fdd',1,'vlk::IsValidAllocator::Value()'],['../classvlk_1_1IsValidElementType.html#affdce3e31eb55cc17c153b050619f471',1,'vlk::IsValidElementType::Value()'],['../classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7',1,'vlk::IsLogLevelEnabled::Value()']]],
+  ['vermajor_245',['verMajor',['../structvlk_1_1Application_1_1ApplicationArgs.html#a69b97a6fbc9596eaaa3c0a2dedf04517',1,'vlk::Application::ApplicationArgs']]],
+  ['verminor_246',['verMinor',['../structvlk_1_1Application_1_1ApplicationArgs.html#a456b74a17b719572aaf686fbf7d4f0c5',1,'vlk::Application::ApplicationArgs']]],
+  ['verpatch_247',['verPatch',['../structvlk_1_1Application_1_1ApplicationArgs.html#a05f83880054506c57e5fc8cf5fcbbc9f',1,'vlk::Application::ApplicationArgs']]],
+  ['verrevis_248',['verRevis',['../structvlk_1_1Application_1_1ApplicationArgs.html#aaa4c16b94110711dc8570dfa6959e0e7',1,'vlk::Application::ApplicationArgs']]]
 ];

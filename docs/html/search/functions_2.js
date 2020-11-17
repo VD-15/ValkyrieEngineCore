@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deallocate_175',['Deallocate',['../classvlk_1_1ArrayAllocator.html#acdb486f6517fc776ce07b8be8cc76e6c',1,'vlk::ArrayAllocator::Deallocate()'],['../classvlk_1_1ChunkAllocator.html#a626ba67cd12225d44e34e22c3e3e64bd',1,'vlk::ChunkAllocator::Deallocate()'],['../classvlk_1_1LinkedAllocator.html#ac422f89cb733c4a981cba376306fb9fe',1,'vlk::LinkedAllocator::Deallocate()'],['../classvlk_1_1SingletonAllocator.html#ad9559919851e00a79905513ac227153f',1,'vlk::SingletonAllocator::Deallocate()']]]
+  ['delete_99',['Delete',['../classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f',1,'vlk::Component::Delete()'],['../classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df',1,'vlk::IComponent::Delete()']]]
 ];

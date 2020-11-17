@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,57 +73,48 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Helper class that statically-evaluates whether log events with severity <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> should be sent.  
+<p>Helper class that determines whether a specific vlk::LogLevel is enabled in the current configuration.  
  <a href="classvlk_1_1IsLogLevelEnabled.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ValkyrieDebug_8hpp_source.html">ValkyrieDebug.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a439728671c5553a3be254a6c85995804"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804">Value</a> = Test()</td></tr>
-<tr class="memdesc:a439728671c5553a3be254a6c85995804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> L is enabled in the current configuration.  <a href="classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804">More...</a><br /></td></tr>
-<tr class="separator:a439728671c5553a3be254a6c85995804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff35704d275eb8bcae9055c6e92b8c7"><td class="memItemLeft" align="right" valign="top"><a id="afff35704d275eb8bcae9055c6e92b8c7"></a>
+static VLK_CXX14_CONSTEXPR bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7">Value</a> = Test()</td></tr>
+<tr class="memdesc:afff35704d275eb8bcae9055c6e92b8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code> if log messages with a severity of <code>L</code> are processed in the current configuration. <br /></td></tr>
+<tr class="separator:afff35704d275eb8bcae9055c6e92b8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;LogLevel L&gt;<br />
 class vlk::IsLogLevelEnabled&lt; L &gt;</h3>
 
-<p>Helper class that statically-evaluates whether log events with severity <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> should be sent. </p>
+<p>Helper class that determines whether a specific vlk::LogLevel is enabled in the current configuration. </p>
+<p>The following log levels are enabled in all configurations:</p><ul>
+<li>LogLevel::Warning</li>
+<li>LogLevel::Error</li>
+<li>LogLevel::Fatal</li>
+<li>LogLevel::Announce</li>
+</ul>
+<p>In addition to those listed above, the following log levels are also enabled in debug configurations:</p><ul>
+<li>LogLevel::Info</li>
+</ul>
+<p>The <code><a class="el" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4" title="A macro used to enable trace-level debug logging, should expand to either true or false.">VLK_ENABLE_TRACE_LOGGING</a></code> macro can be used to enable the following log levels:</p><ul>
+<li>LogLevel::Info</li>
+<li>LogLevel::Verbose</li>
+</ul>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">L</td><td>the <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> to evaluate </td></tr>
+    <tr><td class="paramname">L</td><td>the LogLevel to evaluate </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c" title="Defines various severities of log message.">LogLevel</a> </dd></dl>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a439728671c5553a3be254a6c85995804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a439728671c5553a3be254a6c85995804">&#9670;&nbsp;</a></span>Value</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;LogLevel L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="classvlk_1_1IsLogLevelEnabled.html">vlk::IsLogLevelEnabled</a>&lt; L &gt;::Value = Test()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Whether <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a> L is enabled in the current configuration. </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<dl class="section see"><dt>See also</dt><dd>Log(const std::string&amp;) </dd>
+<dd>
+<a class="el" href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e" title="A macro used to determine whether debug-only code should be compiled.">VLK_IS_DEBUG</a> </dd>
+<dd>
+<a class="el" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4" title="A macro used to enable trace-level debug logging, should expand to either true or false.">VLK_ENABLE_TRACE_LOGGING</a> </dd></dl>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/ValkyrieEngine/<a class="el" href="ValkyrieDebug_8hpp_source.html">ValkyrieDebug.hpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -2,6 +2,11 @@
 \label{classvlk_1_1Entity}\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
 
 
+Base class for user-\/defined entities to inherit from.  
+
+
+
+
 {\ttfamily \#include $<$Entity.\+hpp$>$}
 
 Inheritance diagram for vlk\+::Entity$<$ T, Entity\+Allocator $>$\+:\begin{figure}[H]
@@ -10,57 +15,34 @@ Inheritance diagram for vlk\+::Entity$<$ T, Entity\+Allocator $>$\+:\begin{figur
 \includegraphics[height=2.000000cm]{classvlk_1_1Entity}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Types}
-\begin{DoxyCompactItemize}
-\item 
-typedef Entity\+Allocator \mbox{\hyperlink{classvlk_1_1Entity_a136a0fa71ab7fc6932863d228855f489}{Allocator}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvlk_1_1Entity_a718daaccbf4530e44178d5847612dee3}{Entity}} ()
-\item 
-virtual \mbox{\hyperlink{classvlk_1_1Entity_a611084ccfe2b31d09a6ccb86d69bdda1}{$\sim$\+Entity}} ()
-\item 
+\mbox{\Hypertarget{classvlk_1_1Entity_ada7f0ea9adfed5f21fe5af26f9936417}\label{classvlk_1_1Entity_ada7f0ea9adfed5f21fe5af26f9936417}} 
 void $\ast$ \mbox{\hyperlink{classvlk_1_1Entity_ada7f0ea9adfed5f21fe5af26f9936417}{operator new}} (\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} size)
-\item 
+\begin{DoxyCompactList}\small\item\em Overloads the {\ttfamily new} operator to use an allocator instead of {\ttfamily malloc}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvlk_1_1Entity_aaf8c4e7bbf4180484662ef7f4de6e488}\label{classvlk_1_1Entity_aaf8c4e7bbf4180484662ef7f4de6e488}} 
 void \mbox{\hyperlink{classvlk_1_1Entity_aaf8c4e7bbf4180484662ef7f4de6e488}{operator delete}} (void $\ast$ptr)
-\item 
+\begin{DoxyCompactList}\small\item\em Overloads the {\ttfamily dleete} operator to use an allocator instead of {\ttfamily delete}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename U , typename... Args$>$ }\\constexpr U $\ast$ \mbox{\hyperlink{classvlk_1_1Entity_a5d9ea8e69f59bbf43d47fef424ef8170}{Add\+Component}} (Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Helper function to add a component to an entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classvlk_1_1Entity_afbce5b7eaef6ccdc64f9d06621fbe3b0}{Add\+Signal\+Listener}} (\mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}} $\ast$listener) final override
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a signal listener to the calling list of this entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classvlk_1_1Entity_a8f806fb9a7cf41d75d5f39edec841319}{Remove\+Signal\+Listener}} (\mbox{\hyperlink{classvlk_1_1ISignalListener}{I\+Signal\+Listener}} $\ast$listener) final override
-\item 
+\begin{DoxyCompactList}\small\item\em Removes a signal listener from the calling list of this entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classvlk_1_1Entity_a42a47715b3529119d2cee36b0599f762}{Send\+Signal}} (const \mbox{\hyperlink{classvlk_1_1Signal}{Signal}} \&signal) final override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sends a signal to every signal listener attached to this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Member Typedef Documentation}
-\mbox{\Hypertarget{classvlk_1_1Entity_a136a0fa71ab7fc6932863d228855f489}\label{classvlk_1_1Entity_a136a0fa71ab7fc6932863d228855f489}} 
-\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!Allocator@{Allocator}}
-\index{Allocator@{Allocator}!vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
-\doxysubsubsection{\texorpdfstring{Allocator}{Allocator}}
-{\footnotesize\ttfamily template$<$class T , class Entity\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
-typedef Entity\+Allocator \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Entity_a136a0fa71ab7fc6932863d228855f489}{Allocator}}}
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class Entity\+Allocator = Chunk\+Allocator$<$\+T, 64$>$$>$\newline
+class vlk\+::\+Entity$<$ T, Entity\+Allocator $>$}
 
+Base class for user-\/defined entities to inherit from. 
 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classvlk_1_1Entity_a718daaccbf4530e44178d5847612dee3}\label{classvlk_1_1Entity_a718daaccbf4530e44178d5847612dee3}} 
-\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!Entity@{Entity}}
-\index{Entity@{Entity}!vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
-\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
-{\footnotesize\ttfamily template$<$class T , class Entity\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
-\mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity\+Allocator $>$\+::\mbox{\hyperlink{classvlk_1_1Entity}{Entity}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-\mbox{\Hypertarget{classvlk_1_1Entity_a611084ccfe2b31d09a6ccb86d69bdda1}\label{classvlk_1_1Entity_a611084ccfe2b31d09a6ccb86d69bdda1}} 
-\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!````~Entity@{$\sim$Entity}}
-\index{````~Entity@{$\sim$Entity}!vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
-\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
-{\footnotesize\ttfamily template$<$class T , class Entity\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
-virtual \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity\+Allocator $>$\+::$\sim$\mbox{\hyperlink{classvlk_1_1Entity}{Entity}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Component}{Component}} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Member Function Documentation}
@@ -92,21 +74,16 @@ virtual void \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity
 
 
 
-Implements \mbox{\hyperlink{classvlk_1_1IEntity_adb7933edf32d9d583b7a7652fafa7044}{vlk\+::\+I\+Entity}}.
+Adds a signal listener to the calling list of this entity. 
 
-\mbox{\Hypertarget{classvlk_1_1Entity_aaf8c4e7bbf4180484662ef7f4de6e488}\label{classvlk_1_1Entity_aaf8c4e7bbf4180484662ef7f4de6e488}} 
-\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!operator delete@{operator delete}}
-\index{operator delete@{operator delete}!vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
-\doxysubsubsection{\texorpdfstring{operator delete()}{operator delete()}}
-{\footnotesize\ttfamily template$<$class T , class Entity\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
-void \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity\+Allocator $>$\+::operator delete (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Entity_a8f806fb9a7cf41d75d5f39edec841319}{Remove\+Signal\+Listener(vlk\+::\+I\+Signal\+Listener$\ast$)}} 
 
-\mbox{\Hypertarget{classvlk_1_1Entity_ada7f0ea9adfed5f21fe5af26f9936417}\label{classvlk_1_1Entity_ada7f0ea9adfed5f21fe5af26f9936417}} 
-\index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!operator new@{operator new}}
-\index{operator new@{operator new}!vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}}
-\doxysubsubsection{\texorpdfstring{operator new()}{operator new()}}
-{\footnotesize\ttfamily template$<$class T , class Entity\+Allocator  = Chunk\+Allocator$<$\+T, 64$>$$>$ \\
-void$\ast$ \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity\+Allocator $>$\+::operator new (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacevlk_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{classvlk_1_1Entity_a42a47715b3529119d2cee36b0599f762}{Send\+Signal(const vlk\+::\+Signal\&)}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classvlk_1_1IEntity}{vlk\+::\+I\+Entity}}.
 
 \mbox{\Hypertarget{classvlk_1_1Entity_a8f806fb9a7cf41d75d5f39edec841319}\label{classvlk_1_1Entity_a8f806fb9a7cf41d75d5f39edec841319}} 
 \index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!RemoveSignalListener@{RemoveSignalListener}}
@@ -117,7 +94,16 @@ virtual void \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity
 
 
 
-Implements \mbox{\hyperlink{classvlk_1_1IEntity_adc00c3fbfd2b3018239fd12cc86bf2f8}{vlk\+::\+I\+Entity}}.
+Removes a signal listener from the calling list of this entity. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Entity_afbce5b7eaef6ccdc64f9d06621fbe3b0}{Add\+Signal\+Listener(\+I\+Signal\+Listener$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1Entity_a42a47715b3529119d2cee36b0599f762}{Send\+Signal(const vlk\+::\+Signal\&)}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classvlk_1_1IEntity}{vlk\+::\+I\+Entity}}.
 
 \mbox{\Hypertarget{classvlk_1_1Entity_a42a47715b3529119d2cee36b0599f762}\label{classvlk_1_1Entity_a42a47715b3529119d2cee36b0599f762}} 
 \index{vlk::Entity$<$ T, EntityAllocator $>$@{vlk::Entity$<$ T, EntityAllocator $>$}!SendSignal@{SendSignal}}
@@ -128,10 +114,19 @@ virtual void \mbox{\hyperlink{classvlk_1_1Entity}{vlk\+::\+Entity}}$<$ T, Entity
 
 
 
-Implements \mbox{\hyperlink{classvlk_1_1IEntity_aa12bfb75d3cec0e9df4e1e6215bcaaea}{vlk\+::\+I\+Entity}}.
+Sends a signal to every signal listener attached to this entity. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Entity_afbce5b7eaef6ccdc64f9d06621fbe3b0}{Add\+Signal\+Listener(\+I\+Signal\+Listener$\ast$)}} 
+
+\mbox{\hyperlink{classvlk_1_1Entity_a8f806fb9a7cf41d75d5f39edec841319}{Remove\+Signal\+Listener(\+I\+Signal\+Listener$\ast$)}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classvlk_1_1IEntity}{vlk\+::\+I\+Entity}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{Entity_8hpp}{Entity.\+hpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/Entity.\+hpp\end{DoxyCompactItemize}

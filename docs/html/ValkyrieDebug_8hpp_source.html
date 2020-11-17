@@ -69,84 +69,99 @@ $(function() {
 <div class="title">ValkyrieDebug.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ValkyrieDebug_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ValkyrieDefs_8hpp.html">ValkyrieEngine/ValkyrieDefs.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="EventBus_8hpp.html">ValkyrieEngine/EventBus.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevlk.html">vlk</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">    9</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        Trace,      </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        Verbose,    </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        Info,       </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        Warning,    </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        Error,      </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        Fatal,      </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1">Announce</a>    </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1LogEvent.html">LogEvent</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a6752e0787181958716fb9ef83e4af7d7">   23</a></span>&#160;        constexpr <a class="code" href="classvlk_1_1LogEvent.html#a6752e0787181958716fb9ef83e4af7d7">LogEvent</a>(<span class="keyword">const</span> std::string_view&amp; _message, <span class="keyword">const</span> <a class="code" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> _severity) :</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#a95ddcd0a3d488e01a9cbca0099094fba">message</a>(_message),</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a>(_severity)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a95ddcd0a3d488e01a9cbca0099094fba">   29</a></span>&#160;        <span class="keyword">const</span> std::string_view <a class="code" href="classvlk_1_1LogEvent.html#a95ddcd0a3d488e01a9cbca0099094fba">message</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">   30</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> <a class="code" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//TODO: source location</span></div>
+<a href="ValkyrieDebug_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef VLK_DEBUG_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define VLK_DEBUG_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/ValkyrieDefs.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/EventBus.hpp&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>vlk</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">   23</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">LogLevel</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Trace,      </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Verbose,    </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        Info,       </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        Warning,    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        Error,      </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        Fatal,      </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        Announce    </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classvlk_1_1IsLogLevelEnabled.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> Test()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">switch</span> (L)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">case</span> LogLevel::Trace:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6">vlk::enable_trace_logging</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">case</span> LogLevel::Verbose:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">case</span> LogLevel::Info:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="namespacevlk.html#acc4a6717fa5f8014c9ebe1524198bb00">vlk::is_debug</a> || <a class="code" href="namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6">vlk::enable_trace_logging</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804">   61</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804">Value</a> = Test();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L = LogLevel::Info&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">typename</span> std::enable_if_t&lt;IsLogLevelEnabled&lt;L&gt;::Value, <span class="keywordtype">void</span>&gt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">   69</a></span>&#160;    <a class="code" href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">Log</a>(<span class="keyword">const</span> std::string&amp; message)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">SendEvent</a>(<a class="code" href="classvlk_1_1LogEvent.html">LogEvent</a>(message, L));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L = LogLevel::Info&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">typename</span> std::enable_if_t&lt;!IsLogLevelEnabled&lt;L&gt;::Value, <span class="keywordtype">void</span>&gt;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespacevlk.html#aadb01b64da983eaa552793f7525fc8e5">   76</a></span>&#160;    <a class="code" href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">Log</a>(<span class="keyword">const</span> std::string&amp;) {}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html">   44</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1LogEvent.html">LogEvent</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">   58</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">LogEvent</a>(</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keyword">const</span> std::string&amp; _message, </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">const</span> <a class="code" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> _severity,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">const</span> std::string&amp; _file = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">const</span> Size _line = 0) :</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93">message</a>(_message),</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a>(_severity),</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2">file</a>(_file),</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684">line</a>(_line)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        { }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93">   69</a></span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93">message</a>; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">   70</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> <a class="code" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a>; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2">   71</a></span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2">file</a>; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684">   72</a></span>&#160;        <span class="keyword">const</span> Size <a class="code" href="classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684">line</a>; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L&gt;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classvlk_1_1IsLogLevelEnabled.html">   97</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1IsLogLevelEnabled.html">IsLogLevelEnabled</a></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> VLK_CXX14_CONSTEXPR <span class="keywordtype">bool</span> Test()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">switch</span> (L)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">case</span> LogLevel::Trace:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">case</span> LogLevel::Verbose:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    VLK_FALLTHROUGH;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">case</span> LogLevel::Info:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">VLK_IS_DEBUG</a> || <a class="code" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7">  118</a></span>&#160;        <span class="keyword">static</span> VLK_CXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7">Value</a> = Test();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    };</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L = LogLevel::Info&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">typename</span> std::enable_if_t&lt;IsLogLevelEnabled&lt;L&gt;::Value, <span class="keywordtype">void</span>&gt;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="ValkyrieDebug_8hpp.html#a3b3d0d290851259ab615311197a5fcc9">  133</a></span>&#160;    <a class="code" href="ValkyrieDebug_8hpp.html#a3b3d0d290851259ab615311197a5fcc9">Log</a>(</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">const</span> std::string&amp; message,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">const</span> std::string&amp; file = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keyword">const</span> Size line = 0)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        SendEvent(<a class="code" href="classvlk_1_1LogEvent.html">LogEvent</a>(message, L, file,  line));</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keyword">template</span> &lt;LogLevel L = LogLevel::Info&gt;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">typename</span> std::enable_if_t&lt;!IsLogLevelEnabled&lt;L&gt;::Value, <span class="keywordtype">void</span>&gt;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="ValkyrieDebug_8hpp.html#abc422a9de0647104320af990680be946">  146</a></span>&#160;    <a class="code" href="ValkyrieDebug_8hpp.html#a3b3d0d290851259ab615311197a5fcc9">Log</a>(<span class="keyword">const</span> std::string&amp;,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keyword">const</span> std::string&amp; = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">const</span> Size = 0) { }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacevlk_html_ab2abb90a32bac8bc7ced576f9d15d1f2"><div class="ttname"><a href="namespacevlk.html#ab2abb90a32bac8bc7ced576f9d15d1f2">vlk::Log</a></div><div class="ttdeci">std::enable_if_t&lt; IsLogLevelEnabled&lt; L &gt;::Value, void &gt; Log(const std::string &amp;message)</div><div class="ttdoc">Sends a log event.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:69</div></div>
-<div class="ttc" id="anamespacevlk_html_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1"><div class="ttname"><a href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1">vlk::LogLevel::Trace</a></div><div class="ttdeci">@ Trace</div></div>
-<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdef"><b>Definition:</b> Allocator.hpp:7</div></div>
-<div class="ttc" id="aEventBus_8hpp_html"><div class="ttname"><a href="EventBus_8hpp.html">EventBus.hpp</a></div></div>
-<div class="ttc" id="aclassvlk_1_1LogEvent_html_a95ddcd0a3d488e01a9cbca0099094fba"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a95ddcd0a3d488e01a9cbca0099094fba">vlk::LogEvent::message</a></div><div class="ttdeci">const std::string_view message</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:29</div></div>
-<div class="ttc" id="anamespacevlk_html_adf36335ff9f900d96dd5f6185598020b"><div class="ttname"><a href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">vlk::SendEvent</a></div><div class="ttdeci">constexpr void SendEvent(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> EventBus.hpp:161</div></div>
-<div class="ttc" id="aclassvlk_1_1IsLogLevelEnabled_html_a439728671c5553a3be254a6c85995804"><div class="ttname"><a href="classvlk_1_1IsLogLevelEnabled.html#a439728671c5553a3be254a6c85995804">vlk::IsLogLevelEnabled::Value</a></div><div class="ttdeci">static constexpr bool Value</div><div class="ttdoc">Whether LogLevel L is enabled in the current configuration.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:61</div></div>
-<div class="ttc" id="anamespacevlk_html_acc4a6717fa5f8014c9ebe1524198bb00"><div class="ttname"><a href="namespacevlk.html#acc4a6717fa5f8014c9ebe1524198bb00">vlk::is_debug</a></div><div class="ttdeci">constexpr bool is_debug</div><div class="ttdef"><b>Definition:</b> Config.hpp:17</div></div>
-<div class="ttc" id="aclassvlk_1_1IsLogLevelEnabled_html"><div class="ttname"><a href="classvlk_1_1IsLogLevelEnabled.html">vlk::IsLogLevelEnabled</a></div><div class="ttdoc">Helper class that statically-evaluates whether log events with severity LogLevel should be sent.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:42</div></div>
-<div class="ttc" id="anamespacevlk_html_af686ba12e19b6ee83f5de4dcfe77add6"><div class="ttname"><a href="namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6">vlk::enable_trace_logging</a></div><div class="ttdeci">constexpr bool enable_trace_logging</div><div class="ttdef"><b>Definition:</b> Config.hpp:11</div></div>
-<div class="ttc" id="aclassvlk_1_1LogEvent_html_a6752e0787181958716fb9ef83e4af7d7"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a6752e0787181958716fb9ef83e4af7d7">vlk::LogEvent::LogEvent</a></div><div class="ttdeci">constexpr LogEvent(const std::string_view &amp;_message, const vlk::LogLevel _severity)</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:23</div></div>
-<div class="ttc" id="aclassvlk_1_1LogEvent_html"><div class="ttname"><a href="classvlk_1_1LogEvent.html">vlk::LogEvent</a></div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:21</div></div>
-<div class="ttc" id="aclassvlk_1_1LogEvent_html_a129cd5b42c5b2cf70b88069a01860233"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">vlk::LogEvent::severity</a></div><div class="ttdeci">const vlk::LogLevel severity</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:30</div></div>
-<div class="ttc" id="anamespacevlk_html_a8f4a29860db3d6e178a9777d1346843c"><div class="ttname"><a href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdoc">Defines various severities of log message.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:10</div></div>
-<div class="ttc" id="aValkyrieDefs_8hpp_html"><div class="ttname"><a href="ValkyrieDefs_8hpp.html">ValkyrieDefs.hpp</a></div></div>
+<div class="ttc" id="aValkyrieDebug_8hpp_html_a8f4a29860db3d6e178a9777d1346843c"><div class="ttname"><a href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdoc">Defines various severities of log message.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:24</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html_aa812ea56de9a200f2fb59cc722028b93"><div class="ttname"><a href="classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93">vlk::LogEvent::message</a></div><div class="ttdeci">const std::string message</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:69</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html_a75a016581db3d5dbfa74507436f56e6d"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">vlk::LogEvent::LogEvent</a></div><div class="ttdeci">LogEvent(const std::string &amp;_message, const vlk::LogLevel _severity, const std::string &amp;_file=&quot;&quot;, const Size _line=0)</div><div class="ttdoc">Constructs a log event with the given message and severity.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:58</div></div>
+<div class="ttc" id="aConfig_8hpp_html_a80cadbd34036d3a1982e1cce970e283e"><div class="ttname"><a href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">VLK_IS_DEBUG</a></div><div class="ttdeci">#define VLK_IS_DEBUG</div><div class="ttdoc">A macro used to determine whether debug-only code should be compiled.</div><div class="ttdef"><b>Definition:</b> Config.hpp:269</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html_a77a8545c3cabe0adaaca48d784ccf8c2"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2">vlk::LogEvent::file</a></div><div class="ttdeci">const std::string file</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:71</div></div>
+<div class="ttc" id="aclassvlk_1_1IsLogLevelEnabled_html"><div class="ttname"><a href="classvlk_1_1IsLogLevelEnabled.html">vlk::IsLogLevelEnabled</a></div><div class="ttdoc">Helper class that determines whether a specific vlk::LogLevel is enabled in the current configuration...</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:98</div></div>
+<div class="ttc" id="aConfig_8hpp_html_a7242a6a40c4cd61c0a038c7f85ba2ab4"><div class="ttname"><a href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a></div><div class="ttdeci">#define VLK_ENABLE_TRACE_LOGGING</div><div class="ttdoc">A macro used to enable trace-level debug logging, should expand to either true or false.</div><div class="ttdef"><b>Definition:</b> Config.hpp:249</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html"><div class="ttname"><a href="classvlk_1_1LogEvent.html">vlk::LogEvent</a></div><div class="ttdoc">An event that is sent whenever a message is logged.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:45</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html_a129cd5b42c5b2cf70b88069a01860233"><div class="ttname"><a href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">vlk::LogEvent::severity</a></div><div class="ttdeci">const vlk::LogLevel severity</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:70</div></div>
+<div class="ttc" id="aValkyrieDebug_8hpp_html_a3b3d0d290851259ab615311197a5fcc9"><div class="ttname"><a href="ValkyrieDebug_8hpp.html#a3b3d0d290851259ab615311197a5fcc9">vlk::Log</a></div><div class="ttdeci">std::enable_if_t&lt; IsLogLevelEnabled&lt; L &gt;::Value, void &gt; Log(const std::string &amp;message, const std::string &amp;file=&quot;&quot;, const Size line=0)</div><div class="ttdoc">Sends a log event with a given message.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:133</div></div>
+<div class="ttc" id="aclassvlk_1_1IsLogLevelEnabled_html_afff35704d275eb8bcae9055c6e92b8c7"><div class="ttname"><a href="classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7">vlk::IsLogLevelEnabled::Value</a></div><div class="ttdeci">static VLK_CXX14_CONSTEXPR bool Value</div><div class="ttdoc">true if log messages with a severity of L are processed in the current configuration.</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:118</div></div>
+<div class="ttc" id="aclassvlk_1_1LogEvent_html_ae1fb6e8bd7681ecdeec08b6b0268d684"><div class="ttname"><a href="classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684">vlk::LogEvent::line</a></div><div class="ttdeci">const Size line</div><div class="ttdef"><b>Definition:</b> ValkyrieDebug.hpp:72</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

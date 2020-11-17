@@ -2,55 +2,28 @@
 \label{classvlk_1_1ThreadPool}\index{vlk::ThreadPool@{vlk::ThreadPool}}
 
 
+Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std\+::thread\+::hardware\+\_\+concurrency by default, but will always be at least one.  
+
+
+
+
 {\ttfamily \#include $<$Thread\+Pool.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classvlk_1_1ThreadPool_a6d0322f870cf7875aab184f4c8672c05}\label{classvlk_1_1ThreadPool_a6d0322f870cf7875aab184f4c8672c05}} 
 static void \mbox{\hyperlink{classvlk_1_1ThreadPool_a6d0322f870cf7875aab184f4c8672c05}{Enqueue}} (const std\+::function$<$ void()$>$ \&func)
 \begin{DoxyCompactList}\small\item\em Adds a function to the back of the execution queue. Retrurns immediately. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvlk_1_1ThreadPool_aecf4a52c5f172d744071f479f974a54f}\label{classvlk_1_1ThreadPool_aecf4a52c5f172d744071f479f974a54f}} 
 static void \mbox{\hyperlink{classvlk_1_1ThreadPool_aecf4a52c5f172d744071f479f974a54f}{Wait}} ()
 \begin{DoxyCompactList}\small\item\em Blocks the calling thread until all threads have finished executing and the execution queue is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-friend \mbox{\hyperlink{classvlk_1_1ThreadPool_a2e0cef2ffb7c82f46d996981ce90bdea}{Thread}}
-\end{DoxyCompactItemize}
 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classvlk_1_1ThreadPool_a6d0322f870cf7875aab184f4c8672c05}\label{classvlk_1_1ThreadPool_a6d0322f870cf7875aab184f4c8672c05}} 
-\index{vlk::ThreadPool@{vlk::ThreadPool}!Enqueue@{Enqueue}}
-\index{Enqueue@{Enqueue}!vlk::ThreadPool@{vlk::ThreadPool}}
-\doxysubsubsection{\texorpdfstring{Enqueue()}{Enqueue()}}
-{\footnotesize\ttfamily void Thread\+Pool\+::\+Enqueue (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Adds a function to the back of the execution queue. Retrurns immediately. 
-
-\mbox{\Hypertarget{classvlk_1_1ThreadPool_aecf4a52c5f172d744071f479f974a54f}\label{classvlk_1_1ThreadPool_aecf4a52c5f172d744071f479f974a54f}} 
-\index{vlk::ThreadPool@{vlk::ThreadPool}!Wait@{Wait}}
-\index{Wait@{Wait}!vlk::ThreadPool@{vlk::ThreadPool}}
-\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}}
-{\footnotesize\ttfamily void Thread\+Pool\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Blocks the calling thread until all threads have finished executing and the execution queue is empty. 
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classvlk_1_1ThreadPool_a2e0cef2ffb7c82f46d996981ce90bdea}\label{classvlk_1_1ThreadPool_a2e0cef2ffb7c82f46d996981ce90bdea}} 
-\index{vlk::ThreadPool@{vlk::ThreadPool}!Thread@{Thread}}
-\index{Thread@{Thread}!vlk::ThreadPool@{vlk::ThreadPool}}
-\doxysubsubsection{\texorpdfstring{Thread}{Thread}}
-{\footnotesize\ttfamily friend vlk\+::\+Thread\+Pool\+::\+Thread}
-
-
+\doxysubsection{Detailed Description}
+Maintains a collection of persistent thread objects to enable asyncronous processing. Number of threads will be equal to std\+::thread\+::hardware\+\_\+concurrency by default, but will always be at least one. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{ThreadPool_8hpp}{Thread\+Pool.\+hpp}}\item 
-src/\mbox{\hyperlink{ThreadPool_8cpp}{Thread\+Pool.\+cpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/Thread\+Pool.\+hpp\item 
+src/Thread\+Pool.\+cpp\end{DoxyCompactItemize}

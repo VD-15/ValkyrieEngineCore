@@ -1,37 +1,93 @@
 \hypertarget{ValkyrieDebug_8hpp}{}\doxysection{include/\+Valkyrie\+Engine/\+Valkyrie\+Debug.hpp File Reference}
 \label{ValkyrieDebug_8hpp}\index{include/ValkyrieEngine/ValkyrieDebug.hpp@{include/ValkyrieEngine/ValkyrieDebug.hpp}}
+
+
+Provides basic debugging utilities.  
+
+
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Defs.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Event\+Bus.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvlk_1_1LogEvent}{vlk\+::\+Log\+Event}}
-\item 
+\begin{DoxyCompactList}\small\item\em An event that is sent whenever a message is logged. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{vlk\+::\+Is\+Log\+Level\+Enabled$<$ L $>$}}
-\begin{DoxyCompactList}\small\item\em Helper class that statically-\/evaluates whether log events with severity \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{Log\+Level}} should be sent. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
- \mbox{\hyperlink{namespacevlk}{vlk}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Helper class that determines whether a specific vlk\+::\+Log\+Level is enabled in the current configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \{ \newline
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}{vlk\+::\+Log\+Level\+::\+Trace}}, 
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843cad4a9fa383ab700c5bdd6f31cf7df0faf}{vlk\+::\+Log\+Level\+::\+Verbose}}, 
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843ca4059b0251f66a18cb56f544728796875}{vlk\+::\+Log\+Level\+::\+Info}}, 
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843ca0eaadb4fcb48a0a0ed7bc9868be9fbaa}{vlk\+::\+Log\+Level\+::\+Warning}}, 
+enum \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \{ \newline
+{\bfseries vlk\+::\+Log\+Level\+::\+Trace}, 
+{\bfseries vlk\+::\+Log\+Level\+::\+Verbose}, 
+{\bfseries vlk\+::\+Log\+Level\+::\+Info}, 
+{\bfseries vlk\+::\+Log\+Level\+::\+Warning}, 
 \newline
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843ca902b0d55fddef6f8d651fe1035b7d4bd}{vlk\+::\+Log\+Level\+::\+Error}}, 
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843ca882384ec38ce8d9582b57e70861730e4}{vlk\+::\+Log\+Level\+::\+Fatal}}, 
-\mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843ca7c4e293d2026ae87797c8368b4e0b50d}{vlk\+::\+Log\+Level\+::\+Announce}}
+{\bfseries vlk\+::\+Log\+Level\+::\+Error}, 
+{\bfseries vlk\+::\+Log\+Level\+::\+Fatal}, 
+{\bfseries vlk\+::\+Log\+Level\+::\+Announce}
  \}
 \begin{DoxyCompactList}\small\item\em Defines various severities of log message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_ab2abb90a32bac8bc7ced576f9d15d1f2}{vlk\+::\+Log}} (const std\+::string \&message)
-\begin{DoxyCompactList}\small\item\em Sends a log event. \end{DoxyCompactList}\item 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{namespacevlk_aadb01b64da983eaa552793f7525fc8e5}{vlk\+::\+Log}} (const std\+::string \&)
-\end{DoxyCompactItemize}
+{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}{vlk\+::\+Log}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Sends a log event with a given message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_abc422a9de0647104320af990680be946}\label{ValkyrieDebug_8hpp_abc422a9de0647104320af990680be946}} 
+{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{ValkyrieDebug_8hpp_abc422a9de0647104320af990680be946}{vlk\+::\+Log}} (const std\+::string \&, const std\+::string \&=\char`\"{}\char`\"{}, const Size=0)
+\begin{DoxyCompactList}\small\item\em Dummy function for disabled log events. Does nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides basic debugging utilities. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Defines various severities of log message. 
+
+Less severe log messages may not be processed depending on the configuration. \begin{DoxySeeAlso}{See also}
+Log\+Event 
+
+Is\+Log\+Level\+Enabled 
+
+\mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{V\+L\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+L\+O\+G\+G\+I\+NG}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}\label{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Log@{Log}}
+\index{Log@{Log}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily template$<$Log\+Level L = Log\+Level\+::\+Info$>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$Is\+Log\+Level\+Enabled$<$L$>$\+::Value, void$>$ vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const Size}]{line = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Sends a log event with a given message. 
+
+Use this as the preferred method of sending debug messages in your application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message contained by the log event \\
+\hline
+{\em file} & The source file that generated this log event \\
+\hline
+{\em line} & The line of the source file that generated this log event \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em L} & The severity of this log event \\
+\hline
+\end{DoxyTemplParams}

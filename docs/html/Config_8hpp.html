@@ -66,29 +66,83 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Config.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-</div>
+
+<p>Defines various symbols to make valkyrie engine more compatable with older C++ standards, see each of the symbols for a detailed description.  
+<a href="#details">More...</a></p>
+
 <p><a href="Config_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevlk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html">vlk</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:af686ba12e19b6ee83f5de4dcfe77add6"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#af686ba12e19b6ee83f5de4dcfe77add6">vlk::enable_trace_logging</a> = false</td></tr>
-<tr class="separator:af686ba12e19b6ee83f5de4dcfe77add6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4a6717fa5f8014c9ebe1524198bb00"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html#acc4a6717fa5f8014c9ebe1524198bb00">vlk::is_debug</a> = false</td></tr>
-<tr class="separator:acc4a6717fa5f8014c9ebe1524198bb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7242a6a40c4cd61c0a038c7f85ba2ab4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:a7242a6a40c4cd61c0a038c7f85ba2ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro used to enable trace-level debug logging, should expand to either <code>true</code> or <code>false</code>.  <a href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">More...</a><br /></td></tr>
+<tr class="separator:a7242a6a40c4cd61c0a038c7f85ba2ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cadbd34036d3a1982e1cce970e283e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">VLK_IS_DEBUG</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memdesc:a80cadbd34036d3a1982e1cce970e283e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro used to determine whether debug-only code should be compiled.  <a href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">More...</a><br /></td></tr>
+<tr class="separator:a80cadbd34036d3a1982e1cce970e283e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines various symbols to make valkyrie engine more compatable with older C++ standards, see each of the symbols for a detailed description. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7242a6a40c4cd61c0a038c7f85ba2ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7242a6a40c4cd61c0a038c7f85ba2ab4">&#9670;&nbsp;</a></span>VLK_ENABLE_TRACE_LOGGING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VLK_ENABLE_TRACE_LOGGING&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro used to enable trace-level debug logging, should expand to either <code>true</code> or <code>false</code>. </p>
+<p>This can have a substantial inpact on performance, so unless you are debugging something engine-side, it is best left turned off.</p>
+<p>You should enable this by passing an appropriate flag to your compiler, enabling it in your own code is not guaranteed to work.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> Foo()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a>)</div>
+<div class="line">    {</div>
+<div class="line">        vlk::Log&lt;vlk::LogLevel::Trace&gt;(<span class="stringliteral">&quot;Entered function Foo()&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    ...</div>
+<div class="line">}</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a80cadbd34036d3a1982e1cce970e283e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cadbd34036d3a1982e1cce970e283e">&#9670;&nbsp;</a></span>VLK_IS_DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VLK_IS_DEBUG&#160;&#160;&#160;true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro used to determine whether debug-only code should be compiled. </p>
+<p>This macro depends on the <code>NDEBUG</code> macro and will expand to <code>true</code> if <code>NDEBUG</code> is <b>undefined</b> and <code>false</code> otherwise.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> Bar()</div>
+<div class="line">{</div>
+<div class="line">    VLK_CONSTEXPR_IF (<a class="code" href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">VLK_IS_DEBUG</a>)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Also works</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> 
+</div>
+</div>
 </div><!-- contents -->
+<div class="ttc" id="aConfig_8hpp_html_a80cadbd34036d3a1982e1cce970e283e"><div class="ttname"><a href="Config_8hpp.html#a80cadbd34036d3a1982e1cce970e283e">VLK_IS_DEBUG</a></div><div class="ttdeci">#define VLK_IS_DEBUG</div><div class="ttdoc">A macro used to determine whether debug-only code should be compiled.</div><div class="ttdef"><b>Definition:</b> Config.hpp:269</div></div>
+<div class="ttc" id="aConfig_8hpp_html_a7242a6a40c4cd61c0a038c7f85ba2ab4"><div class="ttname"><a href="Config_8hpp.html#a7242a6a40c4cd61c0a038c7f85ba2ab4">VLK_ENABLE_TRACE_LOGGING</a></div><div class="ttdeci">#define VLK_ENABLE_TRACE_LOGGING</div><div class="ttdoc">A macro used to enable trace-level debug logging, should expand to either true or false.</div><div class="ttdef"><b>Definition:</b> Config.hpp:249</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

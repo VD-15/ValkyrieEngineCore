@@ -2,45 +2,106 @@
 \label{classvlk_1_1LogEvent}\index{vlk::LogEvent@{vlk::LogEvent}}
 
 
+An event that is sent whenever a message is logged.  
+
+
+
+
 {\ttfamily \#include $<$Valkyrie\+Debug.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-constexpr \mbox{\hyperlink{classvlk_1_1LogEvent_a6752e0787181958716fb9ef83e4af7d7}{Log\+Event}} (const std\+::string\+\_\+view \&\+\_\+message, const \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \+\_\+severity)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classvlk_1_1LogEvent_a75a016581db3d5dbfa74507436f56e6d}{Log\+Event}} (const std\+::string \&\+\_\+message, const \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \+\_\+severity, const std\+::string \&\+\_\+file=\char`\"{}\char`\"{}, const Size \+\_\+line=0)
+\begin{DoxyCompactList}\small\item\em Constructs a log event with the given message and severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::string\+\_\+view \mbox{\hyperlink{classvlk_1_1LogEvent_a95ddcd0a3d488e01a9cbca0099094fba}{message}}
+const std\+::string \mbox{\hyperlink{classvlk_1_1LogEvent_aa812ea56de9a200f2fb59cc722028b93}{message}}
 \item 
-const \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \mbox{\hyperlink{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}{severity}}
+const \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \mbox{\hyperlink{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}{severity}}
+\item 
+const std\+::string \mbox{\hyperlink{classvlk_1_1LogEvent_a77a8545c3cabe0adaaca48d784ccf8c2}{file}}
+\item 
+const Size \mbox{\hyperlink{classvlk_1_1LogEvent_ae1fb6e8bd7681ecdeec08b6b0268d684}{line}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+An event that is sent whenever a message is logged. 
+
+No event listeners for this are defined for log events by default. You may have to define your own in order to display these anywhere.
+
+\begin{DoxySeeAlso}{See also}
+Log(const std\+::string\&) 
+
+Log\+Level 
+
+\mbox{\hyperlink{classvlk_1_1EventBus}{Event\+Bus}} 
+
+\mbox{\hyperlink{classvlk_1_1EventListener}{Event\+Listener}} 
+\end{DoxySeeAlso}
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classvlk_1_1LogEvent_a6752e0787181958716fb9ef83e4af7d7}\label{classvlk_1_1LogEvent_a6752e0787181958716fb9ef83e4af7d7}} 
+\mbox{\Hypertarget{classvlk_1_1LogEvent_a75a016581db3d5dbfa74507436f56e6d}\label{classvlk_1_1LogEvent_a75a016581db3d5dbfa74507436f56e6d}} 
 \index{vlk::LogEvent@{vlk::LogEvent}!LogEvent@{LogEvent}}
 \index{LogEvent@{LogEvent}!vlk::LogEvent@{vlk::LogEvent}}
 \doxysubsubsection{\texorpdfstring{LogEvent()}{LogEvent()}}
-{\footnotesize\ttfamily constexpr vlk\+::\+Log\+Event\+::\+Log\+Event (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{\+\_\+message,  }\item[{const \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}}}]{\+\_\+severity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+{\footnotesize\ttfamily vlk\+::\+Log\+Event\+::\+Log\+Event (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+message,  }\item[{const \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}}}]{\+\_\+severity,  }\item[{const std\+::string \&}]{\+\_\+file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const Size}]{\+\_\+line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Constructs a log event with the given message and severity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+message} & The message carried by the log event \\
+\hline
+{\em \+\_\+severity} & The severity of the log event \\
+\hline
+{\em \+\_\+file} & The source file that generated this log event \\
+\hline
+{\em \+\_\+line} & The line of the source file that generated this log event \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Log\+Level 
+
+Log(const std\+::string\&) 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]constexpr std\+::strings are not currently supported by any stdlib implementation, update this to V\+L\+K\+\_\+\+C\+X\+X20\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR when added 
+
+std\+::source\+\_\+location is not surrently supported by any stdlib implementation, integrate this when added \end{DoxyRefDesc}
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classvlk_1_1LogEvent_a95ddcd0a3d488e01a9cbca0099094fba}\label{classvlk_1_1LogEvent_a95ddcd0a3d488e01a9cbca0099094fba}} 
+\mbox{\Hypertarget{classvlk_1_1LogEvent_a77a8545c3cabe0adaaca48d784ccf8c2}\label{classvlk_1_1LogEvent_a77a8545c3cabe0adaaca48d784ccf8c2}} 
+\index{vlk::LogEvent@{vlk::LogEvent}!file@{file}}
+\index{file@{file}!vlk::LogEvent@{vlk::LogEvent}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily const std\+::string vlk\+::\+Log\+Event\+::file}
+
+The source file that generated this log event \mbox{\Hypertarget{classvlk_1_1LogEvent_ae1fb6e8bd7681ecdeec08b6b0268d684}\label{classvlk_1_1LogEvent_ae1fb6e8bd7681ecdeec08b6b0268d684}} 
+\index{vlk::LogEvent@{vlk::LogEvent}!line@{line}}
+\index{line@{line}!vlk::LogEvent@{vlk::LogEvent}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily const Size vlk\+::\+Log\+Event\+::line}
+
+The line of the source file that generated this log event \mbox{\Hypertarget{classvlk_1_1LogEvent_aa812ea56de9a200f2fb59cc722028b93}\label{classvlk_1_1LogEvent_aa812ea56de9a200f2fb59cc722028b93}} 
 \index{vlk::LogEvent@{vlk::LogEvent}!message@{message}}
 \index{message@{message}!vlk::LogEvent@{vlk::LogEvent}}
 \doxysubsubsection{\texorpdfstring{message}{message}}
-{\footnotesize\ttfamily const std\+::string\+\_\+view vlk\+::\+Log\+Event\+::message}
+{\footnotesize\ttfamily const std\+::string vlk\+::\+Log\+Event\+::message}
 
-\mbox{\Hypertarget{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}\label{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}} 
+The message carried by this log event \mbox{\Hypertarget{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}\label{classvlk_1_1LogEvent_a129cd5b42c5b2cf70b88069a01860233}} 
 \index{vlk::LogEvent@{vlk::LogEvent}!severity@{severity}}
 \index{severity@{severity}!vlk::LogEvent@{vlk::LogEvent}}
 \doxysubsubsection{\texorpdfstring{severity}{severity}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{namespacevlk_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} vlk\+::\+Log\+Event\+::severity}
+{\footnotesize\ttfamily const \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} vlk\+::\+Log\+Event\+::severity}
 
-
+The severity of this log event 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

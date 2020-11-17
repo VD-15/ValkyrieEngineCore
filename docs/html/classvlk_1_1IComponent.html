@@ -61,17 +61,21 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classvlk_1_1IComponent-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vlk::IComponent Class Reference</div>  </div>
+<div class="title">vlk::IComponent Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for ValkyrieEngine components.  
+ <a href="classvlk_1_1IComponent.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="IComponent_8hpp_source.html">IComponent.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -80,34 +84,33 @@ Inheritance diagram for vlk::IComponent:</div>
  <div class="center">
   <img src="classvlk_1_1IComponent.png" usemap="#vlk::IComponent_map" alt=""/>
   <map id="vlk::IComponent_map" name="vlk::IComponent_map">
-<area href="classvlk_1_1ISignalListener.html" title="Base interface for entity signal listeners." alt="vlk::ISignalListener" shape="rect" coords="0,0,251,24"/>
-<area href="classvlk_1_1Component.html" title="Base class for user-defined components to inherit from." alt="vlk::Component&lt; T, ComponentAllocator &gt;" shape="rect" coords="0,112,251,136"/>
+<area href="classvlk_1_1Component.html" title="Template class for ECS components." alt="vlk::Component&lt; T &gt;" shape="rect" coords="0,56,128,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aabe85521eb9c2d1fa2924af2480909d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#aabe85521eb9c2d1fa2924af2480909d4">IComponent</a> (<a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *e)</td></tr>
-<tr class="separator:aabe85521eb9c2d1fa2924af2480909d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c316ac30754e2948a6af1bc377ffa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#ab9c316ac30754e2948a6af1bc377ffa9">IComponent</a> (const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;)=delete</td></tr>
-<tr class="separator:ab9c316ac30754e2948a6af1bc377ffa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043ff6e14bf5994d57ad0660314070e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a043ff6e14bf5994d57ad0660314070e8">IComponent</a> (<a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a043ff6e14bf5994d57ad0660314070e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fcbe9ab58f7e39bc84d9121dc5a5f32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a2fcbe9ab58f7e39bc84d9121dc5a5f32">operator=</a> (const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;)=delete</td></tr>
-<tr class="separator:a2fcbe9ab58f7e39bc84d9121dc5a5f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce1bbc66527f599f6056d9ab184af4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a3ce1bbc66527f599f6056d9ab184af4d">operator=</a> (<a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a3ce1bbc66527f599f6056d9ab184af4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6560b900145c3ab95d3baa221222c5af"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a6560b900145c3ab95d3baa221222c5af">~IComponent</a> ()</td></tr>
-<tr class="separator:a6560b900145c3ab95d3baa221222c5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bf7d7fe743cbd8bf16f7526e87be5e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a0bf7d7fe743cbd8bf16f7526e87be5e0">GetEntity</a> ()</td></tr>
-<tr class="separator:a0bf7d7fe743cbd8bf16f7526e87be5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf681837e0988b5eec7aaf88027ecbc3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#aaf681837e0988b5eec7aaf88027ecbc3">OnSignal</a> (const <a class="el" href="classvlk_1_1Signal.html">Signal</a> &amp;signal) override</td></tr>
-<tr class="memdesc:aaf681837e0988b5eec7aaf88027ecbc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a signal to this signal listener I don't know what it does, it's virtual.  <a href="classvlk_1_1IComponent.html#aaf681837e0988b5eec7aaf88027ecbc3">More...</a><br /></td></tr>
-<tr class="separator:aaf681837e0988b5eec7aaf88027ecbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484ad5d539d0b0479ddaab2b7d814c57"><td class="memItemLeft" align="right" valign="top"><a id="a484ad5d539d0b0479ddaab2b7d814c57"></a>
+EntityID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a484ad5d539d0b0479ddaab2b7d814c57">GetEntity</a> () const</td></tr>
+<tr class="memdesc:a484ad5d539d0b0479ddaab2b7d814c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the Entity this component is attached to. <br /></td></tr>
+<tr class="separator:a484ad5d539d0b0479ddaab2b7d814c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51ed4ec8ac1511521606fcfa7a035df"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df">Delete</a> ()=0</td></tr>
+<tr class="memdesc:af51ed4ec8ac1511521606fcfa7a035df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes this component.  <a href="classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df">More...</a><br /></td></tr>
+<tr class="separator:af51ed4ec8ac1511521606fcfa7a035df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a76efcf44eda74e5f6d6fe0e25347521a"><td class="memItemLeft" align="right" valign="top"><a id="a76efcf44eda74e5f6d6fe0e25347521a"></a>
+EntityID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a">entity</a></td></tr>
+<tr class="memdesc:a76efcf44eda74e5f6d6fe0e25347521a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Entity this component is attached to. <br /></td></tr>
+<tr class="separator:a76efcf44eda74e5f6d6fe0e25347521a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aabe85521eb9c2d1fa2924af2480909d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabe85521eb9c2d1fa2924af2480909d4">&#9670;&nbsp;</a></span>IComponent() <span class="overload">[1/3]</span></h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for ValkyrieEngine components. </p>
+<dl class="section see"><dt>See also</dt><dd>vlk::Component&lt;T&gt; </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af51ed4ec8ac1511521606fcfa7a035df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51ed4ec8ac1511521606fcfa7a035df">&#9670;&nbsp;</a></span>Delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,85 +119,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vlk::IComponent::IComponent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> *&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab9c316ac30754e2948a6af1bc377ffa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9c316ac30754e2948a6af1bc377ffa9">&#9670;&nbsp;</a></span>IComponent() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vlk::IComponent::IComponent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a043ff6e14bf5994d57ad0660314070e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a043ff6e14bf5994d57ad0660314070e8">&#9670;&nbsp;</a></span>IComponent() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vlk::IComponent::IComponent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6560b900145c3ab95d3baa221222c5af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6560b900145c3ab95d3baa221222c5af">&#9670;&nbsp;</a></span>~IComponent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual vlk::IComponent::~IComponent </td>
+          <td class="memname">virtual void vlk::IComponent::Delete </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -202,118 +127,28 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0bf7d7fe743cbd8bf16f7526e87be5e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bf7d7fe743cbd8bf16f7526e87be5e0">&#9670;&nbsp;</a></span>GetEntity()</h2>
+<p>Deletes this component. </p>
+<p>If this component is attached to an entity, it is detached. Also calls the destructor for this object.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this class is required.<br  />
+ Unique access to the ECRegistry&lt;IComponent&gt; class is required.<br  />
+ Unique access to the <a class="el" href="classvlk_1_1ECRegistry.html" title="Tracks what components are attached to what entities.">ECRegistry</a>&lt;Component&lt;T&gt;&gt; class is required.<br  />
+ This function may block the calling thread.<br  />
+</dd></dl>
+<div class="fragment"><div class="line">Component&lt;MyData&gt;* component = <a class="code" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">Component&lt;MyData&gt;::Create</a>(eId, 5);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Do something with component.</span></div>
+<div class="line"> </div>
+<div class="line">component-&gt;Delete();</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>Create(EntityID, Args) </dd></dl>
 
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a>* vlk::IComponent::GetEntity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaf681837e0988b5eec7aaf88027ecbc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf681837e0988b5eec7aaf88027ecbc3">&#9670;&nbsp;</a></span>OnSignal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void vlk::IComponent::OnSignal </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvlk_1_1Signal.html">Signal</a> &amp;&#160;</td>
-          <td class="paramname"><em>signal</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends a signal to this signal listener I don't know what it does, it's virtual. </p>
-
-<p>Implements <a class="el" href="classvlk_1_1ISignalListener.html#acf26af5b372dcd7478cc709dbe959d66">vlk::ISignalListener</a>.</p>
-
-</div>
-</div>
-<a id="a2fcbe9ab58f7e39bc84d9121dc5a5f32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fcbe9ab58f7e39bc84d9121dc5a5f32">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a>&amp; vlk::IComponent::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3ce1bbc66527f599f6056d9ab184af4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ce1bbc66527f599f6056d9ab184af4d">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a>&amp; vlk::IComponent::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvlk_1_1IComponent.html">IComponent</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Implemented in <a class="el" href="classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f">vlk::Component&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -321,6 +156,7 @@ Public Member Functions</h2></td></tr>
 <li>include/ValkyrieEngine/<a class="el" href="IComponent_8hpp_source.html">IComponent.hpp</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclassvlk_1_1Component_html_a8f7b222b41a98dd8b7e1409a832540e7"><div class="ttname"><a href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">vlk::Component::Create</a></div><div class="ttdeci">static Component&lt; T &gt; * Create(EntityID eId, Args... args)</div><div class="ttdoc">Creates a component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:282</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

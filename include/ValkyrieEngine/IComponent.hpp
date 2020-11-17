@@ -1,30 +1,35 @@
-#pragma once
-#include "ValkyrieEngine/IEntity.hpp"
+/*!
+ * \file IComponent.hpp
+ * \brief Provides base class for components
+ */
+
+#ifndef VLK_ICOMPONENT_HPP
+#define VLK_ICOMPONENT_HPP
+
+#include "ValkyrieEngine/ECS.hpp"
 
 namespace vlk
 {
-	class IComponent : public ISignalListener
+	/*!
+	 * \brief Unspecialized base class for ValkyrieEngine components
+	 *
+	 * \sa vlk::Component<T>
+	 */
+	class IComponent
 	{
-		IEntity* const entity;
+		protected:
+		//! The Entity this component is attached to.
+		EntityID entity;
 
 		public:
-		IComponent(IEntity* e) :
-			entity(e)
-		{
-			this->entity->AddSignalListener(static_cast<ISignalListener*>(this));
-		}
+		//! Gets the id of the Entity this component is attached to.
+		inline EntityID GetEntity() const { return entity; }
 
-		IComponent(const IComponent&) = delete;
-		IComponent(IComponent&&) = delete;
-		IComponent& operator=(const IComponent&) = delete;
-		IComponent& operator=(IComponent&&) = delete;
-		virtual ~IComponent()
-		{
-			this->entity->RemoveSignalListener(static_cast<ISignalListener*>(this));
-		}
-
-		inline IEntity* GetEntity() { return this->entity; }
-
-		virtual void OnSignal(const Signal& signal) override {}
+		/*!
+		 * \copydoc Component<T>::Delete()
+		 */
+		virtual void Delete() = 0;
 	};
 }
+
+#endif

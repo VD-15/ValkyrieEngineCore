@@ -7,14 +7,15 @@ endif()
 set(CMAKE_DISABLE_IN_SOURCE_BUILD  ON)
 set(CMAKE_DISABLE_SOURCE_CHANGES   ON)
 
-project(ValkyrieEngineCore VERSION 0.1.0)
+project(ValkyrieEngineCore VERSION 0.2.0)
 
 option(VLK_ENABLE_TRACE_LOGGING "Enable trace-level debug messages" OFF)
+option(BUILD_TESTING "Build ValkyrieEngine tests" ON)
 
 add_library(ValkyrieEngineCore
-	include/ValkyrieEngine/ValkyrieEngine.hpp
-	src/ValkyrieEngine.cpp
-	src/ThreadPool.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/ValkyrieEngine/ValkyrieEngine.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ValkyrieEngine.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Entity.cpp
 )
 
 target_compile_features(ValkyrieEngineCore PUBLIC cxx_std_20)
@@ -33,8 +34,10 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	target_compile_definitions(ValkyrieEngineCore PUBLIC VLK_DEBUG)
 endif()
 
-if (BUILD_TESTING EQUAL ON)
+if (BUILD_TESTING)
+    message(STATUS "Building tests...")
 	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/Catch2)
-	add_subdirectory(test)
+	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test)
+    enable_testing()
 endif()
 

@@ -69,25 +69,25 @@ $(function() {
 <div class="title">Signal.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Signal_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ValkyrieDefs_8hpp.html">ValkyrieEngine/ValkyrieDefs.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/ValkyrieDefs.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;any&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevlk.html">vlk</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>vlk</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvlk_1_1Signal.html">   17</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classvlk_1_1Signal.html">Signal</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::map&lt;std::string, std::any&gt; args;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvlk_1_1Signal.html#a0f0b0190d13b76037cdfaddd7fa315fd">   22</a></span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="classvlk_1_1Signal.html#a0f0b0190d13b76037cdfaddd7fa315fd">type</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> std::string type;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classvlk_1_1Signal.html#aacd6564017ff67316b7cc9d67f5337e1">   24</a></span>&#160;        <a class="code" href="classvlk_1_1Signal.html#aacd6564017ff67316b7cc9d67f5337e1">Signal</a>(std::string _type) :</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="classvlk_1_1Signal.html#a0f0b0190d13b76037cdfaddd7fa315fd">type</a>(_type)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classvlk_1_1Signal.html">Signal</a>(std::string _type) :</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            type(_type)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -125,14 +125,10 @@ $(function() {
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassvlk_1_1Signal_html_add4292690d8398d937a5a40cb8a989b7"><div class="ttname"><a href="classvlk_1_1Signal.html#add4292690d8398d937a5a40cb8a989b7">vlk::Signal::PutArg</a></div><div class="ttdeci">void PutArg(std::string argID, T val)</div><div class="ttdoc">Assigns an argument for this signal. If the argument is not present, it is inserted....</div><div class="ttdef"><b>Definition:</b> Signal.hpp:61</div></div>
-<div class="ttc" id="anamespacevlk_html"><div class="ttname"><a href="namespacevlk.html">vlk</a></div><div class="ttdef"><b>Definition:</b> Allocator.hpp:7</div></div>
 <div class="ttc" id="aclassvlk_1_1ISignalListener_html"><div class="ttname"><a href="classvlk_1_1ISignalListener.html">vlk::ISignalListener</a></div><div class="ttdoc">Base interface for entity signal listeners.</div><div class="ttdef"><b>Definition:</b> Signal.hpp:72</div></div>
 <div class="ttc" id="aclassvlk_1_1Signal_html_a6e94425e6da5673a6b4a498eb49606db"><div class="ttname"><a href="classvlk_1_1Signal.html#a6e94425e6da5673a6b4a498eb49606db">vlk::Signal::GetArg</a></div><div class="ttdeci">std::optional&lt; T &gt; GetArg(std::string argName) const</div><div class="ttdoc">Gets an argument from this signal.</div><div class="ttdef"><b>Definition:</b> Signal.hpp:35</div></div>
-<div class="ttc" id="aclassvlk_1_1Signal_html_aacd6564017ff67316b7cc9d67f5337e1"><div class="ttname"><a href="classvlk_1_1Signal.html#aacd6564017ff67316b7cc9d67f5337e1">vlk::Signal::Signal</a></div><div class="ttdeci">Signal(std::string _type)</div><div class="ttdef"><b>Definition:</b> Signal.hpp:24</div></div>
-<div class="ttc" id="aclassvlk_1_1Signal_html_a0f0b0190d13b76037cdfaddd7fa315fd"><div class="ttname"><a href="classvlk_1_1Signal.html#a0f0b0190d13b76037cdfaddd7fa315fd">vlk::Signal::type</a></div><div class="ttdeci">const std::string type</div><div class="ttdef"><b>Definition:</b> Signal.hpp:22</div></div>
 <div class="ttc" id="aclassvlk_1_1ISignalListener_html_acf26af5b372dcd7478cc709dbe959d66"><div class="ttname"><a href="classvlk_1_1ISignalListener.html#acf26af5b372dcd7478cc709dbe959d66">vlk::ISignalListener::OnSignal</a></div><div class="ttdeci">virtual void OnSignal(const Signal &amp;signal)=0</div><div class="ttdoc">Sends a signal to this signal listener I don't know what it does, it's virtual.</div></div>
 <div class="ttc" id="aclassvlk_1_1Signal_html"><div class="ttname"><a href="classvlk_1_1Signal.html">vlk::Signal</a></div><div class="ttdoc">Represents a dynamic event sent to an entity, Unlike events, which are statically defined and sent gl...</div><div class="ttdef"><b>Definition:</b> Signal.hpp:18</div></div>
-<div class="ttc" id="aValkyrieDefs_8hpp_html"><div class="ttname"><a href="ValkyrieDefs_8hpp.html">ValkyrieDefs.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

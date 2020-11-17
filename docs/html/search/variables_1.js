@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['developername_213',['developerName',['../structvlk_1_1Application_1_1ApplicationArgs.html#a473fa9e246a8ea0881b767ece338e13a',1,'vlk::Application::ApplicationArgs']]]
+  ['entity_125',['entity',['../classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a',1,'vlk::IComponent']]]
 ];

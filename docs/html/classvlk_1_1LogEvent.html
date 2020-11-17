@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevlk.html">vlk</a></li><li class="navelem"><a class="el" href="classvlk_1_1LogEvent.html">LogEvent</a></li>  </ul>
+<li class="navelem"><b>vlk</b></li><li class="navelem"><a class="el" href="classvlk_1_1LogEvent.html">LogEvent</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,23 +74,41 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>An event that is sent whenever a message is logged.  
+ <a href="classvlk_1_1LogEvent.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ValkyrieDebug_8hpp_source.html">ValkyrieDebug.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6752e0787181958716fb9ef83e4af7d7"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a6752e0787181958716fb9ef83e4af7d7">LogEvent</a> (const std::string_view &amp;_message, const <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> _severity)</td></tr>
-<tr class="separator:a6752e0787181958716fb9ef83e4af7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a016581db3d5dbfa74507436f56e6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">LogEvent</a> (const std::string &amp;_message, const <a class="el" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> _severity, const std::string &amp;_file=&quot;&quot;, const Size _line=0)</td></tr>
+<tr class="memdesc:a75a016581db3d5dbfa74507436f56e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a log event with the given message and severity.  <a href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">More...</a><br /></td></tr>
+<tr class="separator:a75a016581db3d5dbfa74507436f56e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a95ddcd0a3d488e01a9cbca0099094fba"><td class="memItemLeft" align="right" valign="top">const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a95ddcd0a3d488e01a9cbca0099094fba">message</a></td></tr>
-<tr class="separator:a95ddcd0a3d488e01a9cbca0099094fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129cd5b42c5b2cf70b88069a01860233"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a></td></tr>
+<tr class="memitem:aa812ea56de9a200f2fb59cc722028b93"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93">message</a></td></tr>
+<tr class="separator:aa812ea56de9a200f2fb59cc722028b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129cd5b42c5b2cf70b88069a01860233"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233">severity</a></td></tr>
 <tr class="separator:a129cd5b42c5b2cf70b88069a01860233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a8545c3cabe0adaaca48d784ccf8c2"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2">file</a></td></tr>
+<tr class="separator:a77a8545c3cabe0adaaca48d784ccf8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1fb6e8bd7681ecdeec08b6b0268d684"><td class="memItemLeft" align="right" valign="top">const Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684">line</a></td></tr>
+<tr class="separator:ae1fb6e8bd7681ecdeec08b6b0268d684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6752e0787181958716fb9ef83e4af7d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6752e0787181958716fb9ef83e4af7d7">&#9670;&nbsp;</a></span>LogEvent()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An event that is sent whenever a message is logged. </p>
+<p>No event listeners for this are defined for log events by default. You may have to define your own in order to display these anywhere.</p>
+<dl class="section see"><dt>See also</dt><dd>Log(const std::string&amp;) </dd>
+<dd>
+LogLevel </dd>
+<dd>
+<a class="el" href="classvlk_1_1EventBus.html" title="Facilitates sending events to user-defined event listeners.">EventBus</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1EventListener.html" title="Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate ...">EventListener</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a75a016581db3d5dbfa74507436f56e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a016581db3d5dbfa74507436f56e6d">&#9670;&nbsp;</a></span>LogEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -99,16 +117,28 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr vlk::LogEvent::LogEvent </td>
+          <td class="memname">vlk::LogEvent::LogEvent </td>
           <td>(</td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>_message</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a>&#160;</td>
-          <td class="paramname"><em>_severity</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a>&#160;</td>
+          <td class="paramname"><em>_severity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>_file</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Size&#160;</td>
+          <td class="paramname"><em>_line</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -118,25 +148,73 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a log event with the given message and severity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_message</td><td>The message carried by the log event </td></tr>
+    <tr><td class="paramname">_severity</td><td>The severity of the log event </td></tr>
+    <tr><td class="paramname">_file</td><td>The source file that generated this log event </td></tr>
+    <tr><td class="paramname">_line</td><td>The line of the source file that generated this log event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>LogLevel </dd>
+<dd>
+Log(const std::string&amp;) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">constexpr std::strings are not currently supported by any stdlib implementation, update this to VLK_CXX20_CONSTEXPR when added </p>
+<p class="enddd">std::source_location is not surrently supported by any stdlib implementation, integrate this when added </p>
+</dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a95ddcd0a3d488e01a9cbca0099094fba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95ddcd0a3d488e01a9cbca0099094fba">&#9670;&nbsp;</a></span>message</h2>
+<a id="a77a8545c3cabe0adaaca48d784ccf8c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a8545c3cabe0adaaca48d784ccf8c2">&#9670;&nbsp;</a></span>file</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string_view vlk::LogEvent::message</td>
+          <td class="memname">const std::string vlk::LogEvent::file</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The source file that generated this log event </p>
+
+</div>
+</div>
+<a id="ae1fb6e8bd7681ecdeec08b6b0268d684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1fb6e8bd7681ecdeec08b6b0268d684">&#9670;&nbsp;</a></span>line</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Size vlk::LogEvent::line</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The line of the source file that generated this log event </p>
+
+</div>
+</div>
+<a id="aa812ea56de9a200f2fb59cc722028b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa812ea56de9a200f2fb59cc722028b93">&#9670;&nbsp;</a></span>message</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string vlk::LogEvent::message</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The message carried by this log event </p>
 
 </div>
 </div>
@@ -147,10 +225,11 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="namespacevlk.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> vlk::LogEvent::severity</td>
+          <td class="memname">const <a class="el" href="ValkyrieDebug_8hpp.html#a8f4a29860db3d6e178a9777d1346843c">vlk::LogLevel</a> vlk::LogEvent::severity</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The severity of this log event </p>
 
 </div>
 </div>

@@ -61,171 +61,82 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;
-
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>AddComponent()
-: <a class="el" href="classvlk_1_1Entity.html#a5d9ea8e69f59bbf43d47fef424ef8170">vlk::Entity&lt; T, EntityAllocator &gt;</a>
+&#160;<ul>
+<li>AddEntry()
+: <a class="el" href="classvlk_1_1ECRegistry.html#ab79c6c03997d691b6dc46413fc1dc1ad">vlk::ECRegistry&lt; C &gt;</a>
 </li>
 <li>AddListener()
 : <a class="el" href="classvlk_1_1EventBus.html#a9a26f0798fca59cd124ffeb72209c527">vlk::EventBus&lt; T &gt;</a>
 </li>
-<li>AddSignalListener()
-: <a class="el" href="classvlk_1_1Entity.html#afbce5b7eaef6ccdc64f9d06621fbe3b0">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1IEntity.html#adb7933edf32d9d583b7a7652fafa7044">vlk::IEntity</a>
+<li>Attach()
+: <a class="el" href="classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631">vlk::Component&lt; T &gt;</a>
 </li>
-<li>Allocate()
-: <a class="el" href="classvlk_1_1ArrayAllocator.html#a11e5c20aab7e1f7be890d9b1d8e40a7f">vlk::ArrayAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1ChunkAllocator.html#adbeaabf1fa2aff0e23548ae8b0f19df4">vlk::ChunkAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1LinkedAllocator.html#a70b59e358b6cdd194c3ca0ff40c0aecd">vlk::LinkedAllocator&lt; T &gt;</a>
-, <a class="el" href="classvlk_1_1SingletonAllocator.html#ad766bee9420ce3b20fef0cb53cf9d2c3">vlk::SingletonAllocator&lt; T &gt;</a>
+<li>CForEach()
+: <a class="el" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">vlk::Component&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
 <li>ChunkCount()
-: <a class="el" href="classvlk_1_1ChunkAllocator.html#a1b7f9e836d522efe3f686c67c026a8dd">vlk::ChunkAllocator&lt; T, Capacity &gt;</a>
-</li>
-<li>Component()
-: <a class="el" href="classvlk_1_1Component.html#afec9f8db20c44cbb625a30cbe0c5ea09">vlk::Component&lt; T, ComponentAllocator &gt;</a>
+: <a class="el" href="classvlk_1_1Component.html#a54c297121cc37ab938485e4a2a08a8b5">vlk::Component&lt; T &gt;</a>
 </li>
 <li>Count()
-: <a class="el" href="classvlk_1_1ArrayAllocator.html#aee5398c0ab1fff504f39583696b353e6">vlk::ArrayAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1ChunkAllocator.html#a8bf022ef68585ea0aad22747a4d6a6f8">vlk::ChunkAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1Component.html#a9d3a91dcf036aea44d235d3836201d56">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1LinkedAllocator.html#ab7d3a0de2fa4e8416601d48147343775">vlk::LinkedAllocator&lt; T &gt;</a>
-, <a class="el" href="classvlk_1_1SingletonAllocator.html#a5a0406c48187d1cdf3722188e8cdc72e">vlk::SingletonAllocator&lt; T &gt;</a>
+: <a class="el" href="classvlk_1_1Component.html#a7392197775146e4b2121a250a294d59b">vlk::Component&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>Deallocate()
-: <a class="el" href="classvlk_1_1ArrayAllocator.html#acdb486f6517fc776ce07b8be8cc76e6c">vlk::ArrayAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1ChunkAllocator.html#a626ba67cd12225d44e34e22c3e3e64bd">vlk::ChunkAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1LinkedAllocator.html#ac422f89cb733c4a981cba376306fb9fe">vlk::LinkedAllocator&lt; T &gt;</a>
-, <a class="el" href="classvlk_1_1SingletonAllocator.html#ad9559919851e00a79905513ac227153f">vlk::SingletonAllocator&lt; T &gt;</a>
+<li>Create()
+: <a class="el" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">vlk::Component&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
+<li>Delete()
+: <a class="el" href="classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f">vlk::Component&lt; T &gt;</a>
+, <a class="el" href="classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df">vlk::IComponent</a>
+</li>
 <li>Enqueue()
 : <a class="el" href="classvlk_1_1ThreadPool.html#a6d0322f870cf7875aab184f4c8672c05">vlk::ThreadPool</a>
-</li>
-<li>Entity()
-: <a class="el" href="classvlk_1_1Entity.html#a718daaccbf4530e44178d5847612dee3">vlk::Entity&lt; T, EntityAllocator &gt;</a>
 </li>
 <li>EventListener()
 : <a class="el" href="classvlk_1_1EventListener.html#afcbf07e66da541d80cb7a12a812d20b0">vlk::EventListener&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>ForEach()
-: <a class="el" href="classvlk_1_1ArrayAllocator.html#afe08532b5425574b618623d9ff95f4dd">vlk::ArrayAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1ChunkAllocator.html#a48692164285006cc8ba81756b37b5909">vlk::ChunkAllocator&lt; T, Capacity &gt;</a>
-, <a class="el" href="classvlk_1_1Component.html#a6dd1b95179713b9cdee541bae7f92397">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1LinkedAllocator.html#acc158bc518236c68b5f72e7704b9d820">vlk::LinkedAllocator&lt; T &gt;</a>
-, <a class="el" href="classvlk_1_1SingletonAllocator.html#adaae3b78d441d3520ae0d4981348c307">vlk::SingletonAllocator&lt; T &gt;</a>
+<li>FindMany()
+: <a class="el" href="classvlk_1_1Component.html#aa6d88b07d7c35b2cd259ebe8729690c7">vlk::Component&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>GetArg()
-: <a class="el" href="classvlk_1_1Signal.html#a6e94425e6da5673a6b4a498eb49606db">vlk::Signal</a>
+<li>FindOne()
+: <a class="el" href="classvlk_1_1Component.html#a2981e217cc4409b3f4e06fcc52d2a0fb">vlk::Component&lt; T &gt;</a>
+</li>
+<li>ForEach()
+: <a class="el" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">vlk::Component&lt; T &gt;</a>
 </li>
 <li>GetEntity()
-: <a class="el" href="classvlk_1_1IComponent.html#a0bf7d7fe743cbd8bf16f7526e87be5e0">vlk::IComponent</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>IComponent()
-: <a class="el" href="classvlk_1_1IComponent.html#aabe85521eb9c2d1fa2924af2480909d4">vlk::IComponent</a>
-</li>
-<li>IEntity()
-: <a class="el" href="classvlk_1_1IEntity.html#a2f84bbadfc5bbc54c115b64f0134b14b">vlk::IEntity</a>
+: <a class="el" href="classvlk_1_1IComponent.html#a484ad5d539d0b0479ddaab2b7d814c57">vlk::IComponent</a>
 </li>
 <li>IsIdle()
 : <a class="el" href="classvlk_1_1Thread.html#aa50e9dc10f31d2d92714f7234c0fdce4">vlk::Thread</a>
 </li>
-</ul>
-
-
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>Lock()
-: <a class="el" href="classvlk_1_1Component.html#a8ac8eccff08651f25c5cf7e51ddb9750">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-</li>
 <li>LogEvent()
-: <a class="el" href="classvlk_1_1LogEvent.html#a6752e0787181958716fb9ef83e4af7d7">vlk::LogEvent</a>
+: <a class="el" href="classvlk_1_1LogEvent.html#a75a016581db3d5dbfa74507436f56e6d">vlk::LogEvent</a>
 </li>
-</ul>
-
-
-<h3><a id="index_o"></a>- o -</h3><ul>
+<li>LookupAll()
+: <a class="el" href="classvlk_1_1ECRegistry.html#a438653956fbacce5c6d3c5d0996a1539">vlk::ECRegistry&lt; C &gt;</a>
+</li>
+<li>LookupOne()
+: <a class="el" href="classvlk_1_1ECRegistry.html#aa30255d792036655e4ae9a02062fe4d1">vlk::ECRegistry&lt; C &gt;</a>
+</li>
 <li>OnEvent()
 : <a class="el" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">vlk::IEventListener&lt; T &gt;</a>
 </li>
-<li>OnSignal()
-: <a class="el" href="classvlk_1_1IComponent.html#aaf681837e0988b5eec7aaf88027ecbc3">vlk::IComponent</a>
-, <a class="el" href="classvlk_1_1ISignalListener.html#acf26af5b372dcd7478cc709dbe959d66">vlk::ISignalListener</a>
+<li>RemoveAll()
+: <a class="el" href="classvlk_1_1ECRegistry.html#adf8256b2b0d0471b361ca9f82189d479">vlk::ECRegistry&lt; C &gt;</a>
 </li>
-<li>operator delete()
-: <a class="el" href="classvlk_1_1Component.html#a11985d789280ac6f5b014a074879d614">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1Entity.html#aaf8c4e7bbf4180484662ef7f4de6e488">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-</li>
-<li>operator new()
-: <a class="el" href="classvlk_1_1Component.html#a9ce603c6da757b9673c5fb5cf424daa2">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1Entity.html#ada7f0ea9adfed5f21fe5af26f9936417">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-</li>
-<li>operator=()
-: <a class="el" href="classvlk_1_1Component.html#a74ab2d8f3ffb2a14faaf48c6a1e8de26">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1IComponent.html#a2fcbe9ab58f7e39bc84d9121dc5a5f32">vlk::IComponent</a>
-, <a class="el" href="classvlk_1_1IEntity.html#ad704f95d0ba4f3599edc58802b96f364">vlk::IEntity</a>
-, <a class="el" href="classvlk_1_1Thread.html#a5b2daf73a9e6a4141138055063efc89b">vlk::Thread</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>PutArg()
-: <a class="el" href="classvlk_1_1Signal.html#add4292690d8398d937a5a40cb8a989b7">vlk::Signal</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
 <li>RemoveListener()
 : <a class="el" href="classvlk_1_1EventBus.html#a530d375a277ad739afbd2de7e5d204e2">vlk::EventBus&lt; T &gt;</a>
 </li>
-<li>RemoveSignalListener()
-: <a class="el" href="classvlk_1_1Entity.html#a8f806fb9a7cf41d75d5f39edec841319">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1IEntity.html#adc00c3fbfd2b3018239fd12cc86bf2f8">vlk::IEntity</a>
+<li>RemoveOne()
+: <a class="el" href="classvlk_1_1ECRegistry.html#ab81ecdbc8f555072c06b2035359bb6ef">vlk::ECRegistry&lt; C &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
 <li>Send()
 : <a class="el" href="classvlk_1_1EventBus.html#a79f2709a3cff431df0005b5625dbb758">vlk::EventBus&lt; T &gt;</a>
 </li>
 <li>SendAsynchronous()
 : <a class="el" href="classvlk_1_1EventBus.html#ad3aa9268799e29876ffa70c2d429ba77">vlk::EventBus&lt; T &gt;</a>
 </li>
-<li>SendSignal()
-: <a class="el" href="classvlk_1_1Entity.html#a42a47715b3529119d2cee36b0599f762">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-, <a class="el" href="classvlk_1_1IEntity.html#aa12bfb75d3cec0e9df4e1e6215bcaaea">vlk::IEntity</a>
-</li>
 <li>SetFunc()
 : <a class="el" href="classvlk_1_1Thread.html#ae80f36b4bf0efc0d8ab4047b591dfb70">vlk::Thread</a>
-</li>
-<li>Signal()
-: <a class="el" href="classvlk_1_1Signal.html#aacd6564017ff67316b7cc9d67f5337e1">vlk::Signal</a>
 </li>
 <li>Start()
 : <a class="el" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">vlk::Application</a>
@@ -233,41 +144,11 @@ $(function() {
 <li>Stop()
 : <a class="el" href="classvlk_1_1Application.html#ac017244251b5c3b1b6b808c6c8815a4b">vlk::Application</a>
 </li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>Thread()
-: <a class="el" href="classvlk_1_1Thread.html#a95c703fb8f2f27cb64f475a8c940864a">vlk::Thread</a>
-</li>
-</ul>
-
-
-<h3><a id="index_w"></a>- w -</h3><ul>
 <li>Wait()
 : <a class="el" href="classvlk_1_1ThreadPool.html#aecf4a52c5f172d744071f479f974a54f">vlk::ThreadPool</a>
 </li>
-</ul>
-
-
-<h3><a id="index__7E"></a>- ~ -</h3><ul>
-<li>~Component()
-: <a class="el" href="classvlk_1_1Component.html#ae5d2c64a26de631fe3f49abbab2c54fc">vlk::Component&lt; T, ComponentAllocator &gt;</a>
-</li>
-<li>~Entity()
-: <a class="el" href="classvlk_1_1Entity.html#a611084ccfe2b31d09a6ccb86d69bdda1">vlk::Entity&lt; T, EntityAllocator &gt;</a>
-</li>
 <li>~EventListener()
 : <a class="el" href="classvlk_1_1EventListener.html#a4f12e6c3610c1be2d1e590372df2045c">vlk::EventListener&lt; T &gt;</a>
-</li>
-<li>~IComponent()
-: <a class="el" href="classvlk_1_1IComponent.html#a6560b900145c3ab95d3baa221222c5af">vlk::IComponent</a>
-</li>
-<li>~IEntity()
-: <a class="el" href="classvlk_1_1IEntity.html#aeccc23085f62eb62b915aee3bcc7d222">vlk::IEntity</a>
-</li>
-<li>~Thread()
-: <a class="el" href="classvlk_1_1Thread.html#a37d9edd3a1a776cbc27dedff949c9726">vlk::Thread</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -1,3 +1,11 @@
+/*!
+ * \file ValkyrieDefs.hpp
+ * \brief Provides primitive typedefs
+ */
+
+#ifndef VLK_DEF_HPP
+#define VLK_DEF_HPP
+
 #include <cstdint>
 #include "ValkyrieEngine/Config.hpp"
 
@@ -58,3 +66,5 @@ namespace vlk
 	 */
 	typedef double			Double;
 }
+
+#endif

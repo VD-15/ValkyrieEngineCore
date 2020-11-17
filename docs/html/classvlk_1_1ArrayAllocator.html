@@ -66,54 +66,61 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classvlk_1_1ArrayAllocator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vlk::ArrayAllocator&lt; T, Capacity &gt; Class Template Reference</div>  </div>
+<div class="title">vlk::ArrayAllocator&lt; T, Capacity &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Allocator backed by a fixed-size bounded array.  
+<p>Bounded allocator backed by a fixed-size bounded array.  
  <a href="classvlk_1_1ArrayAllocator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ArrayAllocator_8hpp_source.html">ArrayAllocator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a11e5c20aab7e1f7be890d9b1d8e40a7f"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a11e5c20aab7e1f7be890d9b1d8e40a7f">Allocate</a> ()</td></tr>
-<tr class="memdesc:a11e5c20aab7e1f7be890d9b1d8e40a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates space for a new instance of T. Does not construct T.  <a href="classvlk_1_1ArrayAllocator.html#a11e5c20aab7e1f7be890d9b1d8e40a7f">More...</a><br /></td></tr>
-<tr class="separator:a11e5c20aab7e1f7be890d9b1d8e40a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb486f6517fc776ce07b8be8cc76e6c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#acdb486f6517fc776ce07b8be8cc76e6c">Deallocate</a> (void *ptr)</td></tr>
-<tr class="memdesc:acdb486f6517fc776ce07b8be8cc76e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the memory taken up by ptr Does not call T's destructor.  <a href="classvlk_1_1ArrayAllocator.html#acdb486f6517fc776ce07b8be8cc76e6c">More...</a><br /></td></tr>
-<tr class="separator:acdb486f6517fc776ce07b8be8cc76e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe08532b5425574b618623d9ff95f4dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#afe08532b5425574b618623d9ff95f4dd">ForEach</a> (std::function&lt; void(T *)&gt; func)</td></tr>
-<tr class="memdesc:afe08532b5425574b618623d9ff95f4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs a function on every active instance of T owned by this allocator  <a href="classvlk_1_1ArrayAllocator.html#afe08532b5425574b618623d9ff95f4dd">More...</a><br /></td></tr>
-<tr class="separator:afe08532b5425574b618623d9ff95f4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa71e742bbf0c50d5883264e13744ea37"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#aa71e742bbf0c50d5883264e13744ea37">ForEach</a> (std::function&lt; void(T *)&gt; func, std::function&lt; bool(const T *)&gt; filter)</td></tr>
-<tr class="memdesc:aa71e742bbf0c50d5883264e13744ea37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a function on every active instance of T owned by this allocator that matches a filter.  <a href="classvlk_1_1ArrayAllocator.html#aa71e742bbf0c50d5883264e13744ea37">More...</a><br /></td></tr>
-<tr class="separator:aa71e742bbf0c50d5883264e13744ea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee5398c0ab1fff504f39583696b353e6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#aee5398c0ab1fff504f39583696b353e6">Count</a> ()</td></tr>
-<tr class="memdesc:aee5398c0ab1fff504f39583696b353e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active instances of T owned by this allocator.  <a href="classvlk_1_1ArrayAllocator.html#aee5398c0ab1fff504f39583696b353e6">More...</a><br /></td></tr>
-<tr class="separator:aee5398c0ab1fff504f39583696b353e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68337a6a8deeaccedaa96f7a48ce706c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a68337a6a8deeaccedaa96f7a48ce706c">Count</a> (std::function&lt; bool(const T *)&gt; filter)</td></tr>
-<tr class="memdesc:a68337a6a8deeaccedaa96f7a48ce706c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active instance of T owned by this allocator that match a filter.  <a href="classvlk_1_1ArrayAllocator.html#a68337a6a8deeaccedaa96f7a48ce706c">More...</a><br /></td></tr>
-<tr class="separator:a68337a6a8deeaccedaa96f7a48ce706c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a845028211c73f1b075cdb31f9eca591f"><td class="memItemLeft" align="right" valign="top"><a id="a845028211c73f1b075cdb31f9eca591f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a845028211c73f1b075cdb31f9eca591f">ArrayAllocator</a> ()</td></tr>
+<tr class="memdesc:a845028211c73f1b075cdb31f9eca591f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classvlk_1_1ArrayAllocator.html" title="Bounded allocator backed by a fixed-size bounded array.">ArrayAllocator</a>. <br /></td></tr>
+<tr class="separator:a845028211c73f1b075cdb31f9eca591f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb1070c0c977c7d01724d9c59b6adf5"><td class="memItemLeft" align="right" valign="top"><a id="a2cb1070c0c977c7d01724d9c59b6adf5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a2cb1070c0c977c7d01724d9c59b6adf5">~ArrayAllocator</a> ()</td></tr>
+<tr class="memdesc:a2cb1070c0c977c7d01724d9c59b6adf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys this <a class="el" href="classvlk_1_1ArrayAllocator.html" title="Bounded allocator backed by a fixed-size bounded array.">ArrayAllocator</a> and all it's instances. <br /></td></tr>
+<tr class="separator:a2cb1070c0c977c7d01724d9c59b6adf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f2eb4f334e0714d03c45d4904af2ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8hpp.html#a8d7c0aecd9a42f962ff6c258b409d7d6">VLK_NODISCARD</a> T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a29f2eb4f334e0714d03c45d4904af2ad">Construct</a> ()</td></tr>
+<tr class="memdesc:a29f2eb4f334e0714d03c45d4904af2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs a new instance of T in this allocator's storage.  <a href="classvlk_1_1ArrayAllocator.html#a29f2eb4f334e0714d03c45d4904af2ad">More...</a><br /></td></tr>
+<tr class="separator:a29f2eb4f334e0714d03c45d4904af2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7cf01a69fb08f83482811324f95f0b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#af7cf01a69fb08f83482811324f95f0b0">Delete</a> (T *ptr)</td></tr>
+<tr class="memdesc:af7cf01a69fb08f83482811324f95f0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs an instance of T owned by this allocator.  <a href="classvlk_1_1ArrayAllocator.html#af7cf01a69fb08f83482811324f95f0b0">More...</a><br /></td></tr>
+<tr class="separator:af7cf01a69fb08f83482811324f95f0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bb64bec0c44cd2eb0016a030168711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#aa9bb64bec0c44cd2eb0016a030168711">ForEach</a> (std::function&lt; void(T *)&gt; func)</td></tr>
+<tr class="memdesc:aa9bb64bec0c44cd2eb0016a030168711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a function on every instance this allocator owns.  <a href="classvlk_1_1ArrayAllocator.html#aa9bb64bec0c44cd2eb0016a030168711">More...</a><br /></td></tr>
+<tr class="separator:aa9bb64bec0c44cd2eb0016a030168711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf533dfb361360530f4e71df4a6e4a8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#aaf533dfb361360530f4e71df4a6e4a8f">ForEach</a> (std::function&lt; void(const T *)&gt; func) const</td></tr>
+<tr class="memdesc:aaf533dfb361360530f4e71df4a6e4a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a function on every instance this allocator owns.  <a href="classvlk_1_1ArrayAllocator.html#aaf533dfb361360530f4e71df4a6e4a8f">More...</a><br /></td></tr>
+<tr class="separator:aaf533dfb361360530f4e71df4a6e4a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a052da7eb0e2e9b92786ecee45e11904b"><td class="memItemLeft" align="right" valign="top"><a id="a052da7eb0e2e9b92786ecee45e11904b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1ArrayAllocator.html#a052da7eb0e2e9b92786ecee45e11904b">AllocCount</a> () const</td></tr>
+<tr class="memdesc:a052da7eb0e2e9b92786ecee45e11904b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of instances of T owned by this allocator. <br /></td></tr>
+<tr class="separator:a052da7eb0e2e9b92786ecee45e11904b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, Size Capacity&gt;<br />
 class vlk::ArrayAllocator&lt; T, Capacity &gt;</h3>
 
-<p>Allocator backed by a fixed-size bounded array. </p>
+<p>Bounded allocator backed by a fixed-size bounded array. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Capacity</td><td>maximum number of elements that can be allocated at once </td></tr>
+    <tr><td class="paramname">T</td><td>Element type this allocator is storing. </td></tr>
+    <tr><td class="paramname">Capacity</td><td>Maximum number of elements that can be allocated at once.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1IsValidAllocator.html" title="Assesses whether a type is a valid ValkyrieEngine Allocator.">IsValidAllocator</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a11e5c20aab7e1f7be890d9b1d8e40a7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11e5c20aab7e1f7be890d9b1d8e40a7f">&#9670;&nbsp;</a></span>Allocate()</h2>
+<a id="a29f2eb4f334e0714d03c45d4904af2ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f2eb4f334e0714d03c45d4904af2ad">&#9670;&nbsp;</a></span>Construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +131,7 @@ template&lt;typename T , Size Capacity&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void* <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Allocate </td>
+          <td class="memname"><a class="el" href="Config_8hpp.html#a8d7c0aecd9a42f962ff6c258b409d7d6">VLK_NODISCARD</a> T* <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Construct </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -132,24 +139,19 @@ template&lt;typename T , Size Capacity&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Allocates space for a new instance of T. Does not construct T. </p>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to a region of unitialized memory with size equal to <code>sizeof(T)</code> </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>if the allocator is out of space </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Default-constructs a new instance of T in this allocator's storage. </p>
+<dl class="section user"><dt>Thread Safety</dt><dd>Test. Also test.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly-allocated instance. </dd></dl>
 
 </div>
 </div>
-<a id="aee5398c0ab1fff504f39583696b353e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee5398c0ab1fff504f39583696b353e6">&#9670;&nbsp;</a></span>Count() <span class="overload">[1/2]</span></h2>
+<a id="af7cf01a69fb08f83482811324f95f0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7cf01a69fb08f83482811324f95f0b0">&#9670;&nbsp;</a></span>Delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,97 +162,33 @@ template&lt;typename T , Size Capacity&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Count </td>
+          <td class="memname">void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Delete </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of active instances of T owned by this allocator. </p>
-
-</div>
-</div>
-<a id="a68337a6a8deeaccedaa96f7a48ce706c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68337a6a8deeaccedaa96f7a48ce706c">&#9670;&nbsp;</a></span>Count() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , Size Capacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Count </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; bool(const T *)&gt;&#160;</td>
-          <td class="paramname"><em>filter</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of active instance of T owned by this allocator that match a filter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filter</td><td>The non-modifying function that every instance of T is checked against </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acdb486f6517fc776ce07b8be8cc76e6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdb486f6517fc776ce07b8be8cc76e6c">&#9670;&nbsp;</a></span>Deallocate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , Size Capacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::Deallocate </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">T *&#160;</td>
           <td class="paramname"><em>ptr</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deallocates the memory taken up by ptr Does not call T's destructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptr</td><td>A pointer to an instance of T allocated by this allocator </td></tr>
+<p>Destructs an instance of T owned by this allocator. </p>
+<p>The data at <code>ptr</code> is considered invalid after this function returns.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if ptr is not owned by this allocator. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afe08532b5425574b618623d9ff95f4dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe08532b5425574b618623d9ff95f4dd">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[1/2]</span></h2>
+<a id="aaf533dfb361360530f4e71df4a6e4a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf533dfb361360530f4e71df4a6e4a8f">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +199,43 @@ template&lt;typename T , Size Capacity&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::ForEach </td>
+          <td class="memname">void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::ForEach </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(const T *)&gt;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a function on every instance this allocator owns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>A function object that accepts a pointer to a single const instance of T. This function object will be called once for each instance of T in this allocator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9bb64bec0c44cd2eb0016a030168711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bb64bec0c44cd2eb0016a030168711">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , Size Capacity&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::ForEach </td>
           <td>(</td>
           <td class="paramtype">std::function&lt; void(T *)&gt;&#160;</td>
           <td class="paramname"><em>func</em></td><td>)</td>
@@ -270,56 +244,15 @@ template&lt;typename T , Size Capacity&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>performs a function on every active instance of T owned by this allocator </p>
-
-</div>
-</div>
-<a id="aa71e742bbf0c50d5883264e13744ea37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa71e742bbf0c50d5883264e13744ea37">&#9670;&nbsp;</a></span>ForEach() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , Size Capacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="classvlk_1_1ArrayAllocator.html">vlk::ArrayAllocator</a>&lt; T, Capacity &gt;::ForEach </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void(T *)&gt;&#160;</td>
-          <td class="paramname"><em>func</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; bool(const T *)&gt;&#160;</td>
-          <td class="paramname"><em>filter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs a function on every active instance of T owned by this allocator that matches a filter. </p>
+<p>Performs a function on every instance this allocator owns. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The modifier function to perform on every instance of T that passes the filter </td></tr>
-    <tr><td class="paramname">filter</td><td>The non-modifying filter function that every instance of T is checked against </td></tr>
+    <tr><td class="paramname">func</td><td>A function object that accepts a pointer to a single instance of T. This function object will be called once for every instance of T. </td></tr>
   </table>
   </dd>
 </dl>

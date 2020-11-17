@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getarg_180',['GetArg',['../classvlk_1_1Signal.html#a6e94425e6da5673a6b4a498eb49606db',1,'vlk::Signal']]],
-  ['getentity_181',['GetEntity',['../classvlk_1_1IComponent.html#a0bf7d7fe743cbd8bf16f7526e87be5e0',1,'vlk::IComponent']]]
+  ['getcomponenthints_105',['GetComponentHints',['../Component_8hpp.html#ac5474f9273bb9e982abb8e53cd4a34f9',1,'vlk']]],
+  ['getentity_106',['GetEntity',['../classvlk_1_1IComponent.html#a484ad5d539d0b0479ddaab2b7d814c57',1,'vlk::IComponent']]]
 ];

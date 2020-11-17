@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['putarg_193',['PutArg',['../classvlk_1_1Signal.html#add4292690d8398d937a5a40cb8a989b7',1,'vlk::Signal']]]
+  ['removeall_113',['RemoveAll',['../classvlk_1_1ECRegistry.html#adf8256b2b0d0471b361ca9f82189d479',1,'vlk::ECRegistry']]],
+  ['removelistener_114',['RemoveListener',['../classvlk_1_1EventBus.html#a530d375a277ad739afbd2de7e5d204e2',1,'vlk::EventBus']]],
+  ['removeone_115',['RemoveOne',['../classvlk_1_1ECRegistry.html#ab81ecdbc8f555072c06b2035359bb6ef',1,'vlk::ECRegistry']]]
 ];

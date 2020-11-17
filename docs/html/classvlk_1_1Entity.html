@@ -66,13 +66,15 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classvlk_1_1Entity-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vlk::Entity&lt; T, EntityAllocator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for user-defined entities to inherit from.  
+ <a href="classvlk_1_1Entity.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Entity_8hpp_source.html">Entity.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -85,118 +87,37 @@ Inheritance diagram for vlk::Entity&lt; T, EntityAllocator &gt;:</div>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a136a0fa71ab7fc6932863d228855f489"><td class="memItemLeft" align="right" valign="top">typedef EntityAllocator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a136a0fa71ab7fc6932863d228855f489">Allocator</a></td></tr>
-<tr class="separator:a136a0fa71ab7fc6932863d228855f489"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a718daaccbf4530e44178d5847612dee3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a718daaccbf4530e44178d5847612dee3">Entity</a> ()</td></tr>
-<tr class="separator:a718daaccbf4530e44178d5847612dee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611084ccfe2b31d09a6ccb86d69bdda1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a611084ccfe2b31d09a6ccb86d69bdda1">~Entity</a> ()</td></tr>
-<tr class="separator:a611084ccfe2b31d09a6ccb86d69bdda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada7f0ea9adfed5f21fe5af26f9936417"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#ada7f0ea9adfed5f21fe5af26f9936417">operator new</a> (<a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> size)</td></tr>
+<tr class="memitem:ada7f0ea9adfed5f21fe5af26f9936417"><td class="memItemLeft" align="right" valign="top"><a id="ada7f0ea9adfed5f21fe5af26f9936417"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#ada7f0ea9adfed5f21fe5af26f9936417">operator new</a> (<a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a> size)</td></tr>
+<tr class="memdesc:ada7f0ea9adfed5f21fe5af26f9936417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>new</code> operator to use an allocator instead of <code>malloc</code>. <br /></td></tr>
 <tr class="separator:ada7f0ea9adfed5f21fe5af26f9936417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf8c4e7bbf4180484662ef7f4de6e488"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#aaf8c4e7bbf4180484662ef7f4de6e488">operator delete</a> (void *ptr)</td></tr>
+<tr class="memitem:aaf8c4e7bbf4180484662ef7f4de6e488"><td class="memItemLeft" align="right" valign="top"><a id="aaf8c4e7bbf4180484662ef7f4de6e488"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#aaf8c4e7bbf4180484662ef7f4de6e488">operator delete</a> (void *ptr)</td></tr>
+<tr class="memdesc:aaf8c4e7bbf4180484662ef7f4de6e488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>dleete</code> operator to use an allocator instead of <code>delete</code>. <br /></td></tr>
 <tr class="separator:aaf8c4e7bbf4180484662ef7f4de6e488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d9ea8e69f59bbf43d47fef424ef8170"><td class="memTemplParams" colspan="2">template&lt;typename U , typename... Args&gt; </td></tr>
 <tr class="memitem:a5d9ea8e69f59bbf43d47fef424ef8170"><td class="memTemplItemLeft" align="right" valign="top">constexpr U *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a5d9ea8e69f59bbf43d47fef424ef8170">AddComponent</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:a5d9ea8e69f59bbf43d47fef424ef8170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to add a component to an entity.  <a href="classvlk_1_1Entity.html#a5d9ea8e69f59bbf43d47fef424ef8170">More...</a><br /></td></tr>
 <tr class="separator:a5d9ea8e69f59bbf43d47fef424ef8170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbce5b7eaef6ccdc64f9d06621fbe3b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#afbce5b7eaef6ccdc64f9d06621fbe3b0">AddSignalListener</a> (<a class="el" href="classvlk_1_1ISignalListener.html">ISignalListener</a> *listener) final override</td></tr>
+<tr class="memdesc:afbce5b7eaef6ccdc64f9d06621fbe3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a signal listener to the calling list of this entity.  <a href="classvlk_1_1Entity.html#afbce5b7eaef6ccdc64f9d06621fbe3b0">More...</a><br /></td></tr>
 <tr class="separator:afbce5b7eaef6ccdc64f9d06621fbe3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f806fb9a7cf41d75d5f39edec841319"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a8f806fb9a7cf41d75d5f39edec841319">RemoveSignalListener</a> (<a class="el" href="classvlk_1_1ISignalListener.html">ISignalListener</a> *listener) final override</td></tr>
+<tr class="memdesc:a8f806fb9a7cf41d75d5f39edec841319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a signal listener from the calling list of this entity.  <a href="classvlk_1_1Entity.html#a8f806fb9a7cf41d75d5f39edec841319">More...</a><br /></td></tr>
 <tr class="separator:a8f806fb9a7cf41d75d5f39edec841319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a47715b3529119d2cee36b0599f762"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html#a42a47715b3529119d2cee36b0599f762">SendSignal</a> (const <a class="el" href="classvlk_1_1Signal.html">Signal</a> &amp;signal) final override</td></tr>
+<tr class="memdesc:a42a47715b3529119d2cee36b0599f762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a signal to every signal listener attached to this entity.  <a href="classvlk_1_1Entity.html#a42a47715b3529119d2cee36b0599f762">More...</a><br /></td></tr>
 <tr class="separator:a42a47715b3529119d2cee36b0599f762"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classvlk_1_1IEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classvlk_1_1IEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classvlk_1_1IEntity.html">vlk::IEntity</a></td></tr>
-<tr class="memitem:a46e228548cab91a4d801def148af249d inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#a46e228548cab91a4d801def148af249d">IEntity</a> ()</td></tr>
-<tr class="separator:a46e228548cab91a4d801def148af249d inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f84bbadfc5bbc54c115b64f0134b14b inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#a2f84bbadfc5bbc54c115b64f0134b14b">IEntity</a> (const <a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;)=delete</td></tr>
-<tr class="separator:a2f84bbadfc5bbc54c115b64f0134b14b inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a480aa3787fff8a10271950c085e215e4 inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#a480aa3787fff8a10271950c085e215e4">IEntity</a> (<a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a480aa3787fff8a10271950c085e215e4 inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd82b76ff479f2aa79e24d1096d52d7c inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#acd82b76ff479f2aa79e24d1096d52d7c">operator=</a> (const <a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;)=delete</td></tr>
-<tr class="separator:acd82b76ff479f2aa79e24d1096d52d7c inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad704f95d0ba4f3599edc58802b96f364 inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#ad704f95d0ba4f3599edc58802b96f364">operator=</a> (<a class="el" href="classvlk_1_1IEntity.html">IEntity</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:ad704f95d0ba4f3599edc58802b96f364 inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeccc23085f62eb62b915aee3bcc7d222 inherit pub_methods_classvlk_1_1IEntity"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEntity.html#aeccc23085f62eb62b915aee3bcc7d222">~IEntity</a> ()</td></tr>
-<tr class="separator:aeccc23085f62eb62b915aee3bcc7d222 inherit pub_methods_classvlk_1_1IEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a136a0fa71ab7fc6932863d228855f489"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a136a0fa71ab7fc6932863d228855f489">&#9670;&nbsp;</a></span>Allocator</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T, class EntityAllocator = ChunkAllocator&lt;T, 64&gt;&gt;<br />
+class vlk::Entity&lt; T, EntityAllocator &gt;</h3>
 
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef EntityAllocator <a class="el" href="classvlk_1_1Entity.html">vlk::Entity</a>&lt; T, EntityAllocator &gt;::<a class="el" href="classvlk_1_1Entity.html#a136a0fa71ab7fc6932863d228855f489">Allocator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a718daaccbf4530e44178d5847612dee3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a718daaccbf4530e44178d5847612dee3">&#9670;&nbsp;</a></span>Entity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvlk_1_1Entity.html">vlk::Entity</a>&lt; T, EntityAllocator &gt;::<a class="el" href="classvlk_1_1Entity.html">Entity</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a611084ccfe2b31d09a6ccb86d69bdda1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a611084ccfe2b31d09a6ccb86d69bdda1">&#9670;&nbsp;</a></span>~Entity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classvlk_1_1Entity.html">vlk::Entity</a>&lt; T, EntityAllocator &gt;::~<a class="el" href="classvlk_1_1Entity.html">Entity</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p>Base class for user-defined entities to inherit from. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Component.html" title="Base class for user-defined components to inherit from.">Component</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5d9ea8e69f59bbf43d47fef424ef8170"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d9ea8e69f59bbf43d47fef424ef8170">&#9670;&nbsp;</a></span>AddComponent()</h2>
 
@@ -257,63 +178,12 @@ template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; <
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classvlk_1_1IEntity.html#adb7933edf32d9d583b7a7652fafa7044">vlk::IEntity</a>.</p>
+<p>Adds a signal listener to the calling list of this entity. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Entity.html#a8f806fb9a7cf41d75d5f39edec841319" title="Removes a signal listener from the calling list of this entity.">RemoveSignalListener(vlk::ISignalListener*)</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1Entity.html#a42a47715b3529119d2cee36b0599f762" title="Sends a signal to every signal listener attached to this entity.">SendSignal(const vlk::Signal&amp;)</a> </dd></dl>
 
-</div>
-</div>
-<a id="aaf8c4e7bbf4180484662ef7f4de6e488"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf8c4e7bbf4180484662ef7f4de6e488">&#9670;&nbsp;</a></span>operator delete()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classvlk_1_1Entity.html">vlk::Entity</a>&lt; T, EntityAllocator &gt;::operator delete </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ada7f0ea9adfed5f21fe5af26f9936417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada7f0ea9adfed5f21fe5af26f9936417">&#9670;&nbsp;</a></span>operator new()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* <a class="el" href="classvlk_1_1Entity.html">vlk::Entity</a>&lt; T, EntityAllocator &gt;::operator new </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacevlk.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Implements <a class="el" href="classvlk_1_1IEntity.html">vlk::IEntity</a>.</p>
 
 </div>
 </div>
@@ -343,7 +213,12 @@ template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; <
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classvlk_1_1IEntity.html#adc00c3fbfd2b3018239fd12cc86bf2f8">vlk::IEntity</a>.</p>
+<p>Removes a signal listener from the calling list of this entity. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Entity.html#afbce5b7eaef6ccdc64f9d06621fbe3b0" title="Adds a signal listener to the calling list of this entity.">AddSignalListener(ISignalListener*)</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1Entity.html#a42a47715b3529119d2cee36b0599f762" title="Sends a signal to every signal listener attached to this entity.">SendSignal(const vlk::Signal&amp;)</a> </dd></dl>
+
+<p>Implements <a class="el" href="classvlk_1_1IEntity.html">vlk::IEntity</a>.</p>
 
 </div>
 </div>
@@ -373,7 +248,12 @@ template&lt;class T , class EntityAllocator  = ChunkAllocator&lt;T, 64&gt;&gt; <
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classvlk_1_1IEntity.html#aa12bfb75d3cec0e9df4e1e6215bcaaea">vlk::IEntity</a>.</p>
+<p>Sends a signal to every signal listener attached to this entity. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Entity.html#afbce5b7eaef6ccdc64f9d06621fbe3b0" title="Adds a signal listener to the calling list of this entity.">AddSignalListener(ISignalListener*)</a> </dd>
+<dd>
+<a class="el" href="classvlk_1_1Entity.html#a8f806fb9a7cf41d75d5f39edec841319" title="Removes a signal listener from the calling list of this entity.">RemoveSignalListener(ISignalListener*)</a> </dd></dl>
+
+<p>Implements <a class="el" href="classvlk_1_1IEntity.html">vlk::IEntity</a>.</p>
 
 </div>
 </div>

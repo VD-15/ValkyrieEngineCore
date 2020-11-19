@@ -20,24 +20,24 @@ Inheritance diagram for vlk\+::Component$<$ T $>$\+:\begin{figure}[H]
 \item 
 virtual void \mbox{\hyperlink{classvlk_1_1Component_a8c52a1f587b3e436a370a782d0f7541f}{Delete}} () final override
 \begin{DoxyCompactList}\small\item\em Deletes this component. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach}} (Entity\+ID e\+Id)
+void \mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} e\+Id)
 \begin{DoxyCompactList}\small\item\em Attaches this component to an entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename... Args$>$ }\\static \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Create}} (Entity\+ID e\+Id, Args... args)
+{\footnotesize template$<$typename... Args$>$ }\\static \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Create}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} e\+Id, Args... args)
 \begin{DoxyCompactList}\small\item\em Creates a component. \end{DoxyCompactList}\item 
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One}} (Entity\+ID id)
+static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id)
 \begin{DoxyCompactList}\small\item\em Find a component attached to an entity. \end{DoxyCompactList}\item 
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD Size \mbox{\hyperlink{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}{Find\+Many}} (Entity\+ID id, std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$ vec\+Out)
+static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}{Find\+Many}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id, std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$ vec\+Out)
 \begin{DoxyCompactList}\small\item\em Find components attached to an entity. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classvlk_1_1Component_a4147d21b351d27e1deb50c71d903e110}{For\+Each}} (std\+::function$<$ void(\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$ func)
 \begin{DoxyCompactList}\small\item\em Performs a mutating function on every instance of this component. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{C\+For\+Each}} (std\+::function$<$ void(const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$ func)
 \begin{DoxyCompactList}\small\item\em Performs a non-\/mutating function on every instance of this component. \end{DoxyCompactList}\item 
-static Size \mbox{\hyperlink{classvlk_1_1Component_a7392197775146e4b2121a250a294d59b}{Count}} ()
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_a7392197775146e4b2121a250a294d59b}{Count}} ()
 \begin{DoxyCompactList}\small\item\em Returns the number of instances of this component that currently exist. \end{DoxyCompactList}\item 
-static Size \mbox{\hyperlink{classvlk_1_1Component_a54c297121cc37ab938485e4a2a08a8b5}{Chunk\+Count}} ()
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_a54c297121cc37ab938485e4a2a08a8b5}{Chunk\+Count}} ()
 \begin{DoxyCompactList}\small\item\em Returns the number of storage blocks this component has allocated. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -60,7 +60,7 @@ Some behaviour related to Components can be controlled by specializing \mbox{\hy
 \begin{DoxySeeAlso}{See also}
 Entity\+ID 
 
-Entity\+::\+Create() 
+\mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{Entity\+::\+Create()}} 
 
 \mbox{\hyperlink{structvlk_1_1ComponentHints}{Component\+Hints}} 
 
@@ -74,7 +74,7 @@ Entity\+::\+Create()
 \index{Attach@{Attach}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Attach()}{Attach()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Attach (\begin{DoxyParamCaption}\item[{Entity\+ID}]{e\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{e\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -98,8 +98,8 @@ May be called from any thread.~\newline
 \end{DoxyParagraph}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{EntityID e1 = Entity::Create();}
-\DoxyCodeLine{EntityID e2 = Entity::Create();}
+\DoxyCodeLine{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{EntityID}} e1 = Entity::Create();}
+\DoxyCodeLine{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{EntityID}} e2 = Entity::Create();}
 \DoxyCodeLine{}
 \DoxyCodeLine{Component<MyData>* component = \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Component<MyData>::Create}}(e1);}
 \DoxyCodeLine{component-\/>Attach(e2);}
@@ -107,7 +107,7 @@ May be called from any thread.~\newline
 
 
 \begin{DoxySeeAlso}{See also}
-Entity\+::\+Create() 
+\mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{Entity\+::\+Create()}} 
 
 Entity\+::\+Global 
 
@@ -160,7 +160,7 @@ May be called from any thread.~\newline
 \index{ChunkCount@{ChunkCount}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{ChunkCount()}{ChunkCount()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static Size \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Chunk\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Chunk\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -183,7 +183,7 @@ May be called from any thread.~\newline
 \index{Count@{Count}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Count()}{Count()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static Size \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -224,7 +224,7 @@ May be called from any thread.~\newline
 \doxysubsubsection{\texorpdfstring{Create()}{Create()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 template$<$typename... Args$>$ \\
-static \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Create (\begin{DoxyParamCaption}\item[{Entity\+ID}]{e\+Id,  }\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{e\+Id,  }\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -258,14 +258,14 @@ May be called from any thread.~\newline
 \DoxyCodeLine{    \string~MyData() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{EntityID eId = Entity::Create();}
+\DoxyCodeLine{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{EntityID}} eId = Entity::Create();}
 \DoxyCodeLine{}
 \DoxyCodeLine{Component<MyData>* component = \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Component<MyData>::Create}}(eId, 5);}
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-Entity\+::\+Create() 
+\mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{Entity\+::\+Create()}} 
 
 \mbox{\hyperlink{classvlk_1_1Component_a8c52a1f587b3e436a370a782d0f7541f}{Delete()}} 
 \end{DoxySeeAlso}
@@ -313,7 +313,7 @@ Implements \mbox{\hyperlink{classvlk_1_1IComponent_af51ed4ec8ac1511521606fcfa7a0
 \index{FindMany@{FindMany}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{FindMany()}{FindMany()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD Size \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+Many (\begin{DoxyParamCaption}\item[{Entity\+ID}]{id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$}]{vec\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+Many (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$}]{vec\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -358,7 +358,7 @@ May be called from any thread.~\newline
 \index{FindOne@{FindOne}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{FindOne()}{FindOne()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+One (\begin{DoxyParamCaption}\item[{Entity\+ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+One (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 

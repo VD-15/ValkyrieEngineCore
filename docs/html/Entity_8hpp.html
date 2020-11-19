@@ -66,31 +66,119 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Entity.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Component_8hpp_source.html">ValkyrieEngine/Component.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ChunkAllocator_8hpp_source.html">ValkyrieEngine/ChunkAllocator.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Signal_8hpp_source.html">ValkyrieEngine/Signal.hpp</a>&quot;</code><br />
-<code>#include &lt;type_traits&gt;</code><br />
+
+<p>Provides Entity utilities.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="ValkyrieDefs_8hpp_source.html">ValkyrieEngine/ValkyrieDefs.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="IComponent_8hpp_source.html">ValkyrieEngine/IComponent.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ECS_8hpp_source.html">ValkyrieEngine/ECS.hpp</a>&quot;</code><br />
 </div>
 <p><a href="Entity_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Entity.html">vlk::Entity&lt; T, EntityAllocator &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for user-defined entities to inherit from.  <a href="classvlk_1_1Entity.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0fa8d20d67c9303f3c001b50a8afbf7d"><td class="memItemLeft" align="right" valign="top">VLK_NODISCARD <a class="el" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">vlk::Entity::Create</a> ()</td></tr>
+<tr class="memdesc:a0fa8d20d67c9303f3c001b50a8afbf7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity.  <a href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">More...</a><br /></td></tr>
+<tr class="separator:a0fa8d20d67c9303f3c001b50a8afbf7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6db9765877409366f77057c3068f23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">vlk::Entity::Delete</a> (<a class="el" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a> eId)</td></tr>
+<tr class="memdesc:abe6db9765877409366f77057c3068f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes an entity and all components attached to it.  <a href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">More...</a><br /></td></tr>
+<tr class="separator:abe6db9765877409366f77057c3068f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevlk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html">vlk</a></td></tr>
-<tr class="memdesc:namespacevlk"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chunk-based Allocator. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a19b9e6781308fa28c594b46c7ddc5957"><td class="memItemLeft" align="right" valign="top">VLK_CXX14_CONSTEXPR EntityID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Entity_8hpp.html#a19b9e6781308fa28c594b46c7ddc5957">vlk::Entity::global</a> = static_cast&lt;EntityID&gt;(0)</td></tr>
+<tr class="memdesc:a19b9e6781308fa28c594b46c7ddc5957"><td class="mdescLeft">&#160;</td><td class="mdescRight">A globally accessible entity with an ID of zero.  <a href="Entity_8hpp.html#a19b9e6781308fa28c594b46c7ddc5957">More...</a><br /></td></tr>
+<tr class="separator:a19b9e6781308fa28c594b46c7ddc5957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides Entity utilities. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0fa8d20d67c9303f3c001b50a8afbf7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fa8d20d67c9303f3c001b50a8afbf7d">&#9670;&nbsp;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a> vlk::Entity::Create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an entity. </p>
+<p>EntityIDs are created by an internal counter. This counter starts at 1 and incriments by 1 each time <a class="el" href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d" title="Creates an entity.">Create()</a> is called.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this namespace is acquired by the function.<br  />
+ This function may block the calling thread<br  />
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Delete(EntityID) </dd>
+<dd>
+Component&lt;T&gt;::Create(EntityID, Args...) </dd>
+<dd>
+Component&lt;T&gt;::Attach(EntityID) </dd></dl>
+
+</div>
+</div>
+<a id="abe6db9765877409366f77057c3068f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6db9765877409366f77057c3068f23">&#9670;&nbsp;</a></span>Delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vlk::Entity::Delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes an entity and all components attached to it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The entity to delete.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ Resource locking is handled internally.<br  />
+ Unique access to this namespace is acquired by the function.<br  />
+ Unique access to the classes of any attached components is acquired by the function.<br  />
+ This function may block the calling thread<br  />
+ </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a19b9e6781308fa28c594b46c7ddc5957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b9e6781308fa28c594b46c7ddc5957">&#9670;&nbsp;</a></span>global</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VLK_CXX14_CONSTEXPR EntityID vlk::Entity::global = static_cast&lt;EntityID&gt;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A globally accessible entity with an ID of zero. </p>
+<p>This can be used as a persistent entity to attach components to. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

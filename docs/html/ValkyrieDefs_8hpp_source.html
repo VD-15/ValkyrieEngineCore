@@ -69,35 +69,52 @@ $(function() {
 <div class="title">ValkyrieDefs.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Config_8hpp.html">ValkyrieEngine/Config.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>vlk</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">typedef</span> std::uint8_t    UByte;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">typedef</span> std::int8_t     Byte;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">typedef</span> std::uint16_t   UShort;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">typedef</span> std::int16_t    Short;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">typedef</span> std::uint32_t   UInt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">typedef</span> std::int32_t    Int;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> std::uint64_t   ULong;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> std::int64_t    Long;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">typedef</span> std::size_t     Size;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">float</span>           Float;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">double</span>          Double;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<a href="ValkyrieDefs_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef VLK_DEF_HPP</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define VLK_DEF_HPP</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Config_8hpp.html">ValkyrieEngine/Config.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>vlk</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#aff00f1a21ff5792ddeb6c3130f85069c">   17</a></span>&#160;    <span class="keyword">typedef</span> std::uint8_t    <a class="code" href="ValkyrieDefs_8hpp.html#aff00f1a21ff5792ddeb6c3130f85069c">UByte</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#ae9f2cb912da19c6ef5747e2efbe61da8">   22</a></span>&#160;    <span class="keyword">typedef</span> std::int8_t     <a class="code" href="ValkyrieDefs_8hpp.html#ae9f2cb912da19c6ef5747e2efbe61da8">Byte</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a720ebf07f96764cf2162dc349d616725">   27</a></span>&#160;    <span class="keyword">typedef</span> std::uint16_t   <a class="code" href="ValkyrieDefs_8hpp.html#a720ebf07f96764cf2162dc349d616725">UShort</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#aafeff89395f114f13c70d82456a46ab2">   32</a></span>&#160;    <span class="keyword">typedef</span> std::int16_t    <a class="code" href="ValkyrieDefs_8hpp.html#aafeff89395f114f13c70d82456a46ab2">Short</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">   37</a></span>&#160;    <span class="keyword">typedef</span> std::uint32_t   <a class="code" href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">UInt</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">   42</a></span>&#160;    <span class="keyword">typedef</span> std::int32_t    <a class="code" href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">Int</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a7b9d20e814f29d3ae871436cd1ae1009">   47</a></span>&#160;    <span class="keyword">typedef</span> std::uint64_t   <a class="code" href="ValkyrieDefs_8hpp.html#a7b9d20e814f29d3ae871436cd1ae1009">ULong</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a468d971762596def2821e4e4033cab27">   52</a></span>&#160;    <span class="keyword">typedef</span> std::int64_t    <a class="code" href="ValkyrieDefs_8hpp.html#a468d971762596def2821e4e4033cab27">Long</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#ae9a25eca45834c5fdfea230200a2e0dc">   57</a></span>&#160;    <span class="keyword">typedef</span> std::size_t     <a class="code" href="ValkyrieDefs_8hpp.html#ae9a25eca45834c5fdfea230200a2e0dc">Size</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a2e3e535a80dcc5fee51d0f64985960d3">   62</a></span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">float</span>           <a class="code" href="ValkyrieDefs_8hpp.html#a2e3e535a80dcc5fee51d0f64985960d3">Float</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="ValkyrieDefs_8hpp.html#a368f26686be1072460f1dd4940452050">   67</a></span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">double</span>          <a class="code" href="ValkyrieDefs_8hpp.html#a368f26686be1072460f1dd4940452050">Double</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a468d971762596def2821e4e4033cab27"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a468d971762596def2821e4e4033cab27">vlk::Long</a></div><div class="ttdeci">std::int64_t Long</div><div class="ttdoc">Signed 64-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:52</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a2e3e535a80dcc5fee51d0f64985960d3"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a2e3e535a80dcc5fee51d0f64985960d3">vlk::Float</a></div><div class="ttdeci">float Float</div><div class="ttdoc">32-bit floating-point number</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:62</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a368f26686be1072460f1dd4940452050"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a368f26686be1072460f1dd4940452050">vlk::Double</a></div><div class="ttdeci">double Double</div><div class="ttdoc">64-bit floating-point number</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:67</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a7b9d20e814f29d3ae871436cd1ae1009"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a7b9d20e814f29d3ae871436cd1ae1009">vlk::ULong</a></div><div class="ttdeci">std::uint64_t ULong</div><div class="ttdoc">Unsigned 64-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:47</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_ae9a25eca45834c5fdfea230200a2e0dc"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#ae9a25eca45834c5fdfea230200a2e0dc">vlk::Size</a></div><div class="ttdeci">std::size_t Size</div><div class="ttdoc">Platform-dependent size type.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:57</div></div>
 <div class="ttc" id="aConfig_8hpp_html"><div class="ttname"><a href="Config_8hpp.html">Config.hpp</a></div><div class="ttdoc">Defines various symbols to make valkyrie engine more compatable with older C++ standards,...</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_aafeff89395f114f13c70d82456a46ab2"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#aafeff89395f114f13c70d82456a46ab2">vlk::Short</a></div><div class="ttdeci">std::int16_t Short</div><div class="ttdoc">Signed 16-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:32</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_aef2dc7c4de6b131d45566a0d6c9600fb"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">vlk::Int</a></div><div class="ttdeci">std::int32_t Int</div><div class="ttdoc">Signed 32-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:42</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a720ebf07f96764cf2162dc349d616725"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a720ebf07f96764cf2162dc349d616725">vlk::UShort</a></div><div class="ttdeci">std::uint16_t UShort</div><div class="ttdoc">Unsigned 16-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:27</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_ae9f2cb912da19c6ef5747e2efbe61da8"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#ae9f2cb912da19c6ef5747e2efbe61da8">vlk::Byte</a></div><div class="ttdeci">std::int8_t Byte</div><div class="ttdoc">Signed 8-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:22</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a2fa3f432340b644806685709c97946c6"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a></div><div class="ttdeci">std::uint32_t UInt</div><div class="ttdoc">Unsigned 32-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:37</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_aff00f1a21ff5792ddeb6c3130f85069c"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#aff00f1a21ff5792ddeb6c3130f85069c">vlk::UByte</a></div><div class="ttdeci">std::uint8_t UByte</div><div class="ttdoc">Unsigned 8-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

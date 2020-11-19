@@ -14,7 +14,7 @@
 
 namespace vlk
 {
-	/*
+	/*!
 	 * \brief Typedef for Entity Identifiers
 	 *
 	 * \sa Entity::Create()

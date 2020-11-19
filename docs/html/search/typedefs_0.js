@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['entityid_148',['EntityID',['../EntityID_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5',1,'vlk']]]
+  ['byte_152',['Byte',['../ValkyrieDefs_8hpp.html#ae9f2cb912da19c6ef5747e2efbe61da8',1,'vlk']]]
 ];

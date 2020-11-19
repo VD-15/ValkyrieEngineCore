@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['postupdateevent_45',['PostUpdateEvent',['../structvlk_1_1PostUpdateEvent.html',1,'vlk']]],
-  ['preupdateevent_46',['PreUpdateEvent',['../structvlk_1_1PreUpdateEvent.html',1,'vlk']]]
+  ['onevent_54',['OnEvent',['../classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f',1,'vlk::IEventListener']]]
 ];

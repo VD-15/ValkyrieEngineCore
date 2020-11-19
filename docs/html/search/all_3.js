@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['earlyupdateevent_18',['EarlyUpdateEvent',['../structvlk_1_1EarlyUpdateEvent.html',1,'vlk']]],
-  ['ecregistry_19',['ECRegistry',['../classvlk_1_1ECRegistry.html',1,'vlk']]],
-  ['ecs_2ehpp_20',['ECS.hpp',['../ECS_8hpp.html',1,'']]],
-  ['enqueue_21',['Enqueue',['../classvlk_1_1ThreadPool.html#a6d0322f870cf7875aab184f4c8672c05',1,'vlk::ThreadPool']]],
-  ['entity_22',['entity',['../classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a',1,'vlk::IComponent']]],
-  ['eventbus_23',['EventBus',['../classvlk_1_1EventBus.html',1,'vlk']]],
-  ['eventlistener_24',['EventListener',['../classvlk_1_1EventListener.html',1,'vlk::EventListener&lt; T &gt;'],['../classvlk_1_1EventListener.html#afcbf07e66da541d80cb7a12a812d20b0',1,'vlk::EventListener::EventListener()']]]
+  ['delete_19',['Delete',['../classvlk_1_1Component.html#a8c52a1f587b3e436a370a782d0f7541f',1,'vlk::Component::Delete()'],['../classvlk_1_1IComponent.html#af51ed4ec8ac1511521606fcfa7a035df',1,'vlk::IComponent::Delete()'],['../Entity_8hpp.html#abe6db9765877409366f77057c3068f23',1,'vlk::Entity::Delete()']]],
+  ['developername_20',['developerName',['../structvlk_1_1ApplicationArgs.html#ab1661688e065fff2a21f48d5963ba85e',1,'vlk::ApplicationArgs']]],
+  ['double_21',['Double',['../ValkyrieDefs_8hpp.html#a368f26686be1072460f1dd4940452050',1,'vlk']]]
 ];

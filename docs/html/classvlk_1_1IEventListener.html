@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for all event listeners. Do not use this directly, prefer <a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener</a>, that will automatically subscribe itself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">vlk::EventBus</a> when constructed.  
+<p>Base class for all event listeners.  
  <a href="classvlk_1_1IEventListener.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="EventBus_8hpp_source.html">EventBus.hpp</a>&gt;</code></p>
@@ -83,24 +83,25 @@ Inheritance diagram for vlk::IEventListener&lt; T &gt;:</div>
  <div class="center">
   <img src="classvlk_1_1IEventListener.png" usemap="#vlk::IEventListener_3C_20T_20_3E_map" alt=""/>
   <map id="vlk::IEventListener_3C_20T_20_3E_map" name="vlk::IEventListener_3C_20T_20_3E_map">
-<area href="classvlk_1_1EventListener.html" title="Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate ..." alt="vlk::EventListener&lt; T &gt;" shape="rect" coords="0,56,145,80"/>
+<area href="classvlk_1_1EventListener.html" title="Base class for event listeners to inherit from. Automatically registers iteself to the appropriate vl..." alt="vlk::EventListener&lt; T &gt;" shape="rect" coords="0,56,145,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a927a7b7ac1c1fb665184554d43160c7f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent</a> (const T &amp;)=0</td></tr>
-<tr class="memdesc:a927a7b7ac1c1fb665184554d43160c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whenever event T is sent.  <a href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">More...</a><br /></td></tr>
+<tr class="memdesc:a927a7b7ac1c1fb665184554d43160c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback raised whenever an event T is recieved.  <a href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">More...</a><br /></td></tr>
 <tr class="separator:a927a7b7ac1c1fb665184554d43160c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class vlk::IEventListener&lt; T &gt;</h3>
 
-<p>Base class for all event listeners. Do not use this directly, prefer <a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener</a>, that will automatically subscribe itself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">vlk::EventBus</a> when constructed. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1EventListener.html" title="Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate ...">vlk::EventListener</a> </dd>
+<p>Base class for all event listeners. </p>
+<p>Direct use is discouraged. Prefer inheriting from EventListener&lt;T&gt; instead.</p>
+<dl class="section see"><dt>See also</dt><dd>EventListener&lt;T&gt; </dd>
 <dd>
-<a class="el" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f" title="Called whenever event T is sent.">OnEvent(const T&amp;)</a> </dd></dl>
+<a class="el" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f" title="Callback raised whenever an event T is recieved.">OnEvent(const T&amp;)</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a927a7b7ac1c1fb665184554d43160c7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a927a7b7ac1c1fb665184554d43160c7f">&#9670;&nbsp;</a></span>OnEvent()</h2>
@@ -128,10 +129,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Called whenever event T is sent. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1EventBus.html#a79f2709a3cff431df0005b5625dbb758" title="Raises OnEvent()  for all event listeners  on this event bus. All listeners get called immediately,...">vlk::EventBus::Send(const T&amp;)</a> </dd>
+<p>Callback raised whenever an event T is recieved. </p>
+<p>This must be overridden in the event listener implementation.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1EventBus.html#a79f2709a3cff431df0005b5625dbb758" title="Raises the IEventListener&lt;T&gt;::OnEvent callback for every IEventListener present in the bus.">vlk::EventBus::Send(const T&amp;)</a> </dd>
 <dd>
-<a class="el" href="classvlk_1_1EventBus.html#a9a26f0798fca59cd124ffeb72209c527" title="Adds an event listener to this event bus Once registered, this event listener will then have OnEvent(...">vlk::EventBus::AddListener(IEventListener&lt;T&gt;*)</a> </dd></dl>
+<a class="el" href="classvlk_1_1EventBus.html#a9a26f0798fca59cd124ffeb72209c527" title="Adds an event listener to the event bus.">vlk::EventBus::AddListener(IEventListener&lt;T&gt;*)</a> </dd></dl>
 
 </div>
 </div>

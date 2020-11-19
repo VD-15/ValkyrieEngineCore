@@ -1,26 +1,51 @@
 \hypertarget{EventBus_8hpp}{}\doxysection{include/\+Valkyrie\+Engine/\+Event\+Bus.hpp File Reference}
 \label{EventBus_8hpp}\index{include/ValkyrieEngine/EventBus.hpp@{include/ValkyrieEngine/EventBus.hpp}}
+
+
+Provides listeners for event loop.  
+
+
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$shared\+\_\+mutex$>$}\newline
 {\ttfamily \#include $<$mutex$>$}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Thread\+Pool.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+I\+Event\+Listener$<$ T $>$}}
-\begin{DoxyCompactList}\small\item\em Base class for all event listeners. Do not use this directly, prefer \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}}, that will automatically subscribe itself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}} when constructed. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Base class for all event listeners. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Facilitates sending events to user-\/defined event listeners. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener$<$ T $>$}}
-\begin{DoxyCompactList}\small\item\em Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{event bus }} when constructed and removes itself when destructed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
- \mbox{\hyperlink{namespacevlk}{vlk}}
-\begin{DoxyCompactList}\small\item\em Chunk-\/based Allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Base class for event listeners to inherit from. Automatically registers iteself to the appropriate vlk\+::\+Event\+Bus$<$\+T$>$ when constructed and removes itself when destructed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\constexpr void \mbox{\hyperlink{namespacevlk_adf36335ff9f900d96dd5f6185598020b}{vlk\+::\+Send\+Event}} (const T \&t)
-\begin{DoxyCompactList}\small\item\em Helper function. Equivelant to\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{EventBus_8hpp_a665e1a27a2678fdd3657c13006dbe1d2}{vlk\+::\+Send\+Event}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Shorthand event sending function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides listeners for event loop. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{EventBus_8hpp_a665e1a27a2678fdd3657c13006dbe1d2}\label{EventBus_8hpp_a665e1a27a2678fdd3657c13006dbe1d2}} 
+\index{EventBus.hpp@{EventBus.hpp}!SendEvent@{SendEvent}}
+\index{SendEvent@{SendEvent}!EventBus.hpp@{EventBus.hpp}}
+\doxysubsubsection{\texorpdfstring{SendEvent()}{SendEvent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void vlk\+::\+Send\+Event (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Shorthand event sending function. 
+
+Equivelant to\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EventBus<T>::SendEvent(t);}
+\end{DoxyCode}
+ 

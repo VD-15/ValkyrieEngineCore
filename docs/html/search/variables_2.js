@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file_126',['file',['../classvlk_1_1LogEvent.html#a77a8545c3cabe0adaaca48d784ccf8c2',1,'vlk::LogEvent']]]
+  ['entity_142',['entity',['../classvlk_1_1IComponent.html#a76efcf44eda74e5f6d6fe0e25347521a',1,'vlk::IComponent']]]
 ];

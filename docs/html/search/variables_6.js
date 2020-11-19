@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_130',['Value',['../classvlk_1_1IsLogLevelEnabled.html#afff35704d275eb8bcae9055c6e92b8c7',1,'vlk::IsLogLevelEnabled']]]
+  ['message_146',['message',['../classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93',1,'vlk::LogEvent']]]
 ];

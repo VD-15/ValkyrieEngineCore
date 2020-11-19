@@ -67,45 +67,75 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">EventBus.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides listeners for event loop.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;shared_mutex&gt;</code><br />
 <code>#include &lt;mutex&gt;</code><br />
-<code>#include &quot;<a class="el" href="ThreadPool_8hpp_source.html">ValkyrieEngine/ThreadPool.hpp</a>&quot;</code><br />
 </div>
 <p><a href="EventBus_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1IEventListener.html">vlk::IEventListener&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all event listeners. Do not use this directly, prefer <a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener</a>, that will automatically subscribe itself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">vlk::EventBus</a> when constructed.  <a href="classvlk_1_1IEventListener.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all event listeners.  <a href="classvlk_1_1IEventListener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventBus.html">vlk::EventBus&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates sending events to user-defined event listeners.  <a href="classvlk_1_1EventBus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1EventListener.html">vlk::EventListener&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class for event listeners to inherit from. Automatically registers iteself to the appropriate <a class="el" href="classvlk_1_1EventBus.html">event bus </a> when constructed and removes itself when destructed.  <a href="classvlk_1_1EventListener.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevlk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevlk.html">vlk</a></td></tr>
-<tr class="memdesc:namespacevlk"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chunk-based Allocator. <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for event listeners to inherit from. Automatically registers iteself to the appropriate vlk::EventBus&lt;T&gt; when constructed and removes itself when destructed.  <a href="classvlk_1_1EventListener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf36335ff9f900d96dd5f6185598020b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adf36335ff9f900d96dd5f6185598020b"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">vlk::SendEvent</a> (const T &amp;t)</td></tr>
-<tr class="memdesc:adf36335ff9f900d96dd5f6185598020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function. Equivelant to:  <a href="namespacevlk.html#adf36335ff9f900d96dd5f6185598020b">More...</a><br /></td></tr>
-<tr class="separator:adf36335ff9f900d96dd5f6185598020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665e1a27a2678fdd3657c13006dbe1d2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a665e1a27a2678fdd3657c13006dbe1d2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="EventBus_8hpp.html#a665e1a27a2678fdd3657c13006dbe1d2">vlk::SendEvent</a> (const T &amp;t)</td></tr>
+<tr class="memdesc:a665e1a27a2678fdd3657c13006dbe1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand event sending function.  <a href="EventBus_8hpp.html#a665e1a27a2678fdd3657c13006dbe1d2">More...</a><br /></td></tr>
+<tr class="separator:a665e1a27a2678fdd3657c13006dbe1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides listeners for event loop. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a665e1a27a2678fdd3657c13006dbe1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665e1a27a2678fdd3657c13006dbe1d2">&#9670;&nbsp;</a></span>SendEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vlk::SendEvent </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shorthand event sending function. </p>
+<p>Equivelant to:</p>
+<div class="fragment"><div class="line">EventBus&lt;T&gt;::SendEvent(t);</div>
+</div><!-- fragment --> 
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -66,7 +66,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classvlk_1_1Application-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -79,17 +78,10 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="ValkyrieEngine_8hpp_source.html">ValkyrieEngine.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlk_1_1Application_1_1ApplicationArgs.html">ApplicationArgs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for application-related metadata.  <a href="structvlk_1_1Application_1_1ApplicationArgs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d60a37612759fb1083ccf187e9f0fe2"><td class="memItemLeft" align="right" valign="top"><a id="a6d60a37612759fb1083ccf187e9f0fe2"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">Start</a> (const <a class="el" href="structvlk_1_1Application_1_1ApplicationArgs.html">ApplicationArgs</a> &amp;args)</td></tr>
-<tr class="memdesc:a6d60a37612759fb1083ccf187e9f0fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the update loop, sends an <a class="el" href="structvlk_1_1ApplicationStartEvent.html" title="Sent when the application starts and the first update loop is about to begin.">ApplicationStartEvent</a>. <br /></td></tr>
+<tr class="memitem:a6d60a37612759fb1083ccf187e9f0fe2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">Start</a> (const <a class="el" href="structvlk_1_1ApplicationArgs.html">ApplicationArgs</a> &amp;args)</td></tr>
+<tr class="memdesc:a6d60a37612759fb1083ccf187e9f0fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the update loop, sends an <a class="el" href="structvlk_1_1ApplicationStartEvent.html" title="Sent when the application starts and the first update loop is about to begin.">ApplicationStartEvent</a>.  <a href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">More...</a><br /></td></tr>
 <tr class="separator:a6d60a37612759fb1083ccf187e9f0fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac017244251b5c3b1b6b808c6c8815a4b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvlk_1_1Application.html#ac017244251b5c3b1b6b808c6c8815a4b">Stop</a> ()</td></tr>
 <tr class="memdesc:ac017244251b5c3b1b6b808c6c8815a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a flag to stop the update loop. Returns immediately.  <a href="classvlk_1_1Application.html#ac017244251b5c3b1b6b808c6c8815a4b">More...</a><br /></td></tr>
@@ -98,6 +90,39 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Starts and stops the update loop. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6d60a37612759fb1083ccf187e9f0fe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d60a37612759fb1083ccf187e9f0fe2">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::Start </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvlk_1_1ApplicationArgs.html">ApplicationArgs</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the update loop, sends an <a class="el" href="structvlk_1_1ApplicationStartEvent.html" title="Sent when the application starts and the first update loop is about to begin.">ApplicationStartEvent</a>. </p>
+<dl class="section user"><dt>Thread Safety</dt><dd>Must only be called from the main thread.<br  />
+ No resources are locked.<br  />
+ This function will block the calling thread until it terminates.<br  />
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Application.html#ac017244251b5c3b1b6b808c6c8815a4b" title="Sets a flag to stop the update loop. Returns immediately.">Application::Stop()</a> </dd></dl>
+
+</div>
+</div>
 <a id="ac017244251b5c3b1b6b808c6c8815a4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac017244251b5c3b1b6b808c6c8815a4b">&#9670;&nbsp;</a></span>Stop()</h2>
 
@@ -122,7 +147,12 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div><div class="memdoc">
 
 <p>Sets a flag to stop the update loop. Returns immediately. </p>
-<p>The current update loop will continue as normal </p>
+<p>The current update loop will continue as normal.</p>
+<dl class="section user"><dt>Thread Safety</dt><dd>May be called from any thread.<br  />
+ No resources are locked.<br  />
+ This function will not block the calling thread.<br  />
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2" title="Starts the update loop, sends an ApplicationStartEvent.">Application::Start(const ApplicationArgs&amp;)</a> </dd></dl>
 
 </div>
 </div>

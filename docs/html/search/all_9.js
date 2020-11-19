@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notes_20for_20contributors_43',['Notes for contributors',['../contribnotes.html',1,'']]]
+  ['message_52',['message',['../classvlk_1_1LogEvent.html#aa812ea56de9a200f2fb59cc722028b93',1,'vlk::LogEvent']]]
 ];

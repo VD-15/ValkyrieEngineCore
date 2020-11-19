@@ -5,8 +5,9 @@ var searchData=
   ['allocautoresize_2',['allocAutoResize',['../structvlk_1_1ComponentHints.html#a08879261664c3f37c3eb10ba42062d85',1,'vlk::ComponentHints']]],
   ['allocblocksize_3',['allocBlockSize',['../structvlk_1_1ComponentHints.html#a9888f7a5c04a58dc6045f906bb41be4c',1,'vlk::ComponentHints']]],
   ['application_4',['Application',['../classvlk_1_1Application.html',1,'vlk']]],
-  ['applicationargs_5',['ApplicationArgs',['../structvlk_1_1Application_1_1ApplicationArgs.html',1,'vlk::Application']]],
+  ['applicationargs_5',['ApplicationArgs',['../structvlk_1_1ApplicationArgs.html',1,'vlk']]],
   ['applicationexitevent_6',['ApplicationExitEvent',['../structvlk_1_1ApplicationExitEvent.html',1,'vlk']]],
-  ['applicationstartevent_7',['ApplicationStartEvent',['../structvlk_1_1ApplicationStartEvent.html',1,'vlk']]],
-  ['attach_8',['Attach',['../classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631',1,'vlk::Component']]]
+  ['applicationname_7',['applicationName',['../structvlk_1_1ApplicationArgs.html#ab97d8862825506e4d77b5d657a849cad',1,'vlk::ApplicationArgs']]],
+  ['applicationstartevent_8',['ApplicationStartEvent',['../structvlk_1_1ApplicationStartEvent.html',1,'vlk']]],
+  ['attach_9',['Attach',['../classvlk_1_1Component.html#a907b54959d286308b0db84136c58a631',1,'vlk::Component']]]
 ];

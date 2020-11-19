@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.19"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Valkyrie Engine Core: Main Page</title>
+<title>Valkyrie Engine Core: ValkyrieEngine Core</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,12 +60,212 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Valkyrie Engine Core Documentation</div>  </div>
+<div class="title">ValkyrieEngine Core </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#quick_start">Quick Start Guide</a><ul><li class="level2"><a href="#init">Initialization</a></li>
+<li class="level2"><a href="#event">Events</a><ul><li class="level3"><a href="#event_create">Creating Events</a></li>
+<li class="level3"><a href="#event_defined">Pre-Defined Events</a></li>
+<li class="level3"><a href="#event_send">Sending Events</a></li>
+<li class="level3"><a href="#event_get">Recieving Events</a></li>
+<li class="level3"><a href="#event_all">Putting it all together</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#ecs">Entity-Component System</a><ul><li class="level3"><a href="#entity">Entities</a></li>
+<li class="level3"><a href="#component">Components</a></li>
+<li class="level3"><a href="#system">Systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1>Valkyrie Engine</h1>
+<p>Valkyrie Engine is a game engine written in modern C++ that is designed to be as modular as possible and as lightweight as you want. Valkyrie Engine's Core module is designed to be small and easy to implement. Most of the functionality that you would expect from a game engine is defined across Valkyrie Engine's various modules. These modules are collections of systems, events and components designed to help accomplish a specific functionality or behaviour within a game.</p>
+<h1><a class="anchor" id="quick_start"></a>
+Quick Start Guide</h1>
+<h2><a class="anchor" id="init"></a>
+Initialization</h2>
+<p>Valkyrie Engine doesn't require much in terms of initialization, currently it only requires a call to <code><a class="el" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2" title="Starts the update loop, sends an ApplicationStartEvent.">vlk::Application::Start()</a></code> at the beginning of your program. This is the function that starts the main update loop. This loop will run continuously until <code><a class="el" href="classvlk_1_1Application.html#ac017244251b5c3b1b6b808c6c8815a4b" title="Sets a flag to stop the update loop. Returns immediately.">vlk::Application::Stop()</a></code> is called, in which case it will exit once the current update loop is completed. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ValkyrieEngine_8hpp.html">ValkyrieEngine/ValkyrieEngine.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="structvlk_1_1ApplicationArgs.html">vlk::ApplicationArgs</a> args{};</div>
+<div class="line">    args.<a class="code" href="structvlk_1_1ApplicationArgs.html#ab97d8862825506e4d77b5d657a849cad">applicationName</a> = <span class="stringliteral">&quot;My Game&quot;</span>;</div>
+<div class="line">    <a class="code" href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">vlk::Application::Start</a>(args);</div>
+<div class="line"> }</div>
+</div><!-- fragment --><h2><a class="anchor" id="event"></a>
+Events</h2>
+<p>In Valkyrie Engine, events are the primary way that inter-module communication occurs. Instead of calling a function from another module directly, send an event. Events help keep Valkyrie Engine modular and your code maintainable, both by yourself and others.</p>
+<h3><a class="anchor" id="event_create"></a>
+Creating Events</h3>
+<p>In Valkyrie Engine, any object or class can be an event, though we recommend using POD structs. </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyEvent</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">vlk::Int</a> foo = 10;</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="ValkyrieDefs_8hpp.html#a2e3e535a80dcc5fee51d0f64985960d3">vlk::Float</a> bar = 1.0f;</div>
+<div class="line">};</div>
+</div><!-- fragment --><h3><a class="anchor" id="event_defined"></a>
+Pre-Defined Events</h3>
+<p>Valkyrie Engine Core comes with a few events that help form the main update loop of the engine. All of these events are simply empty structs with no data but their usage varies significantly:</p>
+<ul>
+<li>
+<a class="el" href="structvlk_1_1ApplicationStartEvent.html" title="Sent when the application starts and the first update loop is about to begin.">vlk::ApplicationStartEvent</a> is sent once, just before the first event loop of the application runs. This is used primarily for second-stage module initialization and to set up the initial state of your game. </li>
+<li>
+<a class="el" href="structvlk_1_1ApplicationExitEvent.html" title="Sent when the final update loop has taken place and the application is about to exit.">vlk::ApplicationExitEvent</a> is sent once, after the event loop exits and the application is due to terminate. This is used to perform cleanup on any entities or systems that need it. </li>
+<li>
+<a class="el" href="structvlk_1_1PreUpdateEvent.html" title="Sent once every frame, just before the update loop starts.">vlk::PreUpdateEvent</a> is sent at the beginning of every update loop but should not be considered part of it. It is mostly used to update modules and should not be used to change the state of your game. </li>
+<li>
+<a class="el" href="structvlk_1_1EarlyUpdateEvent.html" title="First event sent in the update loop. Always before UpdateEvent.">vlk::EarlyUpdateEvent</a> is sent after <a class="el" href="structvlk_1_1PreUpdateEvent.html" title="Sent once every frame, just before the update loop starts.">vlk::PreUpdateEvent</a> and is mostly used to read the state of other entities before <a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">vlk::UpdateEvent</a> is called. </li>
+<li>
+<a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">vlk::UpdateEvent</a> is sent after <a class="el" href="structvlk_1_1EarlyUpdateEvent.html" title="First event sent in the update loop. Always before UpdateEvent.">vlk::EarlyUpdateEvent</a> and is used to update the state of most of entities present in the game. </li>
+<li>
+<a class="el" href="structvlk_1_1LateUpdateEvent.html" title="Last event sent in the update loop. Always after UpdateEvent.">vlk::LateUpdateEvent</a> is sent after <a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">vlk::UpdateEvent</a> and is mostly used to react to the changes that occured during the <a class="el" href="structvlk_1_1UpdateEvent.html" title="Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.">vlk::UpdateEvent</a>. </li>
+<li>
+<p class="startli"><a class="el" href="structvlk_1_1PostUpdateEvent.html" title="Sent once every frame, just after the update loop ends. Please don&#39;t use this for game logic.">vlk::PostUpdateEvent</a> is sent after vlk::LateUpdateEven and is similar to the <a class="el" href="structvlk_1_1PreUpdateEvent.html" title="Sent once every frame, just before the update loop starts.">vlk::PreUpdateEvent</a> in that it is mostly used to update modules and should not be used to alter the game state in any way, rendering would usually take place during a PostUpdate.</p>
+<p class="endli"></p>
+</li>
+</ul>
+<h3><a class="anchor" id="event_send"></a>
+Sending Events</h3>
+<p>Sending events in Valkyrie Engine is done through the <code>EventBus</code> class. This will raise the event handler for every listener of your event. </p><div class="fragment"><div class="line"><a class="code" href="EventBus_8hpp.html#a665e1a27a2678fdd3657c13006dbe1d2">vlk::SendEvent</a>(MyEvent{});</div>
+</div><!-- fragment --><h3><a class="anchor" id="event_get"></a>
+Recieving Events</h3>
+<p>In order to recieve an event, you need to define a class that inherits from <code><a class="el" href="classvlk_1_1EventListener.html" title="Base class for event listeners to inherit from. Automatically registers iteself to the appropriate vl...">vlk::EventListener</a></code> and construct an instance of it. This instance will then recieve any events of the appropriate type you send down the event bus.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyEventListener : <span class="keyword">public</span> <a class="code" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt;MyEvent&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent</a>(<span class="keyword">const</span> MyEvent&amp; ev) <span class="keyword">final</span> <span class="keyword">override</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Do something here</span></div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><h3><a class="anchor" id="event_all"></a>
+Putting it all together</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ValkyrieEngine_8hpp.html">ValkyrieEngine/ValkyrieEngine.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>MyEvent</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">vlk::Int</a> foo;</div>
+<div class="line">    <span class="keyword">const</span> std::string bar;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyEventListener : <span class="keyword">public</span> <a class="code" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt;MyEvent&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line">    MyEventListener() = <span class="keywordflow">default</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent</a>(<span class="keyword">const</span> MyEvent&amp; ev) <span class="keyword">final</span> <span class="keyword">override</span></div>
+<div class="line">    {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event handler raised: &quot;</span> &lt;&lt; std::to_string(ev.foo) &lt;&lt; std::endl;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Cow says: &quot;</span> &lt;&lt; ev.bar &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    MyEventListener listener;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="EventBus_8hpp.html#a665e1a27a2678fdd3657c13006dbe1d2">vlk::SendEvent</a>(MyEvent{ 51, <span class="stringliteral">&quot;Moo!&quot;</span> });</div>
+<div class="line"> </div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="ecs"></a>
+Entity-Component System</h2>
+<p>Valkyrie Engine core defines a basic entity-component system that serves as the underlying framework for any game produced in it.</p>
+<h3><a class="anchor" id="entity"></a>
+Entities</h3>
+<p>Entities are represented by a primitive ID and are used used to associate components to one another. The <code>Entity</code> namespace defines several functions for creating and destroying entities.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ValkyrieEngine_8hpp.html">ValkyrieEngine/ValkyrieEngine.hpp</a>&quot;</span></div>
+<div class="line"><span class="keywordtype">void</span> Foo()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">vlk::EntityID</a> myEntity = <a class="code" href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">vlk::Entity::Create</a>();</div>
+<div class="line"> </div>
+<div class="line">    ...</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">vlk::Entity::Delete</a>(myEntity);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="component"></a>
+Components</h3>
+<p>Components are data types that define a particular behaviour or property for the entity they're attached to. It is important to note that components shouldn't be event listeners. This is mostly to avoid congestion on the event bus as constantly adding and removing event listeners can significantly impact performance.</p>
+<p><code>Component&lt;T&gt;::Create</code> takes the ID of the entity the component is to be attached to, any subsequent arguments are forwarded to the constructor of your data type. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ValkyrieEngine_8hpp.html">ValkyrieEngine/ValkyrieEngine.hpp</a>&quot;</span></div>
+<div class="line"><span class="keyword">class </span>Counter</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line">    Counter(<a class="code" href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a> _score)</div>
+<div class="line">    {</div>
+<div class="line">        this-&gt;score = _score;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a> score;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> Foo()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">vlk::EntityID</a> myEntity = <a class="code" href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">vlk::Entity::Create</a>();</div>
+<div class="line">    <a class="code" href="classvlk_1_1Component.html">vlk::Component&lt;Counter&gt;</a>* c = <a class="code" href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">vlk::Component&lt;Counter&gt;::Create</a>(myEntity, 10);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="system"></a>
+Systems</h3>
+<p>Where components define behaviour for entities, systems are where that behaviour is implemented. Most systems will take the form of several event listeners with any necessary data stored in member variables or the like. Since systems perform operations on/with components, they need a way to access every instance of that component at runtime. <a class="el" href="classvlk_1_1Component.html" title="Template class for ECS components.">vlk::Component</a> has two static member functions called <a class="el" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110" title="Performs a mutating function on every instance of this component.">vlk::Component&lt;T&gt;::ForEach</a> and <a class="el" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd" title="Performs a non-mutating function on every instance of this component.">vlk::Component&lt;T&gt;::CForEach</a> that do exactly that.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ValkyrieEngine_8hpp.html">ValkyrieEngine/ValkyrieEngine.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MySystem : </div>
+<div class="line"><span class="keyword">public</span> <a class="code" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt;vlk::UpdateEvent&gt;</div>
+<div class="line"><span class="keyword">public</span> <a class="code" href="classvlk_1_1EventListener.html">vlk::EventListener</a>&lt;vlk::LateUpdateEvent&gt;</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line">    MySystem() = <span class="keywordflow">default</span>;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a> sumTotal;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent</a>(<span class="keyword">const</span> <a class="code" href="structvlk_1_1UpdateEvent.html">vlk::UpdateEvent</a>&amp; ev) <span class="keyword">final</span> <span class="keyword">override</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Modifying all counter components, use for each</span></div>
+<div class="line">        <a class="code" href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">Component&lt;Counter&gt;::ForEach</a>([](Component&lt;Counter&gt;* c)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Add 1 to score every update.</span></div>
+<div class="line">            c-&gt;score++;</div>
+<div class="line">        });</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">OnEvent</a>(<span class="keyword">const</span> <a class="code" href="structvlk_1_1LateUpdateEvent.html">vlk::LateUpdateEvent</a>&amp; ev) <span class="keyword">final</span> <span class="keyword">override</span></div>
+<div class="line">    {</div>
+<div class="line">        sumTotal = 0;</div>
+<div class="line">   </div>
+<div class="line">        <span class="comment">// Not modifying components, const for each makes more sense    </span></div>
+<div class="line">        <a class="code" href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">Component&lt;Counter&gt;::CForEach</a>([&amp;sumTotal](<span class="keyword">const</span> <a class="code" href="classvlk_1_1Component.html">vlk::Component&lt;Counter&gt;</a>* c)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Update sum total of all counters</span></div>
+<div class="line">            sumTotal += c-&gt;score;</div>
+<div class="line">        });</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
+<div class="ttc" id="aEntity_8hpp_html_abe6db9765877409366f77057c3068f23"><div class="ttname"><a href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">vlk::Entity::Delete</a></div><div class="ttdeci">void Delete(EntityID eId)</div><div class="ttdoc">Deletes an entity and all components attached to it.</div><div class="ttdef"><b>Definition:</b> Entity.cpp:22</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_ae5d058b1860c2afa8df0b537344963bd"><div class="ttname"><a href="classvlk_1_1Component.html#ae5d058b1860c2afa8df0b537344963bd">vlk::Component::CForEach</a></div><div class="ttdeci">static void CForEach(std::function&lt; void(const Component&lt; T &gt; *)&gt; func)</div><div class="ttdoc">Performs a non-mutating function on every instance of this component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:560</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a2e3e535a80dcc5fee51d0f64985960d3"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a2e3e535a80dcc5fee51d0f64985960d3">vlk::Float</a></div><div class="ttdeci">float Float</div><div class="ttdoc">32-bit floating-point number</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:62</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a4147d21b351d27e1deb50c71d903e110"><div class="ttname"><a href="classvlk_1_1Component.html#a4147d21b351d27e1deb50c71d903e110">vlk::Component::ForEach</a></div><div class="ttdeci">static void ForEach(std::function&lt; void(Component&lt; T &gt; *)&gt; func)</div><div class="ttdoc">Performs a mutating function on every instance of this component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:519</div></div>
+<div class="ttc" id="astructvlk_1_1UpdateEvent_html"><div class="ttname"><a href="structvlk_1_1UpdateEvent.html">vlk::UpdateEvent</a></div><div class="ttdoc">Second event sent in the update loop. Always after EarlyUpdateEvent Always before LateUpdateEvent.</div><div class="ttdef"><b>Definition:</b> ValkyrieEngine.hpp:261</div></div>
+<div class="ttc" id="aEventBus_8hpp_html_a665e1a27a2678fdd3657c13006dbe1d2"><div class="ttname"><a href="EventBus_8hpp.html#a665e1a27a2678fdd3657c13006dbe1d2">vlk::SendEvent</a></div><div class="ttdeci">void SendEvent(const T &amp;t)</div><div class="ttdoc">Shorthand event sending function.</div><div class="ttdef"><b>Definition:</b> EventBus.hpp:183</div></div>
+<div class="ttc" id="aclassvlk_1_1IEventListener_html_a927a7b7ac1c1fb665184554d43160c7f"><div class="ttname"><a href="classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f">vlk::IEventListener::OnEvent</a></div><div class="ttdeci">virtual void OnEvent(const T &amp;)=0</div><div class="ttdoc">Callback raised whenever an event T is recieved.</div></div>
+<div class="ttc" id="aclassvlk_1_1Application_html_a6d60a37612759fb1083ccf187e9f0fe2"><div class="ttname"><a href="classvlk_1_1Application.html#a6d60a37612759fb1083ccf187e9f0fe2">vlk::Application::Start</a></div><div class="ttdeci">static void Start(const ApplicationArgs &amp;args)</div><div class="ttdoc">Starts the update loop, sends an ApplicationStartEvent.</div><div class="ttdef"><b>Definition:</b> ValkyrieEngine.cpp:10</div></div>
+<div class="ttc" id="aECS_8hpp_html_a5cd504c6ba3910c5974f89836bb0e6a5"><div class="ttname"><a href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">vlk::EntityID</a></div><div class="ttdeci">ULong EntityID</div><div class="ttdoc">Typedef for Entity Identifiers.</div><div class="ttdef"><b>Definition:</b> ECS.hpp:22</div></div>
+<div class="ttc" id="aEntity_8hpp_html_a0fa8d20d67c9303f3c001b50a8afbf7d"><div class="ttname"><a href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">vlk::Entity::Create</a></div><div class="ttdeci">VLK_NODISCARD EntityID Create()</div><div class="ttdoc">Creates an entity.</div><div class="ttdef"><b>Definition:</b> Entity.cpp:13</div></div>
+<div class="ttc" id="aclassvlk_1_1EventListener_html"><div class="ttname"><a href="classvlk_1_1EventListener.html">vlk::EventListener</a></div><div class="ttdoc">Base class for event listeners to inherit from. Automatically registers iteself to the appropriate vl...</div><div class="ttdef"><b>Definition:</b> EventBus.hpp:153</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html_a8f7b222b41a98dd8b7e1409a832540e7"><div class="ttname"><a href="classvlk_1_1Component.html#a8f7b222b41a98dd8b7e1409a832540e7">vlk::Component::Create</a></div><div class="ttdeci">static Component&lt; T &gt; * Create(EntityID eId, Args... args)</div><div class="ttdoc">Creates a component.</div><div class="ttdef"><b>Definition:</b> Component.hpp:283</div></div>
+<div class="ttc" id="astructvlk_1_1ApplicationArgs_html_ab97d8862825506e4d77b5d657a849cad"><div class="ttname"><a href="structvlk_1_1ApplicationArgs.html#ab97d8862825506e4d77b5d657a849cad">vlk::ApplicationArgs::applicationName</a></div><div class="ttdeci">const std::string applicationName</div><div class="ttdoc">Name of the application.</div><div class="ttdef"><b>Definition:</b> ValkyrieEngine.hpp:285</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_aef2dc7c4de6b131d45566a0d6c9600fb"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#aef2dc7c4de6b131d45566a0d6c9600fb">vlk::Int</a></div><div class="ttdeci">std::int32_t Int</div><div class="ttdoc">Signed 32-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:42</div></div>
+<div class="ttc" id="aclassvlk_1_1Component_html"><div class="ttname"><a href="classvlk_1_1Component.html">vlk::Component</a></div><div class="ttdoc">Template class for ECS components.</div><div class="ttdef"><b>Definition:</b> Component.hpp:102</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html_a2fa3f432340b644806685709c97946c6"><div class="ttname"><a href="ValkyrieDefs_8hpp.html#a2fa3f432340b644806685709c97946c6">vlk::UInt</a></div><div class="ttdeci">std::uint32_t UInt</div><div class="ttdoc">Unsigned 32-bit integer.</div><div class="ttdef"><b>Definition:</b> ValkyrieDefs.hpp:37</div></div>
+<div class="ttc" id="aValkyrieEngine_8hpp_html"><div class="ttname"><a href="ValkyrieEngine_8hpp.html">ValkyrieEngine.hpp</a></div><div class="ttdoc">Valkyrie Engine's primary header file.</div></div>
+<div class="ttc" id="astructvlk_1_1ApplicationArgs_html"><div class="ttname"><a href="structvlk_1_1ApplicationArgs.html">vlk::ApplicationArgs</a></div><div class="ttdoc">Container for application-related metadata.</div><div class="ttdef"><b>Definition:</b> ValkyrieEngine.hpp:283</div></div>
+<div class="ttc" id="astructvlk_1_1LateUpdateEvent_html"><div class="ttname"><a href="structvlk_1_1LateUpdateEvent.html">vlk::LateUpdateEvent</a></div><div class="ttdoc">Last event sent in the update loop. Always after UpdateEvent.</div><div class="ttdef"><b>Definition:</b> ValkyrieEngine.hpp:267</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

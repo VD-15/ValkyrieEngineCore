@@ -69,28 +69,35 @@ $(function() {
 <div class="title">Entity.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VLK_ENTITY_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VLK_ENTITY_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/ValkyrieDefs.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ValkyrieEngine/IComponent.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ECS_8hpp.html">ValkyrieEngine/ECS.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>vlk</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">namespace </span>Entity</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        VLK_CXX14_CONSTEXPR EntityID global = <span class="keyword">static_cast&lt;</span>EntityID<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        VLK_NODISCARD EntityID Create();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> Delete(EntityID eId);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="Entity_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef VLK_ENTITY_HPP</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define VLK_ENTITY_HPP</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ValkyrieDefs_8hpp.html">ValkyrieEngine/ValkyrieDefs.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IComponent_8hpp.html">ValkyrieEngine/IComponent.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ECS_8hpp.html">ValkyrieEngine/ECS.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>vlk</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">namespace </span>Entity</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="Entity_8hpp.html#a19b9e6781308fa28c594b46c7ddc5957">   22</a></span>&#160;        VLK_CXX14_CONSTEXPR <a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a> <a class="code" href="Entity_8hpp.html#a19b9e6781308fa28c594b46c7ddc5957">global</a> = <span class="keyword">static_cast&lt;</span><a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a><span class="keyword">&gt;</span>(0);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        VLK_NODISCARD <a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a> <a class="code" href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">Create</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">Delete</a>(<a class="code" href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">EntityID</a> eId);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aEntity_8hpp_html_abe6db9765877409366f77057c3068f23"><div class="ttname"><a href="Entity_8hpp.html#abe6db9765877409366f77057c3068f23">vlk::Entity::Delete</a></div><div class="ttdeci">void Delete(EntityID eId)</div><div class="ttdoc">Deletes an entity and all components attached to it.</div><div class="ttdef"><b>Definition:</b> Entity.cpp:22</div></div>
+<div class="ttc" id="aEntity_8hpp_html_a19b9e6781308fa28c594b46c7ddc5957"><div class="ttname"><a href="Entity_8hpp.html#a19b9e6781308fa28c594b46c7ddc5957">vlk::Entity::global</a></div><div class="ttdeci">VLK_CXX14_CONSTEXPR EntityID global</div><div class="ttdoc">A globally accessible entity with an ID of zero.</div><div class="ttdef"><b>Definition:</b> Entity.hpp:22</div></div>
+<div class="ttc" id="aIComponent_8hpp_html"><div class="ttname"><a href="IComponent_8hpp.html">IComponent.hpp</a></div><div class="ttdoc">Provides base class for components.</div></div>
+<div class="ttc" id="aECS_8hpp_html_a5cd504c6ba3910c5974f89836bb0e6a5"><div class="ttname"><a href="ECS_8hpp.html#a5cd504c6ba3910c5974f89836bb0e6a5">vlk::EntityID</a></div><div class="ttdeci">ULong EntityID</div><div class="ttdoc">Typedef for Entity Identifiers.</div><div class="ttdef"><b>Definition:</b> ECS.hpp:22</div></div>
+<div class="ttc" id="aEntity_8hpp_html_a0fa8d20d67c9303f3c001b50a8afbf7d"><div class="ttname"><a href="Entity_8hpp.html#a0fa8d20d67c9303f3c001b50a8afbf7d">vlk::Entity::Create</a></div><div class="ttdeci">VLK_NODISCARD EntityID Create()</div><div class="ttdoc">Creates an entity.</div><div class="ttdef"><b>Definition:</b> Entity.cpp:13</div></div>
 <div class="ttc" id="aECS_8hpp_html"><div class="ttname"><a href="ECS_8hpp.html">ECS.hpp</a></div><div class="ttdoc">Utilities required for the entity-component system to function.</div></div>
+<div class="ttc" id="aValkyrieDefs_8hpp_html"><div class="ttname"><a href="ValkyrieDefs_8hpp.html">ValkyrieDefs.hpp</a></div><div class="ttdoc">Provides primitive typedefs.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

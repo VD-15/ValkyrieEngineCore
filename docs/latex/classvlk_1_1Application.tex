@@ -9,16 +9,10 @@ Starts and stops the update loop.
 
 {\ttfamily \#include $<$Valkyrie\+Engine.\+hpp$>$}
 
-\doxysubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{Application\+Args}}
-\begin{DoxyCompactList}\small\item\em Container for application-\/related metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}\label{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}} 
-static void \mbox{\hyperlink{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}{Start}} (const \mbox{\hyperlink{structvlk_1_1Application_1_1ApplicationArgs}{Application\+Args}} \&args)
+static void \mbox{\hyperlink{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}{Start}} (const \mbox{\hyperlink{structvlk_1_1ApplicationArgs}{Application\+Args}} \&args)
 \begin{DoxyCompactList}\small\item\em Starts the update loop, sends an \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{Application\+Start\+Event}}. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}{Stop}} ()
 \begin{DoxyCompactList}\small\item\em Sets a flag to stop the update loop. Returns immediately. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -28,6 +22,25 @@ static void \mbox{\hyperlink{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8
 Starts and stops the update loop. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}\label{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}} 
+\index{vlk::Application@{vlk::Application}!Start@{Start}}
+\index{Start@{Start}!vlk::Application@{vlk::Application}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Application\+::\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvlk_1_1ApplicationArgs}{Application\+Args}} \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Starts the update loop, sends an \mbox{\hyperlink{structvlk_1_1ApplicationStartEvent}{Application\+Start\+Event}}. 
+
+\begin{DoxyParagraph}{Thread Safety}
+Must only be called from the main thread.~\newline
+ No resources are locked.~\newline
+ This function will block the calling thread until it terminates.~\newline
+
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}{Application\+::\+Stop()}} 
+\end{DoxySeeAlso}
 \mbox{\Hypertarget{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}\label{classvlk_1_1Application_ac017244251b5c3b1b6b808c6c8815a4b}} 
 \index{vlk::Application@{vlk::Application}!Stop@{Stop}}
 \index{Stop@{Stop}!vlk::Application@{vlk::Application}}
@@ -38,7 +51,18 @@ Starts and stops the update loop.
 
 Sets a flag to stop the update loop. Returns immediately. 
 
-The current update loop will continue as normal 
+The current update loop will continue as normal.
+
+\begin{DoxyParagraph}{Thread Safety}
+May be called from any thread.~\newline
+ No resources are locked.~\newline
+ This function will not block the calling thread.~\newline
+
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classvlk_1_1Application_a6d60a37612759fb1083ccf187e9f0fe2}{Application\+::\+Start(const Application\+Args\&)}} 
+\end{DoxySeeAlso}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

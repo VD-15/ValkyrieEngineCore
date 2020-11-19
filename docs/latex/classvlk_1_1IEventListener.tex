@@ -2,7 +2,7 @@
 \label{classvlk_1_1IEventListener}\index{vlk::IEventListener$<$ T $>$@{vlk::IEventListener$<$ T $>$}}
 
 
-Base class for all event listeners. Do not use this directly, prefer \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}}, that will automatically subscribe itself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}} when constructed.  
+Base class for all event listeners.  
 
 
 
@@ -19,17 +19,19 @@ Inheritance diagram for vlk\+::I\+Event\+Listener$<$ T $>$\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual void \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event}} (const T \&)=0
-\begin{DoxyCompactList}\small\item\em Called whenever event T is sent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback raised whenever an event T is recieved. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T$>$\newline
 class vlk\+::\+I\+Event\+Listener$<$ T $>$}
 
-Base class for all event listeners. Do not use this directly, prefer \mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}}, that will automatically subscribe itself to the appropriate \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus}} when constructed. 
+Base class for all event listeners. 
+
+Direct use is discouraged. Prefer inheriting from Event\+Listener$<$\+T$>$ instead.
 
 \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{classvlk_1_1EventListener}{vlk\+::\+Event\+Listener}} 
+Event\+Listener$<$\+T$>$ 
 
 \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb665184554d43160c7f}{On\+Event(const T\&)}} 
 \end{DoxySeeAlso}
@@ -45,7 +47,9 @@ virtual void \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+I\+Event\+Lis
 
 
 
-Called whenever event T is sent. 
+Callback raised whenever an event T is recieved. 
+
+This must be overridden in the event listener implementation.
 
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{vlk\+::\+Event\+Bus\+::\+Send(const T\&)}} 
@@ -56,4 +60,4 @@ Called whenever event T is sent.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/Event\+Bus.\+hpp\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{EventBus_8hpp}{Event\+Bus.\+hpp}}\end{DoxyCompactItemize}

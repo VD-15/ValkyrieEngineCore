@@ -12,7 +12,7 @@ namespace
 
 EntityID Entity::Create()
 {
-	std::unique_lock ulock(mtx);
+	std::unique_lock<std::mutex> ulock(mtx);
 	static EntityID eId = static_cast<EntityID>(0);
 
 	// Incriment and return; Should never return invalid unless overflow occurs
@@ -21,7 +21,7 @@ EntityID Entity::Create()
 
 void Entity::Delete(EntityID id)
 {
-	std::unique_lock ulock(mtx);
+	std::unique_lock<std::mutex> ulock(mtx);
 	std::vector<IComponent*> toRemove;
 
 	ECRegistry<IComponent>::LookupAll(id, toRemove);

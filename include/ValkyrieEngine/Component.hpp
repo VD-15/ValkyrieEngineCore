@@ -169,7 +169,6 @@ namespace vlk
 					}
 				}
 
-				Log<LogLevel::Error>("Component allocator is full", __FILE__, __LINE__);
 				throw std::bad_alloc();
 				return nullptr;
 			}
@@ -221,7 +220,7 @@ namespace vlk
 		///////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////
 
-		static std::shared_mutex s_mtx;
+		static VLK_SHARED_MUTEX_TYPE s_mtx;
 		static std::vector<AllocChunk*> s_chunks;
 
 		//T data;
@@ -282,7 +281,7 @@ namespace vlk
 		template <typename... Args>
 		static Component<T>* Create(EntityID eId, Args... args)
 		{
-			std::unique_lock ulock(s_mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(s_mtx);
 
 			VLK_STATIC_ASSERT_MSG((std::is_constructible<T, Args...>::value), "Cannot construct an instance of T from the provided args.");
 
@@ -301,8 +300,6 @@ namespace vlk
 
 			if (GetComponentHints<T>().allocAutoResize | (s_chunks.size() == 0))
 			{
-				Log<LogLevel::Trace>("Creating new allocation block.", __FILE__, __LINE__);
-
 				//emplace_back returns void until C++17
 				s_chunks.push_back(new AllocChunk());
 				Component<T>* c = new (s_chunks.back()->Allocate()) Component<T>(std::forward<Args>(args)...);
@@ -346,7 +343,7 @@ namespace vlk
 		 */
 		virtual void Delete() final override
 		{
-			std::unique_lock ulock(s_mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(s_mtx);
 
 			ECRegistry<IComponent>::RemoveOne(this->entity, static_cast<IComponent*>(this));
 			ECRegistry<Component<T>>::RemoveOne(this->entity, this);
@@ -410,7 +407,7 @@ namespace vlk
 		 */
 		void Attach(EntityID eId)
 		{
-			std::unique_lock ulock(s_mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(s_mtx);
 			ECRegistry<IComponent>::RemoveOne(this->entity, static_cast<IComponent*>(this));
 			ECRegistry<Component<T>>::RemoveOne(this->entity, this);
 
@@ -518,7 +515,7 @@ namespace vlk
 		 */
 		static void ForEach(std::function<void(Component<T>*)> func)
 		{
-			std::unique_lock ulock(s_mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(s_mtx);
 
 			for (auto it = s_chunks.begin(); it != s_chunks.end(); it++)
 			{
@@ -559,7 +556,7 @@ namespace vlk
 		 */
 		static void CForEach(std::function<void(const Component<T>*)> func)
 		{
-			std::shared_lock slock(s_mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> slock(s_mtx);
 
 			for (auto it = s_chunks.cbegin(); it != s_chunks.cend(); it++)
 			{
@@ -601,7 +598,7 @@ namespace vlk
 		 */
 		static Size Count()
 		{
-			std::shared_lock slock(s_mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> slock(s_mtx);
 
 			Size total = 0;
 
@@ -630,7 +627,7 @@ namespace vlk
 		 */
 		static Size ChunkCount()
 		{
-			std::shared_lock slock(s_mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> slock(s_mtx);
 			return s_chunks.size();
 		}
 
@@ -638,7 +635,7 @@ namespace vlk
 	};
 
 	template <typename T>
-	std::shared_mutex Component<T>::s_mtx;
+	VLK_SHARED_MUTEX_TYPE Component<T>::s_mtx;
 
 	template <typename T>
 	std::vector<typename Component<T>::AllocChunk*> Component<T>::s_chunks;

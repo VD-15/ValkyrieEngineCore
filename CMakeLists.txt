@@ -10,7 +10,7 @@ set(CMAKE_DISABLE_SOURCE_CHANGES   ON)
 project(ValkyrieEngineCore VERSION 0.2.0)
 
 option(VLK_ENABLE_TRACE_LOGGING "Enable trace-level debug messages" OFF)
-option(BUILD_TESTING "Build ValkyrieEngine tests" ON)
+option(BUILD_TESTING "Build ValkyrieEngine tests" OFF)
 
 add_library(ValkyrieEngineCore
 	${CMAKE_CURRENT_SOURCE_DIR}/include/ValkyrieEngine/ValkyrieEngine.hpp
@@ -18,7 +18,7 @@ add_library(ValkyrieEngineCore
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Entity.cpp
 )
 
-target_compile_features(ValkyrieEngineCore PUBLIC cxx_std_20)
+#target_compile_features(ValkyrieEngineCore PUBLIC cxx_std_17)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -29,6 +29,9 @@ target_include_directories(ValkyrieEngineCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 if (VLK_ENABLE_TRACE_LOGGING)
 	target_compile_definitions(ValkyrieEngineCore PUBLIC VLK_ENABLE_TRACE_LOGGING)
 endif()
+
+install(
+	TARGETS ValkyrieEngineCore PUBLIC_HEADER)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	target_compile_definitions(ValkyrieEngineCore PUBLIC VLK_DEBUG)

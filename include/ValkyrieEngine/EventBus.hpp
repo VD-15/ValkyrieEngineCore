@@ -6,6 +6,8 @@
 #ifndef VLK_EVENTBUS_HPP
 #define VLK_EVENTBUS_HPP
 
+#include "ValkyrieEngine/Config.hpp"
+
 #include <vector>
 #include <algorithm>
 #include <shared_mutex>
@@ -51,7 +53,7 @@ namespace vlk
 		/*!
 		 * \brief Controls shared access to \link #listeners \endlink
 		 */
-		static std::shared_mutex mtx;
+		static VLK_SHARED_MUTEX_TYPE mtx;
 
 		public:
 
@@ -75,7 +77,7 @@ namespace vlk
 		static void AddListener(IEventListener<T>* listener)
 		{
 			//Write access is required here, so unique lock.
-			std::unique_lock lock(mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> lock(mtx);
 
 			for (auto it = listeners.begin(); it != listeners.end(); it++)
 			{// Check if the listener is already present
@@ -101,7 +103,7 @@ namespace vlk
 		static void RemoveListener(IEventListener<T>* listener)
 		{
 			//Write access is required, so unique lock.
-			std::unique_lock lock(mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> lock(mtx);
 			listeners.erase(std::remove(listeners.begin(), listeners.end(), listener), listeners.end());
 		}
 
@@ -124,7 +126,7 @@ namespace vlk
 		static void Send(const T& t)
 		{
 			//Only read access is required, so shared lock
-			std::shared_lock lock(mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> lock(mtx);
 
 			for (auto it = listeners.begin(); it != listeners.end(); it++)
 			{
@@ -139,7 +141,7 @@ namespace vlk
 	std::vector<IEventListener<T>*> EventBus<T>::listeners;
 
 	template <typename T>
-	std::shared_mutex EventBus<T>::mtx;
+	VLK_SHARED_MUTEX_TYPE EventBus<T>::mtx;
 
 	/*!
 	 * \brief Base class for event listeners to inherit from.

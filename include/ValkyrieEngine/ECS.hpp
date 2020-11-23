@@ -32,7 +32,7 @@ namespace vlk
 	class ECRegistry
 	{
 		static std::unordered_multimap<EntityID, C*> reg;
-		static std::shared_mutex mtx;
+		static VLK_SHARED_MUTEX_TYPE mtx;
 
 		public:
 
@@ -52,7 +52,7 @@ namespace vlk
 		 */
 		static void AddEntry(EntityID entity, C* component)
 		{
-			std::unique_lock ulock(mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(mtx);
 
 			/* I don't think this will ever come into play?
 			{// Erase existing entry if exists
@@ -92,7 +92,7 @@ namespace vlk
 		 */
 		static Size RemoveAll(EntityID entity)
 		{
-			std::unique_lock ulock(mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(mtx);
 			return reg.erase(entity);
 		}
 
@@ -113,7 +113,7 @@ namespace vlk
 		 */
 		static void RemoveOne(EntityID entity, C* component)
 		{
-			std::unique_lock ulock(mtx);
+			std::unique_lock<VLK_SHARED_MUTEX_TYPE> ulock(mtx);
 
 			{// Erase existing entry if exists
 				auto search = reg.equal_range(entity);
@@ -144,7 +144,7 @@ namespace vlk
 		 */
 		static C* LookupOne(EntityID entity)
 		{
-			std::shared_lock slock(mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> slock(mtx);
 
 			auto it = reg.find(entity);
 
@@ -176,7 +176,7 @@ namespace vlk
 
 		static Size LookupAll(EntityID entity, std::vector<C*>& vecOut)
 		{
-			std::shared_lock slock(mtx);
+			std::shared_lock<VLK_SHARED_MUTEX_TYPE> slock(mtx);
 
 			auto search = reg.equal_range(entity);
 			Size numEntries = std::distance(search.first, search.second);
@@ -196,7 +196,7 @@ namespace vlk
 	std::unordered_multimap<EntityID, C*> ECRegistry<C>::reg;
 
 	template <typename C>
-	std::shared_mutex ECRegistry<C>::mtx;
+	VLK_SHARED_MUTEX_TYPE ECRegistry<C>::mtx;
 }
 
 #endif

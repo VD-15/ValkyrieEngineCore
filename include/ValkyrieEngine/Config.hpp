@@ -147,6 +147,25 @@ namespace vlk
 		 */
 
 		/*!
+		 * \def VLK_SHARED_MUTEX_TYPE
+		 * \brief A macro used to denote the prefered shared mutex type in the current standard.
+		 *
+		 * This macro will expand to <tt>std::shared_mutex</tt> if the expression is supported in the current C++ standard, otherwise, the macro expands to <tt>std::shared_timed_mutex</tt>
+		 * This macro will require the inclusion of the <tt><shared_mutex></tt> header in order to function properly.
+		 *
+		 * <tt>std::shared_mutex</tt> is not standard until C++17.
+		 *
+		 * \code{.cpp}
+		 * VLK_SHARED_MUTEX_TYPE mtx;
+		 * std::shared_lock slock(mtx);
+		 *
+		 * ...
+		 *
+		 * slock.unlock();
+		 * \endcode
+		 */
+
+		/*!
 		 * \def VLK_STATIC_ASSERT(cond)
 		 * \brief A macro used to assert a condition at compile-time.
 		 * \param cond A compile-time condition to evaluate.
@@ -190,6 +209,8 @@ namespace vlk
 			#define VLK_NODISCARD						[[nodiscard]]
 			#define VLK_NODISCARD_MSG(msg)				[[nodiscard(msg)]]
 
+			#define VLK_SHARED_MUTEX_TYPE				std::shared_mutex
+
 		#elif __cplusplus >= 201703L					//C++17
 			#define VLK_CXX14_CONSTEXPR					constexpr
 			#define VLK_CXX17_CONSTEXPR					constexpr
@@ -204,6 +225,8 @@ namespace vlk
 			#define VLK_NODISCARD						[[nodiscard]]
 			#define VLK_NODISCARD_MSG(msg)				[[nodiscard]]
 
+			#define VLK_SHARED_MUTEX_TYPE				std::shared_mutex
+
 		#elif __cplusplus >= 201402L					//C++14
 			#define VLK_CXX14_CONSTEXPR					constexpr
 			#define VLK_CXX17_CONSTEXPR
@@ -217,6 +240,8 @@ namespace vlk
 			#define VLK_FALLTHROUGH
 			#define VLK_NODISCARD
 			#define VLK_NODISCARD_MSG(msg)
+
+			#define VLK_SHARED_MUTEX_TYPE				std::shared_timed_mutex
 
 		#else
 			#error C++14 or greater is required.

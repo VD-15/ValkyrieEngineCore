@@ -58,6 +58,11 @@ namespace vlk
 		public:
 
 		/*!
+		 * \brief The type of event this event bus is sending
+		 */
+		typedef T EventType;
+
+		/*!
 		 * \brief Adds an event listener to the event bus
 		 *
 		 * Once added, an event listener will then have IEventListener<T>::OnEvent(const T&) called whenever an event is sent.

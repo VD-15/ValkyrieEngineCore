@@ -7,6 +7,7 @@
 #define VLK_EVENTBUS_HPP
 
 #include "ValkyrieEngine/Config.hpp"
+#include "ValkyrieEngine/Util.hpp"
 
 #include <vector>
 #include <algorithm>
@@ -130,6 +131,8 @@ namespace vlk
 		 */
 		static void Send(const T& t)
 		{
+			VLK_STATIC_ASSERT_MSG((!IsSpecialization<T, EventBus>::value), "Event type must not be a specialization of EventBus. Remove template specialization of EventBus<EventBus<T>>.");
+
 			//Only read access is required, so shared lock
 			std::shared_lock<VLK_SHARED_MUTEX_TYPE> lock(mtx);
 

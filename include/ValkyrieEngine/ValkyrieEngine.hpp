@@ -9,6 +9,7 @@
 #include "ValkyrieEngine/ValkyrieDebug.hpp"
 #include "ValkyrieEngine/Component.hpp"
 #include "ValkyrieEngine/EventBus.hpp"
+#include "ValkyrieEngine/Util.hpp"
 
 /*!
  * \mainpage ValkyrieEngine Core

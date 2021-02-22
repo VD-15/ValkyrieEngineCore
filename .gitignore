@@ -54,6 +54,7 @@ doxygen.log
 build/
 docs
 .clangd/
+.cache/
 mem.log.*
 massif.*
 callgrind.*

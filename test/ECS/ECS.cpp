@@ -146,6 +146,12 @@ TEST_CASE("Attaching Components works as intended")
 	REQUIRE(Component<OtherComponent>::Count() == 1);
 	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
 
+	auto cs2 = Component<SampleComponent>::Create(e2);
+	std::vector<Component<SampleComponent>*> v;
+	Size s = Component<SampleComponent>::FindAll(e2, v);
+	REQUIRE(v.size() == 2);
+	REQUIRE(s == 2);
+
 	Entity::Delete(e2);
 
 	REQUIRE(Component<SampleComponent>::Count() == 0);

@@ -97,9 +97,9 @@ namespace vlk
 		typename std::aligned_storage<sizeof(T), alignof(T)>::type storage[S];
 
 		public:
-		AllocChunk<T, ChunkSize>() = default;
-		AllocChunk<T, ChunkSize>(const SelfType&) = delete;
-		AllocChunk<T, ChunkSize>(SelfType&& a) = delete;
+		AllocChunk<T, S>() = default;
+		AllocChunk<T, S>(const SelfType&) = delete;
+		AllocChunk<T, S>(SelfType&& a) = delete;
 		SelfType& operator=(const SelfType&) = delete;
 		SelfType& operator=(SelfType&& a) = delete;
 
@@ -510,7 +510,7 @@ namespace vlk
 		 * \endcode
 		 *
 		 * \sa Attach(EntityID)
-		 * \sa FindMany(EntityID)
+		 * \sa FindAll(EntityID)
 		 */
 		VLK_NODISCARD static inline Component<T>* FindOne(EntityID id)
 		{
@@ -548,9 +548,9 @@ namespace vlk
 		 * \sa Attach(EntityID)
 		 * \sa FindOne(EntityID)
 		 */
-		VLK_NODISCARD static inline Size FindMany(EntityID id, std::vector<Component<T>*>& vecOut)
+		static inline Size FindAll(EntityID id, std::vector<Component<T>*>& vecOut)
 		{
-			return ECRegistry<Component<T>>::LookupMany(id, std::forward(vecOut));
+			return ECRegistry<Component<T>>::LookupAll(id, vecOut);
 		}
 
 		///////////////////////////////////////////////////////////////////////

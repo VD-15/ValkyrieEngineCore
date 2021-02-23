@@ -9,7 +9,9 @@
 #include "ValkyrieEngine/IComponent.hpp"
 #include "ValkyrieEngine/Entity.hpp"
 
+#include <memory>
 #include <stdexcept>
+#include <type_traits>
 #include <unordered_map>
 #include <bitset>
 #include <functional>
@@ -53,10 +55,6 @@ namespace vlk
 		const bool allocAutoResize = true;
 	};
 
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-
 	/*!
 	 * \brief Function used to retrieve the hints for a specified component type.
 	 *
@@ -76,9 +74,196 @@ namespace vlk
 	template <typename T>
 	VLK_CXX14_CONSTEXPR inline ComponentHints GetComponentHints() { return ComponentHints {}; }
 
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
+	//TODO: Move AllocChunk to it's own header?
+
+	/*!
+	 * \brief Fixed-capacity, variable-size storage block. Used internally by Component<T>.
+	 *
+	 * \tparam T The type this Chunk is storing.
+	 * \tparam S The number of instances this chunk can allocate at once.
+	 */
+	template <typename T, Size S>
+	class AllocChunk
+	{
+		public:
+		static VLK_CXX14_CONSTEXPR Size ChunkSize = S;
+		typedef AllocChunk<T, S> SelfType;
+		typedef T ElementType;
+
+		VLK_STATIC_ASSERT_MSG(ChunkSize > 0, "Component block size must be greater than zero");
+
+		private:
+		std::bitset<ChunkSize> occupations;
+		typename std::aligned_storage<sizeof(T), alignof(T)>::type storage[S];
+
+		public:
+		AllocChunk<T, ChunkSize>() = default;
+		AllocChunk<T, ChunkSize>(const SelfType&) = delete;
+		AllocChunk<T, ChunkSize>(SelfType&& a) = delete;
+		SelfType& operator=(const SelfType&) = delete;
+		SelfType& operator=(SelfType&& a) = delete;
+
+		~AllocChunk()
+		{
+			for (Size i = 0; i < ChunkSize; i++)
+			{
+				if (occupations[i]) At(i)->~T();
+			}
+
+			free(storage);
+		}
+
+		/*!
+		 * \brief Returns true if none of this chunk's allocation spaces are filled.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline bool Empty() const { return occupations.none(); }
+
+		/*!
+		 * \brief Returns true if all of this chunk's allocation spaces are filled.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline bool Full() const { return occupations.all(); }
+
+		/*!
+		 * \brief Returns true if the allocation space at position <tt>i</tt> is occupied.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline bool IsOccupied(Size i) const { return occupations[i]; }
+
+		/*!
+		 * \brief Returns a pointer to the allocation space at position<tt>i</tt>.
+		 *
+		 * This allocation space may not contain an initialized object, it is necessary to
+		 * check if the space is occupied first before dereferencing the returned pointer.
+		 *
+		 * \param i The index of the allocation space to retrieve, must be less than <tt>S</tt>
+		 *
+		 * \sa vlk::AllocChunk<T, S>::IsOccupied(T*)
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline T* At(Size i)
+		{
+			return reinterpret_cast<T*>(&storage[i]);
+		}
+
+		/*!
+		 * \brief Returns a const pointer to the allocation space at position <tt>i</tt>.
+		 *
+		 * \copydoc vlk::AllocChunk<T, S>::At(Size)
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline const T* At(Size i) const
+		{
+			return reinterpret_cast<const T*>(&storage[i]);
+		}
+
+		/*!
+		 * \brief Returns true if the pointer <tt>t</tt> lies within the space occupied by this chunk's storage.
+		 *
+		 * This does not verify that <tt>t</tt> points to a valid object.
+		 *
+		 * \sa vlk::AllocChunk<T, S>::IsOccupied(Size)
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline bool OwnsPointer(T* t) const
+		{
+			return ((t >= At(0)) & (t < At(ChunkSize)));
+		}
+
+		/*!
+		 * \brief Occupies the first available allocation space in this chunk and returns a pointer to it.
+		 *
+		 * This does not initialize an instance of <tt>T</tt>. You must construct an instance of <tt>T</tt> at this pointer before it is safe to dereference.
+		 *
+		 * \throws std::bad_alloc If the chunk is full when the function is invoked.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		VLK_NODISCARD T* Allocate()
+		{
+			for (Size i = 0; i < ChunkSize; i++)
+			{
+				if (!occupations[i])
+				{
+					occupations.set(i);
+					return At(i);
+				}
+			}
+
+			throw std::bad_alloc();
+			return nullptr;
+		}
+
+		/*!
+		 * \brief Deallocates a pointer owned by this chunk.
+		 *
+		 * This does not delete the object at the pointer.
+		 *
+		 * \param t A pointer to an allocation space that this chunk owns.
+		 *
+		 * \sa vlk::AllocChunk<T, S>::OwnsPointer(T*)
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline void Deallocate(T* t)
+		{
+			Size s = t - At(0);
+			occupations.reset(s);
+		}
+
+		/*!
+		 * \brief Returns the number of currently allocated spaces.
+		 *
+		 * \ts
+		 * May be called from any thread.<br>
+		 * Resource locking must be handled externally.<br>
+		 * Access to this object is not restricted.<br>
+		 * This function does not block the calling thread.<br>
+		 */
+		inline Size Count() const
+		{
+			return occupations.count();
+		}
+	};
 
 	/*!
 	 * \brief Template class for ECS components
@@ -100,137 +285,24 @@ namespace vlk
 	template <typename T>
 	class Component final : public IComponent, public T
 	{
-		class AllocChunk
-		{
-			static VLK_CXX14_CONSTEXPR Size S = GetComponentHints<T>().allocBlockSize;
-			VLK_STATIC_ASSERT_MSG(S > 0, "Component block size must be greater than zero");
+		public:
+		static VLK_CXX14_CONSTEXPR Size ChunkSize = GetComponentHints<T>().allocBlockSize;
+		static VLK_CXX14_CONSTEXPR bool AllocResize = GetComponentHints<T>().allocAutoResize;
+		typedef AllocChunk<Component<T>, ChunkSize> ChunkType;
+		//typedef typename std::vector<ChunkType*>::iterator Iterator;
+		//typedef typename std::vector<ChunkType*>::const_iterator ConstIterator;
 
-			std::bitset<S> occupations;
-			typename std::aligned_storage<sizeof(Component<T>), alignof(Component<T>)>::type storage[S];
+		VLK_STATIC_ASSERT_MSG(std::is_class<T>::value, "T must be a class or struct type.");
 
-			///////////////////////////////////////////////////////////////////
-			
-			inline Component<T>* At(Size i)
-			{
-				return reinterpret_cast<Component<T>*>(&storage[i]);
-			}
-
-			inline const Component<T>* At(Size i) const
-			{
-				return reinterpret_cast<const Component<T>*>(&storage[i]);
-			}
-
-			///////////////////////////////////////////////////////////////////
-	
-			public:
-			AllocChunk() = default;
-
-			///////////////////////////////////////////////////////////////////
-
-			AllocChunk(const AllocChunk&) = delete;
-			AllocChunk(AllocChunk&& a) = delete;
-			AllocChunk& operator=(const AllocChunk&) = delete;
-			AllocChunk& operator=(AllocChunk&& a) = delete;
-
-			///////////////////////////////////////////////////////////////////
-
-			~AllocChunk()
-			{
-				for (Size i = 0; i < S; i++)
-				{
-					if (occupations[i]) At(i)->~Component<T>();
-				}
-
-				free(storage);
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			inline bool Empty() const { return occupations.none(); }
-			inline bool Full() const { return occupations.all(); }
-
-			///////////////////////////////////////////////////////////////////
-
-			inline bool OwnsPointer(Component<T>* t) const
-			{
-				return ((t >= At(0)) & (t < At(S)));
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			Component<T>* Allocate()
-			{
-				for (Size i = 0; i < S; i++)
-				{
-					if (!occupations[i])
-					{
-						occupations.set(i);
-						return At(i);
-					}
-				}
-
-				throw std::bad_alloc();
-				return nullptr;
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			//t should be owned by this chunk.
-			inline void Deallocate(Component<T>* t)
-			{
-				Size s = t - At(0);
-				occupations.reset(s);
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			void ForEach(std::function<void(Component<T>*)> func)
-			{
-				for (Size i = 0; i < S; i++)
-				{
-					if (occupations[i])
-					{
-						func(At(i));
-					}
-				}
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			void ForEach(std::function<void(const Component<T>*)> func) const
-			{
-				for (Size i = 0; i < S; i++)
-				{
-					if (occupations[i])
-					{
-						func(At(i));
-					}
-				}
-			}
-
-			///////////////////////////////////////////////////////////////////
-
-			inline Size Count() const
-			{
-				return occupations.count();
-			}
-		};
-
-		///////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////////////
-
+		private:
 		static VLK_SHARED_MUTEX_TYPE s_mtx;
-		static std::vector<AllocChunk*> s_chunks;
-
-		//T data;
+		static std::vector<ChunkType*> s_chunks;
 
 		///////////////////////////////////////////////////////////////////////
 
 		template <typename... Args>
 		Component<T>(Args... args) :
 			T(std::forward<Args>(args)...)
-			//data(std::forward<Args>(args)...)
 		{ }
 
 		~Component<T>() = default;
@@ -287,7 +359,7 @@ namespace vlk
 
 			for (auto it = s_chunks.begin(); it != s_chunks.end(); it++)
 			{
-				AllocChunk* ch = *it;
+				ChunkType* ch = *it;
 				if (!ch->Full())
 				{
 					Component<T>* c = new (ch->Allocate()) Component<T>(std::forward<Args>(args)...);
@@ -298,10 +370,10 @@ namespace vlk
 				}
 			}
 
-			if (GetComponentHints<T>().allocAutoResize | (s_chunks.size() == 0))
+			if (AllocResize | (s_chunks.size() == 0))
 			{
-				//emplace_back returns void until C++17
-				s_chunks.push_back(new AllocChunk());
+				//emplace_back returns void until C++17, so we can't use it here
+				s_chunks.push_back(new ChunkType());
 				Component<T>* c = new (s_chunks.back()->Allocate()) Component<T>(std::forward<Args>(args)...);
 				c->entity = eId;
 				ECRegistry<IComponent>::AddEntry(eId, static_cast<IComponent*>(c));
@@ -354,7 +426,7 @@ namespace vlk
 			// Free chunk memory
 			for (auto it = s_chunks.begin(); it != s_chunks.end(); it++)
 			{
-				AllocChunk* c = *it;
+				ChunkType* c = *it;
 
 				if (c->OwnsPointer(this))
 				{
@@ -476,9 +548,9 @@ namespace vlk
 		 * \sa Attach(EntityID)
 		 * \sa FindOne(EntityID)
 		 */
-		VLK_NODISCARD static inline Size FindMany(EntityID id, std::vector<Component<T>*> vecOut)
+		VLK_NODISCARD static inline Size FindMany(EntityID id, std::vector<Component<T>*>& vecOut)
 		{
-			return ECRegistry<Component<T>>::FindMany(id, std::forward(vecOut));
+			return ECRegistry<Component<T>>::LookupMany(id, std::forward(vecOut));
 		}
 
 		///////////////////////////////////////////////////////////////////////
@@ -511,7 +583,8 @@ namespace vlk
 		 *
 		 * \endcode
 		 *
-		 * \sa ForEach(std::function<void(const Component<T>*)>)
+		 * \sa vlk::Component<T>::CForEach(std::function<void(const Component<T>*)>)
+		 * \sa vlk::Component<T>::ForEach(std::function<void(Iterator begin, Iterator end)>)
 		 */
 		static void ForEach(std::function<void(Component<T>*)> func)
 		{
@@ -520,8 +593,15 @@ namespace vlk
 			for (auto it = s_chunks.begin(); it != s_chunks.end(); it++)
 			{
 				//Dereference here to avoid ambiguity
-				AllocChunk* ch = *it;
-				ch->ForEach(func);
+				ChunkType* ch = *it;
+
+				for (Size i = 0; i < ChunkType::ChunkSize; i++)
+				{
+					if (ch->IsOccupied(i))
+					{
+						func(ch->At(i));
+					}
+				}
 			}
 		}
 
@@ -561,8 +641,15 @@ namespace vlk
 			for (auto it = s_chunks.cbegin(); it != s_chunks.cend(); it++)
 			{
 				//Dereference here to avoid ambiguity
-				const AllocChunk* ch = *it;
-				ch->ForEach(func);
+				const ChunkType* ch = *it;
+
+				for (Size i = 0; i < ChunkType::ChunkSize; i++)
+				{
+					if (ch->IsOccupied(i))
+					{
+						func(ch->At(i));
+					}
+				}
 			}
 		}
 
@@ -585,10 +672,10 @@ namespace vlk
 		 *     ...
 		 * };
 		 *
-		 * std::vector<const Component<MyData*>> components;
-		 * components.reserve(Component<MyData*>::Count());
+		 * std::vector<const Component<MyData>> components;
+		 * components.reserve(Component<MyData>::Count());
 		 *
-		 * Component<MyData>::CForEach([](const Component<MyData*> c)
+		 * Component<MyData>::CForEach([](const Component<MyData> c)
 		 * {
 		 *     components.insert_back(c);
 		 * });
@@ -638,7 +725,7 @@ namespace vlk
 	VLK_SHARED_MUTEX_TYPE Component<T>::s_mtx;
 
 	template <typename T>
-	std::vector<typename Component<T>::AllocChunk*> Component<T>::s_chunks;
+	std::vector<typename Component<T>::ChunkType*> Component<T>::s_chunks;
 }
 
 #endif

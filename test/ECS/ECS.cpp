@@ -7,6 +7,8 @@
 
 using namespace vlk;
 
+int Counter::i = 0;
+
 void GenEntities()
 {
 	for (int i = 0; i < 10000; i++)

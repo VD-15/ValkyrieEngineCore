@@ -41,4 +41,3 @@ class Counter
 	static inline int GetNum() { return i; }
 };
 
-int Counter::i = 0;

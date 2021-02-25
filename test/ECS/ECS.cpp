@@ -1,5 +1,6 @@
 #include "SampleEntity.hpp"
 #include "ValkyrieEngine/Component.hpp"
+#include "ValkyrieEngine/Entity.hpp"
 #include "catch2/catch.hpp"
 
 #include <thread>
@@ -161,6 +162,30 @@ TEST_CASE("Attaching Components works as intended")
 
 	REQUIRE(Component<OtherComponent>::Count() == 0);
 	REQUIRE(Component<OtherComponent>::ChunkCount() == 0);
+}
+
+TEST_CASE("Component brace-initialization works as intended")
+{
+	REQUIRE(Component<SimpleData>::Count() == 0);
+	REQUIRE(Component<SimpleData>::ChunkCount() == 0);
+
+	EntityID eId = Entity::Create();
+	SimpleData simple;
+
+	auto c1 = Component<SimpleData>::Create(eId);
+
+	REQUIRE(c1->i == simple.i);
+	REQUIRE(c1->d == simple.d);
+
+	auto c2 = Component<SimpleData>::Create(eId, SimpleData{11, 13.2});
+
+	REQUIRE(c2->i == 11);
+	REQUIRE(c2->d == 13.2);
+
+	Entity::Delete(eId);
+
+	REQUIRE(Component<SimpleData>::Count() == 0);
+	REQUIRE(Component<SimpleData>::ChunkCount() == 0);
 }
 
 TEST_CASE("ForEach Works as intended")

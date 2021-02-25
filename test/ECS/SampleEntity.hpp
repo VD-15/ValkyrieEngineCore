@@ -41,3 +41,9 @@ class Counter
 	static inline int GetNum() { return i; }
 };
 
+struct SimpleData
+{
+	int i = 5;
+	double d = 6.0;
+};
+

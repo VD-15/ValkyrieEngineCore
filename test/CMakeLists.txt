@@ -3,6 +3,7 @@ add_executable(ValkyrieEngineCoreTestDriver
 
 add_subdirectory(EventBus)
 add_subdirectory(ECS)
+add_subdirectory(AllocChunk)
 
 target_link_libraries(ValkyrieEngineCoreTestDriver
     PUBLIC

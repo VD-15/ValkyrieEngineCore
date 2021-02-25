@@ -19,7 +19,7 @@ namespace vlk
 	/*!
 	 * \brief Base class for all event listeners.
 	 *
-	 * Direct use is discouraged. Prefer inheriting from EventListener<T> instead.
+	 * In most cases, one should prefer inheriting from EventListener<T> instead.
 	 *
 	 * \sa EventListener<T>
 	 * \sa OnEvent(const T&)

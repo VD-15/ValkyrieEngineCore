@@ -15,6 +15,9 @@ void GenEntities()
 	for (int i = 0; i < 10000; i++)
 	{
 		EntityID eId = Entity::Create();
+
+		// Cast to void so we don't generate a warning on clang
+		(void)eId;
 	}
 }
 
@@ -148,6 +151,7 @@ TEST_CASE("Attaching Components works as intended")
 	REQUIRE(Component<OtherComponent>::ChunkCount() == 1);
 
 	auto cs2 = Component<SampleComponent>::Create(e2);
+	(void)cs2;
 	std::vector<Component<SampleComponent>*> v;
 	Size s = Component<SampleComponent>::FindAll(e2, v);
 	REQUIRE(v.size() == 2);

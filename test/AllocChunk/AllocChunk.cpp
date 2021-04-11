@@ -103,6 +103,7 @@ TEST_CASE("AllocChunk throws when full")
 	for (Size s = 0; s < AllocType::ChunkSize; s++)
 	{
 		AllocType::PointerType p = alloc.Allocate();
+		(void)p;
 	}
 
 	AllocType::PointerType p;

@@ -8,9 +8,9 @@ Defines various symbols to make valkyrie engine more compatable with older C++ s
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{V\+L\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+L\+O\+G\+G\+I\+NG}}~false
+\#define \mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{VLK\+\_\+\+ENABLE\+\_\+\+TRACE\+\_\+\+LOGGING}}~false
 \begin{DoxyCompactList}\small\item\em A macro used to enable trace-\/level debug logging, should expand to either {\ttfamily true} or {\ttfamily false}. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{Config_8hpp_a80cadbd34036d3a1982e1cce970e283e}{V\+L\+K\+\_\+\+I\+S\+\_\+\+D\+E\+B\+UG}}~true
+\#define \mbox{\hyperlink{Config_8hpp_a80cadbd34036d3a1982e1cce970e283e}{VLK\+\_\+\+IS\+\_\+\+DEBUG}}~true
 \begin{DoxyCompactList}\small\item\em A macro used to determine whether debug-\/only code should be compiled. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -24,7 +24,7 @@ Defines various symbols to make valkyrie engine more compatable with older C++ s
 \index{Config.hpp@{Config.hpp}!VLK\_ENABLE\_TRACE\_LOGGING@{VLK\_ENABLE\_TRACE\_LOGGING}}
 \index{VLK\_ENABLE\_TRACE\_LOGGING@{VLK\_ENABLE\_TRACE\_LOGGING}!Config.hpp@{Config.hpp}}
 \doxysubsubsection{\texorpdfstring{VLK\_ENABLE\_TRACE\_LOGGING}{VLK\_ENABLE\_TRACE\_LOGGING}}
-{\footnotesize\ttfamily \#define V\+L\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+L\+O\+G\+G\+I\+NG~false}
+{\footnotesize\ttfamily \#define VLK\+\_\+\+ENABLE\+\_\+\+TRACE\+\_\+\+LOGGING~false}
 
 
 
@@ -40,23 +40,24 @@ You should enable this by passing an appropriate flag to your compiler, enabling
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{VLK\_ENABLE\_TRACE\_LOGGING}})}
 \DoxyCodeLine{    \{}
-\DoxyCodeLine{        vlk::Log<vlk::LogLevel::Trace>(\textcolor{stringliteral}{"Entered function Foo()"});}
+\DoxyCodeLine{        vlk::Log<vlk::LogLevel::Trace>(\textcolor{stringliteral}{"{}Entered function Foo()"{}});}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    ...}
 \DoxyCodeLine{\}}
+
 \end{DoxyCode}
  \mbox{\Hypertarget{Config_8hpp_a80cadbd34036d3a1982e1cce970e283e}\label{Config_8hpp_a80cadbd34036d3a1982e1cce970e283e}} 
 \index{Config.hpp@{Config.hpp}!VLK\_IS\_DEBUG@{VLK\_IS\_DEBUG}}
 \index{VLK\_IS\_DEBUG@{VLK\_IS\_DEBUG}!Config.hpp@{Config.hpp}}
 \doxysubsubsection{\texorpdfstring{VLK\_IS\_DEBUG}{VLK\_IS\_DEBUG}}
-{\footnotesize\ttfamily \#define V\+L\+K\+\_\+\+I\+S\+\_\+\+D\+E\+B\+UG~true}
+{\footnotesize\ttfamily \#define VLK\+\_\+\+IS\+\_\+\+DEBUG~true}
 
 
 
 A macro used to determine whether debug-\/only code should be compiled. 
 
-This macro depends on the {\ttfamily N\+D\+E\+B\+UG} macro and will expand to {\ttfamily true} if {\ttfamily N\+D\+E\+B\+UG} is {\bfseries{undefined}} and {\ttfamily false} otherwise.
+This macro depends on the {\ttfamily NDEBUG} macro and will expand to {\ttfamily true} if {\ttfamily NDEBUG} is {\bfseries{undefined}} and {\ttfamily false} otherwise.
 
 
 \begin{DoxyCode}{0}
@@ -67,5 +68,6 @@ This macro depends on the {\ttfamily N\+D\+E\+B\+UG} macro and will expand to {\
 \DoxyCodeLine{        \textcolor{comment}{// Also works}}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\}}
+
 \end{DoxyCode}
  

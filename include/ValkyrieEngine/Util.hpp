@@ -29,13 +29,13 @@ namespace vlk
 	 * If <tt>T</tt> is not a template, <tt>type<tt> evaluates to <tt>T</tt>.
 	 * If <tt>T</tt> is a template of the form <tt>T<S></tt>, then <tt>type</tt> evaluates to <tt>S</tt>.
 	 */
-	template <typename T>
+	template <class T>
 	struct ExtractParameter { typedef T type; };
 
 	/*!
 	 * \copydoc vlk::ExtractParameter
 	 */
-	template <template <typename> typename T, typename S>
+	template <template <class> class T, class S>
 	struct ExtractParameter<T<S>> { typedef S type; };
 }
 

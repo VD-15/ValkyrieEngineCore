@@ -1,4 +1,4 @@
-\hypertarget{classvlk_1_1IEventListener}{}\doxysection{vlk\+::I\+Event\+Listener$<$ T $>$ Class Template Reference}
+\hypertarget{classvlk_1_1IEventListener}{}\doxysection{vlk\+::IEvent\+Listener$<$ T $>$ Class Template Reference}
 \label{classvlk_1_1IEventListener}\index{vlk::IEventListener$<$ T $>$@{vlk::IEventListener$<$ T $>$}}
 
 
@@ -9,7 +9,7 @@ Base class for all event listeners.
 
 {\ttfamily \#include $<$Event\+Bus.\+hpp$>$}
 
-Inheritance diagram for vlk\+::I\+Event\+Listener$<$ T $>$\+:\begin{figure}[H]
+Inheritance diagram for vlk\+::IEvent\+Listener$<$ T $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{classvlk_1_1IEventListener}
@@ -24,11 +24,11 @@ virtual void \mbox{\hyperlink{classvlk_1_1IEventListener_a927a7b7ac1c1fb66518455
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T$>$\newline
-class vlk\+::\+I\+Event\+Listener$<$ T $>$}
+class vlk\+::\+IEvent\+Listener$<$ T $>$}
 
 Base class for all event listeners. 
 
-Direct use is discouraged. Prefer inheriting from Event\+Listener$<$\+T$>$ instead.
+In most cases, one should prefer inheriting from Event\+Listener$<$\+T$>$ instead.
 
 \begin{DoxySeeAlso}{See also}
 Event\+Listener$<$\+T$>$ 
@@ -43,7 +43,7 @@ Event\+Listener$<$\+T$>$
 \index{OnEvent@{OnEvent}!vlk::IEventListener$<$ T $>$@{vlk::IEventListener$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-virtual void \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+I\+Event\+Listener}}$<$ T $>$\+::On\+Event (\begin{DoxyParamCaption}\item[{const T \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+virtual void \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+IEvent\+Listener}}$<$ T $>$\+::On\+Event (\begin{DoxyParamCaption}\item[{const T \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -54,7 +54,7 @@ This must be overridden in the event listener implementation.
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{classvlk_1_1EventBus_a79f2709a3cff431df0005b5625dbb758}{vlk\+::\+Event\+Bus\+::\+Send(const T\&)}} 
 
-\mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{vlk\+::\+Event\+Bus\+::\+Add\+Listener(\+I\+Event\+Listener$<$\+T$>$$\ast$)}} 
+\mbox{\hyperlink{classvlk_1_1EventBus_a9a26f0798fca59cd124ffeb72209c527}{vlk\+::\+Event\+Bus\+::\+Add\+Listener(\+IEvent\+Listener$<$\+T$>$$\ast$)}} 
 \end{DoxySeeAlso}
 
 

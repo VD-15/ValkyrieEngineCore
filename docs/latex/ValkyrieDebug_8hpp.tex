@@ -17,15 +17,15 @@ class \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{vlk\+::\+Is\+Log\+Level\+E
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \{ \newline
-{\bfseries vlk\+::\+Log\+Level\+::\+Trace}, 
-{\bfseries vlk\+::\+Log\+Level\+::\+Verbose}, 
-{\bfseries vlk\+::\+Log\+Level\+::\+Info}, 
-{\bfseries vlk\+::\+Log\+Level\+::\+Warning}, 
-\newline
-{\bfseries vlk\+::\+Log\+Level\+::\+Error}, 
-{\bfseries vlk\+::\+Log\+Level\+::\+Fatal}, 
-{\bfseries vlk\+::\+Log\+Level\+::\+Announce}
+enum class \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c}{vlk\+::\+Log\+Level}} \{ \newline
+\mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}{Trace}}
+, \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cad4a9fa383ab700c5bdd6f31cf7df0faf}{Verbose}}
+, \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca4059b0251f66a18cb56f544728796875}{Info}}
+, \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca0eaadb4fcb48a0a0ed7bc9868be9fbaa}{Warning}}
+, \newline
+\mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca902b0d55fddef6f8d651fe1035b7d4bd}{Error}}
+, \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca882384ec38ce8d9582b57e70861730e4}{Fatal}}
+, \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca7c4e293d2026ae87797c8368b4e0b50d}{Announce}}
  \}
 \begin{DoxyCompactList}\small\item\em Defines various severities of log message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -59,8 +59,38 @@ Log\+Event
 
 Is\+Log\+Level\+Enabled 
 
-\mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{V\+L\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+L\+O\+G\+G\+I\+NG}} 
+\mbox{\hyperlink{Config_8hpp_a7242a6a40c4cd61c0a038c7f85ba2ab4}{VLK\+\_\+\+ENABLE\+\_\+\+TRACE\+\_\+\+LOGGING}} 
 \end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Trace@{Trace}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Trace@{Trace}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cadd4ec0ac4e58f7c32a01244ae91150b1}} 
+Trace&Details regarding a step in a function or algorithm \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Verbose@{Verbose}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Verbose@{Verbose}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cad4a9fa383ab700c5bdd6f31cf7df0faf}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843cad4a9fa383ab700c5bdd6f31cf7df0faf}} 
+Verbose&Details regarding the output of a function or algorithm \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Info@{Info}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Info@{Info}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca4059b0251f66a18cb56f544728796875}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca4059b0251f66a18cb56f544728796875}} 
+Info&Normal but significant conditions \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Warning@{Warning}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca0eaadb4fcb48a0a0ed7bc9868be9fbaa}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca0eaadb4fcb48a0a0ed7bc9868be9fbaa}} 
+Warning&Abnormal conditions that could lead to an error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Error@{Error}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca902b0d55fddef6f8d651fe1035b7d4bd}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca902b0d55fddef6f8d651fe1035b7d4bd}} 
+Error&An error from which the program can recover \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fatal@{Fatal}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Fatal@{Fatal}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca882384ec38ce8d9582b57e70861730e4}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca882384ec38ce8d9582b57e70861730e4}} 
+Fatal&An error from which the program cannot recover \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Announce@{Announce}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Announce@{Announce}}}\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca7c4e293d2026ae87797c8368b4e0b50d}\label{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843ca7c4e293d2026ae87797c8368b4e0b50d}} 
+Announce&An announcement, always visible \\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Function Documentation}

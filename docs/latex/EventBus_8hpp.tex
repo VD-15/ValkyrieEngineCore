@@ -5,6 +5,8 @@
 Provides listeners for event loop.  
 
 
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Config.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Util.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$shared\+\_\+mutex$>$}\newline
@@ -12,7 +14,7 @@ Provides listeners for event loop.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+I\+Event\+Listener$<$ T $>$}}
+class \mbox{\hyperlink{classvlk_1_1IEventListener}{vlk\+::\+IEvent\+Listener$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Base class for all event listeners. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1EventBus}{vlk\+::\+Event\+Bus$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Facilitates sending events to user-\/defined event listeners. \end{DoxyCompactList}\item 
@@ -47,5 +49,6 @@ Equivelant to\+:
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{EventBus<T>::SendEvent(t);}
+
 \end{DoxyCode}
  

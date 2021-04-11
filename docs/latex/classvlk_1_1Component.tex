@@ -2,7 +2,7 @@
 \label{classvlk_1_1Component}\index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 
 
-Template class for E\+CS components.  
+Template class for ECS components.  
 
 
 
@@ -27,13 +27,13 @@ void \mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{A
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\static \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Create}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} e\+Id, Args... args)
 \begin{DoxyCompactList}\small\item\em Creates a component. \end{DoxyCompactList}\item 
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id)
+static VLK\+\_\+\+NODISCARD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id)
 \begin{DoxyCompactList}\small\item\em Find a component attached to an entity. \end{DoxyCompactList}\item 
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}{Find\+Many}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id, std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$ vec\+Out)
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_ad22a4c2c3185036e48537d110d074c62}{Find\+All}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} id, std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$ \&vec\+Out)
 \begin{DoxyCompactList}\small\item\em Find components attached to an entity. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classvlk_1_1Component_a4147d21b351d27e1deb50c71d903e110}{For\+Each}} (std\+::function$<$ void(\mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$ func)
 \begin{DoxyCompactList}\small\item\em Performs a mutating function on every instance of this component. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{C\+For\+Each}} (std\+::function$<$ void(const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$ func)
+static void \mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{CFor\+Each}} (std\+::function$<$ void(const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$ func)
 \begin{DoxyCompactList}\small\item\em Performs a non-\/mutating function on every instance of this component. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component_a7392197775146e4b2121a250a294d59b}{Count}} ()
 \begin{DoxyCompactList}\small\item\em Returns the number of instances of this component that currently exist. \end{DoxyCompactList}\item 
@@ -46,15 +46,15 @@ static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Siz
 \subsubsection*{template$<$typename T$>$\newline
 class vlk\+::\+Component$<$ T $>$}
 
-Template class for E\+CS components. 
+Template class for ECS components. 
 
-Components are storage objects that define little to no logic. Components can be attached to entities with \mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach()}} to provide the entity with some sort of property. A \mbox{\hyperlink{classvlk_1_1Component}{Component}} attached to an entity can then be fetched using \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+I\+D)}} or Find\+Many(\+Entity\+I\+D). Components can also be accessed or modified by passing a function object to either For\+Each(std\+::function$<$void(const T$\ast$)$>$) or For\+Each(std\+::function$<$void(\+T$\ast$)$>$)
+Components are storage objects that define little to no logic. Components can be attached to entities with \mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach()}} to provide the entity with some sort of property. A \mbox{\hyperlink{classvlk_1_1Component}{Component}} attached to an entity can then be fetched using \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+ID)}} or Find\+Many(\+Entity\+ID). Components can also be accessed or modified by passing a function object to either For\+Each(std\+::function$<$void(const T$\ast$)$>$) or For\+Each(std\+::function$<$void(\+T$\ast$)$>$)
 
 Some behaviour related to Components can be controlled by specializing \mbox{\hyperlink{Component_8hpp_ac5474f9273bb9e982abb8e53cd4a34f9}{Get\+Component\+Hints()}} for T.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & The data this entity is storing. Ideally this would be a P\+OD struct, but any type with at least one public constructor and a public destructor will work.\\
+{\em T} & The data this entity is storing. Ideally this would be a POD struct, but any type with at least one public constructor and a public destructor will work.\\
 \hline
 \end{DoxyTemplParams}
 \begin{DoxySeeAlso}{See also}
@@ -91,8 +91,8 @@ A component can only be attached to one entity at a time, if this component is a
 May be called from any thread.~\newline
  Resource locking is handled internally.~\newline
  Unique access to this class is required.~\newline
- Unique access to the E\+C\+Registry$<$\+I\+Component$>$ class is required.~\newline
- Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{E\+C\+Registry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
+ Unique access to the ECRegistry$<$\+IComponent$>$ class is required.~\newline
+ Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{ECRegistry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
  This function may block the calling thread.~\newline
 
 \end{DoxyParagraph}
@@ -103,6 +103,7 @@ May be called from any thread.~\newline
 \DoxyCodeLine{}
 \DoxyCodeLine{Component<MyData>* component = \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Component<MyData>::Create}}(e1);}
 \DoxyCodeLine{component-\/>Attach(e2);}
+
 \end{DoxyCode}
 
 
@@ -111,14 +112,14 @@ May be called from any thread.~\newline
 
 Entity\+::\+Global 
 
-\mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+I\+D)}} 
+\mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+ID)}} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}\label{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}} 
 \index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}!CForEach@{CForEach}}
 \index{CForEach@{CForEach}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{CForEach()}{CForEach()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::C\+For\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static void \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::CFor\+Each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(const \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -149,6 +150,7 @@ May be called from any thread.~\newline
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    \textcolor{keywordflow}{if} (c-\/>foo) components.insert\_back(c);}
 \DoxyCodeLine{\});}
+
 \end{DoxyCode}
 
 
@@ -205,13 +207,14 @@ May be called from any thread.~\newline
 \DoxyCodeLine{    ...}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{std::vector<const Component<MyData*>> components;}
-\DoxyCodeLine{components.reserve(\mbox{\hyperlink{classvlk_1_1Component_a7392197775146e4b2121a250a294d59b}{Component<MyData*>::Count}}());}
+\DoxyCodeLine{std::vector<const Component<MyData>> components;}
+\DoxyCodeLine{components.reserve(\mbox{\hyperlink{classvlk_1_1Component_a7392197775146e4b2121a250a294d59b}{Component<MyData>::Count}}());}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{Component<MyData>::CForEach}}([](\textcolor{keyword}{const} Component<MyData*> c)}
+\DoxyCodeLine{\mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{Component<MyData>::CForEach}}([](\textcolor{keyword}{const} Component<MyData> c)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    components.insert\_back(c);}
 \DoxyCodeLine{\});}
+
 \end{DoxyCode}
 
 
@@ -261,6 +264,7 @@ May be called from any thread.~\newline
 \DoxyCodeLine{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{EntityID}} eId = Entity::Create();}
 \DoxyCodeLine{}
 \DoxyCodeLine{Component<MyData>* component = \mbox{\hyperlink{classvlk_1_1Component_a8f7b222b41a98dd8b7e1409a832540e7}{Component<MyData>::Create}}(eId, 5);}
+
 \end{DoxyCode}
 
 
@@ -286,8 +290,8 @@ If this component is attached to an entity, it is detached. Also calls the destr
 May be called from any thread.~\newline
  Resource locking is handled internally.~\newline
  Unique access to this class is required.~\newline
- Unique access to the E\+C\+Registry$<$\+I\+Component$>$ class is required.~\newline
- Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{E\+C\+Registry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
+ Unique access to the ECRegistry$<$\+IComponent$>$ class is required.~\newline
+ Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{ECRegistry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
  This function may block the calling thread.~\newline
 
 \end{DoxyParagraph}
@@ -298,22 +302,23 @@ May be called from any thread.~\newline
 \DoxyCodeLine{\textcolor{comment}{// Do something with component.}}
 \DoxyCodeLine{}
 \DoxyCodeLine{component-\/>Delete();}
+
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-Create(\+Entity\+I\+D, Args) 
+Create(\+Entity\+ID, Args) 
 \end{DoxySeeAlso}
 
 
-Implements \mbox{\hyperlink{classvlk_1_1IComponent_af51ed4ec8ac1511521606fcfa7a035df}{vlk\+::\+I\+Component}}.
+Implements \mbox{\hyperlink{classvlk_1_1IComponent_af51ed4ec8ac1511521606fcfa7a035df}{vlk\+::\+IComponent}}.
 
-\mbox{\Hypertarget{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}\label{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}} 
-\index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}!FindMany@{FindMany}}
-\index{FindMany@{FindMany}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{FindMany()}{FindMany()}}
+\mbox{\Hypertarget{classvlk_1_1Component_ad22a4c2c3185036e48537d110d074c62}\label{classvlk_1_1Component_ad22a4c2c3185036e48537d110d074c62}} 
+\index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}!FindAll@{FindAll}}
+\index{FindAll@{FindAll}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FindAll()}{FindAll()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+Many (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$}]{vec\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}} \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$ T $>$ $\ast$ $>$ \&}]{vec\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -332,33 +337,34 @@ The number of components appended to vec\+Out
 \begin{DoxyParagraph}{Thread Safety}
 May be called from any thread.~\newline
  Resource locking is handled internally.~\newline
- Shared access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{E\+C\+Registry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
+ Shared access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{ECRegistry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
  This function may block the calling thread.~\newline
 
 \end{DoxyParagraph}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::vector<Component<MyData>*> components;}
-\DoxyCodeLine{\mbox{\hyperlink{classvlk_1_1Component_aa6d88b07d7c35b2cd259ebe8729690c7}{Component<MyData>::FindMany}}(\mbox{\hyperlink{classvlk_1_1IComponent_a76efcf44eda74e5f6d6fe0e25347521a}{entity}}, components);}
+\DoxyCodeLine{Component<MyData>::FindMany(\mbox{\hyperlink{classvlk_1_1IComponent_a76efcf44eda74e5f6d6fe0e25347521a}{entity}}, components);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordflow}{for} (Component<MyData>* : components)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    ...}
 \DoxyCodeLine{\}}
+
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach(\+Entity\+I\+D)}} 
+\mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach(\+Entity\+ID)}} 
 
-\mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+I\+D)}} 
+\mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Find\+One(\+Entity\+ID)}} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}\label{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}} 
 \index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}!FindOne@{FindOne}}
 \index{FindOne@{FindOne}!vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{FindOne()}{FindOne()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-static V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+One (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static VLK\+\_\+\+NODISCARD \mbox{\hyperlink{classvlk_1_1Component}{Component}}$<$T$>$$\ast$ \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component}}$<$ T $>$\+::Find\+One (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -372,20 +378,21 @@ One component of this type attached to the given entity.
 \begin{DoxyParagraph}{Thread Safety}
 May be called from any thread.~\newline
  Resource locking is handled internally.~\newline
- Shared access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{E\+C\+Registry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
+ Shared access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{ECRegistry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
  This function may block the calling thread.~\newline
 
 \end{DoxyParagraph}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Component<MyData>* component = \mbox{\hyperlink{classvlk_1_1Component_a2981e217cc4409b3f4e06fcc52d2a0fb}{Component<MyData>::FindOne}}(\mbox{\hyperlink{classvlk_1_1IComponent_a76efcf44eda74e5f6d6fe0e25347521a}{entity}});}
+
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach(\+Entity\+I\+D)}} 
+\mbox{\hyperlink{classvlk_1_1Component_a907b54959d286308b0db84136c58a631}{Attach(\+Entity\+ID)}} 
 
-Find\+Many(\+Entity\+I\+D) 
+Find\+All(\+Entity\+ID) 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{classvlk_1_1Component_a4147d21b351d27e1deb50c71d903e110}\label{classvlk_1_1Component_a4147d21b351d27e1deb50c71d903e110}} 
 \index{vlk::Component$<$ T $>$@{vlk::Component$<$ T $>$}!ForEach@{ForEach}}
@@ -425,11 +432,14 @@ May be called from any thread.~\newline
 \DoxyCodeLine{       c-\/>foo = 15;}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\});}
+
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-For\+Each(std\+::function$<$void(const Component$<$\+T$>$$\ast$)$>$) 
+\mbox{\hyperlink{classvlk_1_1Component_ae5d058b1860c2afa8df0b537344963bd}{vlk\+::\+Component$<$\+T$>$\+::\+CFor\+Each(std\+::function$<$void(const Component$<$\+T$>$$\ast$)$>$)}} 
+
+vlk\+::\+Component$<$\+T$>$\+::\+For\+Each(std\+::function$<$void(\+Iterator begin, Iterator end)$>$) 
 \end{DoxySeeAlso}
 
 

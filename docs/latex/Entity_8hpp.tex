@@ -6,19 +6,19 @@ Provides Entity utilities.
 
 
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Defs.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+I\+Component.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+E\+C\+S.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+IComponent.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+ECS.\+hpp\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-V\+L\+K\+\_\+\+N\+O\+D\+I\+S\+C\+A\+RD \mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} \mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{vlk\+::\+Entity\+::\+Create}} ()
+VLK\+\_\+\+NODISCARD \mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} \mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{vlk\+::\+Entity\+::\+Create}} ()
 \begin{DoxyCompactList}\small\item\em Creates an entity. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Entity_8hpp_abe6db9765877409366f77057c3068f23}{vlk\+::\+Entity\+::\+Delete}} (\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}} e\+Id)
 \begin{DoxyCompactList}\small\item\em Deletes an entity and all components attached to it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-V\+L\+K\+\_\+\+C\+X\+X14\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR Entity\+ID \mbox{\hyperlink{Entity_8hpp_a19b9e6781308fa28c594b46c7ddc5957}{vlk\+::\+Entity\+::global}} = static\+\_\+cast$<$Entity\+ID$>$(0)
+VLK\+\_\+\+CXX14\+\_\+\+CONSTEXPR Entity\+ID \mbox{\hyperlink{Entity_8hpp_a19b9e6781308fa28c594b46c7ddc5957}{vlk\+::\+Entity\+::global}} = static\+\_\+cast$<$Entity\+ID$>$(0)
 \begin{DoxyCompactList}\small\item\em A globally accessible entity with an ID of zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -38,7 +38,7 @@ Provides Entity utilities.
 
 Creates an entity. 
 
-Entity\+I\+Ds are created by an internal counter. This counter starts at 1 and incriments by 1 each time \mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{Create()}} is called.
+Entity\+IDs are created by an internal counter. This counter starts at 1 and incriments by 1 each time \mbox{\hyperlink{Entity_8hpp_a0fa8d20d67c9303f3c001b50a8afbf7d}{Create()}} is called.
 
 \begin{DoxyParagraph}{Thread Safety}
 May be called from any thread.~\newline
@@ -48,17 +48,17 @@ May be called from any thread.~\newline
 
 \end{DoxyParagraph}
 \begin{DoxySeeAlso}{See also}
-Delete(\+Entity\+I\+D) 
+Delete(\+Entity\+ID) 
 
-Component$<$\+T$>$\+::\+Create(\+Entity\+I\+D, Args...) 
+Component$<$\+T$>$\+::\+Create(\+Entity\+ID, Args...) 
 
-Component$<$\+T$>$\+::\+Attach(\+Entity\+I\+D) 
+Component$<$\+T$>$\+::\+Attach(\+Entity\+ID) 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{Entity_8hpp_abe6db9765877409366f77057c3068f23}\label{Entity_8hpp_abe6db9765877409366f77057c3068f23}} 
 \index{Entity.hpp@{Entity.hpp}!Delete@{Delete}}
 \index{Delete@{Delete}!Entity.hpp@{Entity.hpp}}
 \doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
-{\footnotesize\ttfamily void vlk\+::\+Entity\+::\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void vlk\+::\+Entity\+::\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ECS_8hpp_a5cd504c6ba3910c5974f89836bb0e6a5}{Entity\+ID}}}]{e\+Id }\end{DoxyParamCaption})}
 
 
 
@@ -84,7 +84,7 @@ May be called from any thread.~\newline
 \index{Entity.hpp@{Entity.hpp}!global@{global}}
 \index{global@{global}!Entity.hpp@{Entity.hpp}}
 \doxysubsubsection{\texorpdfstring{global}{global}}
-{\footnotesize\ttfamily V\+L\+K\+\_\+\+C\+X\+X14\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR Entity\+ID vlk\+::\+Entity\+::global = static\+\_\+cast$<$Entity\+ID$>$(0)}
+{\footnotesize\ttfamily VLK\+\_\+\+CXX14\+\_\+\+CONSTEXPR Entity\+ID vlk\+::\+Entity\+::global = static\+\_\+cast$<$Entity\+ID$>$(0)}
 
 
 

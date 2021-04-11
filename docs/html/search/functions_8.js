@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['removeall_130',['RemoveAll',['../classvlk_1_1ECRegistry.html#adf8256b2b0d0471b361ca9f82189d479',1,'vlk::ECRegistry']]],
-  ['removelistener_131',['RemoveListener',['../classvlk_1_1EventBus.html#a530d375a277ad739afbd2de7e5d204e2',1,'vlk::EventBus']]],
-  ['removeone_132',['RemoveOne',['../classvlk_1_1ECRegistry.html#ab81ecdbc8f555072c06b2035359bb6ef',1,'vlk::ECRegistry']]]
+  ['onevent_163',['OnEvent',['../classvlk_1_1IEventListener.html#a927a7b7ac1c1fb665184554d43160c7f',1,'vlk::IEventListener']]],
+  ['ownspointer_164',['OwnsPointer',['../classvlk_1_1AllocChunk.html#a59c585a87337f7b05b78928d889b73b8',1,'vlk::AllocChunk']]]
 ];

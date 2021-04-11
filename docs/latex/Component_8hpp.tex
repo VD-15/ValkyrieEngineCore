@@ -2,14 +2,15 @@
 \label{Component_8hpp}\index{include/ValkyrieEngine/Component.hpp@{include/ValkyrieEngine/Component.hpp}}
 
 
-Provides E\+CS component class.  
+Provides ECS component class.  
 
 
-{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+I\+Component.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Alloc\+Chunk.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+IComponent.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Entity.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
-{\ttfamily \#include $<$bitset$>$}\newline
 {\ttfamily \#include $<$functional$>$}\newline
 {\ttfamily \#include $<$shared\+\_\+mutex$>$}\newline
 \doxysubsection*{Classes}
@@ -18,16 +19,16 @@ Provides E\+CS component class.
 struct \mbox{\hyperlink{structvlk_1_1ComponentHints}{vlk\+::\+Component\+Hints}}
 \begin{DoxyCompactList}\small\item\em Hint struct used to specify some component-\/related behaviour. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1Component}{vlk\+::\+Component$<$ T $>$}}
-\begin{DoxyCompactList}\small\item\em Template class for E\+CS components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Template class for ECS components. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\V\+L\+K\+\_\+\+C\+X\+X14\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR Component\+Hints \mbox{\hyperlink{Component_8hpp_ac5474f9273bb9e982abb8e53cd4a34f9}{vlk\+::\+Get\+Component\+Hints}} ()
+{\footnotesize template$<$typename T $>$ }\\VLK\+\_\+\+CXX14\+\_\+\+CONSTEXPR Component\+Hints \mbox{\hyperlink{Component_8hpp_ac5474f9273bb9e982abb8e53cd4a34f9}{vlk\+::\+Get\+Component\+Hints}} ()
 \begin{DoxyCompactList}\small\item\em Function used to retrieve the hints for a specified component type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Provides E\+CS component class. 
+Provides ECS component class. 
 
 
 
@@ -37,7 +38,7 @@ Provides E\+CS component class.
 \index{GetComponentHints@{GetComponentHints}!Component.hpp@{Component.hpp}}
 \doxysubsubsection{\texorpdfstring{GetComponentHints()}{GetComponentHints()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-V\+L\+K\+\_\+\+C\+X\+X14\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR Component\+Hints vlk\+::\+Get\+Component\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+VLK\+\_\+\+CXX14\+\_\+\+CONSTEXPR Component\+Hints vlk\+::\+Get\+Component\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -52,6 +53,7 @@ This function can be specialized to override the hints used by a component type.
 \DoxyCodeLine{\textcolor{comment}{// Specify hints used by Component<SomeData>}}
 \DoxyCodeLine{\textcolor{keyword}{template} <>}
 \DoxyCodeLine{VLK\_CXX14\_CONSTEXPR \textcolor{keyword}{inline} ComponentHints GetComponentHints<SomeData> \{ \textcolor{keywordflow}{return} ComponentHints \{10, \textcolor{keyword}{false}\}; \}}
+
 \end{DoxyCode}
 
 

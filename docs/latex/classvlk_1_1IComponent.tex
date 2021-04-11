@@ -1,4 +1,4 @@
-\hypertarget{classvlk_1_1IComponent}{}\doxysection{vlk\+::I\+Component Class Reference}
+\hypertarget{classvlk_1_1IComponent}{}\doxysection{vlk\+::IComponent Class Reference}
 \label{classvlk_1_1IComponent}\index{vlk::IComponent@{vlk::IComponent}}
 
 
@@ -7,9 +7,9 @@ Unspecialized base class for Valkyrie\+Engine components.
 
 
 
-{\ttfamily \#include $<$I\+Component.\+hpp$>$}
+{\ttfamily \#include $<$IComponent.\+hpp$>$}
 
-Inheritance diagram for vlk\+::I\+Component\+:\begin{figure}[H]
+Inheritance diagram for vlk\+::IComponent\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{classvlk_1_1IComponent}
@@ -44,7 +44,7 @@ vlk\+::\+Component$<$\+T$>$
 \index{vlk::IComponent@{vlk::IComponent}!Delete@{Delete}}
 \index{Delete@{Delete}!vlk::IComponent@{vlk::IComponent}}
 \doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
-{\footnotesize\ttfamily virtual void vlk\+::\+I\+Component\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void vlk\+::\+IComponent\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -56,8 +56,8 @@ If this component is attached to an entity, it is detached. Also calls the destr
 May be called from any thread.~\newline
  Resource locking is handled internally.~\newline
  Unique access to this class is required.~\newline
- Unique access to the E\+C\+Registry$<$\+I\+Component$>$ class is required.~\newline
- Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{E\+C\+Registry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
+ Unique access to the ECRegistry$<$\+IComponent$>$ class is required.~\newline
+ Unique access to the \mbox{\hyperlink{classvlk_1_1ECRegistry}{ECRegistry}}$<$Component$<$\+T$>$$>$ class is required.~\newline
  This function may block the calling thread.~\newline
 
 \end{DoxyParagraph}
@@ -68,11 +68,12 @@ May be called from any thread.~\newline
 \DoxyCodeLine{\textcolor{comment}{// Do something with component.}}
 \DoxyCodeLine{}
 \DoxyCodeLine{component-\/>Delete();}
+
 \end{DoxyCode}
 
 
 \begin{DoxySeeAlso}{See also}
-Create(\+Entity\+I\+D, Args) 
+Create(\+Entity\+ID, Args) 
 \end{DoxySeeAlso}
 
 
@@ -82,4 +83,4 @@ Implemented in \mbox{\hyperlink{classvlk_1_1Component_a8c52a1f587b3e436a370a782d
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\+Valkyrie\+Engine/\mbox{\hyperlink{IComponent_8hpp}{I\+Component.\+hpp}}\end{DoxyCompactItemize}
+include/\+Valkyrie\+Engine/\mbox{\hyperlink{IComponent_8hpp}{IComponent.\+hpp}}\end{DoxyCompactItemize}

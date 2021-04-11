@@ -42,7 +42,7 @@ namespace vlk
 		/*!
 		 * \brief Deletes an entity and all components attached to it.
 		 *
-		 * \param id The entity to delete.
+		 * \param eId The entity to delete.
 		 *
 		 * \ts
 		 * May be called from any thread.<br>

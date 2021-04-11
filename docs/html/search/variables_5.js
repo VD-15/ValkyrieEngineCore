@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line_181',['line',['../classvlk_1_1LogEvent.html#ae1fb6e8bd7681ecdeec08b6b0268d684',1,'vlk::LogEvent']]]
+  ['line_191',['line',['../structvlk_1_1LogEvent.html#a242ea036add3875a977a0b261afc4e9a',1,'vlk::LogEvent']]]
 ];

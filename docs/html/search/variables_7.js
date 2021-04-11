@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['severity_183',['severity',['../classvlk_1_1LogEvent.html#a129cd5b42c5b2cf70b88069a01860233',1,'vlk::LogEvent']]]
+  ['severity_193',['severity',['../structvlk_1_1LogEvent.html#a13c885f9be097a1b7323d00061cf2555',1,'vlk::LogEvent']]]
 ];

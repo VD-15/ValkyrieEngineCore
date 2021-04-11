@@ -26,8 +26,8 @@ namespace vlk
 	 * \brief Extract parameter template class
 	 *
 	 * Extracts the template parameter of a template type <tt>T</tt>.
-	 * If <tt>T</tt> is not a template, <tt>type<tt> evaluates to <tt>T</tt>.
-	 * If <tt>T</tt> is a template of the form <tt>T<S></tt>, then <tt>type</tt> evaluates to <tt>S</tt>.
+	 * If <tt>T</tt> is not a template, <tt>type</tt> evaluates to <tt>T</tt>.
+	 * If <tt>T</tt> is a template of the form <tt>T\<S\></tt>, then <tt>type</tt> evaluates to <tt>S</tt>.
 	 */
 	template <class T>
 	struct ExtractParameter { typedef T type; };

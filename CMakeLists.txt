@@ -7,7 +7,7 @@ endif()
 set(CMAKE_DISABLE_IN_SOURCE_BUILD  ON)
 set(CMAKE_DISABLE_SOURCE_CHANGES   ON)
 
-project(ValkyrieEngineCore VERSION 0.2.1)
+project(ValkyrieEngineCore VERSION 0.2.3)
 
 option(VLK_ENABLE_TRACE_LOGGING "Enable trace-level debug messages" OFF)
 #option(BUILD_TESTING "Build ValkyrieEngine tests" OFF)
@@ -24,7 +24,7 @@ set_target_properties(
 	ValkyrieEngineCore PROPERTIES
 		SOVERSION ${ValkyrieEngineCore_VERSION_MAJOR}
 		VERSION ${ValkyrieEngineCore_VERSION}
-		CXX_STANDARD 17
+		CXX_STANDARD 14
 		CXX_STANDARD_REQUIRED FALSE
 )
 

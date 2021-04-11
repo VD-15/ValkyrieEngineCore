@@ -7,10 +7,11 @@ Provides basic debugging utilities.
 
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Valkyrie\+Defs.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Valkyrie\+Engine/\+Event\+Bus.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classvlk_1_1LogEvent}{vlk\+::\+Log\+Event}}
+struct \mbox{\hyperlink{structvlk_1_1LogEvent}{vlk\+::\+Log\+Event}}
 \begin{DoxyCompactList}\small\item\em An event that is sent whenever a message is logged. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvlk_1_1IsLogLevelEnabled}{vlk\+::\+Is\+Log\+Level\+Enabled$<$ L $>$}}
 \begin{DoxyCompactList}\small\item\em Helper class that determines whether a specific vlk\+::\+Log\+Level is enabled in the current configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -31,11 +32,20 @@ enum class \mbox{\hyperlink{ValkyrieDebug_8hpp_a8f4a29860db3d6e178a9777d1346843c
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}{vlk\+::\+Log}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
-\begin{DoxyCompactList}\small\item\em Sends a log event with a given message. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{ValkyrieDebug_8hpp_a7c82da42cd6291f954f8406e5c77df54}\label{ValkyrieDebug_8hpp_a7c82da42cd6291f954f8406e5c77df54}} 
-{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!Is\+Log\+Level\+Enabled$<$ L $>$\+::Value, void $>$ \mbox{\hyperlink{ValkyrieDebug_8hpp_a7c82da42cd6291f954f8406e5c77df54}{vlk\+::\+Log}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
-\begin{DoxyCompactList}\small\item\em Dummy function for disabled log events. Does nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$Log\+Level L = Log\+Level\+::\+Info, typename... , std\+::enable\+\_\+if\+\_\+t$<$ Is\+Log\+Level\+Enabled$<$ L $>$\+::\+Value, Int $>$  = 0$>$ }\\void \mbox{\hyperlink{ValkyrieDebug_8hpp_a70235d4f277c945baaf24029baeb02de}{vlk\+::\+Log}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates a log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_a8780fc92a0204d66e3c7afa5efa7d9c4}{vlk\+::\+Log\+Verbose}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates a verbose log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_a302153ce604d4b7a42a7f1c747a6bb63}{vlk\+::\+Log\+Info}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates an info log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_a49603bfa197fd7ea6b69d936cbb2e4e3}{vlk\+::\+Log\+Warning}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates a warning log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_a2ca454c3f4f4ad095282862c3533fa92}{vlk\+::\+Log\+Error}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates an error log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_afff1293c10ae76443e117739e2a410a1}{vlk\+::\+Log\+Fatal}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates a fatal log event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ValkyrieDebug_8hpp_a09d4c96552fdd7f5a4dded154a4337fb}{vlk\+::\+Log\+Announce}} (const std\+::string \&message, const std\+::string \&file=\char`\"{}\char`\"{}, const Size line=0)
+\begin{DoxyCompactList}\small\item\em Generates an announce log event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -94,30 +104,144 @@ Announce&An announcement, always visible \\
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}\label{ValkyrieDebug_8hpp_a3b3d0d290851259ab615311197a5fcc9}} 
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a70235d4f277c945baaf24029baeb02de}\label{ValkyrieDebug_8hpp_a70235d4f277c945baaf24029baeb02de}} 
 \index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!Log@{Log}}
 \index{Log@{Log}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
 \doxysubsubsection{\texorpdfstring{Log()}{Log()}}
-{\footnotesize\ttfamily template$<$Log\+Level L = Log\+Level\+::\+Info$>$ \\
-std\+::enable\+\_\+if\+\_\+t$<$Is\+Log\+Level\+Enabled$<$L$>$\+::Value, void$>$ vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$Log\+Level L = Log\+Level\+::\+Info, typename... , std\+::enable\+\_\+if\+\_\+t$<$ Is\+Log\+Level\+Enabled$<$ L $>$\+::\+Value, Int $>$  = 0$>$ \\
+void vlk\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Sends a log event with a given message. 
+Generates a log event. 
 
-Use this as the preferred method of sending debug messages in your application.
+Dummy function for disabled log events. Does nothing.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em L} & The severity of the event\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
+\hline
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a09d4c96552fdd7f5a4dded154a4337fb}\label{ValkyrieDebug_8hpp_a09d4c96552fdd7f5a4dded154a4337fb}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogAnnounce@{LogAnnounce}}
+\index{LogAnnounce@{LogAnnounce}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogAnnounce()}{LogAnnounce()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Announce (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates an announce log event. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em message} & The message contained by the log event \\
+{\em message} & A description of what happened \\
 \hline
-{\em file} & The source file that generated this log event \\
+{\em file} & The file the message originated from \\
 \hline
-{\em line} & The line of the source file that generated this log event \\
+{\em line} & The line the message originated on \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a2ca454c3f4f4ad095282862c3533fa92}\label{ValkyrieDebug_8hpp_a2ca454c3f4f4ad095282862c3533fa92}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogError@{LogError}}
+\index{LogError@{LogError}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogError()}{LogError()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em L} & The severity of this log event \\
+
+
+Generates an error log event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
 \hline
-\end{DoxyTemplParams}
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_afff1293c10ae76443e117739e2a410a1}\label{ValkyrieDebug_8hpp_afff1293c10ae76443e117739e2a410a1}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogFatal@{LogFatal}}
+\index{LogFatal@{LogFatal}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogFatal()}{LogFatal()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Fatal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a fatal log event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
+\hline
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a302153ce604d4b7a42a7f1c747a6bb63}\label{ValkyrieDebug_8hpp_a302153ce604d4b7a42a7f1c747a6bb63}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogInfo@{LogInfo}}
+\index{LogInfo@{LogInfo}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogInfo()}{LogInfo()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates an info log event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
+\hline
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a8780fc92a0204d66e3c7afa5efa7d9c4}\label{ValkyrieDebug_8hpp_a8780fc92a0204d66e3c7afa5efa7d9c4}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogVerbose@{LogVerbose}}
+\index{LogVerbose@{LogVerbose}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogVerbose()}{LogVerbose()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Verbose (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a verbose log event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
+\hline
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ValkyrieDebug_8hpp_a49603bfa197fd7ea6b69d936cbb2e4e3}\label{ValkyrieDebug_8hpp_a49603bfa197fd7ea6b69d936cbb2e4e3}} 
+\index{ValkyrieDebug.hpp@{ValkyrieDebug.hpp}!LogWarning@{LogWarning}}
+\index{LogWarning@{LogWarning}!ValkyrieDebug.hpp@{ValkyrieDebug.hpp}}
+\doxysubsubsection{\texorpdfstring{LogWarning()}{LogWarning()}}
+{\footnotesize\ttfamily void vlk\+::\+Log\+Warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const \mbox{\hyperlink{ValkyrieDefs_8hpp_ae9a25eca45834c5fdfea230200a2e0dc}{Size}}}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a warning log event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A description of what happened \\
+\hline
+{\em file} & The file the message originated from \\
+\hline
+{\em line} & The line the message originated on \\
+\hline
+\end{DoxyParams}

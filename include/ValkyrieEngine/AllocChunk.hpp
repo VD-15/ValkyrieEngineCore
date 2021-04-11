@@ -92,7 +92,7 @@ namespace vlk
 		inline bool IsOccupied(Size i) const { return occupations[i]; }
 
 		/*!
-		 * \brief Returns a pointer to the allocation space at position<tt>i</tt>.
+		 * \brief Returns a pointer to the allocation space at position <tt>i</tt>.
 		 *
 		 * This allocation space may not contain an initialized object, it is necessary to
 		 * check if the space is occupied first before dereferencing the returned pointer.
@@ -113,13 +113,7 @@ namespace vlk
 		}
 
 		/*!
-		 * \copydoc vlk::AllocChunk<T, S>::At(Size)
-		 *
-		 * \ts
-		 * May be called from any thread.<br>
-		 * Resource locking must be handled externally.<br>
-		 * Access to this object is not restricted.<br>
-		 * This function does not block the calling thread.<br>
+		 * \copydoc At(Size)
 		 */
 		inline const T* At(Size i) const
 		{

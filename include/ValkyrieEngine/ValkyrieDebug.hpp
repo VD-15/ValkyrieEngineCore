@@ -8,6 +8,7 @@
 
 #include "ValkyrieEngine/ValkyrieDefs.hpp"
 #include "ValkyrieEngine/EventBus.hpp"
+#include <type_traits>
 
 namespace vlk
 {
@@ -36,40 +37,32 @@ namespace vlk
 	 *
 	 * No event listeners for this are defined for log events by default. You may have to define your own in order to display these anywhere.
 	 *
-	 * \sa Log(const std::string&)
+	 * \sa Log
 	 * \sa LogLevel
 	 * \sa EventBus
 	 * \sa EventListener
 	 */
-	class LogEvent
+	struct LogEvent
 	{
-		public:
 		/*!
-		 * \brief Constructs a log event with the given message and severity
-		 * \param _message The message carried by the log event
-		 * \param _severity The severity of the log event
-		 * \param _file The source file that generated this log event
-		 * \param _line The line of the source file that generated this log event
-		 * \sa LogLevel 
-		 * \sa Log(const std::string&)
-		 * \todo constexpr std::strings are not currently supported by any stdlib implementation, update this to VLK_CXX20_CONSTEXPR when added
-		 * \todo std::source_location is not surrently supported by any stdlib implementation, integrate this when added
+		 * \brief A description of what happened
 		 */
-		inline LogEvent(
-			const std::string& _message, 
-			const vlk::LogLevel _severity,
-			const std::string& _file = "",
-			const Size _line = 0) :
-			message(_message),
-			severity(_severity),
-			file(_file),
-			line(_line)
-		{ }
+		std::string message = "";
 
-		const std::string message; /*!< The message carried by this log event */
-		const vlk::LogLevel severity; /*!< The severity of this log event */
-		const std::string file; /*!< The source file that generated this log event */
-		const Size line; /*!< The line of the source file that generated this log event */
+		/*!
+		 * \brief How severe the event is
+		 */
+		LogLevel severity = LogLevel::Verbose;
+
+		/*!
+		 * \brief The file the message originated from
+		 */
+		std::string file = "";
+
+		/*!
+		 * \brief The line the message originated on
+		 */
+		Size line = 0;
 	};
 	
 	/*!
@@ -84,7 +77,7 @@ namespace vlk
 	 * In addition to those listed above, the following log levels are also enabled in debug configurations:
 	 * - LogLevel::Info
 	 *
-	 * The <tt>#VLK_ENABLE_TRACE_LOGGING</tt> macro can be used to enable the following log levels:
+	 * The <tt>VLK_ENABLE_TRACE_LOGGING</tt> macro can be defined to enable the following log levels:
 	 * - LogLevel::Info
 	 * - LogLevel::Verbose
 	 *
@@ -117,35 +110,101 @@ namespace vlk
 		 */
 		static VLK_CXX14_CONSTEXPR bool Value = Test();
 	};
-	
+
 	/*!
-	 * \brief Sends a log event with a given message
+	 * \brief Generates a log event
 	 *
-	 * Use this as the preferred method of sending debug messages in your application.
+	 * \tparam L The severity of the event
 	 *
-	 * \param message The message contained by the log event
-	 * \param file The source file that generated this log event 
-	 * \param line The line of the source file that generated this log event
-	 * \tparam L The severity of this log event
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
 	 */
-	template <LogLevel L = LogLevel::Info>
-	typename std::enable_if_t<IsLogLevelEnabled<L>::Value, void>
-	Log(
-		const std::string& message,
-		const std::string& file = "",
-		const Size line = 0)
+	template <LogLevel L = LogLevel::Info, typename..., std::enable_if_t<IsLogLevelEnabled<L>::Value, Int> = 0>
+	inline void Log(const std::string& message, const std::string& file = "", const Size line = 0)
 	{
-		SendEvent(LogEvent(message, L, file,  line));
+		SendEvent(LogEvent{message, L, file, line});
 	}
-	
+
 	/*!
 	 * \brief Dummy function for disabled log events. Does nothing.
 	 */
-	template <LogLevel L = LogLevel::Info>
-	typename std::enable_if_t<!IsLogLevelEnabled<L>::Value, void>
-	Log(const std::string& message,
-		const std::string& file = "",
-		const Size line = 0) { }
+	template <LogLevel L = LogLevel::Info, typename..., std::enable_if_t<!IsLogLevelEnabled<L>::Value, Int> = 1>
+	void Log(const std::string&, const std::string& = "", const Size = 0)
+	{ }
+
+	/*!
+	 * \brief Generates a verbose log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogVerbose(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Verbose>(message, file, line);
+	}
+
+	/*!
+	 * \brief Generates an info log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogInfo(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Info>(message, file, line);
+	}
+
+	/*!
+	 * \brief Generates a warning log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogWarning(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Warning>(message, file, line);
+	}
+
+	/*!
+	 * \brief Generates an error log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogError(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Error>(message, file, line);
+	}
+
+	/*!
+	 * \brief Generates a fatal log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogFatal(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Fatal>(message, file, line);
+	}
+
+	/*!
+	 * \brief Generates an announce log event
+	 *
+	 * \param message A description of what happened
+	 * \param file The file the message originated from
+	 * \param line The line the message originated on
+	 */
+	inline void LogAnnounce(const std::string& message, const std::string& file = "", const Size line = 0)
+	{
+		Log<LogLevel::Announce>(message, file, line);
+	}
+
 }
 
 #endif
